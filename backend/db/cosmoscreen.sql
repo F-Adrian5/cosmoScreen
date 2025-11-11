@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 09, 2025 at 02:43 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Gép: 127.0.0.1
+-- Létrehozás ideje: 2025. Nov 11. 13:21
+-- Kiszolgáló verziója: 10.4.32-MariaDB
+-- PHP verzió: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cosmoscreen`
+-- Adatbázis: `cosmoscreen`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `actors`
+-- Tábla szerkezet ehhez a táblához `actors`
 --
 
 CREATE TABLE `actors` (
@@ -33,7 +33,7 @@ CREATE TABLE `actors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `actors`
+-- A tábla adatainak kiíratása `actors`
 --
 
 INSERT INTO `actors` (`id`, `name`) VALUES
@@ -56,12 +56,18 @@ INSERT INTO `actors` (`id`, `name`) VALUES
 (17, 'Denzel Washington'),
 (18, 'Cate Blanchett'),
 (19, 'Anthony Hopkins'),
-(20, 'Joaquin Phoenix');
+(20, 'Joaquin Phoenix'),
+(21, 'John Travolta'),
+(22, 'Samuel L. Jackson'),
+(23, 'Liam Neeson'),
+(24, 'Elijah Wood'),
+(25, 'Matthew McConaughey'),
+(26, 'Cillian Murphy');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `actor_in_movie`
+-- Tábla szerkezet ehhez a táblához `actor_in_movie`
 --
 
 CREATE TABLE `actor_in_movie` (
@@ -71,7 +77,7 @@ CREATE TABLE `actor_in_movie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `actor_in_movie`
+-- A tábla adatainak kiíratása `actor_in_movie`
 --
 
 INSERT INTO `actor_in_movie` (`id`, `movie_id`, `actor_id`) VALUES
@@ -81,15 +87,15 @@ INSERT INTO `actor_in_movie` (`id`, `movie_id`, `actor_id`) VALUES
 (4, 2, 3),
 (5, 3, 7),
 (6, 3, 8),
-(7, 4, 10),
-(8, 4, 3),
-(9, 5, 6),
+(7, 4, 21),
+(8, 4, 22),
+(9, 5, 23),
 (10, 6, 5),
 (11, 7, 4),
 (12, 8, 10),
-(13, 9, 10),
-(14, 10, 10),
-(15, 11, 10),
+(13, 9, 24),
+(14, 10, 24),
+(15, 11, 24),
 (16, 12, 12),
 (17, 13, 13),
 (18, 14, 13),
@@ -97,13 +103,21 @@ INSERT INTO `actor_in_movie` (`id`, `movie_id`, `actor_id`) VALUES
 (20, 16, 20),
 (21, 17, 20),
 (22, 18, 19),
-(23, 19, 5),
-(24, 20, 4);
+(23, 19, 25),
+(24, 20, 26),
+(25, 21, 6),
+(26, 24, 9),
+(27, 25, 11),
+(28, 26, 14),
+(29, 27, 15),
+(30, 28, 16),
+(31, 29, 17),
+(38, 9, 18);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buffet`
+-- Tábla szerkezet ehhez a táblához `buffet`
 --
 
 CREATE TABLE `buffet` (
@@ -115,7 +129,7 @@ CREATE TABLE `buffet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `buffet`
+-- A tábla adatainak kiíratása `buffet`
 --
 
 INSERT INTO `buffet` (`id`, `name`, `price`, `description`, `img`) VALUES
@@ -152,7 +166,7 @@ INSERT INTO `buffet` (`id`, `name`, `price`, `description`, `img`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `movies`
+-- Tábla szerkezet ehhez a táblához `movies`
 --
 
 CREATE TABLE `movies` (
@@ -171,7 +185,7 @@ CREATE TABLE `movies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `movies`
+-- A tábla adatainak kiíratása `movies`
 --
 
 INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production`, `age_restriction`, `showing_in_id`, `poster`, `trailer`, `description`, `release_date`) VALUES
@@ -187,19 +201,26 @@ INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production
 (10, 'A Gyűrűk ura: A Két Torony', 'Fantasy', 179, 'Peter Jackson', 'New Line', 12, 3, 'lotr2.jpg', 'lotr2.mp4', 'A Szövetség tagjai különválnak.', '2002-12-18'),
 (11, 'A Gyűrűk ura: A Király Visszatér', 'Fantasy', 201, 'Peter Jackson', 'New Line', 12, 3, 'lotr3.jpg', 'lotr3.mp4', 'A végső csata Középföldéért.', '2003-12-17'),
 (12, 'Mátrix', 'Sci-Fi', 136, 'Lana Wachowski / Lilly Wachowski', 'Warner', 16, 2, 'matrix.jpg', 'matrix.mp4', 'Egy hacker rájön, hogy a valóság csak illúzió.', '1999-03-31'),
-(13, 'Csillagok háborúja: Egy új remény', 'Sci-Fi', 121, 'George Lucas', 'Lucasfilm', 10, 6, 'starwars4.jpg', 'starwars4.mp4', 'Egy farmfiú hőssé válik.', '1977-05-25'),
-(14, 'Csillagok háborúja: A Birodalom visszavág', 'Sci-Fi', 124, 'Irvin Kershner', 'Lucasfilm', 10, 6, 'starwars5.jpg', 'starwars5.mp4', 'A lázadás súlyos veszteségeket szenved.', '1980-05-21'),
-(15, 'Csillagok háborúja: A Jedi visszatér', 'Sci-Fi', 131, 'Richard Marquand', 'Lucasfilm', 10, 6, 'starwars6.jpg', 'starwars6.mp4', 'A császár végzete közeleg.', '1983-05-25'),
+(13, 'Csillagok háborúja: Egy új remény', 'Sci-Fi', 121, 'George Lucas', 'Lucasfilm', 12, 6, 'starwars4.jpg', 'starwars4.mp4', 'Egy farmfiú hőssé válik.', '1977-05-25'),
+(14, 'Csillagok háborúja: A Birodalom visszavág', 'Sci-Fi', 124, 'Irvin Kershner', 'Lucasfilm', 12, 6, 'starwars5.jpg', 'starwars5.mp4', 'A lázadás súlyos veszteségeket szenved.', '1980-05-21'),
+(15, 'Csillagok háborúja: A Jedi visszatér', 'Sci-Fi', 131, 'Richard Marquand', 'Lucasfilm', 12, 6, 'starwars6.jpg', 'starwars6.mp4', 'A császár végzete közeleg.', '1983-05-25'),
 (16, 'Gladiátor', 'Történelmi', 155, 'Ridley Scott', 'Dreamworks', 16, 4, 'gladiator.jpg', 'gladiator.mp4', 'Egy elárult tábornok bosszút forral.', '2000-05-05'),
 (17, 'Joker', 'Dráma', 122, 'Todd Phillips', 'Warner', 16, 4, 'joker.jpg', 'joker.mp4', 'Egy férfi lassan az őrületbe süllyed.', '2019-10-04'),
 (18, 'A bárányok hallgatnak', 'Bűnügyi', 118, 'Jonathan Demme', 'Orion', 18, 5, 'silence_lambs.jpg', 'silence_lambs.mp4', 'Egy nyomozó sorozatgyilkost üldöz.', '1991-02-14'),
-(19, 'Csillagok között', 'Sci-Fi', 169, 'Christopher Nolan', 'Warner', 10, 1, 'interstellar.jpg', 'interstellar.mp4', 'Az emberiség új otthont keres a csillagok között.', '2014-11-07'),
-(20, 'Oppenheimer', 'Dráma', 180, 'Christopher Nolan', 'Universal', 16, 1, 'oppenheimer.jpg', 'oppenheimer.mp4', 'Az atombomba megalkotásának története.', '2023-07-21');
+(19, 'Csillagok között', 'Sci-Fi', 169, 'Christopher Nolan', 'Warner', 12, 1, 'interstellar.jpg', 'interstellar.mp4', 'Az emberiség új otthont keres a csillagok között.', '2014-11-07'),
+(20, 'Oppenheimer', 'Dráma', 180, 'Christopher Nolan', 'Universal', 16, 1, 'oppenheimer.jpg', 'oppenheimer.mp4', 'Az atombomba megalkotásának története.', '2023-07-21'),
+(21, 'A remény rabjai', 'Dráma', 142, 'Frank Darabont', 'Warner', 18, 5, 'shawshank_redeption.jpg', 'shawshank_redeption.mp4', 'Egy ártatlanul elítélt férfi a Shawshank börtönben barátságot köt, és reményt talál a szabadságra.', '1994-09-23'),
+(24, 'Jojo nyuszi', 'Dráma', 108, 'Taika Waititi', 'Fox', 12, 6, 'jojo_rabbit.jpg', 'jojo_rabbit.mp4', 'Egy fiatal náci fiú képzeletbeli barátja, Adolf Hitler segítségével fedezi fel az emberiességet és a háború kegyetlenségét.', '2019-10-18'),
+(25, 'Csillagok háborúja: Baljós árnyak', 'Sci-Fi', 136, 'George Lucas', 'Lucasfilm', 12, 6, 'starwars1.jpg', 'starwars1.mp4', 'Egy fiatal jedi, Qui-Gon Jinn és tanítványa, Obi-Wan Kenobi megpróbálják megvédeni a Galaktikus Köztársaságot és felfedezik a titokzatos Sith-ek fenyegetését.', '1999-05-19'),
+(26, 'Titkos ablak', 'Thriller', 96, 'David Koepp', 'Columbia ', 16, 5, 'secret_window.jpg', 'secret_window.mp4', 'Egy író magánélete felborul, amikor egy titokzatos idegen vádolja plágiummal, és a helyzet egyre veszélyesebbé válik.', '2004-07-16'),
+(27, 'Zombieland', 'Akció', 88, 'Ruben Fleischer', 'Columbia ', 16, 6, 'zombieland.jpg', 'zombieland.mp4', 'Egy apokaliptikus zombivilágban túlélők különös társasága próbál életben maradni, miközben humoros kalandokba keverednek.', '2009-10-02'),
+(28, 'Jason Bourne', 'Akció', 123, 'Paul Greengrass', 'Universal Pictures', 16, 6, 'jason_bourne.jpg', 'jason_bourne.mp4', 'Jason Bourne visszatér, hogy felderítse múltja titkait, miközben a CIA üldözi, és életre-halálra menő akciókba keveredik.', '2016-07-29'),
+(29, 'Az egyenlítő', 'Akció', 132, 'Antoine Fuqua', 'Sony Pictures', 18, 1, 'equalizer.jpg', 'equalizer.mp4', 'Egy visszavonult ügynök igazságot szolgáltat a gyengékért, miközben szembeszáll a maffiával.\r\n', '2014-09-26');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `movie_screening`
+-- Tábla szerkezet ehhez a táblához `movie_screening`
 --
 
 CREATE TABLE `movie_screening` (
@@ -212,7 +233,7 @@ CREATE TABLE `movie_screening` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `movie_screening`
+-- A tábla adatainak kiíratása `movie_screening`
 --
 
 INSERT INTO `movie_screening` (`id`, `movie_id`, `room_id`, `language`, `start`, `end`) VALUES
@@ -240,7 +261,7 @@ INSERT INTO `movie_screening` (`id`, `movie_id`, `room_id`, `language`, `start`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reservation`
+-- Tábla szerkezet ehhez a táblához `reservation`
 --
 
 CREATE TABLE `reservation` (
@@ -254,7 +275,7 @@ CREATE TABLE `reservation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `reservation`
+-- A tábla adatainak kiíratása `reservation`
 --
 
 INSERT INTO `reservation` (`id`, `user_id`, `total_amount`, `screening_id`, `reservation_date`, `ticket_id`, `seat_id`) VALUES
@@ -272,7 +293,7 @@ INSERT INTO `reservation` (`id`, `user_id`, `total_amount`, `screening_id`, `res
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rooms`
+-- Tábla szerkezet ehhez a táblához `rooms`
 --
 
 CREATE TABLE `rooms` (
@@ -281,7 +302,7 @@ CREATE TABLE `rooms` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `rooms`
+-- A tábla adatainak kiíratása `rooms`
 --
 
 INSERT INTO `rooms` (`id`, `capacity`) VALUES
@@ -291,7 +312,7 @@ INSERT INTO `rooms` (`id`, `capacity`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `seats`
+-- Tábla szerkezet ehhez a táblához `seats`
 --
 
 CREATE TABLE `seats` (
@@ -303,7 +324,7 @@ CREATE TABLE `seats` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `seats`
+-- A tábla adatainak kiíratása `seats`
 --
 
 INSERT INTO `seats` (`id`, `room_id`, `seat_row`, `seat_column`, `status`) VALUES
@@ -319,7 +340,7 @@ INSERT INTO `seats` (`id`, `room_id`, `seat_row`, `seat_column`, `status`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `showing_in`
+-- Tábla szerkezet ehhez a táblához `showing_in`
 --
 
 CREATE TABLE `showing_in` (
@@ -328,7 +349,7 @@ CREATE TABLE `showing_in` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `showing_in`
+-- A tábla adatainak kiíratása `showing_in`
 --
 
 INSERT INTO `showing_in` (`id`, `type`) VALUES
@@ -342,7 +363,7 @@ INSERT INTO `showing_in` (`id`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tickets`
+-- Tábla szerkezet ehhez a táblához `tickets`
 --
 
 CREATE TABLE `tickets` (
@@ -352,7 +373,7 @@ CREATE TABLE `tickets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tickets`
+-- A tábla adatainak kiíratása `tickets`
 --
 
 INSERT INTO `tickets` (`id`, `type`, `price`) VALUES
@@ -365,7 +386,7 @@ INSERT INTO `tickets` (`id`, `type`, `price`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tábla szerkezet ehhez a táblához `users`
 --
 
 CREATE TABLE `users` (
@@ -377,7 +398,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `users`
+-- A tábla adatainak kiíratása `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `admin`) VALUES
@@ -404,17 +425,17 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `admin`) VALUES
 (21, 'Ivan Petrov', 'ivanpetrov@mail.ru', 'IvanP_2024', 0);
 
 --
--- Indexes for dumped tables
+-- Indexek a kiírt táblákhoz
 --
 
 --
--- Indexes for table `actors`
+-- A tábla indexei `actors`
 --
 ALTER TABLE `actors`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `actor_in_movie`
+-- A tábla indexei `actor_in_movie`
 --
 ALTER TABLE `actor_in_movie`
   ADD PRIMARY KEY (`id`),
@@ -422,20 +443,20 @@ ALTER TABLE `actor_in_movie`
   ADD KEY `actor_id` (`actor_id`);
 
 --
--- Indexes for table `buffet`
+-- A tábla indexei `buffet`
 --
 ALTER TABLE `buffet`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `movies`
+-- A tábla indexei `movies`
 --
 ALTER TABLE `movies`
   ADD PRIMARY KEY (`id`),
   ADD KEY `showing_in_id` (`showing_in_id`);
 
 --
--- Indexes for table `movie_screening`
+-- A tábla indexei `movie_screening`
 --
 ALTER TABLE `movie_screening`
   ADD PRIMARY KEY (`id`),
@@ -443,7 +464,7 @@ ALTER TABLE `movie_screening`
   ADD KEY `room_id` (`room_id`);
 
 --
--- Indexes for table `reservation`
+-- A tábla indexei `reservation`
 --
 ALTER TABLE `reservation`
   ADD PRIMARY KEY (`id`),
@@ -453,133 +474,133 @@ ALTER TABLE `reservation`
   ADD KEY `seat_id` (`seat_id`);
 
 --
--- Indexes for table `rooms`
+-- A tábla indexei `rooms`
 --
 ALTER TABLE `rooms`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `seats`
+-- A tábla indexei `seats`
 --
 ALTER TABLE `seats`
   ADD PRIMARY KEY (`id`),
   ADD KEY `room_id` (`room_id`);
 
 --
--- Indexes for table `showing_in`
+-- A tábla indexei `showing_in`
 --
 ALTER TABLE `showing_in`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tickets`
+-- A tábla indexei `tickets`
 --
 ALTER TABLE `tickets`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- A tábla indexei `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- A kiírt táblák AUTO_INCREMENT értéke
 --
 
 --
--- AUTO_INCREMENT for table `actors`
+-- AUTO_INCREMENT a táblához `actors`
 --
 ALTER TABLE `actors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT for table `actor_in_movie`
+-- AUTO_INCREMENT a táblához `actor_in_movie`
 --
 ALTER TABLE `actor_in_movie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `buffet`
+-- AUTO_INCREMENT a táblához `buffet`
 --
 ALTER TABLE `buffet`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `movies`
+-- AUTO_INCREMENT a táblához `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `movie_screening`
+-- AUTO_INCREMENT a táblához `movie_screening`
 --
 ALTER TABLE `movie_screening`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `reservation`
+-- AUTO_INCREMENT a táblához `reservation`
 --
 ALTER TABLE `reservation`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `rooms`
+-- AUTO_INCREMENT a táblához `rooms`
 --
 ALTER TABLE `rooms`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `seats`
+-- AUTO_INCREMENT a táblához `seats`
 --
 ALTER TABLE `seats`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `showing_in`
+-- AUTO_INCREMENT a táblához `showing_in`
 --
 ALTER TABLE `showing_in`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tickets`
+-- AUTO_INCREMENT a táblához `tickets`
 --
 ALTER TABLE `tickets`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- Constraints for dumped tables
+-- Megkötések a kiírt táblákhoz
 --
 
 --
--- Constraints for table `actor_in_movie`
+-- Megkötések a táblához `actor_in_movie`
 --
 ALTER TABLE `actor_in_movie`
   ADD CONSTRAINT `actor_in_movie_ibfk_1` FOREIGN KEY (`actor_id`) REFERENCES `actors` (`id`),
   ADD CONSTRAINT `actor_in_movie_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`);
 
 --
--- Constraints for table `movies`
+-- Megkötések a táblához `movies`
 --
 ALTER TABLE `movies`
   ADD CONSTRAINT `movies_ibfk_1` FOREIGN KEY (`showing_in_id`) REFERENCES `showing_in` (`id`);
 
 --
--- Constraints for table `movie_screening`
+-- Megkötések a táblához `movie_screening`
 --
 ALTER TABLE `movie_screening`
   ADD CONSTRAINT `movie_screening_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`),
   ADD CONSTRAINT `movie_screening_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`);
 
 --
--- Constraints for table `reservation`
+-- Megkötések a táblához `reservation`
 --
 ALTER TABLE `reservation`
   ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
@@ -587,7 +608,7 @@ ALTER TABLE `reservation`
   ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`);
 
 --
--- Constraints for table `seats`
+-- Megkötések a táblához `seats`
 --
 ALTER TABLE `seats`
   ADD CONSTRAINT `seats_ibfk_1` FOREIGN KEY (`id`) REFERENCES `reservation` (`seat_id`),
