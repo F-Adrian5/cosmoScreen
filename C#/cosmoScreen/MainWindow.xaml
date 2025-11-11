@@ -17,20 +17,20 @@
         <TextBox Name="production_input" HorizontalAlignment="Left" Margin="178,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
         <Label Content="Poszter url:" HorizontalAlignment="Left" Margin="65,291,0,0" VerticalAlignment="Top" FontSize="16"/>
         <TextBox Name="poster_input" HorizontalAlignment="Left" Margin="178,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <ComboBox Name="genre_combobox" HorizontalAlignment="Left" Margin="178,386,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Label Content="Műfaj:" HorizontalAlignment="Left" Margin="70,388,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Korhatár:" HorizontalAlignment="Left" Margin="63,434,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <ComboBox Name="age_restriction_combobox" HorizontalAlignment="Left" Margin="178,434,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Label Content="Formátum:" HorizontalAlignment="Left" Margin="58,477,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <ComboBox Name="showing_in_input" HorizontalAlignment="Left" Margin="178,479,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <ComboBox Name="genre_combobox" HorizontalAlignment="Left" Margin="178,405,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Label Content="Műfaj:" HorizontalAlignment="Left" Margin="70,407,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Korhatár:" HorizontalAlignment="Left" Margin="63,453,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <ComboBox Name="age_restriction_combobox" HorizontalAlignment="Left" Margin="178,453,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Label Content="Formátum:" HorizontalAlignment="Left" Margin="58,496,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <ComboBox Name="showing_in_input" HorizontalAlignment="Left" Margin="178,498,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
         <Label Content="Előzetes url:" HorizontalAlignment="Left" Margin="65,338,0,0" VerticalAlignment="Top" FontSize="16"/>
         <TextBox Name="trailer_input" HorizontalAlignment="Left" Margin="178,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Button Name="btn_upload" Content="Felvétel" HorizontalAlignment="Left" Margin="93,520,0,0" VerticalAlignment="Top" Height="58" Width="171" FontSize="16"/>
-        <Label Content="Film felvétel" HorizontalAlignment="Center" Margin="0,49,0,0" VerticalAlignment="Top" Height="37" Width="132" FontSize="20" FontWeight="Bold"/>
-        <DataGrid Name="movie_datagrid" HorizontalAlignment="Left" Height="400" Margin="325,106,0,0" VerticalAlignment="Top" Width="632" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <Button Name="get_data_btn" Content="Lekérdez" HorizontalAlignment="Left" Margin="556,520,0,0" VerticalAlignment="Top" FontSize="16" Height="58" Width="170"/>
-        <Menu VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Height="33">
-            <MenuItem Header="Filmek" FontSize="24" FontWeight="Bold"></MenuItem>
+        <Button Name="btn_upload" Content="Felvétel" HorizontalAlignment="Left" Margin="109,550,0,0" VerticalAlignment="Top" Height="34" Width="102" FontSize="16"/>
+        <Label Content="Film felvétel" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" Height="37" Width="132" FontSize="20" FontWeight="Bold"/>
+        <DataGrid Name="movie_datagrid" HorizontalAlignment="Left" Height="243" Margin="399,136,0,0" VerticalAlignment="Top" Width="519" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Button Name="get_data_btn" Content="Lekérdez" HorizontalAlignment="Left" Margin="596,423,0,0" VerticalAlignment="Top" FontSize="16" Height="40" Width="124"/>
+        <Menu VerticalAlignment="Top" FontSize="16" FontWeight="Bold">
+            <MenuItem Header="Filmek" FontSize="16" FontWeight="Bold"></MenuItem>
             <MenuItem Header="Büfé"></MenuItem>
             <MenuItem Header="Színészek"></MenuItem>
         </Menu>
