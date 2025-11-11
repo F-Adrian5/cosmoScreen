@@ -20,5 +20,27 @@ namespace cosmoScreen
         {
             InitializeComponent();
         }
+
+
+        private void bufe_click(object sender, RoutedEventArgs e)
+        {
+            bufe bufeWindow = new bufe();
+            bufeWindow.Show();
+            this.Hide();
+        }
+
+        private void film_Click(object sender, RoutedEventArgs e)
+        {
+            films filmWindow = new films();
+            filmWindow.Show();
+            this.Hide();
+        }
+
+        private void szineszek_click(object sender, RoutedEventArgs e)
+        {
+            szineszek szineszekWindow = new szineszek();
+            szineszekWindow.Show();
+            this.Hide();
+        }
     }
 }
