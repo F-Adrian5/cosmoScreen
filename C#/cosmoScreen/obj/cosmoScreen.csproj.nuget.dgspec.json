@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\krivan.balazs\\Source\\Repos\\cosmoScreen\\cosmoScreen\\cosmoScreen.csproj": {}
+    "C:\\xampp\\htdocs\\fodor_adrian\\cosmoScreen\\C#\\cosmoScreen\\cosmoScreen.csproj": {}
   },
   "projects": {
-    "C:\\Users\\krivan.balazs\\Source\\Repos\\cosmoScreen\\cosmoScreen\\cosmoScreen.csproj": {
+    "C:\\xampp\\htdocs\\fodor_adrian\\cosmoScreen\\C#\\cosmoScreen\\cosmoScreen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\krivan.balazs\\Source\\Repos\\cosmoScreen\\cosmoScreen\\cosmoScreen.csproj",
+        "projectUniqueName": "C:\\xampp\\htdocs\\fodor_adrian\\cosmoScreen\\C#\\cosmoScreen\\cosmoScreen.csproj",
         "projectName": "cosmoScreen",
-        "projectPath": "C:\\Users\\krivan.balazs\\Source\\Repos\\cosmoScreen\\cosmoScreen\\cosmoScreen.csproj",
-        "packagesPath": "C:\\Users\\krivan.balazs\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\krivan.balazs\\Source\\Repos\\cosmoScreen\\cosmoScreen\\obj\\",
+        "projectPath": "C:\\xampp\\htdocs\\fodor_adrian\\cosmoScreen\\C#\\cosmoScreen\\cosmoScreen.csproj",
+        "packagesPath": "C:\\Users\\fodor.adrian\\.nuget\\packages\\",
+        "outputPath": "C:\\xampp\\htdocs\\fodor_adrian\\cosmoScreen\\C#\\cosmoScreen\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\krivan.balazs\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\fodor.adrian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
