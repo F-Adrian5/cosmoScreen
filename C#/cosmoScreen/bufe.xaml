@@ -21,7 +21,7 @@
         <TextBox x:Name="food_description" HorizontalAlignment="Left" Margin="32,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="16" Height="84"/>
         <Label Content="Kép URL" HorizontalAlignment="Left" Margin="26,373,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
         <TextBox x:Name="food_image_url" HorizontalAlignment="Left" Margin="131,381,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Button x:Name="btn_upload" Content="Felvétel" HorizontalAlignment="Left" Margin="46,447,0,0" VerticalAlignment="Top" Height="63" Width="182" FontSize="24" FontWeight="Bold"/>
+        <Button x:Name="btn_upload" Content="Felvétel" HorizontalAlignment="Left" Margin="46,447,0,0" VerticalAlignment="Top" Height="63" Width="182" FontSize="24" FontWeight="Bold" Click="btn_upload_Click"/>
         <Label Content="Büfé" HorizontalAlignment="Center" Margin="0,57,0,0" VerticalAlignment="Top" Height="41" Width="162" FontSize="26" FontWeight="Bold" FontStyle="Italic"/>
         <DataGrid x:Name="buffet_datagrid" HorizontalAlignment="Left" Height="396" Margin="265,0,0,0" VerticalAlignment="Center" Width="673" d:ItemsSource="{d:SampleData ItemCount=5}" Background="{x:Null}"/>
         <Button x:Name="get_data_btn" Content="Lekérdez" HorizontalAlignment="Left" Margin="544,521,0,0" VerticalAlignment="Top" FontSize="24" Height="63" Width="182" FontWeight="Bold" Click="get_data_btn_Click"/>

@@ -65,6 +65,29 @@ namespace cosmoScreen
             this.Hide();
         }
 
+        public void executeQuery(string query)
+        {
+            try
+            {
+                openConnection();
+
+                command = new MySql.Data.MySqlClient.MySqlCommand(query, connection);
+
+                if (command.ExecuteNonQuery() >= 1)
+                {
+                    MessageBox.Show("Végrehajtva!");
+                }
+                else
+                {
+                    MessageBox.Show("Nem lett végrehajtva!");
+                }
+            }
+            catch (Exception hiba)
+            {
+                MessageBox.Show(hiba.Message);
+            }
+        }
+
         private void get_data_btn_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -115,6 +138,12 @@ namespace cosmoScreen
                 MessageBox.Show("Hiba a formátumok betöltésekor: " + ex.Message);
             }
 
+        }
+
+        private void btn_upload_Click(object sender, RoutedEventArgs e)
+        {
+            string actor_uplodad = $"INSERT INTO movies(title,genre,runtime,director,production,age_restriction,showing_in,poster,trailer,description,release_date) VALUES('{title_input.Text}','{genre_combobox.Text}','{runtime_input.Text}','{director_input.Text}','{director_input.Text}','{production_input.Text}','{age_restriction_combobox.Text}','{poster_input.Text}','{trailer_input.Text}','{description_input.Text}',{release_date_input.Text}";
+            executeQuery(actor_uplodad);
         }
     }
 }

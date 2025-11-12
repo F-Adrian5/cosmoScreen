@@ -61,6 +61,29 @@ namespace cosmoScreen
             this.Hide();
         }
 
+        public void executeQuery(string query)
+        {
+            try
+            {
+                openConnection();
+
+                command = new MySql.Data.MySqlClient.MySqlCommand(query, connection);
+
+                if (command.ExecuteNonQuery() >= 1)
+                {
+                    MessageBox.Show("Végrehajtva!");
+                }
+                else
+                {
+                    MessageBox.Show("Nem lett végrehajtva!");
+                }
+            }
+            catch (Exception hiba)
+            {
+                MessageBox.Show(hiba.Message);
+            }
+        }
+
         private void get_data_btn_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -76,6 +99,13 @@ namespace cosmoScreen
             {
                 MessageBox.Show(hiba.Message);
             }
+
+        }
+
+        private void btn_upload_Click(object sender, RoutedEventArgs e)
+        {
+            string actor_uplodad = $"INSERT INTO actors(name) VALUES('{actor_name_input.Text}')";
+            executeQuery(actor_uplodad);
 
         }
     }
