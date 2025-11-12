@@ -9,8 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="logo.PNG" />
+    <None Remove="mini-logo.PNG" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MySql.Data" Version="9.5.0" />
     <PackageReference Include="MySqlConnector" Version="2.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="logo.PNG" />
+    <Resource Include="mini-logo.PNG" />
   </ItemGroup>
 
 </Project>

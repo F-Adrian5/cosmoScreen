@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="cosmoScreen Adminisztratív felülete" Height="600" Width="800">
     <Grid Background="#FF004AAD">
-        <Image HorizontalAlignment="Left" Height="197" Margin="258,37,0,0" VerticalAlignment="Top" Width="280"/>
+        <Image Source="/logo.PNG" HorizontalAlignment="Center" Height="212" Margin="0,32,0,0" VerticalAlignment="Top" Width="296"/>
         <Label Content="Üdvözöljük a cosmoScreen adminisztratív felületén!" HorizontalAlignment="Left" Margin="23,0,0,0" VerticalAlignment="Center" Width="766" Foreground="#FFA09D9D" FontStyle="Italic" FontSize="32"/>
         <Label Content="Milyen adatot szeretne felvinni?" HorizontalAlignment="Center" Margin="0,338,0,0" VerticalAlignment="Top" Width="472" Foreground="#FFA09D9D" FontStyle="Italic" FontSize="32"/>
-        <Button Content="Filmek" HorizontalAlignment="Left" Margin="130,418,0,0" VerticalAlignment="Top" Height="86" Width="176" FontWeight="Bold" FontSize="22" Background="#FFECDA18" Click="film_Click"/>
-        <Button Content="Büfé" HorizontalAlignment="Left" Margin="318,418,0,0" VerticalAlignment="Top" Height="86" Width="176" FontWeight="Bold" FontSize="22" Background="#FFE4A64B" Click="bufe_click"/>
-        <Button Content="Színészek" HorizontalAlignment="Left" Margin="506,418,0,0" VerticalAlignment="Top" Height="86" Width="176" FontWeight="Bold" FontSize="22" Background="#FFD43713" Click="szineszek_click"/>
+        <Button Name="film" Content="Filmek" HorizontalAlignment="Left" Margin="130,418,0,0" VerticalAlignment="Top" Height="86" Width="176" FontWeight="Bold" FontSize="22" Background="#FFECDA18" Click="film_Click"/>
+        <Button Name="bufe" Content="Büfé" HorizontalAlignment="Left" Margin="318,418,0,0" VerticalAlignment="Top" Height="86" Width="176" FontWeight="Bold" FontSize="22" Background="#FFE4A64B" Click="bufe_click"/>
+        <Button Name="szineszek" Content="Színészek" HorizontalAlignment="Left" Margin="506,418,0,0" VerticalAlignment="Top" Height="86" Width="176" FontWeight="Bold" FontSize="22" Background="#FFD43713" Click="szineszek_click"/>
     </Grid>
 </Window>

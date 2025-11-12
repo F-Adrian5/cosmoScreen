@@ -5,35 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cosmoScreen"
         mc:Ignorable="d"
-        Title="Filmek" Height="629" Width="976">
+        Title="Filmek" Height="650" Width="976">
     <Grid Background="#FF2C80C1">
-        <Label Content="Cím:" HorizontalAlignment="Left" Margin="27,92,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <TextBox x:Name="title_input" HorizontalAlignment="Left" Margin="132,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Label Content="Játékidő:" HorizontalAlignment="Left" Margin="27,135,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <TextBox x:Name="runtime_input" HorizontalAlignment="Left" Margin="132,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Label Content="Rendező:" HorizontalAlignment="Left" Margin="27,174,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <TextBox x:Name="director_input" HorizontalAlignment="Left" Margin="132,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Label Content="Stúdió:" HorizontalAlignment="Left" Margin="27,224,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <TextBox x:Name="production_input" HorizontalAlignment="Left" Margin="132,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Label Content="Poszter url:" HorizontalAlignment="Left" Margin="27,276,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <TextBox x:Name="poster_input" HorizontalAlignment="Left" Margin="132,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <ComboBox x:Name="genre_combobox" HorizontalAlignment="Left" Margin="132,381,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Label Content="Műfaj:" HorizontalAlignment="Left" Margin="27,377,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <Label Content="Korhatár:" FontWeight="Bold" HorizontalAlignment="Left" Margin="27,425,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <ComboBox x:Name="age_restriction_combobox" HorizontalAlignment="Left" Margin="132,429,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Label Content="Formátum:" FontWeight="Bold" HorizontalAlignment="Left" Margin="27,468,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <ComboBox x:Name="showing_in_input" HorizontalAlignment="Left" Margin="132,468,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Label Content="Előzetes url:" FontWeight="Bold" HorizontalAlignment="Left" Margin="27,323,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="trailer_input" HorizontalAlignment="Left" Margin="132,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Button x:Name="btn_upload" Content="Felvétel" HorizontalAlignment="Left" Margin="62,521,0,0" VerticalAlignment="Top" Height="63" Width="182" FontSize="24" FontWeight="Bold"/>
-        <Label Content="Film felvétel" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" Height="37" Width="162" FontSize="26" FontWeight="Bold" FontStyle="Italic"/>
-        <DataGrid x:Name="movie_datagrid" HorizontalAlignment="Left" Height="410" Margin="304,89,0,0" VerticalAlignment="Top" Width="649" d:ItemsSource="{d:SampleData ItemCount=5}" Background="{x:Null}"/>
-        <Button x:Name="get_data_btn" Content="Lekérdez" HorizontalAlignment="Left" Margin="544,521,0,0" VerticalAlignment="Top" FontSize="24" Height="63" Width="182" FontWeight="Bold"/>
+        <Label Content="Cím:" HorizontalAlignment="Left" Margin="27,124,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="title_input" HorizontalAlignment="Left" Margin="132,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Label Content="Játékidő:" HorizontalAlignment="Left" Margin="27,167,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <TextBox x:Name="runtime_input" HorizontalAlignment="Left" Margin="132,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Label Content="Rendező:" HorizontalAlignment="Left" Margin="27,206,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <TextBox x:Name="director_input" HorizontalAlignment="Left" Margin="132,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Label Content="Stúdió:" HorizontalAlignment="Left" Margin="27,256,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <TextBox x:Name="production_input" HorizontalAlignment="Left" Margin="132,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Label Content="Poszter url:" HorizontalAlignment="Left" Margin="27,308,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <TextBox x:Name="poster_input" HorizontalAlignment="Left" Margin="132,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <ComboBox x:Name="genre_combobox" HorizontalAlignment="Left" Margin="132,412,0,0" VerticalAlignment="Top" Width="120" FontSize="16">
+            <ComboBoxItem Content="Akció"></ComboBoxItem>
+            <ComboBoxItem Content="Dráma"></ComboBoxItem>
+            <ComboBoxItem Content="Történelemi"></ComboBoxItem>
+            <ComboBoxItem Content="Horror"></ComboBoxItem>
+            <ComboBoxItem Content="Animáció"></ComboBoxItem>
+            <ComboBoxItem Content="Fantasy"></ComboBoxItem>
+            <ComboBoxItem Content="Sci-Fi"></ComboBoxItem>
+            <ComboBoxItem Content="Bűnügyi"></ComboBoxItem>
+            <ComboBoxItem Content="Thriller"></ComboBoxItem>
+        </ComboBox>
+        <Label Content="Műfaj:" HorizontalAlignment="Left" Margin="27,408,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Korhatár:" FontWeight="Bold" HorizontalAlignment="Left" Margin="27,456,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <ComboBox x:Name="age_restriction_combobox" HorizontalAlignment="Left" Margin="132,460,0,0" VerticalAlignment="Top" Width="120" FontSize="16">
+            <ComboBoxItem Content="7"></ComboBoxItem>
+            <ComboBoxItem Content="12"></ComboBoxItem>
+            <ComboBoxItem Content="16"></ComboBoxItem>
+            <ComboBoxItem Content="18"></ComboBoxItem>
+        </ComboBox>
+        <Label Content="Formátum:" FontWeight="Bold" HorizontalAlignment="Left" Margin="27,500,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <ComboBox x:Name="showing_in_input" HorizontalAlignment="Left" Margin="132,500,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Label Content="Előzetes url:" FontWeight="Bold" HorizontalAlignment="Left" Margin="27,354,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="trailer_input" HorizontalAlignment="Left" Margin="132,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Button x:Name="btn_upload" Content="Felvétel" HorizontalAlignment="Left" Margin="59,540,0,0" VerticalAlignment="Top" Height="63" Width="182" FontSize="24" FontWeight="Bold"/>
+        <Label Content="Film felvétel" HorizontalAlignment="Center" Margin="0,63,0,0" VerticalAlignment="Top" Height="56" Width="162" FontSize="26" FontWeight="Bold" FontStyle="Italic"/>
+        <DataGrid x:Name="movie_datagrid" HorizontalAlignment="Left" Height="384" Margin="304,132,0,0" VerticalAlignment="Top" Width="650" d:ItemsSource="{d:SampleData ItemCount=5}" Background="{x:Null}"/>
+        <Button x:Name="get_data_btn" Content="Lekérdez" HorizontalAlignment="Left" Margin="538,540,0,0" VerticalAlignment="Top" FontSize="24" Height="63" Width="182" FontWeight="Bold" Click="get_data_btn_Click"/>
         <Menu VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="Black" Background="#FF949494">
+            <Image Source="/mini-logo.PNG" Width="50px" Height="50px"></Image>
             <MenuItem Name="films_menuItem" Header="Filmek" FontSize="20" FontWeight="Bold" Foreground="#FF9DCC3B"/>
             <MenuItem Name="buffet_menuItem" Header="Büfé" Click="buffet_menuItem_Click"/>
             <MenuItem Name="actor_menuItem" Header="Színészek" Click="actor_menuItem_Click"/>
         </Menu>
-        <Label Content="Film adatok felvétele" HorizontalAlignment="Left" Margin="55,51,0,0" VerticalAlignment="Top" Height="38" Width="274" FontSize="22" FontStyle="Italic" FontWeight="Bold" Foreground="#FFAB0F0F"/>
+        <Label Content="Film adatok felvétele" HorizontalAlignment="Left" Margin="27,81,0,0" VerticalAlignment="Top" Height="38" Width="274" FontSize="22" FontStyle="Italic" FontWeight="Bold" Foreground="#FFAB0F0F"/>
     </Grid>
 </Window>

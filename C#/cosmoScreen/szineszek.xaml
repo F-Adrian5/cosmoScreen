@@ -5,19 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cosmoScreen"
         mc:Ignorable="d"
-        Title="Színészek" Height="629" Width="976">
+        Title="Színészek" Height="650" Width="976">
     <Grid Background="#FF2C80C1">
         <Menu VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="Black" Background="#FF949494">
+            <Image Source="/mini-logo.PNG" Width="50px" Height="50px"></Image>
             <MenuItem Name="films_menuItem" Header="Filmek" FontSize="20" FontWeight="Bold" Click="films_menuItem_Click"/>
             <MenuItem Name="buffet_menuItem" Header="Büfé" Click="buffet_menuItem_Click"/>
             <MenuItem Name="actor_menuItem" Header="Színészek" Foreground="#FF9DCC3B"/>
         </Menu>
-        <Label Content="Teljes Neve:" HorizontalAlignment="Left" Margin="27,92,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <TextBox x:Name="actor_name_input" HorizontalAlignment="Left" Margin="132,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Button x:Name="btn_upload" Content="Felvétel" HorizontalAlignment="Left" Margin="41,161,0,0" VerticalAlignment="Top" Height="63" Width="182" FontSize="24" FontWeight="Bold"/>
-        <Label Content="Színészek" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" Height="37" Width="162" FontSize="26" FontWeight="Bold" FontStyle="Italic"/>
-        <DataGrid x:Name="actors_datagrid" HorizontalAlignment="Left" Height="410" Margin="280,89,0,0" VerticalAlignment="Top" Width="673" d:ItemsSource="{d:SampleData ItemCount=5}" Background="{x:Null}"/>
-        <Button x:Name="get_data_btn" Content="Lekérdez" HorizontalAlignment="Left" Margin="544,521,0,0" VerticalAlignment="Top" FontSize="24" Height="63" Width="182" FontWeight="Bold"/>
-        <Label Content="Színész adatok felvétele" HorizontalAlignment="Left" Margin="55,46,0,0" VerticalAlignment="Top" Height="38" Width="274" FontSize="22" FontStyle="Italic" FontWeight="Bold" Foreground="#FFAB0F0F"/>
+        <Label Content="Teljes Neve:" HorizontalAlignment="Left" Margin="27,154,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="actor_name_input" HorizontalAlignment="Left" Margin="132,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Button x:Name="btn_upload" Content="Felvétel" HorizontalAlignment="Left" Margin="41,208,0,0" VerticalAlignment="Top" Height="62" Width="182" FontSize="24" FontWeight="Bold"/>
+        <Label Content="Színészek" HorizontalAlignment="Center" Margin="0,51,0,0" VerticalAlignment="Top" Height="52" Width="162" FontSize="26" FontWeight="Bold" FontStyle="Italic"/>
+        <DataGrid x:Name="actors_datagrid" HorizontalAlignment="Left" Height="410" Margin="276,108,0,0" VerticalAlignment="Top" Width="674" d:ItemsSource="{d:SampleData ItemCount=5}" Background="{x:Null}"/>
+        <Button x:Name="get_data_btn" Content="Lekérdez" HorizontalAlignment="Left" Margin="541,526,0,0" VerticalAlignment="Top" FontSize="24" Height="63" Width="182" FontWeight="Bold" Click="get_data_btn_Click"/>
+        <Label Content="Színész adatok felvétele" HorizontalAlignment="Left" Margin="19,111,0,0" VerticalAlignment="Top" Height="38" Width="274" FontSize="22" FontStyle="Italic" FontWeight="Bold" Foreground="#FFAB0F0F"/>
     </Grid>
 </Window>

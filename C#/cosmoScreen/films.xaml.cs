@@ -1,5 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using MySqlConnector;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +14,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using System.Data;
+using MySql.Data.MySqlClient;
 
 namespace cosmoScreen
 {
@@ -19,9 +25,30 @@ namespace cosmoScreen
     /// </summary>
     public partial class films : Window
     {
+        private MySql.Data.MySqlClient.MySqlConnection connection =
+            new MySql.Data.MySqlClient.MySqlConnection("server=localhost;database=cosmoscreen;uid=root");
+
+        private MySql.Data.MySqlClient.MySqlCommand command;
+
         public films()
         {
             InitializeComponent();
+        }
+
+        public void openConnection()
+        {
+            if (connection.State == ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+        }
+
+        public void closeConnection()
+        {
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
         }
 
         private void buffet_menuItem_Click(object sender, RoutedEventArgs e)
@@ -36,6 +63,58 @@ namespace cosmoScreen
             szineszek szineszekWindow = new szineszek();
             szineszekWindow.Show();
             this.Hide();
+        }
+
+        private void get_data_btn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                MySql.Data.MySqlClient.MySqlDataAdapter adapter =
+                    new MySql.Data.MySqlClient.MySqlDataAdapter("SELECT * FROM movies", connection);
+
+                openConnection();
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                movie_datagrid.ItemsSource = ds.Tables[0].DefaultView;
+                closeConnection();
+            }
+            catch (Exception hiba)
+            {
+                MessageBox.Show(hiba.Message);
+            }
+
+            try
+            {
+                openConnection();
+
+                // SQL lekérdezés, amely kiválasztja az országok neveit (pl. ha van egy 'függőhidak' nevű tábla)
+                string query = "SELECT * FROM showing_in";
+
+                command = new MySql.Data.MySqlClient.MySqlCommand(query, connection);
+                MySql.Data.MySqlClient.MySqlDataReader reader = command.ExecuteReader();
+
+                // Töröljük az esetlegesen meglévő elemeket a ComboBox-ból
+                showing_in_input.Items.Clear();
+
+                // Végigmegyünk a lekérdezett adatokon és hozzáadjuk azokat a ComboBox-hoz
+                HashSet<string> showing_in_Halmaz = new HashSet<string>();
+                while (reader.Read())
+                {
+                    showing_in_Halmaz.Add(reader["type"].ToString());
+                }
+                foreach (var item in showing_in_Halmaz)
+                {
+                    showing_in_input.Items.Add(item);
+                }
+
+                reader.Close();
+                closeConnection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hiba a formátumok betöltésekor: " + ex.Message);
+            }
+
         }
     }
 }
