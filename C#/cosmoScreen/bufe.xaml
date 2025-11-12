@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:cosmoScreen"
         mc:Ignorable="d"
         Title="Büfé" Height="650" Width="976">
-    <Grid Background="#FF2C80C1">
-        <Menu VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="Black" Background="#FF949494">
+    <Grid Background="#FFB5C6FB">
+        <Menu VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="Black" Background="Black">
             <Image Source="/mini-logo.PNG" Width="50px" Height="50px"></Image>
-            <MenuItem Name="films_menuItem" Header="Filmek" FontSize="20" FontWeight="Bold" Click="films_menuItem_Click"/>
+            <MenuItem Name="films_menuItem" Header="Filmek" FontSize="20" FontWeight="Bold" Click="films_menuItem_Click" Foreground="#FFDCD7D7"/>
             <MenuItem Name="buffet_menuItem" Header="Büfé" Foreground="#FF9DCC3B"/>
-            <MenuItem Name="actor_menuItem" Header="Színészek" Click="actor_menuItem_Click"/>
+            <MenuItem Name="actor_menuItem" Header="Színészek" Click="actor_menuItem_Click" Foreground="#FFDCD7D7"/>
         </Menu>
         <Label Content="Név" HorizontalAlignment="Left" Margin="26,166,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <TextBox x:Name="food_name" HorizontalAlignment="Left" Margin="131,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
@@ -25,6 +25,6 @@
         <Label Content="Büfé" HorizontalAlignment="Center" Margin="0,57,0,0" VerticalAlignment="Top" Height="41" Width="162" FontSize="26" FontWeight="Bold" FontStyle="Italic"/>
         <DataGrid x:Name="buffet_datagrid" HorizontalAlignment="Left" Height="396" Margin="265,0,0,0" VerticalAlignment="Center" Width="673" d:ItemsSource="{d:SampleData ItemCount=5}" Background="{x:Null}"/>
         <Button x:Name="get_data_btn" Content="Lekérdez" HorizontalAlignment="Left" Margin="544,521,0,0" VerticalAlignment="Top" FontSize="24" Height="63" Width="182" FontWeight="Bold" Click="get_data_btn_Click"/>
-        <Label Content="Büfé adatok felvétele" HorizontalAlignment="Left" Margin="14,114,0,0" VerticalAlignment="Top" Height="38" Width="274" FontSize="22" FontStyle="Italic" FontWeight="Bold" Foreground="#FFAB0F0F"/>
+        <Label Content="Büfé adatok felvétele" HorizontalAlignment="Left" Margin="14,114,0,0" VerticalAlignment="Top" Height="38" Width="274" FontSize="22" FontStyle="Italic" FontWeight="Bold" Foreground="#FF693EE4"/>
     </Grid>
 </Window>
