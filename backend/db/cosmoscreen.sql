@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Nov 11. 13:21
+-- Létrehozás ideje: 2025. Nov 12. 07:54
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -106,12 +106,12 @@ INSERT INTO `actor_in_movie` (`id`, `movie_id`, `actor_id`) VALUES
 (23, 19, 25),
 (24, 20, 26),
 (25, 21, 6),
-(26, 24, 9),
-(27, 25, 11),
-(28, 26, 14),
-(29, 27, 15),
-(30, 28, 16),
-(31, 29, 17),
+(26, 22, 9),
+(27, 23, 11),
+(28, 24, 14),
+(29, 25, 15),
+(30, 26, 16),
+(31, 27, 17),
 (38, 9, 18);
 
 -- --------------------------------------------------------
@@ -210,12 +210,12 @@ INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production
 (19, 'Csillagok között', 'Sci-Fi', 169, 'Christopher Nolan', 'Warner', 12, 1, 'interstellar.jpg', 'interstellar.mp4', 'Az emberiség új otthont keres a csillagok között.', '2014-11-07'),
 (20, 'Oppenheimer', 'Dráma', 180, 'Christopher Nolan', 'Universal', 16, 1, 'oppenheimer.jpg', 'oppenheimer.mp4', 'Az atombomba megalkotásának története.', '2023-07-21'),
 (21, 'A remény rabjai', 'Dráma', 142, 'Frank Darabont', 'Warner', 18, 5, 'shawshank_redeption.jpg', 'shawshank_redeption.mp4', 'Egy ártatlanul elítélt férfi a Shawshank börtönben barátságot köt, és reményt talál a szabadságra.', '1994-09-23'),
-(24, 'Jojo nyuszi', 'Dráma', 108, 'Taika Waititi', 'Fox', 12, 6, 'jojo_rabbit.jpg', 'jojo_rabbit.mp4', 'Egy fiatal náci fiú képzeletbeli barátja, Adolf Hitler segítségével fedezi fel az emberiességet és a háború kegyetlenségét.', '2019-10-18'),
-(25, 'Csillagok háborúja: Baljós árnyak', 'Sci-Fi', 136, 'George Lucas', 'Lucasfilm', 12, 6, 'starwars1.jpg', 'starwars1.mp4', 'Egy fiatal jedi, Qui-Gon Jinn és tanítványa, Obi-Wan Kenobi megpróbálják megvédeni a Galaktikus Köztársaságot és felfedezik a titokzatos Sith-ek fenyegetését.', '1999-05-19'),
-(26, 'Titkos ablak', 'Thriller', 96, 'David Koepp', 'Columbia ', 16, 5, 'secret_window.jpg', 'secret_window.mp4', 'Egy író magánélete felborul, amikor egy titokzatos idegen vádolja plágiummal, és a helyzet egyre veszélyesebbé válik.', '2004-07-16'),
-(27, 'Zombieland', 'Akció', 88, 'Ruben Fleischer', 'Columbia ', 16, 6, 'zombieland.jpg', 'zombieland.mp4', 'Egy apokaliptikus zombivilágban túlélők különös társasága próbál életben maradni, miközben humoros kalandokba keverednek.', '2009-10-02'),
-(28, 'Jason Bourne', 'Akció', 123, 'Paul Greengrass', 'Universal Pictures', 16, 6, 'jason_bourne.jpg', 'jason_bourne.mp4', 'Jason Bourne visszatér, hogy felderítse múltja titkait, miközben a CIA üldözi, és életre-halálra menő akciókba keveredik.', '2016-07-29'),
-(29, 'Az egyenlítő', 'Akció', 132, 'Antoine Fuqua', 'Sony Pictures', 18, 1, 'equalizer.jpg', 'equalizer.mp4', 'Egy visszavonult ügynök igazságot szolgáltat a gyengékért, miközben szembeszáll a maffiával.\r\n', '2014-09-26');
+(22, 'Jojo nyuszi', 'Dráma', 108, 'Taika Waititi', 'Fox', 12, 6, 'jojo_rabbit.jpg', 'jojo_rabbit.mp4', 'Egy fiatal náci fiú képzeletbeli barátja, Adolf Hitler segítségével fedezi fel az emberiességet és a háború kegyetlenségét.', '2019-10-18'),
+(23, 'Csillagok háborúja: Baljós árnyak', 'Sci-Fi', 136, 'George Lucas', 'Lucasfilm', 12, 6, 'starwars1.jpg', 'starwars1.mp4', 'Egy fiatal jedi, Qui-Gon Jinn és tanítványa, Obi-Wan Kenobi megpróbálják megvédeni a Galaktikus Köztársaságot és felfedezik a titokzatos Sith-ek fenyegetését.', '1999-05-19'),
+(24, 'Titkos ablak', 'Thriller', 96, 'David Koepp', 'Columbia ', 16, 5, 'secret_window.jpg', 'secret_window.mp4', 'Egy író magánélete felborul, amikor egy titokzatos idegen vádolja plágiummal, és a helyzet egyre veszélyesebbé válik.', '2004-07-16'),
+(25, 'Zombieland', 'Akció', 88, 'Ruben Fleischer', 'Columbia ', 16, 6, 'zombieland.jpg', 'zombieland.mp4', 'Egy apokaliptikus zombivilágban túlélők különös társasága próbál életben maradni, miközben humoros kalandokba keverednek.', '2009-10-02'),
+(26, 'Jason Bourne', 'Akció', 123, 'Paul Greengrass', 'Universal Pictures', 16, 6, 'jason_bourne.jpg', 'jason_bourne.mp4', 'Jason Bourne visszatér, hogy felderítse múltja titkait, miközben a CIA üldözi, és életre-halálra menő akciókba keveredik.', '2016-07-29'),
+(27, 'Az egyenlítő', 'Akció', 132, 'Antoine Fuqua', 'Sony Pictures', 18, 1, 'equalizer.jpg', 'equalizer.mp4', 'Egy visszavonult ügynök igazságot szolgáltat a gyengékért, miközben szembeszáll a maffiával.\r\n', '2014-09-26');
 
 -- --------------------------------------------------------
 
@@ -531,7 +531,7 @@ ALTER TABLE `buffet`
 -- AUTO_INCREMENT a táblához `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT a táblához `movie_screening`
@@ -596,23 +596,23 @@ ALTER TABLE `movies`
 -- Megkötések a táblához `movie_screening`
 --
 ALTER TABLE `movie_screening`
-  ADD CONSTRAINT `movie_screening_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`),
-  ADD CONSTRAINT `movie_screening_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`);
+  ADD CONSTRAINT `movie_screening_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`),
+  ADD CONSTRAINT `movie_screening_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`);
 
 --
 -- Megkötések a táblához `reservation`
 --
 ALTER TABLE `reservation`
-  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`screening_id`) REFERENCES `movie_screening` (`id`),
-  ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`);
+  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`),
+  ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`screening_id`) REFERENCES `movie_screening` (`id`);
 
 --
 -- Megkötések a táblához `seats`
 --
 ALTER TABLE `seats`
-  ADD CONSTRAINT `seats_ibfk_1` FOREIGN KEY (`id`) REFERENCES `reservation` (`seat_id`),
-  ADD CONSTRAINT `seats_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`);
+  ADD CONSTRAINT `seats_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`),
+  ADD CONSTRAINT `seats_ibfk_2` FOREIGN KEY (`id`) REFERENCES `reservation` (`seat_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
