@@ -5,21 +5,64 @@
 ---
 
 ## 🌌 Projekt áttekintés
-A **CosmoScreen** egy elegáns, modern **mozis weblap**, amely bemutatja az előadásokat, kezeli a műsorokat, és összekapcsolja a közönséget a mozi varázsával.
+A **CosmoScreen** egy modern, elegáns **mozis weboldal**, amely bemutatja az aktuális előadásokat, kezeli a műsorokat, és lehetőséget biztosít az online jegyvásárlásra.  
+Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók számára.
 
-Letisztult, filmes megjelenésű design és megbízható, korszerű technológiai háttér jellemzi.
+---
+
+## 🎬 Főbb funkciók
+
+- 👤 **Felhasználói fiókok kezelése**
+  - Regisztráció, bejelentkezés, kijelentkezés  
+  - Profiladatok módosítása
+  - Admin jogosultságok (felhasználók kezelése)
+
+- 🎥 **Filmkatalógus**
+  - Filmek adatlapja (leírás, műfaj, korhatár, szereplők, előzetes...)  
+  - Filmek keresése és szűrése (műfaj, korhatár, vetítési időpont...)  
+  - Gyorstalpaló 
+
+- 🗓️ **Vetítési naptár**
+  - Általános vetítési kalendárium  
+  - Időpontok és helyszínek megjelenítése  
+  - Szűrési lehetőségek  
+
+- 🎟️ **Jegyfoglalás és vásárlás**
+  - Online jegyfoglalás  
+  - Vizuális ülőhelyválasztás  
+  - Kosárkezelés, fizetési felület 
+
+- 🧑‍💼 **Admin felület (C#)**
+  - Filmek, szereplők kezelése  
+  - Vetítési időpontok és tartalom frissítése
+  - Felhasználói adatok szerkesztése
+
+- 🍿 **Büfé kínálat**
+  - Aktuális árlista és termékkínálat megtekintése  
+
+- 🌟 **Moziélmény bemutató**
+  - 4DX, ScreenX, VIP szekciók ismertetése  
+
+- 🌐 **Többnyelvű támogatás**
+  - Magyar / Angol nyelvváltás  
+
+- 🔍 **Keresőfunkciók**
+  - Filmnév alapján 
+
+- 📱 **Reszponzív felület**
+  - Mobil, tablet és asztali megjelenés támogatása  
 
 ---
 
 ## 🖥️ Frontend
 - **Keretrendszer:** [Vue.js](https://vuejs.org/)
-- **Állapotkezelés:** [Pinia](https://pinia.vuejs.org/)  
-- **HTTP kliens:** [Axios](https://axios-http.com/)  
+- **Állapotkezelés:** [Pinia](https://pinia.vuejs.org/)
+- **HTTP kliens:** [Axios](https://axios-http.com/)
 
 ---
 
 ## 🎨 Design
-- **Design rendszer:** [Bootstrap](https://getbootstrap.com/) 
+- **Design rendszer:** [Bootstrap](https://getbootstrap.com/)
 
 ---
 
@@ -46,20 +89,12 @@ Letisztult, filmes megjelenésű design és megbízható, korszerű technológia
 
 ---
 
-## 🎬 Fő funkciók
-
-- 🕓 Interaktív előadásnaptár  
-- 🎟️ Online jegyfoglalási rendszer  
-- 📖 Előadás- és színészprofilok  
-- 📱 Teljesen reszponzív felület  
-
----
-
 ## 🗃️ Eszközök és technológiák
 
 | Kategória | Eszköz |
 |------------|--------|
-| Frontend | Vue.js, Pinia, Axios, Bootstrap |
-| Backend | Laravel (PHP) |
+| Frontend | Vue.js, Pinia, Axios |
+| Design | Bootstrap |
+| Backend | PHP |
 | Adatbázis | MySQL + phpMyAdmin |
 | Verziókezelés | Git / GitHub |
