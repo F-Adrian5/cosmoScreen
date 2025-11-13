@@ -92,6 +92,8 @@ namespace cosmoScreen
         {
             try
             {
+                teszt_input.Text = release_date_input.Text;
+
                 MySql.Data.MySqlClient.MySqlDataAdapter adapter =
                     new MySql.Data.MySqlClient.MySqlDataAdapter("SELECT * FROM movies", connection);
 
