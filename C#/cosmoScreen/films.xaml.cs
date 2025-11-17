@@ -108,43 +108,12 @@ namespace cosmoScreen
                 MessageBox.Show(hiba.Message);
             }
 
-            try
-            {
-                openConnection();
-
-                // SQL lekérdezés, amely kiválasztja az országok neveit (pl. ha van egy 'függőhidak' nevű tábla)
-                string query = "SELECT * FROM showing_in";
-
-                command = new MySql.Data.MySqlClient.MySqlCommand(query, connection);
-                MySql.Data.MySqlClient.MySqlDataReader reader = command.ExecuteReader();
-
-                // Töröljük az esetlegesen meglévő elemeket a ComboBox-ból
-                showing_in_input.Items.Clear();
-
-                // Végigmegyünk a lekérdezett adatokon és hozzáadjuk azokat a ComboBox-hoz
-                HashSet<string> showing_in_Halmaz = new HashSet<string>();
-                while (reader.Read())
-                {
-                    showing_in_Halmaz.Add(reader["type"].ToString());
-                }
-                foreach (var item in showing_in_Halmaz)
-                {
-                    showing_in_input.Items.Add(item);
-                }
-
-                reader.Close();
-                closeConnection();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Hiba a formátumok betöltésekor: " + ex.Message);
-            }
 
         }
 
         private void btn_upload_Click(object sender, RoutedEventArgs e)
         {
-            string actor_uplodad = $"INSERT INTO movies(title,genre,runtime,director,production,age_restriction,showing_in,poster,trailer,description,release_date) VALUES('{title_input.Text}','{genre_combobox.Text}','{runtime_input.Text}','{director_input.Text}','{director_input.Text}','{production_input.Text}','{age_restriction_combobox.Text}','{poster_input.Text}','{trailer_input.Text}','{description_input.Text}',{release_date_input.Text}";
+            string actor_uplodad = $"INSERT INTO movies(title,genre,runtime,director,production,age_restriction,showing_in,poster,trailer,description,release_date) VALUES('{title_input.Text}','{genre_combobox.Text}','{runtime_input.Text}','{director_input.Text}','{director_input.Text}','{production_input.Text}','{age_restriction_combobox.Text}','{showing_in_input.Text}','{poster_input.Text}','{trailer_input.Text}','{description_input.Text}',{release_date_input.SelectedDate?.ToString("yyyy-MM-dd")}";
             executeQuery(actor_uplodad);
         }
     }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Nov 13. 12:00
+-- Létrehozás ideje: 2025. Nov 17. 12:23
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -179,7 +179,7 @@ CREATE TABLE `movies` (
   `director` varchar(200) NOT NULL,
   `production` varchar(25) NOT NULL,
   `age_restriction` int(2) NOT NULL,
-  `showing_in_id` int(11) NOT NULL,
+  `showing_in` varchar(11) NOT NULL,
   `poster` varchar(200) NOT NULL,
   `trailer` varchar(200) NOT NULL,
   `description` varchar(250) NOT NULL,
@@ -190,34 +190,34 @@ CREATE TABLE `movies` (
 -- A tábla adatainak kiíratása `movies`
 --
 
-INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production`, `age_restriction`, `showing_in_id`, `poster`, `trailer`, `description`, `release_date`) VALUES
-(1, 'A Keresztapa', 'Bűnügyi', 175, 'Francis Ford Coppola', 'Paramount Pictures', 18, 1, 'godfather.jpg', 'godfather.mp4', 'Egy maffiacsalád felemelkedése és bukása.', '1972-03-24'),
-(2, 'A Keresztapa II.', 'Bűnügyi', 202, 'Francis Ford Coppola', 'Paramount Pictures', 18, 1, 'godfather2.jpg', 'godfather2.mp4', 'A Corleone család öröksége folytatódik.', '1974-12-20'),
-(3, 'A Sötét Lovag', 'Akció', 152, 'Christopher Nolan', 'Warner Bros.', 16, 2, 'dark_knight.jpg', 'dark_knight.mp4', 'Batman szembeszáll a Joker káoszával.', '2008-07-18'),
-(4, 'Ponyvaregény', 'Bűnügyi', 154, 'Quentin Tarantino', 'Miramax', 18, 5, 'pulp_fiction.jpg', 'pulp_fiction.mp4', 'Egymásba fonódó bűntörténetek.', '1994-10-14'),
-(5, 'Schindler listája', 'Dráma', 195, 'Steven Spielberg', 'Universal Pictures', 16, 5, 'schindlers_list.jpg', 'schindlers_list.mp4', 'Egy férfi zsidókat ment meg a II. világháborúban.', '1993-12-15'),
-(6, 'Forrest Gump', 'Dráma', 142, 'Robert Zemeckis', 'Paramount Pictures', 12, 5, 'forrest_gump.jpg', 'forrest_gump.mp4', 'Egy egyszerű ember nagy történelmet él meg.', '1994-07-06'),
-(7, 'Eredet', 'Sci-Fi', 148, 'Christopher Nolan', 'Warner', 16, 3, 'inception.jpg', 'inception.mp4', 'Álmok az álmokban.', '2010-07-16'),
-(8, 'Harcosok klubja', 'Dráma', 139, 'David Fincher', 'Twentieth Century Fox', 18, 5, 'fight_club.jpg', 'fight_club.mp4', 'Egy titkos klub káoszba torkollik.', '1999-10-15'),
-(9, 'A Gyűrűk ura: A Gyűrű Szövetsége', 'Fantasy', 178, 'Peter Jackson', 'New Line Cinema', 12, 3, 'lotr1.jpg', 'lotr1.mp4', 'Egy hobbit viszi a megátkozott gyűrűt.', '2001-12-19'),
-(10, 'A Gyűrűk ura: A Két Torony', 'Fantasy', 179, 'Peter Jackson', 'New Line Cinema', 12, 3, 'lotr2.jpg', 'lotr2.mp4', 'A Szövetség tagjai különválnak.', '2002-12-18'),
-(11, 'A Gyűrűk ura: A Király Visszatér', 'Fantasy', 201, 'Peter Jackson', 'New Line Cinema', 12, 3, 'lotr3.jpg', 'lotr3.mp4', 'A végső csata Középföldéért.', '2003-12-17'),
-(12, 'Mátrix', 'Sci-Fi', 136, 'Lana Wachowski / Lilly Wachowski', 'Warner Bros.', 16, 2, 'matrix.jpg', 'matrix.mp4', 'Egy hacker rájön, hogy a valóság csak illúzió.', '1999-03-31'),
-(13, 'Csillagok háborúja: Egy új remény', 'Sci-Fi', 121, 'George Lucas', 'Lucasfilm', 12, 6, 'starwars4.jpg', 'starwars4.mp4', 'Egy farmfiú hőssé válik.', '1977-05-25'),
-(14, 'Csillagok háborúja: A Birodalom visszavág', 'Sci-Fi', 124, 'Irvin Kershner', 'Lucasfilm', 12, 6, 'starwars5.jpg', 'starwars5.mp4', 'A lázadás súlyos veszteségeket szenved.', '1980-05-21'),
-(15, 'Csillagok háborúja: A Jedi visszatér', 'Sci-Fi', 131, 'Richard Marquand', 'Lucasfilm', 12, 6, 'starwars6.jpg', 'starwars6.mp4', 'A császár végzete közeleg.', '1983-05-25'),
-(16, 'Gladiátor', 'Történelmi', 155, 'Ridley Scott', 'Dreamworks', 16, 4, 'gladiator.jpg', 'gladiator.mp4', 'Egy elárult tábornok bosszút forral.', '2000-05-05'),
-(17, 'Joker', 'Dráma', 122, 'Todd Phillips', 'Warner Bros.', 16, 4, 'joker.jpg', 'joker.mp4', 'Egy férfi lassan az őrületbe süllyed.', '2019-10-04'),
-(18, 'A bárányok hallgatnak', 'Bűnügyi', 118, 'Jonathan Demme', 'Orion Pictures', 18, 5, 'silence_lambs.jpg', 'silence_lambs.mp4', 'Egy nyomozó sorozatgyilkost üldöz.', '1991-02-14'),
-(19, 'Csillagok között', 'Sci-Fi', 169, 'Christopher Nolan', 'Warner Bros.', 12, 1, 'interstellar.jpg', 'interstellar.mp4', 'Az emberiség új otthont keres a csillagok között.', '2014-11-07'),
-(20, 'Oppenheimer', 'Dráma', 180, 'Christopher Nolan', 'Universal Pictures', 16, 1, 'oppenheimer.jpg', 'oppenheimer.mp4', 'Az atombomba megalkotásának története.', '2023-07-21'),
-(21, 'A remény rabjai', 'Dráma', 142, 'Frank Darabont', 'Warner Bros.', 18, 5, 'shawshank_redeption.jpg', 'shawshank_redeption.mp4', 'Egy ártatlanul elítélt férfi a Shawshank börtönben barátságot köt, és reményt talál a szabadságra.', '1994-09-23'),
-(22, 'Jojo nyuszi', 'Dráma', 108, 'Taika Waititi', 'Twentieth Century Fox', 12, 6, 'jojo_rabbit.jpg', 'jojo_rabbit.mp4', 'Egy fiatal náci fiú képzeletbeli barátja, Adolf Hitler segítségével fedezi fel az emberiességet és a háború kegyetlenségét.', '2019-10-18'),
-(23, 'Csillagok háborúja: Baljós árnyak', 'Sci-Fi', 136, 'George Lucas', 'Lucasfilm', 12, 6, 'starwars1.jpg', 'starwars1.mp4', 'Egy fiatal jedi, Qui-Gon Jinn és tanítványa, Obi-Wan Kenobi megpróbálják megvédeni a Galaktikus Köztársaságot és felfedezik a titokzatos Sith-ek fenyegetését.', '1999-05-19'),
-(24, 'Titkos ablak', 'Thriller', 96, 'David Koepp', 'Columbia Pictures', 16, 5, 'secret_window.jpg', 'secret_window.mp4', 'Egy író magánélete felborul, amikor egy titokzatos idegen vádolja plágiummal, és a helyzet egyre veszélyesebbé válik.', '2004-07-16'),
-(25, 'Zombieland', 'Akció', 88, 'Ruben Fleischer', 'Columbia Pictures', 16, 6, 'zombieland.jpg', 'zombieland.mp4', 'Egy apokaliptikus zombivilágban túlélők különös társasága próbál életben maradni, miközben humoros kalandokba keverednek.', '2009-10-02'),
-(26, 'Jason Bourne', 'Akció', 123, 'Paul Greengrass', 'Universal Pictures', 16, 6, 'jason_bourne.jpg', 'jason_bourne.mp4', 'Jason Bourne visszatér, hogy felderítse múltja titkait, miközben a CIA üldözi, és életre-halálra menő akciókba keveredik.', '2016-07-29'),
-(27, 'Az egyenlítő', 'Akció', 132, 'Antoine Fuqua', 'Sony Pictures', 18, 1, 'equalizer.jpg', 'equalizer.mp4', 'Egy visszavonult ügynök igazságot szolgáltat a gyengékért, miközben szembeszáll a maffiával.\r\n', '2014-09-26');
+INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production`, `age_restriction`, `showing_in`, `poster`, `trailer`, `description`, `release_date`) VALUES
+(1, 'A Keresztapa', 'Bűnügyi', 175, 'Francis Ford Coppola', 'Paramount Pictures', 18, '1', 'godfather.jpg', 'godfather.mp4', 'Egy maffiacsalád felemelkedése és bukása.', '1972-03-24'),
+(2, 'A Keresztapa II.', 'Bűnügyi', 202, 'Francis Ford Coppola', 'Paramount Pictures', 18, '1', 'godfather2.jpg', 'godfather2.mp4', 'A Corleone család öröksége folytatódik.', '1974-12-20'),
+(3, 'A Sötét Lovag', 'Akció', 152, 'Christopher Nolan', 'Warner Bros.', 16, '2', 'dark_knight.jpg', 'dark_knight.mp4', 'Batman szembeszáll a Joker káoszával.', '2008-07-18'),
+(4, 'Ponyvaregény', 'Bűnügyi', 154, 'Quentin Tarantino', 'Miramax', 18, '5', 'pulp_fiction.jpg', 'pulp_fiction.mp4', 'Egymásba fonódó bűntörténetek.', '1994-10-14'),
+(5, 'Schindler listája', 'Dráma', 195, 'Steven Spielberg', 'Universal Pictures', 16, '5', 'schindlers_list.jpg', 'schindlers_list.mp4', 'Egy férfi zsidókat ment meg a II. világháborúban.', '1993-12-15'),
+(6, 'Forrest Gump', 'Dráma', 142, 'Robert Zemeckis', 'Paramount Pictures', 12, '5', 'forrest_gump.jpg', 'forrest_gump.mp4', 'Egy egyszerű ember nagy történelmet él meg.', '1994-07-06'),
+(7, 'Eredet', 'Sci-Fi', 148, 'Christopher Nolan', 'Warner', 16, '3', 'inception.jpg', 'inception.mp4', 'Álmok az álmokban.', '2010-07-16'),
+(8, 'Harcosok klubja', 'Dráma', 139, 'David Fincher', 'Twentieth Century Fox', 18, '5', 'fight_club.jpg', 'fight_club.mp4', 'Egy titkos klub káoszba torkollik.', '1999-10-15'),
+(9, 'A Gyűrűk ura: A Gyűrű Szövetsége', 'Fantasy', 178, 'Peter Jackson', 'New Line Cinema', 12, '3', 'lotr1.jpg', 'lotr1.mp4', 'Egy hobbit viszi a megátkozott gyűrűt.', '2001-12-19'),
+(10, 'A Gyűrűk ura: A Két Torony', 'Fantasy', 179, 'Peter Jackson', 'New Line Cinema', 12, '3', 'lotr2.jpg', 'lotr2.mp4', 'A Szövetség tagjai különválnak.', '2002-12-18'),
+(11, 'A Gyűrűk ura: A Király Visszatér', 'Fantasy', 201, 'Peter Jackson', 'New Line Cinema', 12, '3', 'lotr3.jpg', 'lotr3.mp4', 'A végső csata Középföldéért.', '2003-12-17'),
+(12, 'Mátrix', 'Sci-Fi', 136, 'Lana Wachowski / Lilly Wachowski', 'Warner Bros.', 16, '2', 'matrix.jpg', 'matrix.mp4', 'Egy hacker rájön, hogy a valóság csak illúzió.', '1999-03-31'),
+(13, 'Csillagok háborúja: Egy új remény', 'Sci-Fi', 121, 'George Lucas', 'Lucasfilm', 12, '6', 'starwars4.jpg', 'starwars4.mp4', 'Egy farmfiú hőssé válik.', '1977-05-25'),
+(14, 'Csillagok háborúja: A Birodalom visszavág', 'Sci-Fi', 124, 'Irvin Kershner', 'Lucasfilm', 12, '6', 'starwars5.jpg', 'starwars5.mp4', 'A lázadás súlyos veszteségeket szenved.', '1980-05-21'),
+(15, 'Csillagok háborúja: A Jedi visszatér', 'Sci-Fi', 131, 'Richard Marquand', 'Lucasfilm', 12, '6', 'starwars6.jpg', 'starwars6.mp4', 'A császár végzete közeleg.', '1983-05-25'),
+(16, 'Gladiátor', 'Történelmi', 155, 'Ridley Scott', 'Dreamworks', 16, '4', 'gladiator.jpg', 'gladiator.mp4', 'Egy elárult tábornok bosszút forral.', '2000-05-05'),
+(17, 'Joker', 'Dráma', 122, 'Todd Phillips', 'Warner Bros.', 16, '4', 'joker.jpg', 'joker.mp4', 'Egy férfi lassan az őrületbe süllyed.', '2019-10-04'),
+(18, 'A bárányok hallgatnak', 'Bűnügyi', 118, 'Jonathan Demme', 'Orion Pictures', 18, '5', 'silence_lambs.jpg', 'silence_lambs.mp4', 'Egy nyomozó sorozatgyilkost üldöz.', '1991-02-14'),
+(19, 'Csillagok között', 'Sci-Fi', 169, 'Christopher Nolan', 'Warner Bros.', 12, '1', 'interstellar.jpg', 'interstellar.mp4', 'Az emberiség új otthont keres a csillagok között.', '2014-11-07'),
+(20, 'Oppenheimer', 'Dráma', 180, 'Christopher Nolan', 'Universal Pictures', 16, '1', 'oppenheimer.jpg', 'oppenheimer.mp4', 'Az atombomba megalkotásának története.', '2023-07-21'),
+(21, 'A remény rabjai', 'Dráma', 142, 'Frank Darabont', 'Warner Bros.', 18, '5', 'shawshank_redeption.jpg', 'shawshank_redeption.mp4', 'Egy ártatlanul elítélt férfi a Shawshank börtönben barátságot köt, és reményt talál a szabadságra.', '1994-09-23'),
+(22, 'Jojo nyuszi', 'Dráma', 108, 'Taika Waititi', 'Twentieth Century Fox', 12, '6', 'jojo_rabbit.jpg', 'jojo_rabbit.mp4', 'Egy fiatal náci fiú képzeletbeli barátja, Adolf Hitler segítségével fedezi fel az emberiességet és a háború kegyetlenségét.', '2019-10-18'),
+(23, 'Csillagok háborúja: Baljós árnyak', 'Sci-Fi', 136, 'George Lucas', 'Lucasfilm', 12, '6', 'starwars1.jpg', 'starwars1.mp4', 'Egy fiatal jedi, Qui-Gon Jinn és tanítványa, Obi-Wan Kenobi megpróbálják megvédeni a Galaktikus Köztársaságot és felfedezik a titokzatos Sith-ek fenyegetését.', '1999-05-19'),
+(24, 'Titkos ablak', 'Thriller', 96, 'David Koepp', 'Columbia Pictures', 16, '5', 'secret_window.jpg', 'secret_window.mp4', 'Egy író magánélete felborul, amikor egy titokzatos idegen vádolja plágiummal, és a helyzet egyre veszélyesebbé válik.', '2004-07-16'),
+(25, 'Zombieland', 'Akció', 88, 'Ruben Fleischer', 'Columbia Pictures', 16, '6', 'zombieland.jpg', 'zombieland.mp4', 'Egy apokaliptikus zombivilágban túlélők különös társasága próbál életben maradni, miközben humoros kalandokba keverednek.', '2009-10-02'),
+(26, 'Jason Bourne', 'Akció', 123, 'Paul Greengrass', 'Universal Pictures', 16, '6', 'jason_bourne.jpg', 'jason_bourne.mp4', 'Jason Bourne visszatér, hogy felderítse múltja titkait, miközben a CIA üldözi, és életre-halálra menő akciókba keveredik.', '2016-07-29'),
+(27, 'Az egyenlítő', 'Akció', 132, 'Antoine Fuqua', 'Sony Pictures', 18, '1', 'equalizer.jpg', 'equalizer.mp4', 'Egy visszavonult ügynök igazságot szolgáltat a gyengékért, miközben szembeszáll a maffiával.\r\n', '2014-09-26');
 
 -- --------------------------------------------------------
 
@@ -342,29 +342,6 @@ INSERT INTO `seats` (`id`, `room_id`, `seat_row`, `seat_column`, `status`) VALUE
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `showing_in`
---
-
-CREATE TABLE `showing_in` (
-  `id` int(11) NOT NULL,
-  `type` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- A tábla adatainak kiíratása `showing_in`
---
-
-INSERT INTO `showing_in` (`id`, `type`) VALUES
-(1, 'IMAX'),
-(2, '4DX'),
-(3, 'SCREENX'),
-(4, 'VIP'),
-(5, '2D'),
-(6, '3D');
-
--- --------------------------------------------------------
-
---
 -- Tábla szerkezet ehhez a táblához `tickets`
 --
 
@@ -454,8 +431,7 @@ ALTER TABLE `buffet`
 -- A tábla indexei `movies`
 --
 ALTER TABLE `movies`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `showing_in_id` (`showing_in_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- A tábla indexei `movie_screening`
@@ -487,12 +463,6 @@ ALTER TABLE `rooms`
 ALTER TABLE `seats`
   ADD PRIMARY KEY (`id`),
   ADD KEY `room_id` (`room_id`);
-
---
--- A tábla indexei `showing_in`
---
-ALTER TABLE `showing_in`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- A tábla indexei `tickets`
@@ -560,12 +530,6 @@ ALTER TABLE `seats`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT a táblához `showing_in`
---
-ALTER TABLE `showing_in`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT a táblához `tickets`
 --
 ALTER TABLE `tickets`
@@ -587,12 +551,6 @@ ALTER TABLE `users`
 ALTER TABLE `actor_in_movie`
   ADD CONSTRAINT `actor_in_movie_ibfk_1` FOREIGN KEY (`actor_id`) REFERENCES `actors` (`id`),
   ADD CONSTRAINT `actor_in_movie_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`);
-
---
--- Megkötések a táblához `movies`
---
-ALTER TABLE `movies`
-  ADD CONSTRAINT `movies_ibfk_1` FOREIGN KEY (`showing_in_id`) REFERENCES `showing_in` (`id`);
 
 --
 -- Megkötések a táblához `movie_screening`

@@ -37,7 +37,13 @@
             <ComboBoxItem Content="18"></ComboBoxItem>
         </ComboBox>
         <Label Content="Formátum:" FontWeight="Bold" HorizontalAlignment="Left" Margin="27,500,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <ComboBox x:Name="showing_in_input" HorizontalAlignment="Left" Margin="132,500,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <ComboBox x:Name="showing_in_input" HorizontalAlignment="Left" Margin="132,500,0,0" VerticalAlignment="Top" Width="120" FontSize="16">
+            <ComboBoxItem Content="IMAX"></ComboBoxItem>
+            <ComboBoxItem Content="4DX"></ComboBoxItem>
+            <ComboBoxItem Content="SCREENX"></ComboBoxItem>
+            <ComboBoxItem Content="2D"></ComboBoxItem>
+            <ComboBoxItem Content="3D"></ComboBoxItem>
+        </ComboBox>
         <Label Content="Előzetes url:" FontWeight="Bold" HorizontalAlignment="Left" Margin="27,354,0,0" VerticalAlignment="Top" FontSize="16"/>
         <TextBox x:Name="trailer_input" HorizontalAlignment="Left" Margin="132,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
         <Button x:Name="btn_upload" Content="Felvétel" HorizontalAlignment="Left" Margin="359,539,0,0" VerticalAlignment="Top" Height="63" Width="182" FontSize="24" FontWeight="Bold" Click="btn_upload_Click"/>
