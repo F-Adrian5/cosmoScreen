@@ -94,7 +94,9 @@ Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók s
 | Kategória | Eszköz |
 |------------|--------|
 | Frontend | Vue.js, Pinia, Axios |
-| Design | Bootstrap |
+| Design | Bootstrap, FontAwesome (svg-core, svg-icons, vue-fontawesome) |
 | Backend | PHP |
 | Adatbázis | MySQL + phpMyAdmin |
 | Verziókezelés | Git / GitHub |
+
+`npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons @fortawesome/vue-fontawesome`

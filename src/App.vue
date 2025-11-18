@@ -12,4 +12,8 @@ import FooterView from './views/FooterView.vue'
   <main class="container mt-5">
     <RouterView />
   </main>
+
+  <footer>
+    <FooterView />
+  </footer>
 </template>
