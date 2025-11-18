@@ -68,7 +68,7 @@ Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók s
 
 ## ⚙️ Backend
 - **Nyelv:** PHP  
-- **Adatbázis:** MySQL (kezelt a phpMyAdmin segítségével)
+- **Adatbázis:** MySQL + phpMyAdmin
 
 ---
 
