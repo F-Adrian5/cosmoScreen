@@ -1,0 +1,58 @@
+.carousel {
+  --items: 10; /* 10 film */
+  --carousel-duration: 40s;
+  position: relative;
+  width: 80vw;
+  height: 450px;
+  overflow: hidden;
+}
+
+.carousel:hover > .card {
+  animation-play-state: paused;
+}
+
+.carousel > .card {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 2rem);
+  width: 280px;
+  height: 450px;
+  animation-name: marquee;
+  animation-duration: var(--carousel-duration);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: calc(var(--carousel-duration) / var(--items) * var(--i) * -1);
+}
+
+.carousel img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 200px);
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  flex-grow: 1;
+}
+
+.btn {
+  margin-top: 0.5rem;
+}
+
+@keyframes marquee {
+  100% {
+    transform: translateX(calc(var(--items) * (280px + 2rem) * -1));
+  }
+}

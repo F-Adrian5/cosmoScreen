@@ -1,52 +1,43 @@
 <template>
-  <nav class="navbar navbar-expand-sm bg-body-tertiary">
+  <nav class="navbar navbar-expand-md bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" 
-         href="#">
-        CosmoScreen
-      </a>
-      
+      <!-- brand -->
+      <RouterLink class="navbar-brand" to="/">CosmoScreen</RouterLink>
+
       <!-- hamburger -->
-      <button class="navbar-toggler" 
-              type="button" 
-              data-bs-toggle="collapse" 
-              data-bs-target="#navbarNav" 
-              aria-controls="navbarNav" 
-              aria-expanded="false" 
-              aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
-      
-      <div class="collapse navbar-collapse" 
-           id="navbarNav">
 
-        <!-- pages -->
-        <ul class="navbar-nav">
-          
+      <!-- menu -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- middle side -->
+        <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link active" 
-               aria-current="page"
-               href="#">Műsorlista</a>
+            <RouterLink class="nav-link" to="/programList">Műsorlista</RouterLink>
           </li>
-
           <li class="nav-item">
-            <a class="nav-link" href="#">Büfé</a>
+            <RouterLink class="nav-link" to="/buffet">Büfé</RouterLink>
           </li>
-
           <li class="nav-item">
-            <a class="nav-link" href="#">Rólunk</a>
+            <RouterLink class="nav-link" to="/about">Rólunk</RouterLink>
           </li>
         </ul>
-      </div>
 
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav">
-
-          <span></span>
-          <li class="nav-item ms-3">Nyelv</li>
-          
-          <span></span>
-          <li class="nav-item ms-3">Profil</li>
+        <!-- right side -->
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item ms-3"><font-awesome-icon :icon="['fas', 'language']" /> Nyelv</li>
+          <li class="nav-item ms-3">
+            <font-awesome-icon :icon="['far', 'address-card']" /> Profil
+          </li>
         </ul>
       </div>
     </div>
