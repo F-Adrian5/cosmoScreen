@@ -1,9 +1,9 @@
 <template>
-  <div class="container-fluid bg-body-tertiary fixed-bottom">
-    <div class="row justify-content-center py-3">
-      <p class="fs-xs text-center mb-0">
-        &copy; Copyright&nbsp;&nbsp;2021-2025 Keri Informatika, Makó
-      </p>
+    <div class="container-fluid bg-body-tertiary mt-auto">
+      <div class="row justify-content-center py-3">
+        <p class="fs-xs text-center mb-0">
+          &copy; Copyright 2021-2025 Keri Informatika, Makó
+        </p>
+      </div>
     </div>
-  </div>
 </template>
