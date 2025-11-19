@@ -2,7 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import BuffetView from '../views/BuffetView.vue'
 import AboutView from '../views/AboutView.vue'
-import ProgramList from '../views/ProgramListView.vue'
+import ProgramListView from '../views/ProgramListView.vue'
+import DataFishingView from '../views/DataFishingView.vue'
+import RulesView from '../views/RulesView.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,7 +23,17 @@ const router = createRouter({
     {
       path: '/programList',
       name: 'programList',
-      component: ProgramList,
+      component: ProgramListView,
+    },
+    {
+      path: '/DataFishing',
+      name: 'dataFishing',
+      component: DataFishingView,
+    },
+    {
+      path: '/rules',
+      name: 'rules',
+      component: RulesView,
     },
     {
       path: '/about',

@@ -1,5 +1,5 @@
 <template>
   <div>
-    <h1>Buffet</h1>
+    <h1>Data Fishing</h1>
   </div>
 </template>

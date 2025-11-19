@@ -2,6 +2,10 @@ html, body {
   height: 100%;
 }
 
+footer {
+  margin-top: 30px;
+}
+
 .app-wrapper {
   min-height: 100vh;
   display: flex;
