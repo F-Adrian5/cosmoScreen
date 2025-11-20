@@ -1,5 +1,4 @@
 ﻿using MySql.Data.MySqlClient;
-using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,12 +22,13 @@ namespace cosmoScreen
     /// </summary>
     public partial class szineszek : Window
     {
-        MySql.Data.MySqlClient.MySqlConnection connection = new MySql.Data.MySqlClient.MySqlConnection("server=localhost;database=cosmoscreen;uid=root");
-        MySql.Data.MySqlClient.MySqlCommand command;
+        MySqlConnection connection = new MySqlConnection("server=localhost;database=cosmoscreen;uid=root");
+        MySqlCommand command;
 
         public szineszek()
         {
             InitializeComponent();
+            btn_upload.IsEnabled = false;
         }
 
         public void openConnection()
@@ -67,7 +67,7 @@ namespace cosmoScreen
             {
                 openConnection();
 
-                command = new MySql.Data.MySqlClient.MySqlCommand(query, connection);
+                command = new MySqlCommand(query, connection);
 
                 if (command.ExecuteNonQuery() >= 1)
                 {
@@ -88,12 +88,13 @@ namespace cosmoScreen
         {
             try
             {
-                MySql.Data.MySqlClient.MySqlDataAdapter adapter = new MySql.Data.MySqlClient.MySqlDataAdapter("SELECT * FROM actors", connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM actors", connection);
                 openConnection();
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
                 actors_datagrid.ItemsSource = ds.Tables[0].DefaultView;
                 closeConnection();
+                get_data_btn.IsEnabled = false;
             }
             catch (Exception hiba)
             {
@@ -107,6 +108,17 @@ namespace cosmoScreen
             string actor_uplodad = $"INSERT INTO actors(name) VALUES('{actor_name_input.Text}')";
             executeQuery(actor_uplodad);
 
+        }
+
+        private void actor_name_input_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(actor_name_input.Text == ""){
+                btn_upload.IsEnabled = false;
+            }
+            else
+            {
+                btn_upload.IsEnabled = true;
+            }
         }
     }
 }

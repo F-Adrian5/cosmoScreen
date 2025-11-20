@@ -1,6 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using MySqlConnector;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -15,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace cosmoScreen
@@ -25,10 +22,9 @@ namespace cosmoScreen
     /// </summary>
     public partial class films : Window
     {
-        private MySql.Data.MySqlClient.MySqlConnection connection =
-            new MySql.Data.MySqlClient.MySqlConnection("server=localhost;database=cosmoscreen;uid=root");
+        private MySqlConnection connection = new MySqlConnection("server=localhost;database=cosmoscreen;uid=root");
 
-        private MySql.Data.MySqlClient.MySqlCommand command;
+        private MySqlCommand command;
 
         public films()
         {
@@ -71,7 +67,7 @@ namespace cosmoScreen
             {
                 openConnection();
 
-                command = new MySql.Data.MySqlClient.MySqlCommand(query, connection);
+                command = new MySqlCommand(query, connection);
 
                 if (command.ExecuteNonQuery() >= 1)
                 {
@@ -94,14 +90,14 @@ namespace cosmoScreen
             {
                 teszt_input.Text = release_date_input.Text;
 
-                MySql.Data.MySqlClient.MySqlDataAdapter adapter =
-                    new MySql.Data.MySqlClient.MySqlDataAdapter("SELECT * FROM movies", connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM movies", connection);
 
                 openConnection();
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
                 movie_datagrid.ItemsSource = ds.Tables[0].DefaultView;
                 closeConnection();
+                get_data_btn.IsEnabled = false;
             }
             catch (Exception hiba)
             {

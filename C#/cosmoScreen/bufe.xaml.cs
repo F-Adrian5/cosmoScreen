@@ -1,5 +1,4 @@
 ﻿using MySql.Data.MySqlClient;
-using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -24,8 +23,8 @@ namespace cosmoScreen
     public partial class bufe : Window
     {
 
-        MySql.Data.MySqlClient.MySqlConnection connection = new MySql.Data.MySqlClient.MySqlConnection("server=localhost;database=cosmoscreen;uid=root");
-        MySql.Data.MySqlClient.MySqlCommand command;
+        MySqlConnection connection = new MySqlConnection("server=localhost;database=cosmoscreen;uid=root");
+        MySqlCommand command;
 
         public bufe()
         {
@@ -68,7 +67,7 @@ namespace cosmoScreen
             {
                 openConnection();
 
-                command = new MySql.Data.MySqlClient.MySqlCommand(query, connection);
+                command = new MySqlCommand(query, connection);
 
                 if (command.ExecuteNonQuery() >= 1)
                 {
@@ -89,12 +88,13 @@ namespace cosmoScreen
         {
             try
             {
-                MySql.Data.MySqlClient.MySqlDataAdapter adapter = new MySql.Data.MySqlClient.MySqlDataAdapter("SELECT * FROM buffet", connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM buffet", connection);
                 openConnection();
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
                 buffet_datagrid.ItemsSource = ds.Tables[0].DefaultView;
                 closeConnection();
+                get_data_btn.IsEnabled = false;
             }
             catch (Exception hiba)
             {
