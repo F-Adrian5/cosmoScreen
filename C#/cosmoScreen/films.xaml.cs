@@ -109,8 +109,10 @@ namespace cosmoScreen
 
         private void btn_upload_Click(object sender, RoutedEventArgs e)
         {
-            string actor_uplodad = $"INSERT INTO movies(title,genre,runtime,director,production,age_restriction,showing_in,poster,trailer,description,release_date) VALUES('{title_input.Text}','{genre_combobox.Text}','{runtime_input.Text}','{director_input.Text}','{director_input.Text}','{production_input.Text}','{age_restriction_combobox.Text}','{showing_in_input.Text}','{poster_input.Text}','{trailer_input.Text}','{description_input.Text}',{release_date_input.SelectedDate?.ToString("yyyy-MM-dd")}";
-            executeQuery(actor_uplodad);
+            string actor_upload = $"INSERT INTO movies(title, genre, runtime, director, production, age_restriction, showing_in, poster, trailer, description, release_date) VALUES ('{title_input.Text}', '{genre_combobox.Text}', '{runtime_input.Text}', '{director_input.Text}', '{production_input.Text}', '{age_restriction_combobox.Text}', '{showing_in_input.Text}', '{poster_input.Text}', '{trailer_input.Text}', '{description_input.Text}', '{release_date_input.SelectedDate?.ToString("yyyy-MM-dd")}')";
+
+
+            executeQuery(actor_upload);
         }
     }
 }

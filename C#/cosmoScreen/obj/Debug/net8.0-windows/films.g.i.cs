@@ -197,7 +197,7 @@ namespace cosmoScreen {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/cosmoScreen;V1.0.0.0;component/films.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/cosmoScreen;component/films.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\films.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
