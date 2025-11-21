@@ -8,16 +8,16 @@
         Title="Filmek" Height="800" Width="1000">
     <Grid Background="#FFB5C6FB">
         <Label Content="Cím:" HorizontalAlignment="Left" Margin="27,124,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <TextBox x:Name="title_input" HorizontalAlignment="Left" Margin="132,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <TextBox x:Name="title_input" TextChanged="InputChanged" HorizontalAlignment="Left" Margin="132,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
         <Label Content="Játékidő:" HorizontalAlignment="Left" Margin="27,167,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <TextBox x:Name="runtime_input" HorizontalAlignment="Left" Margin="132,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <TextBox x:Name="runtime_input" HorizontalAlignment="Left" TextChanged="InputChanged" Margin="132,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
         <Label Content="Rendező:" HorizontalAlignment="Left" Margin="27,206,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <TextBox x:Name="director_input" HorizontalAlignment="Left" Margin="132,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <TextBox x:Name="director_input" HorizontalAlignment="Left" Margin="132,214,0,0" TextChanged="InputChanged" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
         <Label Content="Stúdió:" HorizontalAlignment="Left" Margin="27,256,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <TextBox x:Name="production_input" HorizontalAlignment="Left" Margin="132,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <TextBox x:Name="production_input" HorizontalAlignment="Left" Margin="132,264,0,0" TextChanged="InputChanged" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
         <Label Content="Poszter url:" HorizontalAlignment="Left" Margin="27,308,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <TextBox x:Name="poster_input" HorizontalAlignment="Left" Margin="132,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <ComboBox x:Name="genre_combobox" HorizontalAlignment="Left" Margin="132,412,0,0" VerticalAlignment="Top" Width="120" FontSize="16">
+        <TextBox x:Name="poster_input" HorizontalAlignment="Left" Margin="132,312,0,0" TextWrapping="Wrap" TextChanged="InputChanged" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <ComboBox x:Name="genre_combobox" HorizontalAlignment="Left" Margin="132,412,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="InputChanged" FontSize="16">
             <ComboBoxItem Content="Akció"></ComboBoxItem>
             <ComboBoxItem Content="Dráma"></ComboBoxItem>
             <ComboBoxItem Content="Történelemi"></ComboBoxItem>
@@ -30,14 +30,14 @@
         </ComboBox>
         <Label Content="Műfaj:" HorizontalAlignment="Left" Margin="27,408,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
         <Label Content="Korhatár:" FontWeight="Bold" HorizontalAlignment="Left" Margin="27,456,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <ComboBox x:Name="age_restriction_combobox" HorizontalAlignment="Left" Margin="132,460,0,0" VerticalAlignment="Top" Width="120" FontSize="16">
+        <ComboBox x:Name="age_restriction_combobox" HorizontalAlignment="Left" Margin="132,460,0,0" SelectionChanged="InputChanged" VerticalAlignment="Top" Width="120" FontSize="16">
             <ComboBoxItem Content="7"></ComboBoxItem>
             <ComboBoxItem Content="12"></ComboBoxItem>
             <ComboBoxItem Content="16"></ComboBoxItem>
             <ComboBoxItem Content="18"></ComboBoxItem>
         </ComboBox>
         <Label Content="Formátum:" FontWeight="Bold" HorizontalAlignment="Left" Margin="27,500,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <ComboBox x:Name="showing_in_input" HorizontalAlignment="Left" Margin="132,500,0,0" VerticalAlignment="Top" Width="120" FontSize="16">
+        <ComboBox x:Name="showing_in_input" SelectionChanged="InputChanged" HorizontalAlignment="Left" Margin="132,500,0,0" VerticalAlignment="Top" Width="120" FontSize="16">
             <ComboBoxItem Content="IMAX"></ComboBoxItem>
             <ComboBoxItem Content="4DX"></ComboBoxItem>
             <ComboBoxItem Content="SCREENX"></ComboBoxItem>
@@ -45,8 +45,8 @@
             <ComboBoxItem Content="3D"></ComboBoxItem>
         </ComboBox>
         <Label Content="Előzetes url:" FontWeight="Bold" HorizontalAlignment="Left" Margin="27,354,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="trailer_input" HorizontalAlignment="Left" Margin="132,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Button x:Name="btn_upload" Content="Felvétel" HorizontalAlignment="Left" Margin="359,539,0,0" VerticalAlignment="Top" Height="63" Width="182" FontSize="24" FontWeight="Bold" Click="btn_upload_Click"/>
+        <TextBox x:Name="trailer_input" TextChanged="InputChanged" HorizontalAlignment="Left" Margin="132,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Button x:Name="btn_upload" Content="Felvétel" IsEnabled="False" HorizontalAlignment="Left" Margin="359,539,0,0" VerticalAlignment="Top" Height="63" Width="182" FontSize="24" FontWeight="Bold" Click="btn_upload_Click"/>
         <Label Content="Film felvétel" HorizontalAlignment="Center" Margin="0,63,0,0" VerticalAlignment="Top" Height="56" Width="162" FontSize="26" FontWeight="Bold" FontStyle="Italic"/>
         <DataGrid x:Name="movie_datagrid" HorizontalAlignment="Left" Height="384" Margin="324,132,0,0" VerticalAlignment="Top" Width="650" d:ItemsSource="{d:SampleData ItemCount=5}" Background="{x:Null}"/>
         <Button x:Name="get_data_btn" Content="Lekérdez" HorizontalAlignment="Left" Margin="769,539,0,0" VerticalAlignment="Top" FontSize="24" Height="63" Width="182" FontWeight="Bold" Click="get_data_btn_Click"/>
@@ -58,9 +58,8 @@
         </Menu>
         <Label Content="Film adatok felvétele" HorizontalAlignment="Left" Margin="27,81,0,0" VerticalAlignment="Top" Height="38" Width="274" FontSize="22" FontStyle="Italic" FontWeight="Bold" Foreground="#FF693EE4" Background="#FFB5C6FB"/>
         <Label Content="Leírás:" FontWeight="Bold" HorizontalAlignment="Left" Margin="30,646,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox Name="description_input" HorizontalAlignment="Left" Height="69" Margin="27,682,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
+        <TextBox Name="description_input" TextChanged="InputChanged" HorizontalAlignment="Left" Height="69" Margin="27,682,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
         <Label Content="Megjelnési dátum:&#xD;&#xA;" FontWeight="Bold" HorizontalAlignment="Left" Margin="27,556,0,0" VerticalAlignment="Top" FontSize="16" Height="29"/>
-        <DatePicker Name="release_date_input" HorizontalAlignment="Left" Margin="27,590,0,0" VerticalAlignment="Top" Height="29" Width="150" FontSize="16" RenderTransformOrigin="0.345,0.426"/>
-        <TextBox Name="teszt_input" HorizontalAlignment="Left" Margin="419,662,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <DatePicker Name="release_date_input" SelectedDateChanged="InputChanged" HorizontalAlignment="Left" Margin="27,590,0,0" VerticalAlignment="Top" Height="29" Width="150" FontSize="16" RenderTransformOrigin="0.345,0.426"/>
     </Grid>
 </Window>

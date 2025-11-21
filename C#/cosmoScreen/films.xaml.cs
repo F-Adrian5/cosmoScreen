@@ -88,8 +88,6 @@ namespace cosmoScreen
         {
             try
             {
-                teszt_input.Text = release_date_input.Text;
-
                 MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM movies", connection);
 
                 openConnection();
@@ -104,15 +102,37 @@ namespace cosmoScreen
                 MessageBox.Show(hiba.Message);
             }
 
-
         }
 
         private void btn_upload_Click(object sender, RoutedEventArgs e)
         {
             string actor_upload = $"INSERT INTO movies(title, genre, runtime, director, production, age_restriction, showing_in, poster, trailer, description, release_date) VALUES ('{title_input.Text}', '{genre_combobox.Text}', '{runtime_input.Text}', '{director_input.Text}', '{production_input.Text}', '{age_restriction_combobox.Text}', '{showing_in_input.Text}', '{poster_input.Text}', '{trailer_input.Text}', '{description_input.Text}', '{release_date_input.SelectedDate?.ToString("yyyy-MM-dd")}')";
-
-
             executeQuery(actor_upload);
+        }
+        private void InputChanged(object sender, EventArgs e)
+        {
+            btn_upload.IsEnabled = ValidateInputs();
+        }
+        private bool ValidateInputs()
+        {
+
+            if (string.IsNullOrWhiteSpace(title_input.Text)) return false;
+            if (string.IsNullOrWhiteSpace(director_input.Text)) return false;
+            if (string.IsNullOrWhiteSpace(production_input.Text)) return false;
+            if (string.IsNullOrWhiteSpace(poster_input.Text)) return false;
+            if (string.IsNullOrWhiteSpace(trailer_input.Text)) return false;
+            if (string.IsNullOrWhiteSpace(description_input.Text)) return false;
+
+            if (!int.TryParse(runtime_input.Text, out int runtime) || !(runtime > 0))
+                return false;
+
+            if (genre_combobox.SelectedIndex < 0) return false;
+            if (age_restriction_combobox.SelectedIndex < 0) return false;
+            if (showing_in_input.SelectedIndex < 0) return false;
+
+            if (release_date_input.SelectedDate == null) return false;
+
+            return true;
         }
     }
 }

@@ -107,5 +107,21 @@ namespace cosmoScreen
             string actor_uplodad = $"INSERT INTO buffet(name,price,description,img) VALUES('{food_name.Text}','{food_price.Text}','{food_description.Text}','{food_image_url.Text}')";
             executeQuery(actor_uplodad);
         }
+        private void InputChanged(object sender, TextChangedEventArgs e)
+        {
+            btn_upload.IsEnabled = ValidateInputs();
+        }
+
+        private bool ValidateInputs()
+        {
+            if (string.IsNullOrWhiteSpace(food_name.Text)) return false;
+            if (string.IsNullOrWhiteSpace(food_description.Text)) return false;
+            if (string.IsNullOrWhiteSpace(food_image_url.Text)) return false;
+
+            if (!int.TryParse(food_price.Text, out int price) || price < 0)
+                return false;
+
+            return true;
+        }
     }
 }
