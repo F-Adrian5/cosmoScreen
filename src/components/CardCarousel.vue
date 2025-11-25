@@ -1,8 +1,10 @@
 <template>
   <div class="container">
-    <div class="row">
-      <div class="carousel">
-        <div class="card" v-for="(movie, index) in movies" :key="movie.id" :style="{ '--i': index }">
+    <div class="row align-text-center">
+      <div class="carousel w-100">
+        <div
+          class="card movie-card"
+          v-for="(movie, index) in movies" :key="movie.id" :style="{ '--i': index }">
           <img :src="movie.image" class="card-img-top" :alt="movie.title" />
           <div class="card-body">
             <h5 class="card-title">{{ movie.title }}</h5>
@@ -13,6 +15,7 @@
     </div>
   </div>
 </template>
+
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'

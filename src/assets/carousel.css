@@ -1,9 +1,6 @@
 .carousel {
   --items: 10;
   --carousel-duration: 60s;
-  /* width: 900px;
-  height: 450px; */
-  overflow: hidden;
 }
 
 .carousel:hover > .card {
