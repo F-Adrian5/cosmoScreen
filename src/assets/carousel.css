@@ -1,7 +1,7 @@
 .carousel {
   --items: 10;
   --carousel-duration: 60s;
-  width: 1200px;
+  width: 900px;
   height: 450px;
   overflow: hidden;
 }
