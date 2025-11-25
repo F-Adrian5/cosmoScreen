@@ -1,8 +1,7 @@
 .carousel {
-  --items: 10; /* 10 film */
-  --carousel-duration: 40s;
-  position: relative;
-  width: 80vw;
+  --items: 10;
+  --carousel-duration: 60s;
+  width: 1200px;
   height: 450px;
   overflow: hidden;
 }

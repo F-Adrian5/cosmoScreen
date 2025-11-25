@@ -3,7 +3,7 @@
     <div class="container-fluid">
 
       <!-- brand -->
-      <RouterLink class="navbar-brand" to="/">CosmoScreen</RouterLink>
+      <RouterLink class="navbar-brand fs-2" to="/">CosmoScreen</RouterLink>
 
       <!-- hamburger -->
       <button class="navbar-toggler"
@@ -21,7 +21,7 @@
            id="navbarNav">
         
         <!-- middle side -->
-        <ul class="navbar-nav mx-auto">
+        <ul class="navbar-nav mx-auto fs-4">
           <li class="nav-item">
             <RouterLink class="nav-link" 
                         to="/programList">
@@ -45,7 +45,7 @@
         </ul>
 
         <!-- right side -->
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav fs-5">
           
           <li class="nav-item ms-3">
             <font-awesome-icon :icon="['fas', 'language']"/> 

@@ -5,8 +5,8 @@
 
 <template>
   <main>
-    <h3 class="text-center mb-5 mt-5">Üdvözöljük a CosmoScreen oldalán!</h3>
-    <p class="fw-bold">Jelenleg vetítjük:</p>
+    <h2 class="text-center mb-5 mt-5">Üdvözöljük a CosmoScreen oldalán!</h2>
+    <p class="fw-bold fs-3">Jelenleg vetítjük:</p>
     <Carousel />
   </main>
 </template>
