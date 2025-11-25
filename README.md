@@ -100,3 +100,7 @@ Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók s
 | Verziókezelés | Git / GitHub |
 
 `npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons @fortawesome/vue-fontawesome`
+
+## 📎 Hivatkozások:
+  - **GitHub**: [CosmoScreen](https://github.com/F-Adrian5/cosmoScreen)
+  - **Trello**: [Projekt Trello](https://trello.com/b/ADnGrOpg/cosmoscreen)
