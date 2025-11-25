@@ -1,7 +1,11 @@
 .carousel {
   --items: 10;
   --carousel-duration: 60s;
-  margin-right: 50px;
+  height: 450px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-right: 50px;
 }
 
 .carousel:hover > .card {
