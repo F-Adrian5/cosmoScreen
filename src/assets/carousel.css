@@ -1,6 +1,7 @@
 .carousel {
   --items: 10;
   --carousel-duration: 60s;
+  margin-right: 50px;
 }
 
 .carousel:hover > .card {
