@@ -106,7 +106,7 @@ namespace cosmoScreen
 
         private void btn_upload_Click(object sender, RoutedEventArgs e)
         {
-            string actor_upload = $"INSERT INTO movies(title, genre, runtime, director, production, age_restriction, showing_in, poster, trailer, description, release_date) VALUES ('{title_input.Text}', '{genre_combobox.Text}', '{runtime_input.Text}', '{director_input.Text}', '{production_input.Text}', '{age_restriction_combobox.Text}', '{showing_in_input.Text}', '{poster_input.Text}', '{trailer_input.Text}', '{description_input.Text}', '{release_date_input.SelectedDate?.ToString("yyyy-MM-dd")}')";
+            string actor_upload = $"INSERT INTO movies(title, genre, runtime, director, production, age_restriction, showing_in, poster, trailer, description, release_date) VALUES ('{title_input.Text}', '{genre_combobox.Text}', '{runtime_input.Text}', '{director_input.Text}', '{production_input.Text}', '{age_restriction_combobox.Text}', '{showing_in_combobox.Text}', '{poster_input.Text}', '{trailer_input.Text}', '{description_input.Text}', '{release_date_input.SelectedDate?.ToString("yyyy-MM-dd")}')";
             executeQuery(actor_upload);
         }
         private void InputChanged(object sender, EventArgs e)
@@ -128,11 +128,54 @@ namespace cosmoScreen
 
             if (genre_combobox.SelectedIndex < 0) return false;
             if (age_restriction_combobox.SelectedIndex < 0) return false;
-            if (showing_in_input.SelectedIndex < 0) return false;
+            if (showing_in_combobox.SelectedIndex < 0) return false;
 
             if (release_date_input.SelectedDate == null) return false;
 
             return true;
+        }
+
+        private void movie_datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var movie_title = "";
+            var movie_runtime = "";
+            var movie_director = "";
+            var movie_studio = "";
+            var movie_poster = "";
+            var movie_trailer = "";
+            var movie_genre = "";
+            var movie_age = "";
+            var movie_showing_in = "";
+            var movie_re_date = "";
+            var movie_description = "";
+            DataRowView sor = (DataRowView)movie_datagrid.SelectedItem;
+            if (sor != null)
+            {
+                movie_title = sor["title"].ToString();
+                movie_runtime = sor["runtime"].ToString();
+                movie_director = sor["director"].ToString();
+                movie_studio = sor["production"].ToString();
+                movie_poster = sor["poster"].ToString();
+                movie_trailer = sor["trailer"].ToString();
+                movie_genre = sor["genre"].ToString();
+                movie_age = sor["age_restriction"].ToString();
+                movie_showing_in = sor["showing_in"].ToString();
+                movie_re_date = sor["release_date"].ToString();
+                movie_description = sor["description"].ToString();
+
+                title_input.Text = movie_title;
+                runtime_input.Text = movie_runtime;
+                director_input.Text = movie_director;
+                production_input.Text = movie_studio;
+                poster_input.Text = movie_poster;
+                trailer_input.Text = movie_trailer;
+                genre_combobox.Text = movie_genre;
+                age_restriction_combobox.Text = movie_age;
+                showing_in_combobox.Text = movie_showing_in;
+                release_date_input.Text = movie_re_date;
+                description_input.Text = movie_description;
+            }
+
         }
     }
 }

@@ -120,5 +120,18 @@ namespace cosmoScreen
                 btn_upload.IsEnabled = true;
             }
         }
+
+        private void actors_datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var actor_name = "";
+            DataRowView sor = (DataRowView)actors_datagrid.SelectedItem;
+            if (sor != null)
+            {
+                actor_name = sor["name"].ToString();
+                actor_name_input.Text = actor_name;
+            }
+
+
+        }
     }
 }
