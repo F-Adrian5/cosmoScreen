@@ -1,4 +1,4 @@
-# CosmoScreen
+# <center> CosmoScreen
 
 > *„Ahol minden képkocka egy új világ!”*
 
