@@ -2,14 +2,14 @@
     <div class="container-fluid bg-body-tertiary mt-auto">
       <div class="row justify-content-center py-3 bg-dark text-light">
 
-        <div class="col fw-bold text-center">CosmoScreen</div>
-        <div class="col text-center fw-bold">Elérhetőségek 
+        <div class="col fw-bold text-center mb-3">CosmoScreen</div>
+        <div class="col text-center fw-bold mb-3">Elérhetőségek 
           <div class="fw-light">
             <div>CosmoScreen@gmail.com</div>
             <div>Tel.: +36303456789</div>
           </div>
         </div>
-        <div class="col">Információk
+        <div class="col fw-bold text-center mb-3">Információk
 
           <div class="fw-light">
             <div>
@@ -27,7 +27,7 @@
           </div>
         </div>
 
-        <p class="fs-xs text-start mb-0">
+        <p class="fs-xs text-start mb-0 text-center">
           Minden jog fentartva CosmoScreen - 2025&copy;
         </p>
       </div>
