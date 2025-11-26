@@ -72,14 +72,6 @@ Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók s
 
 ---
 
-## 🗂️ Architektúra
-- Moduláris Vue komponensek az előadások, műsoridők és jegyfoglalások kezelésére  
-- Laravel REST API az előadások, foglalások és felhasználói adatok számára  
-- Axios a biztonságos és hatékony kommunikációért a frontend és a backend között  
-- Pinia a globális állapot (pl. felhasználói munkamenet, jegykosár) kezelésére  
-
----
-
 ## 👥 Csapat
 
 | Szerep | Név |
@@ -99,7 +91,20 @@ Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók s
 | Adatbázis | MySQL + phpMyAdmin |
 | Verziókezelés | Git / GitHub |
 
-`npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons @fortawesome/vue-fontawesome`
+---
+
+## 📃 Project telepítése és elindítása
+
+### 1. A project lehúzása
+ - `git clone https://github.com/F-Adrian5/cosmoScreen`
+
+### 2. Node modulok letöltése
+ - A project könyvtárában ezt a console parancsot futtassa le: `npm install`
+
+### 3. Project elindítása
+ - `npm run dev`
+
+---
 
 ## 📎 Hivatkozások:
   - **GitHub**: [CosmoScreen](https://github.com/F-Adrian5/cosmoScreen)
