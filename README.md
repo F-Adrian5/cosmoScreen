@@ -1,87 +1,90 @@
-# 🎭 CosmoScreen
+# CosmoScreen
 
 > *„Ahol minden képkocka egy új világ!”*
 
 ---
 
-## 🌌 Projekt áttekintés
+## Projekt áttekintés
 A **CosmoScreen** egy modern, elegáns **mozis weboldal**, amely bemutatja az aktuális előadásokat, kezeli a műsorokat, és lehetőséget biztosít az online jegyvásárlásra.  
 Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók számára.
 
+<!--  
 ---
 
-## 🎬 Főbb funkciók
+## Főbb funkciók
 
-- 👤 **Felhasználói fiókok kezelése**
+- **Felhasználói fiókok kezelése**
   - Regisztráció, bejelentkezés, kijelentkezés  
   - Profiladatok módosítása
   - Admin jogosultságok (felhasználók kezelése)
 
-- 🎥 **Filmkatalógus**
+- **Filmkatalógus**
   - Filmek adatlapja (leírás, műfaj, korhatár, szereplők, előzetes...)  
   - Filmek keresése és szűrése (műfaj, korhatár, vetítési időpont...)  
   - Gyorstalpaló 
 
-- 🗓️ **Vetítési naptár**
+- **Vetítési naptár**
   - Általános vetítési kalendárium  
   - Időpontok és helyszínek megjelenítése  
   - Szűrési lehetőségek  
 
-- 🎟️ **Jegyfoglalás és vásárlás**
+- **Jegyfoglalás és vásárlás**
   - Online jegyfoglalás  
   - Vizuális ülőhelyválasztás  
   - Kosárkezelés, fizetési felület 
 
-- 🧑‍💼 **Admin felület (C#)**
+- **Admin felület (C#)**
   - Filmek, szereplők kezelése  
   - Vetítési időpontok és tartalom frissítése
   - Felhasználói adatok szerkesztése
 
-- 🍿 **Büfé kínálat**
+- **Büfé kínálat**
   - Aktuális árlista és termékkínálat megtekintése  
 
-- 🌟 **Moziélmény bemutató**
+- **Moziélmény bemutató**
   - 4DX, ScreenX, VIP szekciók ismertetése  
 
-- 🌐 **Többnyelvű támogatás**
+- **Többnyelvű támogatás**
   - Magyar / Angol nyelvváltás  
 
-- 🔍 **Keresőfunkciók**
+- **Keresőfunkciók**
   - Filmnév alapján 
 
-- 📱 **Reszponzív felület**
+- **Reszponzív felület**
   - Mobil, tablet és asztali megjelenés támogatása  
+
+-->
 
 ---
 
-## 🖥️ Frontend
+## Frontend
 - **Keretrendszer:** [Vue.js](https://vuejs.org/)
 - **Állapotkezelés:** [Pinia](https://pinia.vuejs.org/)
 - **HTTP kliens:** [Axios](https://axios-http.com/)
 
 ---
 
-## 🎨 Design
+## Design
 - **Design rendszer:** [Bootstrap](https://getbootstrap.com/)
 
 ---
 
-## ⚙️ Backend
+## Backend
 - **Nyelv:** PHP  
 - **Adatbázis:** MySQL + phpMyAdmin
 
 ---
 
-## 👥 Csapat
+## Csapat
 
 | Szerep | Név |
 |--------|-----|
-| 👑 **Projektvezető** | **Fodor Adrián László** |
-| 💻 **Tagok** | **Kriván Balázs, Fodor Adrián László** |
+| **Projektvezető** | **Fodor Adrián László** |
+| **Tagok** | **Kriván Balázs, Fodor Adrián László** |
 
 ---
 
-## 🗃️ Eszközök és technológiák
+## Eszközök és technológiák
 
 | Kategória | Eszköz |
 |------------|--------|
@@ -93,7 +96,7 @@ Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók s
 
 ---
 
-## 📃 Project telepítése és elindítása
+## Project telepítése és elindítása
 
 ### 1. A project lehúzása
  - `git clone https://github.com/F-Adrian5/cosmoScreen`
@@ -106,6 +109,6 @@ Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók s
 
 ---
 
-## 📎 Hivatkozások:
+## Hivatkozások:
   - **GitHub**: [CosmoScreen](https://github.com/F-Adrian5/cosmoScreen)
   - **Trello**: [Projekt Trello](https://trello.com/b/ADnGrOpg/cosmoscreen)
