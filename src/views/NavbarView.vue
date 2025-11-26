@@ -14,7 +14,6 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- itt kellett a ref="navbar" -->
       <div class="collapse navbar-collapse" 
            id="navbarNav"
            ref="navbar">
