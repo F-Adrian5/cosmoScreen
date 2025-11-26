@@ -123,5 +123,39 @@ namespace cosmoScreen
 
             return true;
         }
+
+        private void buffet_datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var buffet_name = "";
+            var buffet_price = "";
+            var buffet_description = "";
+            var buffet_img = "";
+            DataRowView sor = (DataRowView)buffet_datagrid.SelectedItem;
+
+            delete_data_btn.IsEnabled = true;
+            if (sor != null)
+            {
+                buffet_name = sor["name"].ToString();
+                buffet_price = sor["price"].ToString();
+                buffet_description = sor["description"].ToString();
+                buffet_img = sor["img"].ToString();
+                food_name.Text = buffet_name;
+                food_price.Text = buffet_price;
+                food_description.Text = buffet_description;
+                food_image_url.Text = buffet_img;
+            }
+
+        }
+
+     
+
+        private void delete_data_btn_Click(object sender, RoutedEventArgs e)
+        {
+            string torol = $"DELETE FROM buffet WHERE name ='{food_name.Text}'";
+            buffet_datagrid.SelectedItem = null;
+            executeQuery(torol);
+           
+
+        }
     }
 }

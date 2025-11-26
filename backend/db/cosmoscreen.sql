@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Nov 21. 08:24
+-- Létrehozás ideje: 2025. Nov 25. 07:43
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -197,8 +197,8 @@ INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production
 (4, 'Ponyvaregény', 'Bűnügyi', 154, 'Quentin Tarantino', 'Miramax', 18, '3D', 'pulp_fiction.jpg', 'pulp_fiction.mp4', 'Egymásba fonódó bűntörténetek.', '1994-10-14'),
 (5, 'Schindler listája', 'Dráma', 195, 'Steven Spielberg', 'Universal Pictures', 16, '3D', 'schindlers_list.jpg', 'schindlers_list.mp4', 'Egy férfi zsidókat ment meg a II. világháborúban.', '1993-12-15'),
 (6, 'Forrest Gump', 'Dráma', 142, 'Robert Zemeckis', 'Paramount Pictures', 12, '3D', 'forrest_gump.jpg', 'forrest_gump.mp4', 'Egy egyszerű ember nagy történelmet él meg.', '1994-07-06'),
-(7, 'Eredet', 'Sci-Fi', 148, 'Christopher Nolan', 'Warner', 16, '3', 'inception.jpg', 'inception.mp4', 'Álmok az álmokban.', '2010-07-16'),
-(8, 'Harcosok klubja', 'Dráma', 139, 'David Fincher', 'Twentieth Century Fox', 18, '5', 'fight_club.jpg', 'fight_club.mp4', 'Egy titkos klub káoszba torkollik.', '1999-10-15'),
+(7, 'Eredet', 'Sci-Fi', 148, 'Christopher Nolan', 'Warner', 16, '2D', 'inception.jpg', 'inception.mp4', 'Álmok az álmokban.', '2010-07-16'),
+(8, 'Harcosok klubja', 'Dráma', 139, 'David Fincher', 'Twentieth Century Fox', 18, '3D', 'fight_club.jpg', 'fight_club.mp4', 'Egy titkos klub káoszba torkollik.', '1999-10-15'),
 (9, 'A Gyűrűk ura: A Gyűrű Szövetsége', 'Fantasy', 178, 'Peter Jackson', 'New Line Cinema', 12, 'SCREENX', 'lotr1.jpg', 'lotr1.mp4', 'Egy hobbit viszi a megátkozott gyűrűt.', '2001-12-19'),
 (10, 'A Gyűrűk ura: A Két Torony', 'Fantasy', 179, 'Peter Jackson', 'New Line Cinema', 12, 'SCREENX', 'lotr2.jpg', 'lotr2.mp4', 'A Szövetség tagjai különválnak.', '2002-12-18'),
 (11, 'A Gyűrűk ura: A Király Visszatér', 'Fantasy', 201, 'Peter Jackson', 'New Line Cinema', 12, 'SCREENX', 'lotr3.jpg', 'lotr3.mp4', 'A végső csata Középföldéért.', '2003-12-17'),
