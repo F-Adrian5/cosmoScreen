@@ -23,21 +23,24 @@
         <!-- middle side -->
         <ul class="navbar-nav mx-auto fs-4">
           <li class="nav-item">
-            <RouterLink class="nav-link" 
+            <RouterLink class="nav-link"
+                        onclick="arialExpand()"
                         to="/programList">
                   Műsorlista
             </RouterLink>
           </li>
 
           <li class="nav-item">
-            <RouterLink class="nav-link" 
+            <RouterLink class="nav-link"
+                        onclick="arialExpand()"
                         to="/buffet">
                   Büfé
             </RouterLink>
           </li>
           
           <li class="nav-item">
-            <RouterLink class="nav-link" 
+            <RouterLink class="nav-link"
+                        onclick="arialExpand()" 
                         to="/about">
                   Rólunk
             </RouterLink>
@@ -61,3 +64,19 @@
     </div>
   </nav>
 </template>
+
+<script setup>
+
+  function arialExpand() {
+    let arialExpanded = document.querySelector(".navbar-toggler").getAttribute("aria-expanded")
+
+    if (arialExpanded == "true") {
+      arialExpanded = "false";
+    } else {
+      arialExpanded = "true";
+    }
+
+    document.querySelector(".navbar-toggler").setAttribute("aria-expanded", arialExpanded)
+  }
+
+</script>

@@ -32,9 +32,9 @@ const days = [
   "Vasárnap"
 ]
 
-const selectedDay = ref(null)
+const selectedDay = ref(days[0]);
 
 function selectDay(day) {
-  selectedDay.value = day
+  selectedDay.value = day;
 }
 </script>
