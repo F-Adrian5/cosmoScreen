@@ -149,6 +149,7 @@ namespace cosmoScreen
             return true;
         }
 
+        private int movie_id = -1;
         private void movie_datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var movie_title = "";
@@ -166,8 +167,10 @@ namespace cosmoScreen
             DataRowView sor = (DataRowView)movie_datagrid.SelectedItem;
 
             delete_data_btn.IsEnabled = true;
+            edit_data_btn.IsEnabled = true;
             if (sor != null)
             {
+                movie_id = Convert.ToInt32(sor["id"]);
                 movie_title = sor["title"].ToString();
                 movie_runtime = sor["runtime"].ToString();
                 movie_director = sor["director"].ToString();
@@ -197,9 +200,17 @@ namespace cosmoScreen
 
         private void delete_data_btn_Click(object sender, RoutedEventArgs e)
         {
-            string torol = $"DELETE FROM movies WHERE title ='{title_input.Text}'";
+            string torol = $"DELETE FROM movies WHERE id ='{movie_id}'";
             movie_datagrid.SelectedItem = null;
             executeQuery(torol);
+            LoadMovies();
+        }
+
+        private void edit_data_btn_Click(object sender, RoutedEventArgs e)
+        {
+            string sorfrissites = $"UPDATE movies SET title='{title_input.Text}', genre='{genre_combobox.Text}', runtime='{runtime_input.Text}', director='{director_input.Text}', production='{production_input.Text}',age_restriction='{age_restriction_combobox.Text}', showing_in='{showing_in_combobox.Text}', poster='{poster_input.Text}', trailer='{trailer_input.Text}', description='{description_input.Text}', release_date='{release_date_input.Text}' WHERE id='{movie_id}'";
+            executeQuery(sorfrissites);
+            movie_datagrid.SelectedItem = null;
             LoadMovies();
         }
     }

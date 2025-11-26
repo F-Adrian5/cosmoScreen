@@ -120,7 +120,6 @@ namespace cosmoScreen
             string actor_uplodad = $"INSERT INTO actors(name) VALUES('{actor_name_input.Text}')";
             executeQuery(actor_uplodad);
             LoadActors();
-
         }
 
         private void actor_name_input_TextChanged(object sender, TextChangedEventArgs e)
@@ -134,26 +133,35 @@ namespace cosmoScreen
             }
         }
 
+        private int actor_id = -1;
         private void actors_datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var actor_name = "";
             DataRowView sor = (DataRowView)actors_datagrid.SelectedItem;
 
             delete_data_btn.IsEnabled = true;
+            edit_data_btn.IsEnabled = true;
             if (sor != null)
             {
+                actor_id = Convert.ToInt32(sor["id"]);
                 actor_name = sor["name"].ToString();
                 actor_name_input.Text = actor_name;
             }
-
-
         }
 
         private void delete_data_btn_Click(object sender, RoutedEventArgs e)
         {
-            string torol = $"DELETE FROM actors WHERE name ='{actor_name_input.Text}'";
+            string torol = $"DELETE FROM actors WHERE id ='{actor_id}'";
             actors_datagrid.SelectedItem = null;
             executeQuery(torol);
+            LoadActors();
+        }
+
+        private void edit_data_btn_Click(object sender, RoutedEventArgs e)
+        {
+            string sorfrissites = $"UPDATE actors SET name='{actor_name_input.Text}' WHERE id='{actor_id}'";
+            executeQuery(sorfrissites);
+            actors_datagrid.SelectedItem = null;
             LoadActors();
         }
     }

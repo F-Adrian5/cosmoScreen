@@ -20,7 +20,7 @@
         <DataGrid x:Name="actors_datagrid" HorizontalAlignment="Left" Height="410" Margin="276,108,0,0" VerticalAlignment="Top" Width="674" d:ItemsSource="{d:SampleData ItemCount=5}" Background="{x:Null}" SelectionChanged="actors_datagrid_SelectionChanged"/>
         <Button x:Name="get_data_btn" Content="Lekérdez" HorizontalAlignment="Left" Margin="276,537,0,0" VerticalAlignment="Top" FontSize="24" Height="63" Width="182" FontWeight="Bold" Click="get_data_btn_Click"/>
         <Label Content="Színész adatok felvétele" HorizontalAlignment="Left" Margin="19,111,0,0" VerticalAlignment="Top" Height="38" Width="274" FontSize="22" FontStyle="Italic" FontWeight="Bold" Foreground="#FF693EE4"/>
-        <Button x:Name="edit_data_btn" Content="Módosítás" HorizontalAlignment="Left" Margin="522,537,0,0" VerticalAlignment="Top" FontSize="24" Height="63" Width="182" FontWeight="Bold"/>
+        <Button x:Name="edit_data_btn" Content="Módosítás" HorizontalAlignment="Left" Margin="522,537,0,0" VerticalAlignment="Top" FontSize="24" Height="63" Width="182" FontWeight="Bold" IsEnabled="False" Click="edit_data_btn_Click"/>
         <Button x:Name="delete_data_btn" Content="Törlés" HorizontalAlignment="Left" Margin="768,537,0,0" VerticalAlignment="Top" FontSize="24" Height="63" Width="182" FontWeight="Bold" Click="delete_data_btn_Click" IsEnabled="False"/>
     </Grid>
 </Window>

@@ -137,6 +137,7 @@ namespace cosmoScreen
             return true;
         }
 
+        private int buffet_id = -1;
         private void buffet_datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var buffet_name = "";
@@ -146,8 +147,10 @@ namespace cosmoScreen
             DataRowView sor = (DataRowView)buffet_datagrid.SelectedItem;
 
             delete_data_btn.IsEnabled = true;
+            edit_data_btn.IsEnabled = true;
             if (sor != null)
             {
+                buffet_id = Convert.ToInt32(sor["id"]);
                 buffet_name = sor["name"].ToString();
                 buffet_price = sor["price"].ToString();
                 buffet_description = sor["description"].ToString();
@@ -160,16 +163,20 @@ namespace cosmoScreen
 
         }
 
-     
-
         private void delete_data_btn_Click(object sender, RoutedEventArgs e)
         {
-            string torol = $"DELETE FROM buffet WHERE name ='{food_name.Text}'";
+            string torol = $"DELETE FROM buffet WHERE id ='{buffet_id}'";
             buffet_datagrid.SelectedItem = null;
             executeQuery(torol);
             LoadMenu();
-           
+        }
 
+        private void edit_data_btn_Click(object sender, RoutedEventArgs e)
+        {
+            string sorfrissites = $"UPDATE buffet SET name='{food_name.Text}', price='{food_price.Text}', description='{food_description.Text}', img='{food_image_url.Text}' WHERE id='{buffet_id}'";
+            executeQuery(sorfrissites);
+            buffet_datagrid.SelectedItem = null;
+            LoadMenu();
         }
     }
 }
