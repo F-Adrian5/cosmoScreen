@@ -8,6 +8,8 @@
 A **CosmoScreen** egy modern, elegáns **mozis weboldal**, amely bemutatja az aktuális előadásokat, kezeli a műsorokat, és lehetőséget biztosít az online jegyvásárlásra.  
 Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók számára.
 
+`Bővebb leírás a dokumentációban található!`
+
 <!--  
 ---
 
@@ -61,10 +63,6 @@ Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók s
 - **Keretrendszer:** [Vue.js](https://vuejs.org/)
 - **Állapotkezelés:** [Pinia](https://pinia.vuejs.org/)
 - **HTTP kliens:** [Axios](https://axios-http.com/)
-
----
-
-## Design
 - **Design rendszer:** [Bootstrap](https://getbootstrap.com/)
 
 ---
@@ -105,7 +103,7 @@ Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók s
  - A project könyvtárában ezt a console parancsot futtassa le: `npm install`
 
 ### 3. Project elindítása
- - `npm run dev`
+ - `npm run dev` -> és a porton indítsa el a weblapot
 
 ---
 
