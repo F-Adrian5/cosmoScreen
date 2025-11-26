@@ -27,7 +27,7 @@
           </div>
         </div>
 
-        <p class="fs-xs text-start mb-0 text-center">
+        <p class="fs-xs text-start mb-0 text-center fw-bold">
           Minden jog fentartva CosmoScreen - 2025&copy;
         </p>
       </div>
