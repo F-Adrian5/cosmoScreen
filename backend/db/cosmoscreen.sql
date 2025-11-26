@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Nov 25. 07:43
+-- Létrehozás ideje: 2025. Nov 26. 10:36
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -73,7 +73,7 @@ INSERT INTO `actors` (`id`, `name`) VALUES
 
 CREATE TABLE `actor_in_movie` (
   `id` int(11) NOT NULL,
-  `movie_id` int(11) NOT NULL,
+  `movie_id` int(11) DEFAULT NULL,
   `actor_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -94,7 +94,7 @@ INSERT INTO `actor_in_movie` (`id`, `movie_id`, `actor_id`) VALUES
 (10, 6, 5),
 (11, 7, 4),
 (12, 8, 10),
-(13, 9, 24),
+(13, NULL, 24),
 (14, 10, 24),
 (15, 11, 24),
 (16, 12, 12),
@@ -113,7 +113,7 @@ INSERT INTO `actor_in_movie` (`id`, `movie_id`, `actor_id`) VALUES
 (29, 25, 15),
 (30, 26, 16),
 (31, 27, 17),
-(38, 9, 18);
+(38, NULL, 18);
 
 -- --------------------------------------------------------
 
@@ -159,11 +159,9 @@ INSERT INTO `buffet` (`id`, `name`, `price`, `description`, `img`) VALUES
 (23, 'Üveges Ital', 900, 'Retró hangulat, modern frissesség – pattintsd le a kupakot és élvezd!', 'glass_bottle.jpg'),
 (24, 'TOMA PET', 900, 'Gyümölcsös frissesség palackban – TOMA, a legjobb szomjoltó!', 'toma_pet.jpg'),
 (25, 'Red Bull', 900, 'Szárnyakat ad a filmhez – turbózd fel a moziélményt!', 'red_bull.jpg'),
-(26, 'Felnőtt Menü', 3200, 'Nagy sós popcorn + nagy üdítő – a klasszikus mozi páros!', 'adult_combo.jpg'),
 (27, 'Gyerek Menü', 2500, 'Kis popcorn + kis üdítő + meglepetés nasi – a kis mozirajongóknak!', 'kids_combo.jpg'),
 (28, 'Tini Menü', 2900, 'Közepes cheddar popcorn + közepes cola – merész ízek merész nézőknek!', 'teen_combo.jpg'),
-(29, 'Páros Menü', 5200, 'Nagy popcorn közösen + 2 közepes üdítő – tökéletes randi a moziban!', 'couples_combo.jpg'),
-(30, 'Pizza', 4000, 'Finom ropogós tészta, songokus feltétekkel', 'pizza.jpg');
+(29, 'Páros Menü', 5200, 'Nagy popcorn közösen + 2 közepes üdíto – tökéletes randi a moziban!', 'couples_combo.jpg');
 
 -- --------------------------------------------------------
 
@@ -199,14 +197,13 @@ INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production
 (6, 'Forrest Gump', 'Dráma', 142, 'Robert Zemeckis', 'Paramount Pictures', 12, '3D', 'forrest_gump.jpg', 'forrest_gump.mp4', 'Egy egyszerű ember nagy történelmet él meg.', '1994-07-06'),
 (7, 'Eredet', 'Sci-Fi', 148, 'Christopher Nolan', 'Warner', 16, '2D', 'inception.jpg', 'inception.mp4', 'Álmok az álmokban.', '2010-07-16'),
 (8, 'Harcosok klubja', 'Dráma', 139, 'David Fincher', 'Twentieth Century Fox', 18, '3D', 'fight_club.jpg', 'fight_club.mp4', 'Egy titkos klub káoszba torkollik.', '1999-10-15'),
-(9, 'A Gyűrűk ura: A Gyűrű Szövetsége', 'Fantasy', 178, 'Peter Jackson', 'New Line Cinema', 12, 'SCREENX', 'lotr1.jpg', 'lotr1.mp4', 'Egy hobbit viszi a megátkozott gyűrűt.', '2001-12-19'),
 (10, 'A Gyűrűk ura: A Két Torony', 'Fantasy', 179, 'Peter Jackson', 'New Line Cinema', 12, 'SCREENX', 'lotr2.jpg', 'lotr2.mp4', 'A Szövetség tagjai különválnak.', '2002-12-18'),
 (11, 'A Gyűrűk ura: A Király Visszatér', 'Fantasy', 201, 'Peter Jackson', 'New Line Cinema', 12, 'SCREENX', 'lotr3.jpg', 'lotr3.mp4', 'A végső csata Középföldéért.', '2003-12-17'),
 (12, 'Mátrix', 'Sci-Fi', 136, 'Lana Wachowski / Lilly Wachowski', 'Warner Bros.', 16, '4DX', 'matrix.jpg', 'matrix.mp4', 'Egy hacker rájön, hogy a valóság csak illúzió.', '1999-03-31'),
 (13, 'Csillagok háborúja: Egy új remény', 'Sci-Fi', 121, 'George Lucas', 'Lucasfilm', 12, '3D', 'starwars4.jpg', 'starwars4.mp4', 'Egy farmfiú hőssé válik.', '1977-05-25'),
 (14, 'Csillagok háborúja: A Birodalom visszavág', 'Sci-Fi', 124, 'Irvin Kershner', 'Lucasfilm', 12, '3D', 'starwars5.jpg', 'starwars5.mp4', 'A lázadás súlyos veszteségeket szenved.', '1980-05-21'),
 (15, 'Csillagok háborúja: A Jedi visszatér', 'Sci-Fi', 131, 'Richard Marquand', 'Lucasfilm', 12, '3D', 'starwars6.jpg', 'starwars6.mp4', 'A császár végzete közeleg.', '1983-05-25'),
-(16, 'Gladiátor', 'Történelmi', 155, 'Ridley Scott', 'Dreamworks', 16, '2D', 'gladiator.jpg', 'gladiator.mp4', 'Egy elárult tábornok bosszút forral.', '2000-05-05'),
+(16, 'Gladiátor', 'Történelemi', 155, 'Ridley Scott', 'Dreamworks', 16, '2D', 'gladiator.jpg', 'gladiator.mp4', 'Egy elárult tábornok bosszút forral.', '2000. 05. '),
 (17, 'Joker', 'Dráma', 122, 'Todd Phillips', 'Warner Bros.', 16, '2D', 'joker.jpg', 'joker.mp4', 'Egy férfi lassan az őrületbe süllyed.', '2019-10-04'),
 (18, 'A bárányok hallgatnak', 'Bűnügyi', 118, 'Jonathan Demme', 'Orion Pictures', 18, '2D', 'silence_lambs.jpg', 'silence_lambs.mp4', 'Egy nyomozó sorozatgyilkost üldöz.', '1991-02-14'),
 (19, 'Csillagok között', 'Sci-Fi', 169, 'Christopher Nolan', 'Warner Bros.', 12, 'IMAX', 'interstellar.jpg', 'interstellar.mp4', 'Az emberiség új otthont keres a csillagok között.', '2014-11-07'),
@@ -217,7 +214,7 @@ INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production
 (24, 'Titkos ablak', 'Thriller', 96, 'David Koepp', 'Columbia Pictures', 16, 'IMAX', 'secret_window.jpg', 'secret_window.mp4', 'Egy író magánélete felborul, amikor egy titokzatos idegen vádolja plágiummal, és a helyzet egyre veszélyesebbé válik.', '2004-07-16'),
 (25, 'Zombieland', 'Akció', 88, 'Ruben Fleischer', 'Columbia Pictures', 16, '3D', 'zombieland.jpg', 'zombieland.mp4', 'Egy apokaliptikus zombivilágban túlélők különös társasága próbál életben maradni, miközben humoros kalandokba keverednek.', '2009-10-02'),
 (26, 'Jason Bourne', 'Akció', 123, 'Paul Greengrass', 'Universal Pictures', 16, '2D', 'jason_bourne.jpg', 'jason_bourne.mp4', 'Jason Bourne visszatér, hogy felderítse múltja titkait, miközben a CIA üldözi, és életre-halálra menő akciókba keveredik.', '2016-07-29'),
-(27, 'Az egyenlítő', 'Akció', 132, 'Antoine Fuqua', 'Sony Pictures', 18, '3D', 'equalizer.jpg', 'equalizer.mp4', 'Egy visszavonult ügynök igazságot szolgáltat a gyengékért, miközben szembeszáll a maffiával.\r\n', '2014-09-26');
+(27, 'Az egyenlítő', 'Akció', 132, 'Antoine Fuqua', 'Sony Pictures', 18, '3D', 'equalizer.jpg', 'equalizer.mp4', 'Egy visszavonult ügynök igazságot szolgáltat a gyengékért, miközben szembeszáll a maffiával.\r\n', '2014. 09. ');
 
 -- --------------------------------------------------------
 
@@ -227,7 +224,7 @@ INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production
 
 CREATE TABLE `movie_screening` (
   `id` int(11) NOT NULL,
-  `movie_id` int(11) NOT NULL,
+  `movie_id` int(11) DEFAULT NULL,
   `room_id` int(11) NOT NULL,
   `language` varchar(50) NOT NULL,
   `start` varchar(5) NOT NULL,
@@ -247,7 +244,7 @@ INSERT INTO `movie_screening` (`id`, `movie_id`, `room_id`, `language`, `start`,
 (6, 6, 2, 'English', '14:00', '16:30'),
 (7, 7, 1, 'English', '18:00', '20:30'),
 (8, 8, 2, 'English', '21:00', '23:20'),
-(9, 9, 1, 'English', '13:00', '16:00'),
+(9, NULL, 1, 'English', '13:00', '16:00'),
 (10, 10, 2, 'English', '16:30', '19:30'),
 (11, 11, 1, 'English', '20:00', '23:20'),
 (12, 12, 2, 'English', '18:00', '20:20'),
@@ -321,23 +318,22 @@ CREATE TABLE `seats` (
   `id` int(11) NOT NULL,
   `room_id` int(11) NOT NULL,
   `seat_row` int(2) NOT NULL,
-  `seat_column` int(2) NOT NULL,
-  `status` int(1) NOT NULL
+  `seat_column` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- A tábla adatainak kiíratása `seats`
 --
 
-INSERT INTO `seats` (`id`, `room_id`, `seat_row`, `seat_column`, `status`) VALUES
-(1, 1, 1, 1, 0),
-(2, 1, 1, 2, 1),
-(3, 1, 1, 3, 0),
-(4, 1, 2, 1, 0),
-(5, 2, 1, 1, 0),
-(6, 2, 1, 2, 1),
-(7, 2, 1, 3, 0),
-(8, 2, 2, 1, 0);
+INSERT INTO `seats` (`id`, `room_id`, `seat_row`, `seat_column`) VALUES
+(1, 1, 1, 1),
+(2, 1, 1, 2),
+(3, 1, 1, 3),
+(4, 1, 2, 1),
+(5, 2, 1, 1),
+(6, 2, 1, 2),
+(7, 2, 1, 3),
+(8, 2, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -497,7 +493,7 @@ ALTER TABLE `actor_in_movie`
 -- AUTO_INCREMENT a táblához `buffet`
 --
 ALTER TABLE `buffet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT a táblához `movies`
@@ -550,13 +546,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `actor_in_movie`
   ADD CONSTRAINT `actor_in_movie_ibfk_1` FOREIGN KEY (`actor_id`) REFERENCES `actors` (`id`),
-  ADD CONSTRAINT `actor_in_movie_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`);
+  ADD CONSTRAINT `actor_in_movie_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`) ON DELETE SET NULL;
 
 --
 -- Megkötések a táblához `movie_screening`
 --
 ALTER TABLE `movie_screening`
-  ADD CONSTRAINT `movie_screening_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`),
+  ADD CONSTRAINT `movie_screening_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `movie_screening_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`);
 
 --
