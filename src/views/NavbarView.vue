@@ -2,10 +2,8 @@
   <nav class="navbar navbar-expand-md bg-body-tertiary fixed-top">
     <div class="container-fluid">
 
-      <!-- brand -->
       <RouterLink class="navbar-brand fs-2" to="/">CosmoScreen</RouterLink>
 
-      <!-- hamburger -->
       <button class="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
@@ -16,67 +14,64 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- menu -->
+      <!-- itt kellett a ref="navbar" -->
       <div class="collapse navbar-collapse" 
-           id="navbarNav">
+           id="navbarNav"
+           ref="navbar">
         
-        <!-- middle side -->
         <ul class="navbar-nav mx-auto fs-4">
           <li class="nav-item">
-            <RouterLink class="nav-link"
-                        onclick="arialExpand()"
+            <RouterLink class="nav-link" 
+                        @click="closeMenu" 
                         to="/programList">
-                  Műsorlista
+              Műsorlista
             </RouterLink>
           </li>
 
           <li class="nav-item">
-            <RouterLink class="nav-link"
-                        onclick="arialExpand()"
+            <RouterLink class="nav-link" 
+                        @click="closeMenu" 
                         to="/buffet">
-                  Büfé
+              Büfé
             </RouterLink>
           </li>
-          
+
           <li class="nav-item">
-            <RouterLink class="nav-link"
-                        onclick="arialExpand()" 
+            <RouterLink class="nav-link" 
+                        @click="closeMenu" 
                         to="/about">
-                  Rólunk
+              Rólunk
             </RouterLink>
           </li>
         </ul>
 
-        <!-- right side -->
         <ul class="navbar-nav fs-5">
-          
           <li class="nav-item ms-3">
-            <font-awesome-icon :icon="['fas', 'language']"/> 
-            Nyelv
+            <font-awesome-icon :icon="['fas', 'language']"/> Nyelv
           </li>
-          
           <li class="nav-item ms-3">
-            <font-awesome-icon :icon="['far', 'address-card']"/> 
-            Profil
+            <font-awesome-icon :icon="['far', 'address-card']"/> Profil
           </li>
         </ul>
+
       </div>
     </div>
   </nav>
 </template>
 
 <script setup>
+  import { Collapse } from 'bootstrap'
+  import { ref, onMounted } from 'vue'
 
-  function arialExpand() {
-    let arialExpanded = document.querySelector(".navbar-toggler").getAttribute("aria-expanded")
+  const navbar = ref(null) // DOM element
+  let bsCollapse = null
 
-    if (arialExpanded == "true") {
-      arialExpanded = "false";
-    } else {
-      arialExpanded = "true";
-    }
+  onMounted(() => {
+    // connecting the js with html collapse element, can controll the toggle
+    bsCollapse = new Collapse(navbar.value, { toggle: false })
+  })
 
-    document.querySelector(".navbar-toggler").setAttribute("aria-expanded", arialExpanded)
+  function closeMenu() {
+    bsCollapse.hide()
   }
-
 </script>
