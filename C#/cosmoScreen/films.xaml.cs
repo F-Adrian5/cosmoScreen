@@ -84,7 +84,7 @@ namespace cosmoScreen
             }
         }
 
-        private void get_data_btn_Click(object sender, RoutedEventArgs e)
+        private void LoadMovies()
         {
             try
             {
@@ -95,6 +95,19 @@ namespace cosmoScreen
                 adapter.Fill(ds);
                 movie_datagrid.ItemsSource = ds.Tables[0].DefaultView;
                 closeConnection();
+            }
+            catch (Exception hiba)
+            {
+                MessageBox.Show(hiba.Message);
+            }
+        }
+
+
+        private void get_data_btn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                LoadMovies();
                 get_data_btn.IsEnabled = false;
             }
             catch (Exception hiba)
@@ -108,6 +121,7 @@ namespace cosmoScreen
         {
             string actor_upload = $"INSERT INTO movies(title, genre, runtime, director, production, age_restriction, showing_in, poster, trailer, description, release_date) VALUES ('{title_input.Text}', '{genre_combobox.Text}', '{runtime_input.Text}', '{director_input.Text}', '{production_input.Text}', '{age_restriction_combobox.Text}', '{showing_in_combobox.Text}', '{poster_input.Text}', '{trailer_input.Text}', '{description_input.Text}', '{release_date_input.SelectedDate?.ToString("yyyy-MM-dd")}')";
             executeQuery(actor_upload);
+            LoadMovies();
         }
         private void InputChanged(object sender, EventArgs e)
         {
@@ -148,7 +162,10 @@ namespace cosmoScreen
             var movie_showing_in = "";
             var movie_re_date = "";
             var movie_description = "";
+
             DataRowView sor = (DataRowView)movie_datagrid.SelectedItem;
+
+            delete_data_btn.IsEnabled = true;
             if (sor != null)
             {
                 movie_title = sor["title"].ToString();
@@ -176,6 +193,14 @@ namespace cosmoScreen
                 description_input.Text = movie_description;
             }
 
+        }
+
+        private void delete_data_btn_Click(object sender, RoutedEventArgs e)
+        {
+            string torol = $"DELETE FROM movies WHERE title ='{title_input.Text}'";
+            movie_datagrid.SelectedItem = null;
+            executeQuery(torol);
+            LoadMovies();
         }
     }
 }

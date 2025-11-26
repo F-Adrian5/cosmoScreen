@@ -84,7 +84,7 @@ namespace cosmoScreen
             }
         }
 
-        private void get_data_btn_Click(object sender, RoutedEventArgs e)
+        private void LoadActors()
         {
             try
             {
@@ -94,6 +94,18 @@ namespace cosmoScreen
                 adapter.Fill(ds);
                 actors_datagrid.ItemsSource = ds.Tables[0].DefaultView;
                 closeConnection();
+            }
+            catch (Exception hiba)
+            {
+                MessageBox.Show(hiba.Message);
+            }
+        }
+
+        private void get_data_btn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                LoadActors();
                 get_data_btn.IsEnabled = false;
             }
             catch (Exception hiba)
@@ -107,6 +119,7 @@ namespace cosmoScreen
         {
             string actor_uplodad = $"INSERT INTO actors(name) VALUES('{actor_name_input.Text}')";
             executeQuery(actor_uplodad);
+            LoadActors();
 
         }
 
@@ -125,6 +138,8 @@ namespace cosmoScreen
         {
             var actor_name = "";
             DataRowView sor = (DataRowView)actors_datagrid.SelectedItem;
+
+            delete_data_btn.IsEnabled = true;
             if (sor != null)
             {
                 actor_name = sor["name"].ToString();
@@ -132,6 +147,14 @@ namespace cosmoScreen
             }
 
 
+        }
+
+        private void delete_data_btn_Click(object sender, RoutedEventArgs e)
+        {
+            string torol = $"DELETE FROM actors WHERE name ='{actor_name_input.Text}'";
+            actors_datagrid.SelectedItem = null;
+            executeQuery(torol);
+            LoadActors();
         }
     }
 }

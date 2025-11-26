@@ -84,7 +84,7 @@ namespace cosmoScreen
             }
         }
 
-        private void get_data_btn_Click(object sender, RoutedEventArgs e)
+        private void LoadMenu()
         {
             try
             {
@@ -94,6 +94,18 @@ namespace cosmoScreen
                 adapter.Fill(ds);
                 buffet_datagrid.ItemsSource = ds.Tables[0].DefaultView;
                 closeConnection();
+            }
+            catch (Exception hiba)
+            {
+                MessageBox.Show(hiba.Message);
+            }
+        }
+
+        private void get_data_btn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                LoadMenu();
                 get_data_btn.IsEnabled = false;
             }
             catch (Exception hiba)
@@ -106,6 +118,7 @@ namespace cosmoScreen
         {
             string actor_uplodad = $"INSERT INTO buffet(name,price,description,img) VALUES('{food_name.Text}','{food_price.Text}','{food_description.Text}','{food_image_url.Text}')";
             executeQuery(actor_uplodad);
+            LoadMenu();
         }
         private void InputChanged(object sender, TextChangedEventArgs e)
         {
@@ -154,6 +167,7 @@ namespace cosmoScreen
             string torol = $"DELETE FROM buffet WHERE name ='{food_name.Text}'";
             buffet_datagrid.SelectedItem = null;
             executeQuery(torol);
+            LoadMenu();
            
 
         }
