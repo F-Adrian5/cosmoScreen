@@ -49,7 +49,12 @@
             <font-awesome-icon :icon="['fas', 'language']"/> Nyelv
           </li>
           <li class="nav-item ms-3">
-            <font-awesome-icon :icon="['far', 'address-card']"/> Profil
+            <font-awesome-icon :icon="['far', 'address-card']"/>
+            <RouterLink class="nav-link" 
+                        @click="closeMenu" 
+                        to="/login">
+              Login
+            </RouterLink>
           </li>
         </ul>
 
