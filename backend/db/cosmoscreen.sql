@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Nov 26. 10:36
+-- Létrehozás ideje: 2025. Nov 27. 11:12
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -63,7 +63,8 @@ INSERT INTO `actors` (`id`, `name`) VALUES
 (24, 'Elijah Wood'),
 (25, 'Matthew McConaughey'),
 (26, 'Cillian Murphy'),
-(27, 'Adam Sandler');
+(27, 'Adam Sandler'),
+(28, 'Bill Skarsgård');
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,7 @@ INSERT INTO `actor_in_movie` (`id`, `movie_id`, `actor_id`) VALUES
 (10, 6, 5),
 (11, 7, 4),
 (12, 8, 10),
-(13, NULL, 24),
+(13, 9, 24),
 (14, 10, 24),
 (15, 11, 24),
 (16, 12, 12),
@@ -113,7 +114,8 @@ INSERT INTO `actor_in_movie` (`id`, `movie_id`, `actor_id`) VALUES
 (29, 25, 15),
 (30, 26, 16),
 (31, 27, 17),
-(38, NULL, 18);
+(38, 9, 18),
+(39, 28, 28);
 
 -- --------------------------------------------------------
 
@@ -197,6 +199,7 @@ INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production
 (6, 'Forrest Gump', 'Dráma', 142, 'Robert Zemeckis', 'Paramount Pictures', 12, '3D', 'forrest_gump.jpg', 'forrest_gump.mp4', 'Egy egyszerű ember nagy történelmet él meg.', '1994-07-06'),
 (7, 'Eredet', 'Sci-Fi', 148, 'Christopher Nolan', 'Warner', 16, '2D', 'inception.jpg', 'inception.mp4', 'Álmok az álmokban.', '2010-07-16'),
 (8, 'Harcosok klubja', 'Dráma', 139, 'David Fincher', 'Twentieth Century Fox', 18, '3D', 'fight_club.jpg', 'fight_club.mp4', 'Egy titkos klub káoszba torkollik.', '1999-10-15'),
+(9, 'A Gyűrűk ura: A Gyűrű Szövetsége', 'Fantasy', 178, 'Peter Jackson', 'New Line Cinema', 12, 'SCREENX', 'lotr1.jpg', 'lotr.mp4', 'Egy hobbit viszi az elátkozott gyűrűt.', '2001-12-19'),
 (10, 'A Gyűrűk ura: A Két Torony', 'Fantasy', 179, 'Peter Jackson', 'New Line Cinema', 12, 'SCREENX', 'lotr2.jpg', 'lotr2.mp4', 'A Szövetség tagjai különválnak.', '2002-12-18'),
 (11, 'A Gyűrűk ura: A Király Visszatér', 'Fantasy', 201, 'Peter Jackson', 'New Line Cinema', 12, 'SCREENX', 'lotr3.jpg', 'lotr3.mp4', 'A végső csata Középföldéért.', '2003-12-17'),
 (12, 'Mátrix', 'Sci-Fi', 136, 'Lana Wachowski / Lilly Wachowski', 'Warner Bros.', 16, '4DX', 'matrix.jpg', 'matrix.mp4', 'Egy hacker rájön, hogy a valóság csak illúzió.', '1999-03-31'),
@@ -214,7 +217,8 @@ INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production
 (24, 'Titkos ablak', 'Thriller', 96, 'David Koepp', 'Columbia Pictures', 16, 'IMAX', 'secret_window.jpg', 'secret_window.mp4', 'Egy író magánélete felborul, amikor egy titokzatos idegen vádolja plágiummal, és a helyzet egyre veszélyesebbé válik.', '2004-07-16'),
 (25, 'Zombieland', 'Akció', 88, 'Ruben Fleischer', 'Columbia Pictures', 16, '3D', 'zombieland.jpg', 'zombieland.mp4', 'Egy apokaliptikus zombivilágban túlélők különös társasága próbál életben maradni, miközben humoros kalandokba keverednek.', '2009-10-02'),
 (26, 'Jason Bourne', 'Akció', 123, 'Paul Greengrass', 'Universal Pictures', 16, '2D', 'jason_bourne.jpg', 'jason_bourne.mp4', 'Jason Bourne visszatér, hogy felderítse múltja titkait, miközben a CIA üldözi, és életre-halálra menő akciókba keveredik.', '2016-07-29'),
-(27, 'Az egyenlítő', 'Akció', 132, 'Antoine Fuqua', 'Sony Pictures', 18, '3D', 'equalizer.jpg', 'equalizer.mp4', 'Egy visszavonult ügynök igazságot szolgáltat a gyengékért, miközben szembeszáll a maffiával.\r\n', '2014. 09. ');
+(27, 'Az egyenlítő', 'Akció', 132, 'Antoine Fuqua', 'Sony Pictures', 18, '3D', 'equalizer.jpg', 'equalizer.mp4', 'Egy visszavonult ügynök igazságot szolgáltat a gyengékért, miközben szembeszáll a maffiával.\r\n', '2014. 09. '),
+(28, 'It', 'Horror', 135, 'Andy Muschietti', 'New Line Cinema', 18, '3D', 'it.jpg', 'it.mp4', 'Az Az (It) egy hátborzongató horrorfilm, amelyben egy gyerekeket rettegésben tartó, alakváltó rémség leggyakrabban egy bohóc tér vissza, hogy szembeszálljon egy bátor gyerektársasággal.\r\n', '2017-09-08');
 
 -- --------------------------------------------------------
 
@@ -244,7 +248,7 @@ INSERT INTO `movie_screening` (`id`, `movie_id`, `room_id`, `language`, `start`,
 (6, 6, 2, 'English', '14:00', '16:30'),
 (7, 7, 1, 'English', '18:00', '20:30'),
 (8, 8, 2, 'English', '21:00', '23:20'),
-(9, NULL, 1, 'English', '13:00', '16:00'),
+(9, 9, 1, 'English', '13:00', '16:00'),
 (10, 10, 2, 'English', '16:30', '19:30'),
 (11, 11, 1, 'English', '20:00', '23:20'),
 (12, 12, 2, 'English', '18:00', '20:20'),
@@ -278,16 +282,16 @@ CREATE TABLE `reservation` (
 --
 
 INSERT INTO `reservation` (`id`, `user_id`, `total_amount`, `screening_id`, `reservation_date`, `ticket_id`, `seat_id`) VALUES
-(1, 2, 3000, 1, '2025-01-01', 5, 1),
-(2, 3, 2500, 2, '2025-01-02', 1, 2),
-(3, 4, 3000, 3, '2025-01-03', 5, 3),
-(4, 5, 3000, 4, '2025-01-04', 5, 4),
-(5, 6, 2500, 5, '2025-01-05', 1, 5),
-(6, 7, 2500, 6, '2025-01-06', 1, 6),
-(7, 8, 2500, 7, '2025-01-07', 1, 7),
-(8, 9, 3000, 8, '2025-01-08', 5, 8),
-(9, 10, 2500, 9, '2025-01-09', 1, 9),
-(10, 11, 2500, 10, '2025-01-10', 1, 10);
+(1, 2, 2500, 1, '2025-03-01', 1, 5),
+(2, 4, 3000, 2, '2025-05-11', 5, 50),
+(3, 6, 2500, 3, '2025-12-14', 1, 12),
+(4, 8, 2200, 4, '2025-02-08', 2, 60),
+(5, 10, 3000, 5, '2025-09-01', 5, 20),
+(6, 12, 2500, 6, '2025-03-01', 3, 70),
+(7, 14, 2500, 7, '2025-03-01', 1, 33),
+(8, 16, 3000, 8, '2025-03-01', 5, 80),
+(9, 18, 2200, 9, '2025-03-01', 2, 28),
+(10, 20, 3000, 10, '2025-03-01', 5, 45);
 
 -- --------------------------------------------------------
 
@@ -305,8 +309,8 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`id`, `capacity`) VALUES
-(1, 99),
-(2, 125);
+(1, 40),
+(2, 50);
 
 -- --------------------------------------------------------
 
@@ -329,11 +333,93 @@ INSERT INTO `seats` (`id`, `room_id`, `seat_row`, `seat_column`) VALUES
 (1, 1, 1, 1),
 (2, 1, 1, 2),
 (3, 1, 1, 3),
-(4, 1, 2, 1),
-(5, 2, 1, 1),
-(6, 2, 1, 2),
-(7, 2, 1, 3),
-(8, 2, 2, 1);
+(4, 1, 1, 4),
+(5, 1, 1, 5),
+(6, 1, 1, 6),
+(7, 1, 1, 7),
+(8, 1, 1, 8),
+(9, 1, 2, 1),
+(10, 1, 2, 2),
+(11, 1, 2, 3),
+(12, 1, 2, 4),
+(13, 1, 2, 5),
+(14, 1, 2, 6),
+(15, 1, 2, 7),
+(16, 1, 2, 8),
+(17, 1, 3, 1),
+(18, 1, 3, 2),
+(19, 1, 3, 3),
+(20, 1, 3, 4),
+(21, 1, 3, 5),
+(22, 1, 3, 6),
+(23, 1, 3, 7),
+(24, 1, 3, 8),
+(25, 1, 4, 1),
+(26, 1, 4, 2),
+(27, 1, 4, 3),
+(28, 1, 4, 4),
+(29, 1, 4, 5),
+(30, 1, 4, 6),
+(31, 1, 4, 7),
+(32, 1, 4, 8),
+(33, 1, 5, 1),
+(34, 1, 5, 2),
+(35, 1, 5, 3),
+(36, 1, 5, 4),
+(37, 1, 5, 5),
+(38, 1, 5, 6),
+(39, 1, 5, 7),
+(40, 1, 5, 8),
+(41, 2, 1, 1),
+(42, 2, 1, 2),
+(43, 2, 1, 3),
+(44, 2, 1, 4),
+(45, 2, 1, 5),
+(46, 2, 1, 6),
+(47, 2, 1, 7),
+(48, 2, 1, 8),
+(49, 2, 1, 9),
+(50, 2, 1, 10),
+(51, 2, 2, 1),
+(52, 2, 2, 2),
+(53, 2, 2, 3),
+(54, 2, 2, 4),
+(55, 2, 2, 5),
+(56, 2, 2, 6),
+(57, 2, 2, 7),
+(58, 2, 2, 8),
+(59, 2, 2, 9),
+(60, 2, 2, 10),
+(61, 2, 3, 1),
+(62, 2, 3, 2),
+(63, 2, 3, 3),
+(64, 2, 3, 4),
+(65, 2, 3, 5),
+(66, 2, 3, 6),
+(67, 2, 3, 7),
+(68, 2, 3, 8),
+(69, 2, 3, 9),
+(70, 2, 3, 10),
+(71, 2, 4, 1),
+(72, 2, 4, 2),
+(73, 2, 4, 3),
+(74, 2, 4, 4),
+(75, 2, 4, 5),
+(76, 2, 4, 6),
+(77, 2, 4, 7),
+(78, 2, 4, 8),
+(79, 2, 4, 9),
+(80, 2, 4, 10),
+(81, 2, 5, 1),
+(82, 2, 5, 2),
+(83, 2, 5, 3),
+(84, 2, 5, 4),
+(85, 2, 5, 5),
+(86, 2, 5, 6),
+(87, 2, 5, 7),
+(88, 2, 5, 8),
+(89, 2, 5, 9),
+(90, 2, 5, 10);
 
 -- --------------------------------------------------------
 
@@ -481,13 +567,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `actors`
 --
 ALTER TABLE `actors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT a táblához `actor_in_movie`
 --
 ALTER TABLE `actor_in_movie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT a táblához `buffet`
@@ -499,7 +585,7 @@ ALTER TABLE `buffet`
 -- AUTO_INCREMENT a táblához `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT a táblához `movie_screening`
@@ -523,7 +609,7 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT a táblához `seats`
 --
 ALTER TABLE `seats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT a táblához `tickets`
@@ -559,6 +645,7 @@ ALTER TABLE `movie_screening`
 -- Megkötések a táblához `reservation`
 --
 ALTER TABLE `reservation`
+  ADD CONSTRAINT `fk_reservation_seat` FOREIGN KEY (`seat_id`) REFERENCES `seats` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`),
   ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`screening_id`) REFERENCES `movie_screening` (`id`);
@@ -567,8 +654,7 @@ ALTER TABLE `reservation`
 -- Megkötések a táblához `seats`
 --
 ALTER TABLE `seats`
-  ADD CONSTRAINT `seats_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`),
-  ADD CONSTRAINT `seats_ibfk_2` FOREIGN KEY (`id`) REFERENCES `reservation` (`seat_id`);
+  ADD CONSTRAINT `seats_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
