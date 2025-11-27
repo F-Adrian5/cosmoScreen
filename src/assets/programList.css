@@ -1,6 +1,26 @@
-.movie-card {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal;
-  word-wrap: break-word;
+.movie-card .col {
+  min-width: 0;
+}
+
+.movie-image {
+  width: 125px;
+  height: auto;
+}
+
+@media (min-width: 375px) {
+  .movie-image {
+    width: 150px;
+  }
+}
+
+@media (min-width: 768px) {
+  .movie-image {
+    width: 200px;
+  }
+}
+
+@media (min-width: 992px) {
+  .movie-image {
+    width: 250px;
+  }
 }
