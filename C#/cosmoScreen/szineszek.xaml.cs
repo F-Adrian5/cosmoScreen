@@ -155,6 +155,8 @@ namespace cosmoScreen
             actors_datagrid.SelectedItem = null;
             executeQuery(torol);
             LoadActors();
+            delete_data_btn.IsEnabled = false;
+            edit_data_btn.IsEnabled = false;
         }
 
         private void edit_data_btn_Click(object sender, RoutedEventArgs e)
@@ -163,6 +165,8 @@ namespace cosmoScreen
             executeQuery(sorfrissites);
             actors_datagrid.SelectedItem = null;
             LoadActors();
+            edit_data_btn.IsEnabled = false;
+            delete_data_btn.IsEnabled = false;
         }
     }
 }

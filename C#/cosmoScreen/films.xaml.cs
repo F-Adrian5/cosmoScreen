@@ -204,6 +204,8 @@ namespace cosmoScreen
             movie_datagrid.SelectedItem = null;
             executeQuery(torol);
             LoadMovies();
+            delete_data_btn.IsEnabled = false;
+            edit_data_btn.IsEnabled = false;
         }
 
         private void edit_data_btn_Click(object sender, RoutedEventArgs e)
@@ -212,6 +214,8 @@ namespace cosmoScreen
             executeQuery(sorfrissites);
             movie_datagrid.SelectedItem = null;
             LoadMovies();
+            edit_data_btn.IsEnabled = false;
+            delete_data_btn.IsEnabled = false;
         }
     }
 }
