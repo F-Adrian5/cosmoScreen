@@ -1,6 +1,6 @@
 <template>
   <div class="container py-4">
-    <h1 class="text-center mb-2">Műsorlista</h1>
+    <h1 class="text-center mb-2 mt-3">Műsorlista</h1>
     <p class="text-center text-secondary fs-5 mb-4">
       Ezeket a műsorokat vetítjük!
     </p>
@@ -32,7 +32,7 @@
           </div>
         
           <!-- Szöveg és időpontok -->
-          <div class="col">
+          <div class="col-2">
             <h3 class="mt-3 fs-5 mb-1">{{ movie.title }}</h3>
             <p class="fs-6 mb-1 text-muted">{{ movie.genre }}</p>
             <p class="fs-6 mb-1 text-muted">| {{ movie.length }}p</p>

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <h1 class="text-center">Büfés ajánlataink</h1>
+      <h1 class="text-center mt-5">Büfés ajánlataink</h1>
       <hr>
     </div>
 
