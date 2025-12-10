@@ -1,64 +1,81 @@
 <template>
   <div class="d-flex justify-content-center align-items-center mt-5">
-    <form @submit.prevent="login" 
-          style="width: 100%; 
-          max-width: 350px;">
+    <form @submit.prevent="login"
+          class="p-4 shadow rounded bg-white mt-5"
+          style="width: 100%; max-width: 380px;">
 
-      <h4 class="text-center mb-3">Bejelentkezés</h4>
+      <h4 class="text-center mb-4 fw-bold">Bejelentkezés</h4>
 
-      <div class="mb-2">
+      <!--Email-->
+      <div class="mb-3">
         <label for="login_email" 
-               class="form-label">
-          Email:
+               class="form-label fw-semibold">
+          Email cím
         </label>
-        <input type="email" 
-               class="form-control" 
-               id="login_email" 
-               v-model="email" 
-               maxlength="150" 
+
+        <input type="email"
+               class="form-control form-control-lg"
+               id="login_email"
+               v-model="email"
+               maxlength="150"
                required>
-        <div v-if="email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)"
-             class="text-danger mt-1 small">
-          Érvénytelen email formátum
+
+        <div class="text-danger mt-1 small" 
+             style="min-height: 22px;">
+          <span v-if="email && !validEmail">
+            Érvénytelen email formátum
+          </span>
         </div>
       </div>
 
-      <div class="mb-2 position-relative">
+      <!--Jelszó-->
+      <div class="mb-3">
         <label for="login_password" 
-               class="form-label">
-          Jelszó:
+               class="form-label fw-semibold">
+          Jelszó
         </label>
-        <input :type="showPassword ? 'text' : 'password'" 
-               class="form-control" 
-               id="login_password" 
-               v-model="password" 
-               maxlength="20" 
-               required>
-        <div v-if="password && !/(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_-]).{6,}/.test(password)" 
-             class="text-danger mt-1 small">
-          Legalább 6 karakter, nagybetű, szám és speciális karakter
+
+        <div class="d-flex align-items-center position-relative">
+          <input
+            :type="showPassword ? 'text' : 'password'"
+            class="form-control form-control-lg"
+            id="login_password"
+            v-model="password"
+            maxlength="20"
+            required
+            style="padding-right: 2.5rem;">
+
+          <!--jelszó megjelenítése-->
+          <button type="button"
+                  @click="showPassword = !showPassword"
+                  class="btn position-absolute border-0 bg-transparent d-flex align-items-center justify-content-center p-0"
+                  style="width: 2.5rem; height: 100%; right: 0; cursor: pointer;">
+            <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"
+               style="font-size: 1.2rem; color: black;">
+            </i>
+          </button>
+        </div>
+
+        <div class="text-danger mt-1 small" 
+             style="min-height: 42px;">
+          <span v-if="password && !validPassword">
+            Minimum 6 karakter, nagybetű, szám, speciális karakter
+          </span>
         </div>
       </div>
 
-      <div class="mb-2 form-check">
-        <input type="checkbox" 
-               class="form-check-input" 
-               id="login_showpass" 
-               v-model="showPassword">
-        <label class="form-check-label" 
-               for="login_showpass">
-          Jelszó megjelenítése
-        </label>
-      </div>
-
-      <button type="submit" 
-              class="btn btn-primary w-100" 
+      <!--Bejelentkezés gomb-->
+      <button type="submit"
+              class="btn btn-primary w-100 py-2 fw-semibold"
               :disabled="!email || 
-                         !password || 
-                         !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || 
-                         !/(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_-]).{6,}/.test(password)">
+                         !password ||
+                         !validEmail ||
+                         !validPassword">
         Bejelentkezés
       </button>
+      <div class="text-center mt-2">
+        <p>Ha még nincs fiókja <RouterLink to="/register">regisztráljon</RouterLink>!</p>
+      </div>
     </form>
   </div>
 </template>
@@ -67,10 +84,18 @@
 export default {
   data() {
     return {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       showPassword: false,
     };
+  },
+  computed: {
+    validEmail() {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
+    },
+    validPassword() {
+      return /(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_\-?:]).{6,}/.test(this.password);
+    }
   },
   methods: {
     login() {
