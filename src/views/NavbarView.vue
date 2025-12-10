@@ -46,13 +46,17 @@
 
         <ul class="navbar-nav fs-5">
           <li class="nav-item ms-3">
-            <font-awesome-icon :icon="['fas', 'language']"/> Nyelv
+            <RouterLink class="nav-link d-flex align-items-center" to="#">
+              <font-awesome-icon :icon="['fas', 'language']" class="me-1"/>
+              Nyelv
+            </RouterLink>
           </li>
+        
           <li class="nav-item ms-3">
-            <font-awesome-icon :icon="['far', 'address-card']"/>
-            <RouterLink class="nav-link" 
-                        @click="closeMenu" 
+            <RouterLink class="nav-link d-flex align-items-center"
+                        @click="closeMenu"
                         to="/login">
+              <font-awesome-icon :icon="['far', 'address-card']" class="me-1"/>
               Login
             </RouterLink>
           </li>
