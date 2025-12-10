@@ -13,9 +13,4 @@ $result = $db->execute($query);
 
 $db = null;
 
-//TODO: Adat ellenörzés
-
-
-
-
 Util::setResponse($result);

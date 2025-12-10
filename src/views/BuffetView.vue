@@ -5,32 +5,32 @@
       <hr>
     </div>
 
-
-    <div class="d-flex mt-2">
+    <div class="d-flex mt-2"
+         v-for="(offer, index) in offers"
+         :key="index">
       <div>
-        <img src="https://dummyimage.com/250x200/000/fff">
+        <img :src="offer.img">
       </div>
       <div>
-        <p class="ms-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum minus molestiae doloremque soluta vero optio. Cupiditate facere delectus nemo inventore quibusdam perspiciatis tempore reiciendis, repudiandae, culpa deserunt fuga veniam expedita!</p>
-      </div>
-    </div>
-
-    <div class="d-flex mt-2">
-      <div>
-        <img src="https://dummyimage.com/250x200/000/fff">
-      </div>
-      <div>
-        <p class="ms-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum minus molestiae doloremque soluta vero optio. Cupiditate facere delectus nemo inventore quibusdam perspiciatis tempore reiciendis, repudiandae, culpa deserunt fuga veniam expedita!</p>
-      </div>
-    </div>
-
-    <div class="d-flex mt-2">
-      <div>
-        <img src="https://dummyimage.com/250x200/000/fff">
-      </div>
-      <div>
-        <p class="ms-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum minus molestiae doloremque soluta vero optio. Cupiditate facere delectus nemo inventore quibusdam perspiciatis tempore reiciendis, repudiandae, culpa deserunt fuga veniam expedita!</p>
+        <p class="ms-3">{{ offer.text }}</p>
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+  const offers = [
+    {
+      img: "https://dummyimage.com/250x200/000/fff",
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum minus molestiae doloremque soluta vero optio. Cupiditate facere delectus nemo inventore quibusdam perspiciatis tempore reiciendis, repudiandae, culpa deserunt fuga veniam expedita!"
+    },
+    {
+      img: "https://dummyimage.com/250x200/000/fff",
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum minus molestiae doloremque soluta vero optio. Cupiditate facere delectus nemo inventore quibusdam perspiciatis tempore reiciendis, repudiandae, culpa deserunt fuga veniam expedita!"
+    },
+    {
+      img: "https://dummyimage.com/250x200/000/fff",
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum minus molestiae doloremque soluta vero optio. Cupiditate facere delectus nemo inventore quibusdam perspiciatis tempore reiciendis, repudiandae, culpa deserunt fuga veniam expedita!"
+    }
+  ]
+</script>
