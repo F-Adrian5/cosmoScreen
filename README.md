@@ -1,4 +1,4 @@
-# <center> CosmoScreen
+# <center> CosmoScreen WPF
 
 > *„Ahol minden képkocka egy új világ!”*
 
