@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import '../assets/carousel.css'
+  import '../assets/styles/carousel.css'
   import Carousel from '../components/CardCarousel.vue'
 </script>
 

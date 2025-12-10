@@ -34,6 +34,11 @@
 
 <script setup>
   import { ref } from 'vue'
+  import jojoRabbitImg from '../assets/media/images/movie_posters/jojo_rabbit.jpg'
+  import starwars5Img from '../assets/media/images/movie_posters/starwars5.jpg'
+  import starwars4Img from '../assets/media/images/movie_posters/starwars4.jpg'
+  import starwars6Img from '../assets/media/images/movie_posters/starwars6.jpg'
+
 
   const days = [
   "Hétfő",
@@ -51,7 +56,7 @@
       title: "Oppenheimer",
       genre: "akció, történelmi",
       length: 180,
-      image: "../../public/movie_posters/jojo_rabbit.jpg",
+      image: jojoRabbitImg,
       times: ["3D – 16:00", "2D – 18:00", "IMAX – 19:00"]
     },
     {
@@ -59,7 +64,7 @@
       title: "Batman",
       genre: "akció",
       length: 140,
-      image: "../../public/movie_posters/starwars5.jpg",
+      image: starwars5Img,
       times: ["2D – 14:00", "IMAX – 19:00"]
     },
     {
@@ -67,7 +72,7 @@
       title: "2012",
       genre: "akció",
       length: 100,
-      image: "../../public/movie_posters/starwars4.jpg",
+      image: starwars4Img,
       times: ["2D – 14:00"]
     },
     {
@@ -75,7 +80,7 @@
       title: "Titanic",
       genre: "akció",
       length: 240,
-      image: "../../public/movie_posters/starwars6.jpg",
+      image: starwars6Img,
       times: ["IMAX – 19:00"]
     }
   ]
