@@ -73,9 +73,11 @@
                          !validPassword">
         Bejelentkezés
       </button>
+      
       <div class="text-center mt-2">
         <p>Ha még nincs fiókja <RouterLink to="/register">regisztráljon</RouterLink>!</p>
       </div>
+
     </form>
   </div>
 </template>

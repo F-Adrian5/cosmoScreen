@@ -93,6 +93,11 @@
                          !validEmail || !validPassword">
         Regisztráció
       </button>
+
+       <div class="text-center mt-2">
+        <p>Ha már van fiókja <RouterLink to="/login">jelentkezzen be</RouterLink>!</p>
+      </div>
+
     </form>
   </div>
 </template>
