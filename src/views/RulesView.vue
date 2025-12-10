@@ -4,17 +4,23 @@
     <!-- Cím -->
     <div class="row mb-5">
       <div class="col text-center">
-        <h1 class="display-4 fw-bold text-primary">A CosmoScreen Szabályzata</h1>
-        <p class="text-muted fs-5">Kérjük, olvassa el figyelmesen a következő szabályokat!</p>
+        <h1 class="display-4 fw-bold text-primary">
+          A CosmoScreen Szabályzata
+        </h1>
+        <p class="text-muted fs-5">
+          Kérjük, olvassa el figyelmesen a következő szabályokat!
+        </p>
       </div>
     </div>
 
     <!-- Szabályzat szakaszok card-ban -->
-    <div class="row mb-4" v-for="(section, index) in sections" :key="index">
+    <div class="row mb-4" 
+         v-for="(section, index) in sections" :key="index">
       <div class="col">
         <div class="card shadow-sm rounded-4 p-4 bg-light">
-          <h3 class="mb-3 text-warning border-bottom border-2 border-secondary pb-2">
-            {{ section.title }}
+          <h3 class="mb-3 text-warning border-bottom 
+                     border-2 border-secondary pb-2">
+              {{ section.title }}
           </h3>
           <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex align-items-start" 
