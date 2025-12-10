@@ -1,26 +1,13 @@
-.movie-card .col {
-  min-width: 0;
-}
-
 .movie-image {
-  width: 125px;
-  height: auto;
-}
-
-@media (min-width: 375px) {
-  .movie-image {
-    width: 150px;
-  }
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
 }
 
 @media (min-width: 768px) {
   .movie-image {
-    width: 200px;
-  }
-}
-
-@media (min-width: 992px) {
-  .movie-image {
-    width: 250px;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
   }
 }
