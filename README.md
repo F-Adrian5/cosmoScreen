@@ -5,71 +5,13 @@
 ---
 
 ## Projekt áttekintés
-A **CosmoScreen** egy modern, elegáns **mozis weboldal**, amely bemutatja az aktuális előadásokat, kezeli a műsorokat, és lehetőséget biztosít az online jegyvásárlásra.  
-Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók számára.
-
-`Bővebb leírás a dokumentációban található!`
-
-<!--  
----
-
-## Főbb funkciók
-
-- **Felhasználói fiókok kezelése**
-  - Regisztráció, bejelentkezés, kijelentkezés  
-  - Profiladatok módosítása
-  - Admin jogosultságok (felhasználók kezelése)
-
-- **Filmkatalógus**
-  - Filmek adatlapja (leírás, műfaj, korhatár, szereplők, előzetes...)  
-  - Filmek keresése és szűrése (műfaj, korhatár, vetítési időpont...)  
-  - Gyorstalpaló 
-
-- **Vetítési naptár**
-  - Általános vetítési kalendárium  
-  - Időpontok és helyszínek megjelenítése  
-  - Szűrési lehetőségek  
-
-- **Jegyfoglalás és vásárlás**
-  - Online jegyfoglalás  
-  - Vizuális ülőhelyválasztás  
-  - Kosárkezelés, fizetési felület 
-
-- **Admin felület (C#)**
-  - Filmek, szereplők kezelése  
-  - Vetítési időpontok és tartalom frissítése
-  - Felhasználói adatok szerkesztése
-
-- **Büfé kínálat**
-  - Aktuális árlista és termékkínálat megtekintése  
-
-- **Moziélmény bemutató**
-  - 4DX, ScreenX, VIP szekciók ismertetése  
-
-- **Többnyelvű támogatás**
-  - Magyar / Angol nyelvváltás  
-
-- **Keresőfunkciók**
-  - Filmnév alapján 
-
-- **Reszponzív felület**
-  - Mobil, tablet és asztali megjelenés támogatása  
-
--->
+A **CosmoScreen** weboldalnak az Adminisztratív felülete!
 
 ---
 
-## Frontend
-- **Keretrendszer:** [Vue.js](https://vuejs.org/)
-- **Állapotkezelés:** [Pinia](https://pinia.vuejs.org/)
-- **HTTP kliens:** [Axios](https://axios-http.com/)
-- **Design rendszer:** [Bootstrap](https://getbootstrap.com/)
-
----
-
-## Backend
-- **Nyelv:** PHP  
-- **Adatbázis:** MySQL + phpMyAdmin
+## Funkciók:
+ - CRUDE Műveletek (adatok megtekintése, módosítása, felvétele és törlése). Ezeket a műveleteket a felhasználó, büfé, filmek és színészek táblákon lehet végrehajtani!
+ - Intsaller, evvel könnyedén lehet használni a szoftvert, csak is adminok érhetik el a letöltést!
 
 ---
 
@@ -82,28 +24,16 @@ Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók s
 
 ---
 
-## Eszközök és technológiák
-
-| Kategória | Eszköz |
-|------------|--------|
-| Frontend | Vue.js, Pinia, Axios |
-| Design | Bootstrap, FontAwesome (svg-core, svg-icons, vue-fontawesome) |
-| Backend | PHP |
-| Adatbázis | MySQL + phpMyAdmin |
-| Verziókezelés | Git / GitHub |
-
----
-
 ## Project telepítése és elindítása
 
 ### 1. A project lehúzása
  - `git clone https://github.com/F-Adrian5/cosmoScreen`
 
-### 2. Node modulok letöltése
- - A project könyvtárában ezt a console parancsot futtassa le: `npm install`
+### 2. Installer letöltése
+ - Installer futtatása, kicsomagolás.
 
 ### 3. Project elindítása
- - `npm run dev` -> és a porton indítsa el a weblapot
+ - File elindítása
 
 ---
 
