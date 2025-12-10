@@ -10,53 +10,6 @@ Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók s
 
 `Bővebb leírás a dokumentációban található!`
 
-<!--  
----
-
-## Főbb funkciók
-
-- **Felhasználói fiókok kezelése**
-  - Regisztráció, bejelentkezés, kijelentkezés  
-  - Profiladatok módosítása
-  - Admin jogosultságok (felhasználók kezelése)
-
-- **Filmkatalógus**
-  - Filmek adatlapja (leírás, műfaj, korhatár, szereplők, előzetes...)  
-  - Filmek keresése és szűrése (műfaj, korhatár, vetítési időpont...)  
-  - Gyorstalpaló 
-
-- **Vetítési naptár**
-  - Általános vetítési kalendárium  
-  - Időpontok és helyszínek megjelenítése  
-  - Szűrési lehetőségek  
-
-- **Jegyfoglalás és vásárlás**
-  - Online jegyfoglalás  
-  - Vizuális ülőhelyválasztás  
-  - Kosárkezelés, fizetési felület 
-
-- **Admin felület (C#)**
-  - Filmek, szereplők kezelése  
-  - Vetítési időpontok és tartalom frissítése
-  - Felhasználói adatok szerkesztése
-
-- **Büfé kínálat**
-  - Aktuális árlista és termékkínálat megtekintése  
-
-- **Moziélmény bemutató**
-  - 4DX, ScreenX, VIP szekciók ismertetése  
-
-- **Többnyelvű támogatás**
-  - Magyar / Angol nyelvváltás  
-
-- **Keresőfunkciók**
-  - Filmnév alapján 
-
-- **Reszponzív felület**
-  - Mobil, tablet és asztali megjelenés támogatása  
-
--->
-
 ---
 
 ## Frontend
