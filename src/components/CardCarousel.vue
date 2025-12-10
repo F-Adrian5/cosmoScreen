@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import '../assets/carousel.css'
+import '../assets/styles/carousel.css'
 
 interface Movie {
   id: number

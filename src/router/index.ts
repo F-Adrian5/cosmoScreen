@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import BuffetView from '../views/BuffetView.vue'
-import AboutView from '../views/AboutView.vue'
-import ProgramListView from '../views/ProgramListView.vue'
-import DataFishingView from '../views/DataFishingView.vue'
-import RulesView from '../views/RulesView.vue'
-import LoginView from '../views/LoginView.vue'
-import RegisterView from '../views/RegisterView.vue'
+import Home from '../views/Home.vue'
+import Buffet from '../views/Buffet.vue'
+import AboutUs from '../views/AboutUs.vue'
+import ProgramList from '../views/ProgramList.vue'
+import DataFishing from '../views/DataFishing.vue'
+import Rules from '../views/Rules.vue'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
 
 
 const router = createRouter({
@@ -15,42 +15,42 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: Home,
     },
     {
       path: '/buffet',
       name: 'buffet',
-      component: BuffetView,
+      component: Buffet,
     },
     {
       path: '/programList',
       name: 'programList',
-      component: ProgramListView,
+      component: ProgramList,
     },
     {
       path: '/DataFishing',
       name: 'dataFishing',
-      component: DataFishingView,
+      component: DataFishing,
     },
     {
       path: '/rules',
       name: 'rules',
-      component: RulesView,
+      component: Rules,
     },
     {
       path: '/about',
       name: 'about',
-      component: AboutView,
+      component: AboutUs,
     },
     {
       path: '/login',
       name: 'login',
-      component: LoginView,
+      component: Login,
     },
     {
       path: '/register',
       name: 'register',
-      component: RegisterView,
+      component: Register,
     },
   ],
 })
