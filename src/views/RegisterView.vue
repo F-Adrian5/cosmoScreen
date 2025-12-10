@@ -1,7 +1,6 @@
 <template>
   <div class="d-flex justify-content-center align-items-center mt-5">
-    <form @submit.prevent="register"
-          class="p-4 shadow rounded bg-white mt-5"
+    <form class="p-4 shadow rounded bg-white mt-5"
           style="width: 100%; max-width: 380px;">
 
       <h4 class="text-center mb-4 fw-bold">Regisztráció</h4>
@@ -17,6 +16,7 @@
                class="form-control form-control-lg"
                id="register_name"
                v-model="name"
+               name="name"
                maxlength="100"
                required>
 
@@ -39,6 +39,7 @@
                class="form-control form-control-lg"
                id="register_email"
                v-model="email"
+               name="email"
                maxlength="150"
                required>
 
@@ -63,6 +64,7 @@
             class="form-control form-control-lg"
             id="register_password"
             v-model="password"
+            name="password"
             maxlength="20"
             required
             style="padding-right: 2.5rem;">
