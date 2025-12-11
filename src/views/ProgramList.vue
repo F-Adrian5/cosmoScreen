@@ -1,5 +1,5 @@
 <template>
-  <div class="container my-3">
+  <div class="container my-4">
     <div class="row g-3">
       <div v-for="movie in movies" :key="movie.id"
            class="movie-card p-2 h-100 px-2 py-2
