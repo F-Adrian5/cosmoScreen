@@ -23,6 +23,9 @@
     "@fortawesome/vue-fontawesome": "^3.1.2",
     "axios": "^1.13.2",
     "bootstrap": "^5.3.8",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "mysql": "^2.18.1",
     "pinia": "^3.0.4",
     "vue": "^3.5.22",
     "vue-router": "^4.6.3"
@@ -30,7 +33,7 @@
   "devDependencies": {
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^22.18.11",
-    "@vitejs/plugin-vue": "^6.0.1",
+    "@vitejs/plugin-vue": "^6.0.2",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.6.0",
     "@vue/tsconfig": "^0.8.1",
