@@ -26,7 +26,6 @@ C:\xampp\htdocs\fodor_adrian\cosmoScreen\C#\cosmoScreen\bin\Debug\net8.0-windows
 C:\xampp\htdocs\fodor_adrian\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\MainWindow.g.cs
 C:\xampp\htdocs\fodor_adrian\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\App.g.cs
 C:\xampp\htdocs\fodor_adrian\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\cosmoScreen_MarkupCompile.cache
-C:\xampp\htdocs\fodor_adrian\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\cosmoScreen_MarkupCompile.lref
 C:\xampp\htdocs\fodor_adrian\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\MainWindow.baml
 C:\xampp\htdocs\fodor_adrian\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\cosmoScreen.g.resources
 C:\xampp\htdocs\fodor_adrian\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\cosmoScreen.GeneratedMSBuildEditorConfig.editorconfig

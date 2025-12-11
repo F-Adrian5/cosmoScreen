@@ -1,17 +1,77 @@
 ﻿<Window x:Class="cosmoScreen.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:cosmoScreen"
-        mc:Ignorable="d"
-        Title="cosmoScreen Adminisztratív felülete" Height="600" Width="800">
+        Title="cosmoScreen Adminisztratív felülete"
+        Height="600" Width="800">
+
     <Grid Background="#FF2C2D31">
-        <Image Source="/logo.PNG" HorizontalAlignment="Center" Height="212" Margin="0,32,0,0" VerticalAlignment="Top" Width="296"/>
-        <Label Content="Üdvözöljük a cosmoScreen adminisztratív felületén!" HorizontalAlignment="Left" Margin="23,0,0,0" VerticalAlignment="Center" Width="766" Foreground="#FFA09D9D" FontStyle="Italic" FontSize="32"/>
-        <Label Content="Milyen adatot szeretne felvinni?" HorizontalAlignment="Center" Margin="0,338,0,0" VerticalAlignment="Top" Width="472" Foreground="#FFA09D9D" FontStyle="Italic" FontSize="32"/>
-        <Button Name="film" Content="Filmek" HorizontalAlignment="Left" Margin="130,418,0,0" VerticalAlignment="Top" Height="86" Width="176" FontWeight="Bold" FontSize="22" Background="Black" Click="film_Click" Foreground="#FF9DCC3B"/>
-        <Button Name="bufe" Content="Büfé" HorizontalAlignment="Left" Margin="318,418,0,0" VerticalAlignment="Top" Height="86" Width="176" FontWeight="Bold" FontSize="22" Background="Black" Click="bufe_click" Foreground="#FF9DCC3B"/>
-        <Button Name="szineszek" Content="Színészek" HorizontalAlignment="Left" Margin="506,418,0,0" VerticalAlignment="Top" Height="86" Width="176" FontWeight="Bold" FontSize="22" Background="Black" Click="szineszek_click" Foreground="#FF9DCC3B"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Logo -->
+            <RowDefinition Height="Auto"/>
+            <!-- Welcome text -->
+            <RowDefinition Height="Auto"/>
+            <!-- Question -->
+            <RowDefinition Height="*"/>
+            <!-- Buttons -->
+        </Grid.RowDefinitions>
+
+        <!-- logo -->
+        <Image Grid.Row="0"
+               Source="/logo.PNG"
+               Height="180"
+               HorizontalAlignment="Center"
+               Margin="0,20,0,10"/>
+
+        <!-- welcome text -->
+        <Label Grid.Row="1"
+               Content="Üdvözöljük a cosmoScreen adminisztratív felületén!"
+               HorizontalAlignment="Center"
+               Foreground="#FFA09D9D"
+               FontStyle="Italic"
+               FontSize="30"
+               Margin="0,10"/>
+
+        <!-- question -->
+        <Label Grid.Row="2"
+               Content="Milyen adatot szeretne felvinni?"
+               HorizontalAlignment="Center"
+               Foreground="#FFA09D9D"
+               FontStyle="Italic"
+               FontSize="28"
+               Margin="0,20"/>
+
+        <!-- btns -->
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="0,30">
+
+            <Button Name="film"
+                    Content="Filmek"
+                    Width="160" Height="70"
+                    Background="Black" Foreground="#FF9DCC3B"
+                    FontWeight="Bold" FontSize="22"
+                    Margin="10"
+                    Click="film_Click"/>
+
+            <Button Name="bufe"
+                    Content="Büfé"
+                    Width="160" Height="70"
+                    Background="Black" Foreground="#FF9DCC3B"
+                    FontWeight="Bold" FontSize="22"
+                    Margin="10"
+                    Click="bufe_click"/>
+
+            <Button Name="szineszek"
+                    Content="Színészek"
+                    Width="160" Height="70"
+                    Background="Black" Foreground="#FF9DCC3B"
+                    FontWeight="Bold" FontSize="22"
+                    Margin="10"
+                    Click="szineszek_click"/>
+
+        </StackPanel>
     </Grid>
 </Window>
