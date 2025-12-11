@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-md bg-body-tertiary fixed-top">
-    <div class="container-fluid">
+  <nav class="navbar navbar-expand-md bg-body-tertiary fixed-top ">
+    <div class="container-fluid navbarStyle">
 
       <RouterLink class="navbar-brand fs-2" @click="closeMenu" to="/">
         CosmoScreen
