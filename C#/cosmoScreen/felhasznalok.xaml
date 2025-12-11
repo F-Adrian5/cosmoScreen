@@ -58,13 +58,13 @@
             </Grid.ColumnDefinitions>
 
             <Label Content="Név:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
-            <TextBox Name="user_name_input" Grid.Row="0" Grid.Column="1" FontSize="16" Margin="5" MinWidth="100" TextChanged="InputChanged"/>
+            <TextBox Name="user_name_input" Grid.Row="0" Grid.Column="1" FontSize="16" MaxLength="100" Margin="5" MinWidth="100" TextChanged="InputChanged"/>
 
             <Label Content="Email:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
-            <TextBox Name="email_input" Grid.Row="1" Grid.Column="1" FontSize="16" Margin="5" MinWidth="100" TextChanged="InputChanged"/>
+            <TextBox Name="email_input" Grid.Row="1" Grid.Column="1" FontSize="16" MaxLength="150" Margin="5" MinWidth="100" TextChanged="InputChanged"/>
 
             <Label Content="Jelszó:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
-            <TextBox Name="password_input" Grid.Row="2" Grid.Column="1" FontSize="16" Margin="5" MinWidth="100" TextChanged="InputChanged"/>
+            <TextBox Name="password_input" Grid.Row="2" Grid.Column="1" FontSize="16" MaxLength="20" Margin="5" MinWidth="100" TextChanged="InputChanged"/>
         </Grid>
 
         <!-- Jobb oldal: DataGrid -->

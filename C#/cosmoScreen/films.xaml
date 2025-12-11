@@ -60,27 +60,27 @@
 
                     <!-- title -->
                     <Label Content="Cím:" FontWeight="Bold" FontSize="16"/>
-                    <TextBox x:Name="title_input" FontSize="16" TextChanged="InputChanged"/>
+                    <TextBox x:Name="title_input" FontSize="16" MaxLength="200" TextChanged="InputChanged"/>
 
                     <!-- runtime -->
                     <Label Content="Játékidő:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0"/>
-                    <TextBox x:Name="runtime_input" FontSize="16" TextChanged="InputChanged"/>
+                    <TextBox x:Name="runtime_input" FontSize="16" MaxLength="3" TextChanged="InputChanged"/>
 
                     <!-- director -->
                     <Label Content="Rendező:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0"/>
-                    <TextBox x:Name="director_input" FontSize="16" TextChanged="InputChanged"/>
+                    <TextBox x:Name="director_input" FontSize="16" MaxLength="200" TextChanged="InputChanged"/>
 
                     <!-- studio -->
                     <Label Content="Stúdió:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0"/>
-                    <TextBox x:Name="production_input" FontSize="16" TextChanged="InputChanged"/>
+                    <TextBox x:Name="production_input" FontSize="16" MaxLength="25" TextChanged="InputChanged"/>
 
                     <!-- poster URL -->
                     <Label Content="Poszter URL:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0"/>
-                    <TextBox x:Name="poster_input" FontSize="16" TextChanged="InputChanged"/>
+                    <TextBox x:Name="poster_input" FontSize="16" MaxLength="200" TextChanged="InputChanged"/>
 
                     <!-- trailer URL -->
                     <Label Content="Előzetes URL:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0"/>
-                    <TextBox x:Name="trailer_input" FontSize="16" TextChanged="InputChanged"/>
+                    <TextBox x:Name="trailer_input" FontSize="16" MaxLength="200" TextChanged="InputChanged"/>
 
                     <!-- genre -->
                     <Label Content="Műfaj:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0"/>
@@ -137,6 +137,7 @@
                            Margin="0,15,0,0"/>
                     <TextBox x:Name="description_input"
                              FontSize="16"
+                             MaxLength="250"
                              Height="80"
                              TextWrapping="Wrap"
                              TextChanged="InputChanged"/>

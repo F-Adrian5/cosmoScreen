@@ -175,5 +175,11 @@ namespace cosmoScreen
             felhasznalokWindow.Show();
             this.Hide();
         }
+
+        private void NameOnly(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !e.Text.All(c => char.IsLetter(c) || c == ' ');
+        }
+
     }
 }

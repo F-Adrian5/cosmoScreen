@@ -52,6 +52,8 @@
                 <Label Content="Teljes Neve:" FontSize="16" FontWeight="Bold" Margin="0,20,0,0"/>
                 <TextBox x:Name="actor_name_input"
                          FontSize="16" 
+                         MaxLength="100"
+                         PreviewTextInput="NameOnly"
                          TextChanged="actor_name_input_TextChanged"/>
 
                 <Button x:Name="btn_upload"

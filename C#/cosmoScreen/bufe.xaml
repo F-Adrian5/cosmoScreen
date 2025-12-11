@@ -55,16 +55,19 @@
                 <Label Content="Név" FontSize="16" FontWeight="Bold"/>
                 <TextBox x:Name="food_name"
                          FontSize="16"
+                         MaxLength="100"
                          TextChanged="InputChanged"/>
 
                 <Label Content="Ár" FontSize="16" FontWeight="Bold" Margin="0,15,0,0"/>
                 <TextBox x:Name="food_price"
                          FontSize="16"
+                         MaxLength="5"
                          TextChanged="InputChanged"/>
 
                 <Label Content="Leírás" FontSize="16" FontWeight="Bold" Margin="0,15,0,0"/>
                 <TextBox x:Name="food_description"
                          FontSize="16"
+                         MaxLength="250"
                          TextWrapping="Wrap"
                          Height="80"
                          TextChanged="InputChanged"/>
@@ -72,6 +75,7 @@
                 <Label Content="Kép URL" FontSize="16" FontWeight="Bold" Margin="0,15,0,0"/>
                 <TextBox x:Name="food_image_url"
                          FontSize="16"
+                         MaxLength="250"
                          TextChanged="InputChanged"/>
 
                 <Button x:Name="btn_upload"
