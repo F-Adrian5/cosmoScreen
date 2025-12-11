@@ -24,6 +24,7 @@
             <MenuItem Header="Filmek" Name="films_menuItem" Foreground="#FF9DCC3B"/>
             <MenuItem Header="Büfé" Name="buffet_menuItem" Click="buffet_menuItem_Click"/>
             <MenuItem Header="Színészek" Name="actor_menuItem" Click="actor_menuItem_Click"/>
+            <MenuItem Header="Felhasználók" Name="user_menuItem" Click="user_menuItem_Click"/>
         </Menu>
 
         <!-- title -->

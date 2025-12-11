@@ -168,5 +168,12 @@ namespace cosmoScreen
             edit_data_btn.IsEnabled = false;
             delete_data_btn.IsEnabled = false;
         }
+
+        private void user_menuItem_Click(object sender, RoutedEventArgs e)
+        {
+            felhasznalok felhasznalokWindow = new felhasznalok();
+            felhasznalokWindow.Show();
+            this.Hide();
+        }
     }
 }
