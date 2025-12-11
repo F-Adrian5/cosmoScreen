@@ -41,7 +41,7 @@ Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók s
 |------------|--------|
 | Frontend | Vue.js, Pinia, Axios |
 | Design | Bootstrap, FontAwesome (svg-core, svg-icons, vue-fontawesome) |
-| Backend | PHP |
+| Backend | Express.js |
 | Adatbázis | MySQL + phpMyAdmin |
 | Verziókezelés | Git / GitHub |
 
