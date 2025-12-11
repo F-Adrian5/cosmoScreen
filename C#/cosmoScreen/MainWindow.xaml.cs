@@ -42,5 +42,12 @@ namespace cosmoScreen
             szineszekWindow.Show();
             this.Hide();
         }
+
+        private void felhasznalok_Click(object sender, RoutedEventArgs e)
+        {
+            felhasznalok felhasznalokWindow = new felhasznalok();
+            felhasznalokWindow.Show();
+            this.Hide();
+        }
     }
 }

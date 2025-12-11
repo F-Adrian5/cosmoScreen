@@ -84,7 +84,6 @@ C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-window
 C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\szineszek.g.cs
 C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\App.g.cs
 C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\cosmoScreen_MarkupCompile.cache
-C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\cosmoScreen_MarkupCompile.lref
 C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\bufe.baml
 C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\films.baml
 C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\MainWindow.baml
@@ -143,3 +142,6 @@ C:\xampp\htdocs\13c\fodor_adrian\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-win
 C:\xampp\htdocs\13c\fodor_adrian\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\cosmoScr.D566FCF8.Up2Date
 C:\xampp\htdocs\13c\fodor_adrian\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\cosmoScreen.genruntimeconfig.cache
 C:\xampp\htdocs\13c\fodor_adrian\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\ref\cosmoScreen.dll
+C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\felhasznalok.g.cs
+C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\cosmoScreen_MarkupCompile.lref
+C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\felhasznalok.baml

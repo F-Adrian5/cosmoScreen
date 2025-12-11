@@ -5,6 +5,9 @@
     <Compile Update="bufe.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="felhasznalok.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="films.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
