@@ -1,17 +1,21 @@
-# <center> CosmoScreen WPF
+# <center> CosmoScreen Adminisztratív felülete (C# - WPF)
 
 > *„Ahol minden képkocka egy új világ!”*
 
 ---
 
 ## Projekt áttekintés
-A **CosmoScreen** weboldalnak az Adminisztratív felülete!
+A **CosmoScreen WPF** a weboldal adminisztratív felülete, amely lehetővé teszi az adatok kezelését és karbantartását.
 
 ---
 
-## Funkciók:
- - CRUDE Műveletek (adatok megtekintése, módosítása, felvétele és törlése). Ezeket a műveleteket a felhasználó, büfé, filmek és színészek táblákon lehet végrehajtani!
- - Intsaller, evvel könnyedén lehet használni a szoftvert, csak is adminok érhetik el a letöltést!
+## Funkciók
+- **CRUD műveletek**: Adatok megtekintése, módosítása, felvétele és törlése a következő táblákon:
+  - Felhasználók
+  - Büfé
+  - Filmek
+  - Színészek
+- **Installer**: A későbbiekben elérhető lesz, amivel egyszerűen telepíthető a szoftver. A letöltés és telepítés csak adminisztrátorok számára engedélyezett.
 
 ---
 
@@ -19,24 +23,30 @@ A **CosmoScreen** weboldalnak az Adminisztratív felülete!
 
 | Szerep | Név |
 |--------|-----|
-| **Projektvezető** | **Fodor Adrián László** |
-| **Tagok** | **Kriván Balázs, Fodor Adrián László** |
+| **Projektvezető** | Fodor Adrián László |
+| **Tagok** | Kriván Balázs, Fodor Adrián László |
 
 ---
 
-## Project telepítése és elindítása
+## Projekt telepítése és elindítása
 
-### 1. A project lehúzása
- - `git clone https://github.com/F-Adrian5/cosmoScreen`
+### 1. Projekt letöltése
+1. Nyiss meg egy terminált vagy Git Bash-t.
+2. Futtasd a következő parancsot:
 
-### 2. Installer letöltése
- - Installer futtatása, kicsomagolás.
+```bash
+git clone https://github.com/F-Adrian5/cosmoScreen
 
-### 3. Project elindítása
- - File elindítása
+```
 
----
+### 2. Installer
 
-## Hivatkozások:
-  - **GitHub**: [CosmoScreen](https://github.com/F-Adrian5/cosmoScreen)
-  - **Trello**: [Projekt Trello](https://trello.com/b/ADnGrOpg/cosmoscreen)
+- A telepítő futtatásával a program könnyen telepíthető.
+- A telepítés során válaszd ki a kívánt mappát, majd kövesd a telepítő utasításait.
+
+### 3. Projekt indítása
+- Nyisd meg a projekt mappáját
+- Indítsd el a program főfájlját (`.exe`), vagy a mappában található `cosmoscreen.sln` fájlt Visual Studio-ban.
+(A sln fájl indításához telepített Visual Studio szükséges.)
+
+### A felület használatához admin jogosultság szükséges!
