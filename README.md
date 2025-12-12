@@ -109,6 +109,18 @@ git clone https://github.com/F-Adrian5/cosmoScreen
 
 ---
 
+## Általános futtatási útmutató
+
+
+
+---
+
+## Betűtipusok
+  - [Forrás](https://www.fontshare.com/)
+  - **bespoke-stencil**: [bespoke-stencil] (https://www.fontshare.com/fonts/bespoke-stencil)
+  - **nippo**: [Nippo](https://www.fontshare.com/fonts/nippo)
+
+---
 ## Hivatkozások:
   - **GitHub**: [CosmoScreen](https://github.com/F-Adrian5/cosmoScreen)
   - **Trello**: [Projekt Trello](https://trello.com/b/ADnGrOpg/cosmoscreen)

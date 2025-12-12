@@ -20,7 +20,7 @@
            id="navbarNav"
            ref="navbar">
         
-        <ul class="navbar-nav mx-auto fs-4">
+        <ul class="navbar-nav mx-auto fs-3">
           <li class="nav-item">
             <RouterLink class="nav-link" 
                         @click="closeMenu" 
@@ -46,7 +46,7 @@
           </li>
         </ul>
 
-        <ul class="navbar-nav fs-5">
+        <ul class="navbar-nav fs-4">
           <li class="nav-item ms-3">
             <RouterLink class="nav-link d-flex align-items-center" to="#">
               <font-awesome-icon :icon="['fas', 'language']" class="me-1"/>

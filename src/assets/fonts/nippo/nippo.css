@@ -1,0 +1,52 @@
+/**
+* @license
+*
+* Font Family: Nippo
+* Designed by: Manushi Parikh
+* URL: https://www.fontshare.com/fonts/nippo
+* © 2025 Indian Type Foundry
+*
+* Nippo Extralight 
+* Nippo Light 
+* Nippo Regular 
+* Nippo Medium 
+* Nippo Bold 
+* Nippo Variable (Variable font)
+*
+*/
+@font-face {
+  font-family: 'Nippo-Extralight';
+  src: url('./Nippo-Extralight.woff2') format('woff2'),
+       url('./Nippo-Extralight.woff') format('woff'),
+       url('./Nippo-Extralight.ttf') format('truetype');
+  font-weight: 200;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Nippo-Light';
+  src: url('./Nippo-Extralight.woff2') format('woff2'),
+       url('./Nippo-Light.woff') format('woff'),
+       url('./Nippo-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Nippo-Regular';
+  src: url('./Nippo-Regular.woff2') format('woff2'),
+       url('./Nippo-Regular.woff') format('woff'),
+       url('./Nippo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Nippo-Medium';
+  src: url('./Nippo-Medium.woff2') format('woff2'),
+       url('./Nippo-Medium.woff') format('woff'),
+       url('./Nippo-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}

@@ -1,5 +1,8 @@
+.footerStyle {
+  font-family:'Trebuchet MS' ;
+  /* 'Courier New' */
+}
 
-/* nem veszi be a változást */
-footer-info {
-  font-size: 30px;
+.footerText {
+  font-family:'Courier New' ;
 }

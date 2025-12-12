@@ -1,0 +1,41 @@
+/**
+* @license
+*
+* Font Family: Bespoke Stencil
+* Designed by: Jérémie Hornus, Théo Guillard, Morgane Pambrun, Alisa Nowak, Joachim Vu
+* URL: https://www.fontshare.com/fonts/bespoke-stencil
+* © 2025 Indian Type Foundry
+*
+* Bespoke Stencil Light 
+* Bespoke Stencil LightItalic 
+* Bespoke Stencil Regular 
+* Bespoke Stencil Italic 
+* Bespoke Stencil Medium 
+* Bespoke Stencil MediumItalic 
+* Bespoke Stencil Bold 
+* Bespoke Stencil BoldItalic 
+* Bespoke Stencil Extrabold 
+* Bespoke Stencil ExtraboldItalic 
+* Bespoke Stencil Variable (Variable font)
+* Bespoke Stencil VariableItalic (Variable font)
+
+*
+*/
+@font-face {
+  font-family: 'BespokeStencil-Light';
+  src: url('./BespokeStencil-Light.woff2') format('woff2'),
+       url('./BespokeStencil-Light.woff') format('woff'),
+       url('./BespokeStencil-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'BespokeStencil-LightItalic';
+  src: url('./BespokeStencil-LightItalic.woff2') format('woff2'),
+       url('./BespokeStencil-LightItalic.woff') format('woff'),
+       url('./BespokeStencil-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: italic;
+}
