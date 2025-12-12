@@ -120,7 +120,7 @@ git clone https://github.com/F-Adrian5/cosmoScreen
 
 ## Betűtipusok
   - [Forrás](https://www.fontshare.com/)
-  - **bespoke-stencil**: [bespoke-stencil] (https://www.fontshare.com/fonts/bespoke-stencil)
+  - **bespoke-stencil**: [bespoke-stencil](https://www.fontshare.com/fonts/bespoke-stencil)
   - **nippo**: [Nippo](https://www.fontshare.com/fonts/nippo)
 
 ---
