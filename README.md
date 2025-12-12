@@ -111,7 +111,10 @@ git clone https://github.com/F-Adrian5/cosmoScreen
 
 ## Általános futtatási útmutató
 
-
+ 1. Nyissa meg a project mappát (`cosmoScreen`) terminálba.
+ 2. Terminálba indítsa el a projectet `npm run dev`.
+ 3. Navigálja a terminált a backend mappába, ott inditsa el a backend részt `node index.ts` parancsal.
+ 4. Nyissa meg a npm run dev által adott http portot. 
 
 ---
 
