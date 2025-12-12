@@ -20,6 +20,7 @@
                maxlength="100"
                required>
 
+        <!--Név hibaüzenet-->
         <div class="text-danger mt-1 small" 
              style="min-height: 22px;">
           <span v-if="name && /\d/.test(name)">
@@ -43,6 +44,7 @@
                maxlength="150"
                required>
 
+        <!--Email hibaüzenet-->
         <div class="text-danger mt-1 small" 
              style="min-height: 22px;">
           <span v-if="email && !validEmail">
@@ -69,7 +71,7 @@
             required
             style="padding-right: 2.5rem;">
 
-          <!--Jelszó megjelenítése-->
+          <!--Jelszó megjelenítés-->
           <button type="button"
                   @click="showPassword = !showPassword"
                   class="btn position-absolute border-0 bg-transparent d-flex align-items-center justify-content-center p-0"
@@ -80,6 +82,7 @@
           </button>
         </div>
 
+        <!--Jelszó hibaüzenet-->
         <div class="text-danger mt-1 small" 
              style="min-height: 42px;">
           <span v-if="password && !validPassword">
@@ -96,6 +99,7 @@
         Regisztráció
       </button>
 
+       <!--Bejelentkezés link-->
        <div class="text-center mt-2">
         <p>Ha már van fiókja <RouterLink to="/login">jelentkezzen be</RouterLink>!</p>
       </div>
@@ -115,9 +119,13 @@ export default {
     };
   },
   computed: {
+
+    //Email validáció
     validEmail() {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
     },
+
+    //Jelszó validáció
     validPassword() {
       return /(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_\-?:]).{6,}/.test(this.password);
     }

@@ -45,6 +45,8 @@
 </template>
 
 <script setup>
+
+//Információk
 const sections = [
   {
     title: 'Általános szabályok',

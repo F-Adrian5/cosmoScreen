@@ -20,6 +20,7 @@
                maxlength="150"
                required>
 
+        <!--Email hibaüzenet-->
         <div class="text-danger mt-1 small" 
              style="min-height: 22px;">
           <span v-if="email && !validEmail">
@@ -45,10 +46,11 @@
             required
             style="padding-right: 2.5rem;">
 
-          <!--jelszó megjelenítése-->
+          <!--Jelszó megjelenítés-->
           <button type="button"
                   @click="showPassword = !showPassword"
-                  class="btn position-absolute border-0 bg-transparent d-flex align-items-center justify-content-center p-0"
+                  class="btn position-absolute border-0 bg-transparent d-flex 
+                         align-items-center justify-content-center p-0"
                   style="width: 2.5rem; height: 100%; right: 0; cursor: pointer;">
             <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"
                style="font-size: 1.2rem; color: black;">
@@ -56,6 +58,7 @@
           </button>
         </div>
 
+        <!--Jelszó hibaüzenet-->
         <div class="text-danger mt-1 small" 
              style="min-height: 42px;">
           <span v-if="password && !validPassword">
@@ -74,6 +77,7 @@
         Bejelentkezés
       </button>
       
+      <!--Regisztrációs link-->
       <div class="text-center mt-2">
         <p>Ha még nincs fiókja <RouterLink to="/register">regisztráljon</RouterLink>!</p>
       </div>
@@ -92,9 +96,13 @@ export default {
     };
   },
   computed: {
+
+    //Email validáció
     validEmail() {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
     },
+
+    //Jelszó validáció
     validPassword() {
       return /(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_\-?:]).{6,}/.test(this.password);
     }
