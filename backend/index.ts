@@ -1,6 +1,6 @@
 import express from 'express';
-import db from './db.js';
-import exampleRoutes from './routes/example.js';
+import db from './db.ts';
+import exampleRoutes from './routes/example.ts';
 
 const app = express();
 const port = 3000;

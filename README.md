@@ -88,7 +88,7 @@ git clone https://github.com/F-Adrian5/cosmoScreen
 
 1. Navigálj a backend mappába (`cosmoscreen/backend`)
 
-2. Indítsd el az Express.js szervert: `node index.js`
+2. Indítsd el az Express.js szervert: `node index.ts`
 
 ## 5. Adatbázis telepítése és konfigurálása
 
