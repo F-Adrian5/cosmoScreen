@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("cosmoScreen")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+479c546d56fb03c5b282203a41cf7047ceb4cf66")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a27421d876e1a62d9e0f2c2fb0d911884901c20e")]
 [assembly: System.Reflection.AssemblyProductAttribute("cosmoScreen")]
 [assembly: System.Reflection.AssemblyTitleAttribute("cosmoScreen")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
