@@ -24,6 +24,7 @@
 </template>
 
 <script setup>
+  
   // data holder
   const offers = [
     {

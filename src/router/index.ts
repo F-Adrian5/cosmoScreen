@@ -1,3 +1,5 @@
+// importing every view
+// createRouter: you can create a new router
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Buffet from '../views/Buffet.vue'
@@ -8,14 +10,14 @@ import Rules from '../views/Rules.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 
-
+// creating router object
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home,
+      path: '/',        // URL
+      name: 'home',     // internal name
+      component: Home,  // assigning the home component to this URL,to be displayed
     },
     {
       path: '/buffet',
@@ -55,4 +57,5 @@ const router = createRouter({
   ],
 })
 
+// exporting router for other pages to use
 export default router

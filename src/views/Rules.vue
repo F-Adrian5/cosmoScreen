@@ -1,7 +1,7 @@
 <template>
   <div class="container my-3">
 
-    <!-- Cím -->
+    <!-- title -->
     <div class="row mb-5">
       <div class="col text-center">
         <h1 class="display-4 fw-bold text-primary">
@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <!-- Szabályzat szakaszok card-ban -->
+    <!-- rules in card -->
     <div class="row mb-4" 
          v-for="(section, index) in sections" :key="index">
       <div class="col">
@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <!-- Kapcsolat -->
+    <!-- contacts -->
     <div class="row mt-5">
       <div class="col text-center">
         <p class="text-muted fs-6 mb-3">
@@ -46,41 +46,41 @@
 
 <script setup>
 
-//Információk
-const sections = [
-  {
-    title: 'Általános szabályok',
-    items: [
-      'A mozi területén minden látogató köteles a házirendet betartani.',
-      'A jegyeket a mozi pénztárában vagy online lehet megváltani.',
-      'A filmek elkezdése után a terembe történő belépés csak korlátozottan lehetséges.',
-      'A mozi területén tilos a dohányzás.',
-      'Kérjük, a mobiltelefonokat kapcsolja ki vagy némítsa el a vetítés alatt.'
-    ]
-  },
-  {
-    title: 'Biztonság és higiénia',
-    items: [
-      'Felhívjuk a figyelmet a kijáratok és vészkijáratok rendeltetésszerű használatára.',
-      'Kérjük, tartsa tisztán a saját ülőhelyét és a környezetét.',
-      'Az étel- és italmaradékokat a kijelölt helyen helyezze el.',
-      'Fertőtlenítő pontok a mozi területén elérhetők.'
-    ]
-  },
-  {
-    title: 'Jegyvásárlás és visszatérítés',
-    items: [
-      'A jegyek csak a vásárlás során feltüntetett időpontra érvényesek.',
-      'Visszatérítés csak a mozi szabályzatában rögzített feltételek mellett lehetséges.',
-      'Online vásárlás esetén a jegyeket a mobiltelefonon vagy nyomtatott formában lehet bemutatni.'
-    ]
-  }
-]
+  //informations
+  const sections = [
+    {
+      title: 'Általános szabályok',
+      items: [
+        'A mozi területén minden látogató köteles a házirendet betartani.',
+        'A jegyeket a mozi pénztárában vagy online lehet megváltani.',
+        'A filmek elkezdése után a terembe történő belépés csak korlátozottan lehetséges.',
+        'A mozi területén tilos a dohányzás.',
+        'Kérjük, a mobiltelefonokat kapcsolja ki vagy némítsa el a vetítés alatt.'
+      ]
+    },
+    {
+      title: 'Biztonság és higiénia',
+      items: [
+        'Felhívjuk a figyelmet a kijáratok és vészkijáratok rendeltetésszerű használatára.',
+        'Kérjük, tartsa tisztán a saját ülőhelyét és a környezetét.',
+        'Az étel- és italmaradékokat a kijelölt helyen helyezze el.',
+        'Fertőtlenítő pontok a mozi területén elérhetők.'
+      ]
+    },
+    {
+      title: 'Jegyvásárlás és visszatérítés',
+      items: [
+        'A jegyek csak a vásárlás során feltüntetett időpontra érvényesek.',
+        'Visszatérítés csak a mozi szabályzatában rögzített feltételek mellett lehetséges.',
+        'Online vásárlás esetén a jegyeket a mobiltelefonon vagy nyomtatott formában lehet bemutatni.'
+      ]
+    }
+  ]
 </script>
 
 <style scoped>
-.list-group-item {
-  font-size: 1rem;
-  padding: 0.75rem 1rem;
-}
+  .list-group-item {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+  }
 </style>

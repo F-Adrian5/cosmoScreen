@@ -3,9 +3,11 @@
     <form class="p-4 shadow rounded bg-white mt-5"
           style="width: 100%; max-width: 380px;">
 
-      <h4 class="text-center mb-4 fw-bold">Regisztráció</h4>
+      <h4 class="text-center mb-4 fw-bold">
+        Regisztráció
+      </h4>
 
-      <!--Név-->
+      <!--name-->
       <div class="mb-3">
         <label for="register_name" 
                class="form-label fw-semibold">
@@ -20,7 +22,7 @@
                maxlength="100"
                required>
 
-        <!--Név hibaüzenet-->
+        <!--name error-->
         <div class="text-danger mt-1 small" 
              style="min-height: 22px;">
           <span v-if="name && /\d/.test(name)">
@@ -29,7 +31,7 @@
         </div>
       </div>
 
-      <!--Email-->
+      <!-- Email -->
       <div class="mb-3">
         <label for="register_email" 
                class="form-label fw-semibold">
@@ -44,7 +46,7 @@
                maxlength="150"
                required>
 
-        <!--Email hibaüzenet-->
+        <!--Email error-->
         <div class="text-danger mt-1 small" 
              style="min-height: 22px;">
           <span v-if="email && !validEmail">
@@ -53,7 +55,7 @@
         </div>
       </div>
 
-      <!--Jelszó-->
+      <!-- password -->
       <div class="mb-3 position-relative">
         <label for="register_password" 
                class="form-label fw-semibold">
@@ -71,7 +73,7 @@
             required
             style="padding-right: 2.5rem;">
 
-          <!--Jelszó megjelenítés-->
+          <!-- show password -->
           <button type="button"
                   @click="showPassword = !showPassword"
                   class="btn position-absolute border-0 bg-transparent d-flex align-items-center justify-content-center p-0"
@@ -82,7 +84,7 @@
           </button>
         </div>
 
-        <!--Jelszó hibaüzenet-->
+        <!-- password error -->
         <div class="text-danger mt-1 small" 
              style="min-height: 42px;">
           <span v-if="password && !validPassword">
@@ -91,15 +93,15 @@
         </div>
       </div>
 
-      <!--Regisztráció gomb-->
+      <!-- registration btn-->
       <button type="submit"
               class="btn btn-primary w-100 py-2 fw-semibold"
               :disabled="!name || !email || !password || 
                          !validEmail || !validPassword">
-        Regisztráció
+          Regisztráció
       </button>
 
-       <!--Bejelentkezés link-->
+       <!-- registration link-->
        <div class="text-center mt-2">
         <p>Ha már van fiókja <RouterLink to="/login">jelentkezzen be</RouterLink>!</p>
       </div>
@@ -109,31 +111,45 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      name: '',
-      email: '',
-      password: '',
-      showPassword: false,
-    };
-  },
-  computed: {
 
-    //Email validáció
-    validEmail() {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
+  // exporting the component
+  export default {
+
+    // this function returns the current state, this is a tempelate
+    data() {
+      return {
+        name: '',     //connects to v-model="name"
+        email: '',    //connects to v-model="email"
+        password: '',
+        showPassword: false,
+      };
     },
 
-    //Jelszó validáció
-    validPassword() {
-      return /(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_\-?:]).{6,}/.test(this.password);
+    // this section will do calculations
+    // it wont store data
+    // automatically it will update the DOM
+    computed: {
+
+      // this.email -> will show the current email
+      // regex.test(x) -> this will test that specific 'x' value,
+      // and it will return us a true or false value
+      validEmail() {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
+      },
+
+      //password validation
+      validPassword() {
+        return /(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_\-?:]).{6,}/.test(this.password);
+      }
+    },
+
+    // methods are like events, like click or submit...
+    methods: {
+
+      // register function
+      register() {
+        alert(`Regisztráció: ${this.name} (${this.email})`);
+      }
     }
-  },
-  methods: {
-    register() {
-      alert(`Regisztráció: ${this.name} (${this.email})`);
-    }
-  }
-};
+  };
 </script>

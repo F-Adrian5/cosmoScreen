@@ -63,9 +63,9 @@
 
 <!-- scoped style -->
 <style scoped>
-.list-group-item {
-  font-size: 1rem;
-  padding: 0.75rem 1rem;
-  border: none;
-}
+  .list-group-item {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border: none;
+  }
 </style>

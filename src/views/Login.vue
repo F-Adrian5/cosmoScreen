@@ -37,14 +37,13 @@
         </label>
 
         <div class="d-flex align-items-center position-relative">
-          <input
-            :type="showPassword ? 'text' : 'password'"
-            class="form-control form-control-lg"
-            id="login_password"
-            v-model="password"
-            maxlength="20"
-            required
-            style="padding-right: 2.5rem;">
+          <input :type="showPassword ? 'text' : 'password'"
+                 class="form-control form-control-lg"
+                 id="login_password"
+                 v-model="password"
+                 maxlength="20"
+                 required
+                 style="padding-right: 2.5rem;">
 
           <!-- show password -->
           <button type="button"
@@ -74,43 +73,65 @@
                          !password ||
                          !validEmail ||
                          !validPassword">
-        Bejelentkezés
+          Bejelentkezés
       </button>
       
       <!--register link-->
       <div class="text-center mt-2">
-        <p>Ha még nincs fiókja <RouterLink to="/register">regisztráljon</RouterLink>!</p>
+        <p>Ha még nincs fiókja 
+          <RouterLink to="/register">
+            regisztráljon
+          </RouterLink>
+          !
+        </p>
       </div>
-
     </form>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      email: "",
-      password: "",
-      showPassword: false,
-    };
-  },
-  computed: {
 
-    //Email validáció
-    validEmail() {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
+  // exporting the component
+  export default {
+    
+    // this function returns the current state, this is a tempelate
+    data() {
+      return {
+        email: "",            //connects to v-model="email"
+        password: "",         //connects to v-model="password"
+        showPassword: false,  //connects to v-model="showPassword"
+      };
     },
 
-    //Jelszó validáció
-    validPassword() {
-      return /(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_\-?:]).{6,}/.test(this.password);
+    // this section will do calculations
+    // it wont store data
+    // automatically it will update the DOM
+    computed: {
+
+      //Email validation
+      validEmail() {
+
+        // this.email -> will show the current email
+        // regex.test(x) -> this will test that specific 'x' value,
+        // and it will return us a true or false value
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
+      },
+
+      //password validation
+      validPassword() {
+        return /(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_\-?:]).{6,}/.test(this.password);
+      }
+    },
+
+    // methods are like events, like click or submit...
+    methods: {
+
+      // login method
+      login() {
+
+        // alert user and display the current email
+        alert(`Bejelentkezés: ${this.email}`);
+      }
     }
-  },
-  methods: {
-    login() {
-      alert(`Bejelentkezés: ${this.email}`);
-    }
-  }
-};
+  };
 </script>

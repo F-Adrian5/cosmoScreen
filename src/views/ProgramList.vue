@@ -5,21 +5,27 @@
            class="movie-card p-2 h-100 px-2 py-2
                   col-12 col-md-6 col-lg-4 col-xl-3">
 
+        <!-- movie -->
         <div class="movie-content d-flex flex-row 
                     flex-md-column border
                     align-items-md-center border-black
                     text-md-center">
+          
+          <!-- movie image -->
           <img :src="movie.image" class="movie-image">
 
+          <!-- movie content -->
           <div class="mt-2 mx-2">
             <h3 class="fs-3 mb-1 fw-bold">{{ movie.title }}</h3>
             <p class="fs-5 mb-1 text-muted">{{ movie.genre }}</p>
             <p class="fs-5 mb-3 text-muted">| {{ movie.length }} perc</p>
           
+            <!-- movie time -->
             <div class="movie-times d-flex flex-wrap gap-1 
                         justify-content-start 
                         justify-content-md-center fs-5">
 
+              <!-- movie time display -->
               <span v-for="time in movie.times" :key="time"
                     class="badge bg-secondary me-1 mb-1">
                 {{ time }}
@@ -33,13 +39,15 @@
 </template>
 
 <script setup>
+
+  // importing ref and images.
   import { ref } from 'vue'
   import jojoRabbitImg from '../assets/media/images/movie_posters/jojo_rabbit.jpg'
   import starwars5Img from '../assets/media/images/movie_posters/starwars5.jpg'
   import starwars4Img from '../assets/media/images/movie_posters/starwars4.jpg'
   import starwars6Img from '../assets/media/images/movie_posters/starwars6.jpg'
 
-
+  // days
   const days = [
   "Hétfő",
   "Kedd",
@@ -50,6 +58,7 @@
   "Vasárnap"
   ]
 
+  // movies
   const movies = [
     {
       id: 1,
