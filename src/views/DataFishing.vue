@@ -1,7 +1,7 @@
 <template>
   <div class="container my-5">
 
-    <!-- Cím -->
+    <!-- title -->
     <div class="row mb-5">
       <div class="col text-center">
         <h1 class="display-4 fw-bold text-warning">
@@ -13,8 +13,10 @@
       </div>
     </div>
 
-    <!-- Figyelmeztető card -->
+    <!-- card -->
     <div class="row mb-4">
+
+      <!-- content -->
       <div class="col">
         <div class="card shadow-sm rounded-4 p-4 
                     bg-dark text-light border-warning border-3">
@@ -59,6 +61,7 @@
   </div>
 </template>
 
+<!-- scoped style -->
 <style scoped>
 .list-group-item {
   font-size: 1rem;

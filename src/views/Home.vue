@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  // imports the carousel.css and the carousel
   import '../assets/styles/carousel.css'
   import Carousel from '../components/CardCarousel.vue'
 </script>
@@ -7,6 +8,8 @@
   <main>
     <h2 class="text-center mb-5 mt-5">Üdvözöljük a CosmoScreen oldalán!</h2>
     <p class="fw-bold fs-3">Jelenleg vetítjük:</p>
-    <Carousel />
+    
+    <!-- loads the carousel component -->
+    <Carousel /> 
   </main>
 </template>

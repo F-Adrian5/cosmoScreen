@@ -2,11 +2,22 @@
   <div class="container">
     <div class="row align-text-center">
       <div class="carousel w-100">
+        
+        <!-- card -->
         <div class="card movie-card"
-             v-for="(movie, index) in movies" :key="movie.id" :style="{ '--i': index }">
+             v-for="(movie, index) in movies" 
+            :key="movie.id" :style="{ '--i': index }">
+          
+          <!-- image -->
           <img :src="movie.image" class="card-img-top" :alt="movie.title" />
+          
+          <!-- card body -->
           <div class="card-body">
+
+            <!-- title -->
             <h5 class="card-title">{{ movie.title }}</h5>
+            
+            <!-- description -->
             <p class="card-text">{{ movie.description }}</p>
           </div>
         </div>
@@ -15,11 +26,14 @@
   </div>
 </template>
 
-
 <script lang="ts">
+// importing from vue and carousel.css
+// defineComponent: this is how we define components
+// ref: every time if something changes ref reacts
 import { defineComponent, ref } from 'vue'
 import '../assets/styles/carousel.css'
 
+// this will make a Movie object, and we can set what records it can have
 interface Movie {
   id: number
   title: string
@@ -28,9 +42,15 @@ interface Movie {
   link: string
 }
 
+// exporting the defineComponent, so we can use it elsewhere
 export default defineComponent({
-  name: 'MovieCarousel',
-  setup() {
+  name: 'MovieCarousel',  // component name
+  setup() {   // this is where we define the data,functions...
+
+    // movies will be a reactive variable
+    // it is basically a variable, 
+    // that if you change it will automatically change in the HTML
+    // so if we modify the data, the UI will automatically update
     const movies = ref<Movie[]>([
       {
         id: 1,
@@ -103,6 +123,8 @@ export default defineComponent({
         link: '#',
       },
     ])
+
+    // what we return will be available for use in the tempelate section
     return { movies }
   },
 })

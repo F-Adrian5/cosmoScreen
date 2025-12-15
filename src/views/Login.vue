@@ -20,7 +20,7 @@
                maxlength="150"
                required>
 
-        <!--Email hibaüzenet-->
+        <!--Email error-->
         <div class="text-danger mt-1 small" 
              style="min-height: 22px;">
           <span v-if="email && !validEmail">
@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <!--Jelszó-->
+      <!-- password -->
       <div class="mb-3">
         <label for="login_password" 
                class="form-label fw-semibold">
@@ -46,7 +46,7 @@
             required
             style="padding-right: 2.5rem;">
 
-          <!--Jelszó megjelenítés-->
+          <!-- show password -->
           <button type="button"
                   @click="showPassword = !showPassword"
                   class="btn position-absolute border-0 bg-transparent d-flex 
@@ -58,7 +58,7 @@
           </button>
         </div>
 
-        <!--Jelszó hibaüzenet-->
+        <!--password error -->
         <div class="text-danger mt-1 small" 
              style="min-height: 42px;">
           <span v-if="password && !validPassword">
@@ -67,7 +67,7 @@
         </div>
       </div>
 
-      <!--Bejelentkezés gomb-->
+      <!--login btn-->
       <button type="submit"
               class="btn btn-primary w-100 py-2 fw-semibold"
               :disabled="!email || 
@@ -77,7 +77,7 @@
         Bejelentkezés
       </button>
       
-      <!--Regisztrációs link-->
+      <!--register link-->
       <div class="text-center mt-2">
         <p>Ha még nincs fiókja <RouterLink to="/register">regisztráljon</RouterLink>!</p>
       </div>

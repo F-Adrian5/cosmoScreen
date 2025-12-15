@@ -1,5 +1,7 @@
+// importing mysql form libary
 import mysql from 'mysql';
 
+// creating a database connection, with the data provided
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -7,12 +9,17 @@ const db = mysql.createConnection({
   database: 'cosmoscreen'
 });
 
+// trying to connect to the database
 db.connect(err => {
+  
+  // if there is an error, we print it out and we exit the program
   if (err) {
     console.error('Database connection failed: ' + err.stack);
     process.exit(1);
   }
+
   console.log('Connected to database.');
 });
 
+// exporting the db object so we can use it elsewhere
 export default db;

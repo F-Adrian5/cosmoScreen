@@ -1,3 +1,4 @@
+/* carousel style section */
 .carousel {
   --items: 10;
   --carousel-duration: 60s;
@@ -31,6 +32,7 @@
   object-fit: cover;
 }
 
+/* card style section */
 .card-body {
   display: flex;
   flex-direction: column;
@@ -48,10 +50,12 @@
   flex-grow: 1;
 }
 
+/* btn style */
 .btn {
   margin-top: 0.5rem;
 }
 
+/* marquee */
 @keyframes marquee {
   100% {
     transform: translateX(calc(var(--items) * (280px + 2rem) * -1));
