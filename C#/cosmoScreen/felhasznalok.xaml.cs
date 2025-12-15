@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -120,6 +121,18 @@ namespace cosmoScreen
 
         private void btn_upload_Click(object sender, RoutedEventArgs e)
         {
+            if (!ValidateInputs())
+            {
+                MessageBox.Show(
+                    "Hibás adatbevitel! Ellenőrizd az e-mail címet.",
+                    "Hiba",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+
+                return;
+            }
+
+
             string user_upload = $"INSERT INTO users(name,email,password) VALUES('{user_name_input.Text}','{email_input.Text}','{password_input.Text}')";
             executeQuery(user_upload);
             LoadUsers();
@@ -132,12 +145,46 @@ namespace cosmoScreen
 
         private bool ValidateInputs()
         {
-            if (string.IsNullOrWhiteSpace(user_name_input.Text)) return false;
-            if (string.IsNullOrWhiteSpace(email_input.Text)) return false;
-            if (string.IsNullOrWhiteSpace(password_input.Text)) return false;
+            if (string.IsNullOrWhiteSpace(user_name_input.Text))
+                return false;
+
+            if (string.IsNullOrWhiteSpace(email_input.Text))
+                return false;
+
+            if (!IsValidEmail(email_input.Text))
+                return false;
+
+            if (string.IsNullOrWhiteSpace(password_input.Text))
+                return false;
+
+            if (!IsValidPassword(password_input.Text))
+                return false;
+
 
             return true;
         }
+
+        public static bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            return Regex.IsMatch(email,
+                @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
+                RegexOptions.IgnoreCase);
+        }
+
+        public bool IsValidPassword(string password)
+        {
+            if (string.IsNullOrWhiteSpace(password))
+                return false;
+
+            return Regex.IsMatch(password,
+                @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_+\-=?:]).{8,}$");
+
+        }
+
+
 
         private int user_id = -1;
         private void users_datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

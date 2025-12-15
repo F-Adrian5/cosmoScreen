@@ -7,16 +7,8 @@
       "RelativeMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|solutionrelative:cosmoscreen\\felhasznalok.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|c:\\xampp\\htdocs\\krivan_balazs\\cosmoscreen\\c#\\cosmoscreen\\szineszek.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|solutionrelative:cosmoscreen\\szineszek.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|c:\\xampp\\htdocs\\krivan_balazs\\cosmoscreen\\c#\\cosmoscreen\\szineszek.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|solutionrelative:cosmoscreen\\szineszek.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|c:\\xampp\\htdocs\\krivan_balazs\\cosmoscreen\\c#\\cosmoscreen\\bufe.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|solutionrelative:cosmoscreen\\bufe.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|c:\\xampp\\htdocs\\krivan_balazs\\cosmoscreen\\c#\\cosmoscreen\\felhasznalok.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|solutionrelative:cosmoscreen\\felhasznalok.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|c:\\xampp\\htdocs\\krivan_balazs\\cosmoscreen\\c#\\cosmoscreen\\films.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -27,20 +19,28 @@
       "RelativeMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|solutionrelative:cosmoscreen\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|c:\\xampp\\htdocs\\krivan_balazs\\cosmoscreen\\c#\\cosmoscreen\\films.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|solutionrelative:cosmoscreen\\films.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|c:\\xampp\\htdocs\\krivan_balazs\\cosmoscreen\\c#\\cosmoscreen\\bufe.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|solutionrelative:cosmoscreen\\bufe.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|c:\\xampp\\htdocs\\krivan_balazs\\cosmoscreen\\c#\\cosmoscreen\\szineszek.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|solutionrelative:cosmoscreen\\szineszek.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|c:\\xampp\\htdocs\\krivan_balazs\\cosmoscreen\\c#\\cosmoscreen\\bufe.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|solutionrelative:cosmoscreen\\bufe.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|c:\\xampp\\htdocs\\krivan_balazs\\cosmoscreen\\c#\\cosmoscreen\\felhasznalok.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|solutionrelative:cosmoscreen\\felhasznalok.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|c:\\xampp\\htdocs\\krivan_balazs\\cosmoscreen\\c#\\cosmoscreen\\szineszek.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|solutionrelative:cosmoscreen\\szineszek.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|c:\\xampp\\htdocs\\krivan_balazs\\cosmoscreen\\c#\\cosmoscreen\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|solutionrelative:cosmoscreen\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|c:\\xampp\\htdocs\\krivan_balazs\\cosmoscreen\\c#\\cosmoscreen\\films.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}|cosmoScreen\\cosmoScreen.csproj|solutionrelative:cosmoscreen\\films.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,31 +54,29 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "szineszek.xaml",
               "DocumentMoniker": "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\szineszek.xaml",
               "RelativeDocumentMoniker": "cosmoScreen\\szineszek.xaml",
               "ToolTip": "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\szineszek.xaml",
               "RelativeToolTip": "cosmoScreen\\szineszek.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-12-11T09:57:55.613Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T09:57:55.613Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\MainWindow.xaml",
               "RelativeDocumentMoniker": "cosmoScreen\\MainWindow.xaml",
               "ToolTip": "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\MainWindow.xaml",
               "RelativeToolTip": "cosmoScreen\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-12-11T09:57:54.238Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T09:57:54.238Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "felhasznalok.xaml",
               "DocumentMoniker": "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\felhasznalok.xaml",
               "RelativeDocumentMoniker": "cosmoScreen\\felhasznalok.xaml",
@@ -96,14 +94,14 @@
               "RelativeDocumentMoniker": "cosmoScreen\\felhasznalok.xaml.cs",
               "ToolTip": "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\felhasznalok.xaml.cs",
               "RelativeToolTip": "cosmoScreen\\felhasznalok.xaml.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAQwIQAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAswLYAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-11T09:58:42.021Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "bufe.xaml.cs",
               "DocumentMoniker": "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\bufe.xaml.cs",
               "RelativeDocumentMoniker": "cosmoScreen\\bufe.xaml.cs",
@@ -116,7 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "szineszek.xaml.cs",
               "DocumentMoniker": "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\szineszek.xaml.cs",
               "RelativeDocumentMoniker": "cosmoScreen\\szineszek.xaml.cs",
@@ -129,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "bufe.xaml",
               "DocumentMoniker": "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\bufe.xaml",
               "RelativeDocumentMoniker": "cosmoScreen\\bufe.xaml",
@@ -141,20 +139,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
               "Title": "films.xaml.cs",
               "DocumentMoniker": "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\films.xaml.cs",
               "RelativeDocumentMoniker": "cosmoScreen\\films.xaml.cs",
               "ToolTip": "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\films.xaml.cs",
               "RelativeToolTip": "cosmoScreen\\films.xaml.cs",
-              "ViewState": "AgIAAH0AAAAAAAAAAIA8wDoAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAnwDoAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-11T09:58:43.771Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "cosmoScreen\\MainWindow.xaml.cs",
@@ -167,7 +165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "films.xaml",
               "DocumentMoniker": "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\films.xaml",
               "RelativeDocumentMoniker": "cosmoScreen\\films.xaml",
