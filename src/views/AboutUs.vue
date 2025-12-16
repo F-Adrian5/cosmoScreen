@@ -10,3 +10,27 @@
     </div>
   </div>
 </template>
+
+<!-- TESZT!! -->
+<!-- <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import axios from 'axios'
+
+const message = ref('')
+const solution = ref<number | null>(null)
+
+onMounted(async () => {
+  try {
+    const helloRes = await axios.get('http://localhost:3000/hello')
+    message.value = helloRes.data.message
+  } catch (err) {
+    console.error(err)
+  }
+})
+</script>
+
+<template>
+  <div>
+    <h1>{{ message }}</h1>
+  </div>
+</template> -->
