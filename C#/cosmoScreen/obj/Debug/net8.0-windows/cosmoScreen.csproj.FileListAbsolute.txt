@@ -145,3 +145,6 @@ C:\xampp\htdocs\13c\fodor_adrian\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-win
 C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\felhasznalok.g.cs
 C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\cosmoScreen_MarkupCompile.lref
 C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\felhasznalok.baml
+C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\login.g.cs
+C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\App.baml
+C:\xampp\htdocs\krivan_balazs\cosmoScreen\C#\cosmoScreen\obj\Debug\net8.0-windows\login.baml

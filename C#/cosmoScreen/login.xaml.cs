@@ -23,5 +23,17 @@ namespace cosmoScreen
         {
             InitializeComponent();
         }
+
+        private void login_btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (loginE_input.Text == "a@a.aa" && loginP_input.Password == "1234Aa")
+            {
+               DialogResult = true;
+            }
+            else
+            {
+                MessageBox.Show("Hibás belépési adatok");
+            }
+        }
     }
 }

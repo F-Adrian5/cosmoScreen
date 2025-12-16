@@ -54,7 +54,7 @@
                     Background="Black" Foreground="#FF9DCC3B"
                     FontWeight="Bold" FontSize="22"
                     Margin="10"
-                    Click="film_Click"/>
+                    Click="film_Click" BorderBrush="Black"/>
 
             <Button Name="bufe"
                     Content="Büfé"
@@ -62,7 +62,7 @@
                     Background="Black" Foreground="#FF9DCC3B"
                     FontWeight="Bold" FontSize="22"
                     Margin="10"
-                    Click="bufe_click"/>
+                    Click="bufe_click" BorderBrush="Black"/>
 
             <Button Name="szineszek"
                     Content="Színészek"
@@ -70,12 +70,12 @@
                     Background="Black" Foreground="#FF9DCC3B"
                     FontWeight="Bold" FontSize="22"
                     Margin="10"
-                    Click="szineszek_click"/>
+                    Click="szineszek_click" BorderBrush="Black"/>
             <Button x:Name="felhasznalok"
                 Content="Felhasználók"
                 Width="160" Height="70"
                 Background="Black" Foreground="#FF9DCC3B"
-                FontWeight="Bold" FontSize="22" Click="felhasznalok_Click"/>
+                FontWeight="Bold" FontSize="22" Click="felhasznalok_Click" BorderBrush="Black"/>
 
         </StackPanel>
     </Grid>
