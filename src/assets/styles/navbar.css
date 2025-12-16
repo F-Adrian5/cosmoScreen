@@ -4,12 +4,11 @@
 }
 
 .nav-link {
-  color: rgb(1, 207, 180) !important;
+  color: rgb(148, 220, 219) !important;
   font-family: 'Nippo-Light';
 }
 
 .navbar-brand {
   color: rgba(255, 255, 255, 0.815)!important;
   font-family: 'Nippo-Regular';
-/* Cambria, Cochin */
 }

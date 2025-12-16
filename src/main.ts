@@ -3,6 +3,7 @@ import './assets/styles/main.css'
 import './assets/styles/footer.css'
 import './assets/styles/programList.css'
 import './assets/styles/navbar.css'
+import './assets/styles/login.css'
 import './assets/fonts/bespokeStencil/bespoke-stencil.css'
 import './assets/fonts/nippo/nippo.css'
 

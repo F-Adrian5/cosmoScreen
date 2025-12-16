@@ -1,0 +1,13 @@
+form {
+  color: rgb(148, 220, 219);
+  background-color: rgb(44, 44, 44);
+}
+
+.btn_submit {
+  background-color: rgb(148, 220, 219) !important;
+  color: rgb(44, 44, 44) !important;
+}
+
+.link_color {
+  color: lightseagreen;
+}

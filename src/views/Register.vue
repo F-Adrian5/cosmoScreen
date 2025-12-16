@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-content-center align-items-center mt-5">
-    <form class="p-4 shadow rounded bg-white mt-5"
+    <form class="p-4 shadow rounded mt-5"
           style="width: 100%; max-width: 380px;">
 
       <h4 class="text-center mb-4 fw-bold">
@@ -95,7 +95,7 @@
 
       <!-- registration btn-->
       <button type="submit"
-              class="btn btn-primary w-100 py-2 fw-semibold"
+              class="btn btn_submit w-100 py-2 fw-semibold"
               :disabled="!name || !email || !password || 
                          !validEmail || !validPassword">
           Regisztráció
@@ -103,7 +103,13 @@
 
        <!-- registration link-->
        <div class="text-center mt-2">
-        <p>Ha már van fiókja <RouterLink to="/login">jelentkezzen be</RouterLink>!</p>
+        <p>Ha már van fiókja 
+          <RouterLink to="/login"
+                      class="link_color">
+            jelentkezzen be
+          </RouterLink>
+          !
+        </p>
       </div>
 
     </form>
@@ -139,7 +145,7 @@
 
       //password validation
       validPassword() {
-        return /(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_\-?:]).{6,}/.test(this.password);
+        return /(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_\-?:+]).{6,}/.test(this.password);
       }
     },
 
