@@ -7,7 +7,7 @@
         <h1 class="display-4 fw-bold text-warning">
           Adathalászat Tájékoztató
         </h1>
-        <p class="text-muted fs-5">
+        <p class="text-light  fs-5">
           Csak hivatalos oldalunkon vásárolj jegyet, és védje adatait!
         </p>
       </div>
@@ -20,8 +20,7 @@
       <div class="col">
         <div class="card shadow-sm rounded-4 p-4 
                     bg-dark text-light border-warning border-3">
-          <h3 class="mb-3 text-warning border-bottom 
-                     border-secondary pb-2">
+          <h3 class="mb-3 text-warning border-secondary pb-2">
                 Fontos tudnivalók
           </h3>
           

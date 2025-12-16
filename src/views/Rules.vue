@@ -7,7 +7,7 @@
         <h1 class="display-4 fw-bold text-primary">
           A CosmoScreen Szabályzata
         </h1>
-        <p class="text-muted fs-5">
+        <p class="text-light fs-5">
           Kérjük, olvassa el figyelmesen a következő szabályokat!
         </p>
       </div>
@@ -17,13 +17,12 @@
     <div class="row mb-4" 
          v-for="(section, index) in sections" :key="index">
       <div class="col">
-        <div class="card shadow-sm rounded-4 p-4 bg-light">
-          <h3 class="mb-3 text-warning border-bottom 
-                     border-2 border-secondary pb-2">
+        <div class="card shadow-sm rounded-4 p-4 bg-dark border-primary">
+          <h3 class="mb-3 text-primary pb-2">
               {{ section.title }}
           </h3>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item d-flex align-items-start" 
+            <li class="list-group-item bg-dark text-light d-flex align-items-start" 
                 v-for="(item, i) in section.items" :key="i">
               <span>{{ item }}</span>
             </li>

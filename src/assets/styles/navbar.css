@@ -12,3 +12,7 @@
   color: rgba(255, 255, 255, 0.815)!important;
   font-family: 'Nippo-Regular';
 }
+
+.burger {
+  border-color: white;
+}

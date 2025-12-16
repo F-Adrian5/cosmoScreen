@@ -1,6 +1,6 @@
 /* main styling for the site*/
 html, body {
-  height: 100%;
+  min-height: 100vh;
   background-image: url("../media/images/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;

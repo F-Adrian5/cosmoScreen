@@ -1,9 +1,13 @@
 /* footer style */
 .footerStyle {
-  font-family:'Trebuchet MS' ;
-  /* 'Courier New' */
+  font-family:'Trebuchet MS';
 }
 
 .footerText {
-  font-family:'Courier New' ;
+  font-family:'Courier New';
+}
+
+.footerLogo {
+  font-family: 'Nippo-Regular';
+  color: rgba(255, 255, 255, 0.815);
 }

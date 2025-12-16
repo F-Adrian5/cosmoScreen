@@ -76,7 +76,8 @@
           <!-- show password -->
           <button type="button"
                   @click="showPassword = !showPassword"
-                  class="btn position-absolute border-0 bg-transparent d-flex align-items-center justify-content-center p-0"
+                  class="btn position-absolute border-0 bg-transparent d-flex 
+                         align-items-center justify-content-center p-0"
                   style="width: 2.5rem; height: 100%; right: 0; cursor: pointer;">
             <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"
                style="font-size: 1.2rem; color: black;">
