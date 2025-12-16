@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <h1 class="text-center mt-5">Büfés ajánlataink</h1>
+      <h1 class="text-center text-light mt-5">Büfés ajánlataink</h1>
       <hr>
     </div>
 
@@ -17,7 +17,7 @@
       
       <!-- text -->
       <div>
-        <p class="ms-3">{{ offer.text }}</p>
+        <p class="ms-3 text-light">{{ offer.text }}</p>
       </div>
     </div>
   </div>
