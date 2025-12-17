@@ -129,18 +129,28 @@ import axios from "axios";
     methods: {
       async login() {
         try {
+
+          // Send post request to the server
           const response = await axios.post("http://localhost:3000/login", {
+
+            // Email and password entered by the user
             email: this.email,
             password: this.password
           });
 
-          const data = response.data; //itt jön a JSON a szervertől
+          // Recieve data from the server
+          const data = response.data;
           console.log("Bejelentkezve:", data);
 
+          // Store user data
           localStorage.setItem("user", JSON.stringify(data));
+
+          // Redirect to the home page after login
           this.$router.push("/");
 
         } catch (err) {
+
+          // Server response error
           if (err.response) {
             alert(err.response.data.message);
           } else {
