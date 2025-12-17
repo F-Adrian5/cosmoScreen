@@ -91,6 +91,7 @@
 </template>
 
 <script>
+import axios from "axios";
 
   // exporting the component
   export default {
@@ -126,12 +127,27 @@
 
     // methods are like events, like click or submit...
     methods: {
+      async login() {
+        try {
+          const response = await axios.post("http://localhost:3000/login", {
+            email: this.email,
+            password: this.password
+          });
 
-      // login method
-      login() {
+          const data = response.data; //itt jön a JSON a szervertől
+          console.log("Bejelentkezve:", data);
 
-        // alert user and display the current email
-        alert(`Bejelentkezés: ${this.email}`);
+          localStorage.setItem("user", JSON.stringify(data));
+          this.$router.push("/");
+
+        } catch (err) {
+          if (err.response) {
+            alert(err.response.data.message);
+          } else {
+            alert("Szerver nem elérhető");
+          }
+          console.error("Login hiba részlete:", err);
+        }
       }
     }
   };

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <h1 class="text-center text-light mt-5">Büfés ajánlataink</h1>
-      <hr>
+      <hr class="text-light">
     </div>
 
     <!-- buffet item -->

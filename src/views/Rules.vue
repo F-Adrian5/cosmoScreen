@@ -34,7 +34,7 @@
     <!-- contacts -->
     <div class="row mt-5">
       <div class="col text-center">
-        <p class="text-muted fs-6 mb-3">
+        <p class="text-light fs-6 mb-3">
           Kérdés esetén vegye fel bátran velünk a kapcsolatot!
         </p>
       </div>
