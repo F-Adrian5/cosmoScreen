@@ -12,7 +12,7 @@
           <img :src="movie.image" class="card-img-top" :alt="movie.title" />
           
           <!-- card body -->
-          <div class="card-body">
+          <div class="card-body bg-primary-subtle">
 
             <!-- title -->
             <h5 class="card-title">{{ movie.title }}</h5>

@@ -9,7 +9,7 @@
         <div class="movie-content d-flex flex-row 
                     flex-md-column border
                     align-items-md-center border-black
-                    text-md-center">
+                    text-md-center bg-primary-subtle">
           
           <!-- movie image -->
           <img :src="movie.image" class="movie-image">
