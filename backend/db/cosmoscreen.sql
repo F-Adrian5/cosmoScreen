@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Nov 27. 11:12
+-- Létrehozás ideje: 2025. Dec 17. 12:59
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -211,7 +211,7 @@ INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production
 (18, 'A bárányok hallgatnak', 'Bűnügyi', 118, 'Jonathan Demme', 'Orion Pictures', 18, '2D', 'silence_lambs.jpg', 'silence_lambs.mp4', 'Egy nyomozó sorozatgyilkost üldöz.', '1991-02-14'),
 (19, 'Csillagok között', 'Sci-Fi', 169, 'Christopher Nolan', 'Warner Bros.', 12, 'IMAX', 'interstellar.jpg', 'interstellar.mp4', 'Az emberiség új otthont keres a csillagok között.', '2014-11-07'),
 (20, 'Oppenheimer', 'Dráma', 180, 'Christopher Nolan', 'Universal Pictures', 16, '3D', 'oppenheimer.jpg', 'oppenheimer.mp4', 'Az atombomba megalkotásának története.', '2023-07-21'),
-(21, 'A remény rabjai', 'Dráma', 142, 'Frank Darabont', 'Warner Bros.', 18, '2D', 'shawshank_redeption.jpg', 'shawshank_redeption.mp4', 'Egy ártatlanul elítélt férfi a Shawshank börtönben barátságot köt, és reményt talál a szabadságra.', '1994-09-23'),
+(21, 'A remény rabjai', 'Dráma', 142, 'Frank Darabont', 'Warner Bros.', 18, '2D', 'shawshank_redemption.jpg', 'shawshank_redemption.mp4', 'Egy ártatlanul elítélt férfi a Shawshank börtönben barátságot köt, és reményt talál a szabadságra.', '1994-09-23'),
 (22, 'Jojo nyuszi', 'Dráma', 108, 'Taika Waititi', 'Twentieth Century Fox', 12, '2D', 'jojo_rabbit.jpg', 'jojo_rabbit.mp4', 'Egy fiatal náci fiú képzeletbeli barátja, Adolf Hitler segítségével fedezi fel az emberiességet és a háború kegyetlenségét.', '2019-10-18'),
 (23, 'Csillagok háborúja: Baljós árnyak', 'Sci-Fi', 136, 'George Lucas', 'Lucasfilm', 12, '3D', 'starwars1.jpg', 'starwars1.mp4', 'Egy fiatal jedi, Qui-Gon Jinn és tanítványa, Obi-Wan Kenobi megpróbálják megvédeni a Galaktikus Köztársaságot és felfedezik a titokzatos Sith-ek fenyegetését.', '1999-05-19'),
 (24, 'Titkos ablak', 'Thriller', 96, 'David Koepp', 'Columbia Pictures', 16, 'IMAX', 'secret_window.jpg', 'secret_window.mp4', 'Egy író magánélete felborul, amikor egy titokzatos idegen vádolja plágiummal, és a helyzet egyre veszélyesebbé válik.', '2004-07-16'),
@@ -463,14 +463,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `admin`) VALUES
-(1, 'admin', 'a@a.aa', '1234Aa', 1),
-(2, 'Anna Kovács', 'annakovacs@freemail.hu', 'AnnaK2025', 0),
+(1, 'admin', 'a@a.aa', '1234Aa?', 1),
+(2, 'Anna Kovács', 'annakovacs@freemail.hu', 'Anna_K2025', 0),
 (3, 'Bence Tóth', 'bencetoth@gmail.com', 'BenT_84x', 0),
-(4, 'Csilla Horváth', 'csillahorvath@citromail.hu', 'CsillaH91', 0),
-(5, 'Dávid Kiss', 'davidkiss@outlook.com', 'DkPass2023', 0),
+(4, 'Csilla Horváth', 'csillahorvath@citromail.hu', 'Csilla-H91', 0),
+(5, 'Dávid Kiss', 'davidkiss@outlook.com', 'Dk:Pass2023', 0),
 (6, 'Eszter Farkas', 'eszter_farkas@protonmail.com', 'EszF_77a', 0),
-(7, 'Ferenc Varga', 'ferencvarga@t_online.hu', 'FvSecure1', 0),
-(8, 'Gábor Szabó', 'gaborszabo@yahoo.com', 'GaborS2024', 0),
+(7, 'Ferenc Varga', 'ferencvarga@t_online.hu', 'Fv#Secure1', 0),
+(8, 'Gábor Szabó', 'gaborszabo@yahoo.com', 'Gabor_S2024', 0),
 (9, 'Hanna Molnár', 'hannamolnar@icloud.com', 'HannaM_88', 0),
 (10, 'István Nagy', 'istvannagy@vipmail.hu', 'IstvanN_19', 0),
 (11, 'Judit Kovács', 'judit_kovacs@aol.com', 'JuditK_03', 0),
