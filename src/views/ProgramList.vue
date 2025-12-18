@@ -12,13 +12,13 @@
                     text-md-center bg-primary-subtle">
           
           <!-- movie image -->
-          <img :src="movie.image" class="movie-image">
+          <img :src="`./src/assets/media/images/movie_posters/${movie.poster}`" class="movie-image">
 
           <!-- movie content -->
           <div class="mt-2 mx-2">
             <h3 class="fs-3 mb-1 fw-bold">{{ movie.title }}</h3>
             <p class="fs-5 mb-1 text-muted">{{ movie.genre }}</p>
-            <p class="fs-5 mb-3 text-muted">| {{ movie.length }} perc</p>
+            <p class="fs-5 mb-3 text-muted">| {{ movie.runtime }} perc</p>
           
             <!-- movie time -->
             <div class="movie-times d-flex flex-wrap gap-1 
@@ -26,10 +26,14 @@
                         justify-content-md-center fs-5">
 
               <!-- movie time display -->
-              <span v-for="time in movie.times" :key="time"
+              <span class="badge bg-secondary me-1 mb-1"> 
+                {{ movie.showing_in }}
+              </span>
+              
+              <!-- <span v-for="time in movie.showing_in" :key="time"
                     class="badge bg-secondary me-1 mb-1">
                 {{ time }}
-              </span>
+              </span> -->
             </div>
           </div>
         </div>
@@ -38,65 +42,32 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
-  // importing ref and images.
-  import { ref } from 'vue'
-  import jojoRabbitImg from '../assets/media/images/movie_posters/jojo_rabbit.jpg'
-  import starwars5Img from '../assets/media/images/movie_posters/starwars5.jpg'
-  import starwars4Img from '../assets/media/images/movie_posters/starwars4.jpg'
-  import starwars6Img from '../assets/media/images/movie_posters/starwars6.jpg'
+  // importing.
+  import { ref, onMounted } from "vue";
+  import axios from "axios";
 
-  // days
-  const days = [
-  "Hétfő",
-  "Kedd",
-  "Szerda",
-  "Csütörtök",
-  "Péntek",
-  "Szombat",
-  "Vasárnap"
-  ]
-
-  // movies
-  const movies = [
-    {
-      id: 1,
-      title: "Oppenheimer",
-      genre: "akció, történelmi",
-      length: 180,
-      image: jojoRabbitImg,
-      times: ["3D – 16:00", "2D – 18:00", "IMAX – 19:00"]
-    },
-    {
-      id: 2,
-      title: "Batman",
-      genre: "akció",
-      length: 140,
-      image: starwars5Img,
-      times: ["2D – 14:00", "IMAX – 19:00"]
-    },
-    {
-      id: 2,
-      title: "2012",
-      genre: "akció",
-      length: 100,
-      image: starwars4Img,
-      times: ["2D – 14:00"]
-    },
-    {
-      id: 4,
-      title: "Titanic",
-      genre: "akció",
-      length: 240,
-      image: starwars6Img,
-      times: ["IMAX – 19:00"]
-    }
-  ]
-
-  const selectedDay = ref(days[0]);
-
-  function selectDay(day) {
-    selectedDay.value = day;
+  // this will make a Movie object, and we can set what records it can have
+  interface Movie {
+    id: number
+    poster: string
+    description: string
+    title: string
+    genre: string
+    runtime: number
+    start: string
+    end: string
+    showing_in: string
   }
+
+  const movies = ref<Movie[]>([]);
+
+  onMounted(async ()=> {
+
+    const data = await axios.get("http://localhost:3000/getPrograms")
+    movies.value = data.data;
+    console.log(movies)
+  })
+
 </script>
