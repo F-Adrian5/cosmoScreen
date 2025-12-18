@@ -1,7 +1,7 @@
 /* carousel style section */
 .carousel {
-  --items: 10;
-  --carousel-duration: 60s;
+  --items: 20;
+  --carousel-duration: 90s;
   height: 450px;
   position: relative;
   width: 100%;
