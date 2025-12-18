@@ -1,7 +1,8 @@
 <template>
   <div class="d-flex justify-content-center align-items-center mt-5">
     <form class="p-4 shadow rounded mt-5"
-          style="width: 100%; max-width: 380px;">
+          style="width: 100%; max-width: 380px;"
+          @submit.prevent="register">
 
       <h4 class="text-center mb-4 fw-bold">
         Regisztráció
@@ -118,6 +119,7 @@
 </template>
 
 <script>
+  import axios from "axios";
 
   // exporting the component
   export default {
@@ -151,11 +153,38 @@
     },
 
     // methods are like events, like click or submit...
-    methods: {
+   methods: {
+      async register() {
+        try {
+          // Send post request to the server
+          const response = await axios.post("http://localhost:3000/register", {
 
-      // register function
-      register() {
-        alert(`Regisztráció: ${this.name} (${this.email})`);
+            // Name, email and password entered by the user
+            name: this.name,
+            email: this.email,
+            password: this.password
+          });
+
+          // Receive data from the server
+          const data = response.data;
+          console.log("Sikeres regisztráció:", data);
+
+          // Store user data
+          localStorage.setItem("user", JSON.stringify(data));
+
+          // Redirect to the home page after registration
+          this.$router.push("/");
+
+        } catch (err) {
+
+          // Server response error
+          if (err.response) {
+            alert(err.response.data.message);
+          } else {
+            alert("Szerver nem elérhető");
+          }
+          console.error("Register hiba részlete:", err);
+        }
       }
     }
   };
