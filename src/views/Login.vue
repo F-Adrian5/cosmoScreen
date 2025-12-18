@@ -91,7 +91,7 @@
 </template>
 
 <script>
-import axios from "axios";
+  import axios from "axios";
 
   // exporting the component
   export default {
