@@ -12,7 +12,8 @@
                     text-md-center bg-primary-subtle">
           
           <!-- movie image -->
-          <img :src="`./src/assets/media/images/movie_posters/${movie.poster}`" class="movie-image">
+          <img :src="`./src/assets/media/images/movie_posters/${movie.poster}`" 
+               class="movie-image">
 
           <!-- movie content -->
           <div class="mt-2 mx-2">
