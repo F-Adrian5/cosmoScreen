@@ -30,23 +30,21 @@ A **CosmoScreen WPF** a weboldal adminisztratív felülete, amely lehetővé tes
 
 ## Projekt telepítése és elindítása
 
-### 1. Projekt letöltése
-1. Nyiss meg egy terminált vagy Git Bash-t.
-2. Futtasd a következő parancsot:
+### Adatbázis neve: cosmoscreen
 
-```bash
-git clone https://github.com/F-Adrian5/cosmoScreen
+### Installer:
+1. csomagolja ki a zip-et
+2. nyissa meg a kicsomagolt mappát (cosmoscreen)
+3. nyissa meg a C# mappát 
+4. nyissa meg a cosmoscreenSetup mappát
+5. azon belül nyissa meg a debug mappát
+6. ott futtasa le a setup.exe file-t.
+7. minden ablaknál nyomja meg a "next" gombot
+8. A végső ablaknál meg a close gombot 
 
-```
+### Elindítása
 
-### 2. Installer
-
-- A telepítő futtatásával a program könnyen telepíthető.
-- A telepítés során válaszd ki a kívánt mappát, majd kövesd a telepítő utasításait.
-
-### 3. Projekt indítása
-- Nyisd meg a projekt mappáját
-- Indítsd el a program főfájlját (`.exe`), vagy a mappában található `cosmoscreen.sln` fájlt Visual Studio-ban.
-(A sln fájl indításához telepített Visual Studio szükséges.)
+1. Az asztalon keresse meg a cosmoscreen.exe file-t
+2. dupla kattintással indítsa el!
 
 ### A felület használatához admin jogosultság szükséges!
