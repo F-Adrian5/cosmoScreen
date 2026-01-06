@@ -10,12 +10,17 @@
       <!-- hamburger icon -->
       <button class="navbar-toggler"
               type="button"
+              style="border: none !important;"
               data-bs-target="#navbarNav"
               aria-controls="navbarNav"
               aria-expanded="false"
               aria-label="Toggle navigation"
-              @click="bsCollapse.toggle()">
-        <span class="navbar-toggler-icon"></span>
+              @click="toggleMenu">
+          <div class="nav-icon1" :class="{ open: isOpen }">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
       </button>
 
       <!-- content -->
@@ -27,7 +32,7 @@
         <ul class="navbar-nav mx-auto fs-3">
           
           <!-- program List -->
-          <li class="nav-item">
+          <li class="nav-item mx-1 my-1">
             <RouterLink class="nav-link" 
                         @click="closeMenu" 
                         to="/programList">
@@ -36,7 +41,7 @@
           </li>
 
           <!-- buffet -->
-          <li class="nav-item">
+          <li class="nav-item mx-1 my-1">
             <RouterLink class="nav-link" 
                         @click="closeMenu" 
                         to="/buffet">
@@ -45,7 +50,7 @@
           </li>
 
           <!-- about us -->
-          <li class="nav-item">
+          <li class="nav-item mx-1 my-1">
             <RouterLink class="nav-link" 
                         @click="closeMenu" 
                         to="/about">
@@ -81,7 +86,42 @@
   </nav>
 </template>
 
-<script setup>
+<script>
+import { Collapse } from 'bootstrap'
+
+export default {
+  name: 'Navbar',
+
+  data() {
+    return {
+      isOpen: false,
+      bsCollapse: null
+    }
+  },
+
+  mounted() {
+    this.bsCollapse = new Collapse(this.$refs.navbar, {
+      toggle: false
+    })
+  },
+
+  methods: {
+    toggleMenu() {
+      this.isOpen = !this.isOpen
+      this.bsCollapse.toggle()
+    },
+
+    closeMenu() {
+      if (this.bsCollapse && this.isOpen) {
+        this.bsCollapse.hide()
+        this.isOpen = false
+      }
+    }
+  }
+}
+</script>
+
+<!-- <script setup>
   // importing elements from bootstrap and vue
   // Collapse: bootstrap's collaps js component
   // onMounted: it only runs if the component appeared on the DOM
@@ -104,4 +144,4 @@
   function closeMenu() {
     bsCollapse.hide()
   }
-</script>
+</script> -->
