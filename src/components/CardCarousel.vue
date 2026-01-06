@@ -4,7 +4,7 @@
       <div class="carousel w-100">
         
         <!-- card -->
-        <div class="card movie-card"
+        <div class="card movie-card mt-3 rounded-3"
              v-for="(movie, index) in movies" 
              :key="movie.id" 
              :style="{ '--i': index }">
@@ -14,7 +14,7 @@
                class="card-img-top h-75" :alt="movie.title" />
           
           <!-- card body -->
-          <div class="card-body bg-primary-subtle h-25 justify-content-center">
+          <div class="card-body h-25 justify-content-center rounded-3">
 
             <!-- title -->
             <h5 class="card-title text-center fs-4">{{ movie.title }}</h5>
