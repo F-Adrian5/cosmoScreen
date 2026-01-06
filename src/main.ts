@@ -28,6 +28,9 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 
+// i18n
+import { i18n } from './i18n';
+
 // adding icons to the global libary
 library.add(fas, far, fab)
 
@@ -41,6 +44,9 @@ app.use(createPinia())
 
 // connecting router to the app
 app.use(router)
+
+// connecting i18n to ta app
+app.use(i18n);
 
 // mounting the application
 app.mount('#app')
