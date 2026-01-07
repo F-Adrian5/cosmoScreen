@@ -10,22 +10,20 @@
       <!-- hamburger icon -->
       <button class="navbar-toggler"
               type="button"
-              style="border: none !important;"
+              style="border: none;"
               data-bs-target="#navbarNav"
               aria-controls="navbarNav"
               aria-expanded="false"
               aria-label="Toggle navigation"
               @click="toggleMenu">
           <div class="nav-icon1" :class="{ open: isOpen }">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span v-for="n in 3" :key="n"></span>
           </div>
       </button>
 
       <!-- content -->
       <div class="collapse navbar-collapse" 
-           id="navbarNav"
+           id= "navbarNav"
            ref="navbar">
         
         <!-- pages -->
@@ -33,7 +31,7 @@
           
           <!-- program List -->
           <li class="nav-item mx-1 my-1">
-            <RouterLink class="nav-link" 
+            <RouterLink class="nav-link px-2" 
                         @click="closeMenu" 
                         to="/programList">
               Műsorlista
@@ -42,7 +40,7 @@
 
           <!-- buffet -->
           <li class="nav-item mx-1 my-1">
-            <RouterLink class="nav-link" 
+            <RouterLink class="nav-link px-2" 
                         @click="closeMenu" 
                         to="/buffet">
               Büfé
@@ -51,8 +49,8 @@
 
           <!-- about us -->
           <li class="nav-item mx-1 my-1">
-            <RouterLink class="nav-link" 
-                        @click="closeMenu" 
+            <RouterLink class="nav-link px-2"
+                        @click="closeMenu"
                         to="/about">
                 Rólunk
             </RouterLink>
@@ -63,16 +61,16 @@
         <ul class="navbar-nav fs-4">
 
           <!-- language select -->
-          <li class="nav-item ms-3">
-            <RouterLink class="nav-link d-flex align-items-center" to="#">
+          <li class="nav-item ms-1">
+            <RouterLink class="nav-link d-flex align-items-center px-2" to="#">
               <font-awesome-icon :icon="['fas', 'language']" class="me-1"/>
                 Nyelv
             </RouterLink>
           </li>
         
           <!-- login -->
-          <li class="nav-item ms-3">
-            <RouterLink class="nav-link d-flex align-items-center"
+          <li class="nav-item ms-1">
+            <RouterLink class="nav-link px-2 d-flex align-items-center"
                         @click="closeMenu"
                         to="/login">
               <font-awesome-icon :icon="['far', 'address-card']" 
@@ -87,61 +85,53 @@
 </template>
 
 <script>
-import { Collapse } from 'bootstrap'
+  // inporting collapse from bootstrap
+  import { Collapse } from 'bootstrap'
 
-export default {
-  name: 'Navbar',
+  // exporting and creating a new vue component
+  export default {
 
-  data() {
-    return {
-      isOpen: false,
-      bsCollapse: null
-    }
-  },
+    // component name
+    name: 'Navbar',
 
-  mounted() {
-    this.bsCollapse = new Collapse(this.$refs.navbar, {
-      toggle: false
-    })
-  },
+    // reactive state
+    data() {
+      return {
 
-  methods: {
-    toggleMenu() {
-      this.isOpen = !this.isOpen
-      this.bsCollapse.toggle()
+        // hamburger icon toggle state
+        isOpen: false,
+
+        // this is where we are going to save bootstrap's collapse element
+        bsCollapse: null
+      }
     },
 
-    closeMenu() {
-      if (this.bsCollapse && this.isOpen) {
-        this.bsCollapse.hide()
-        this.isOpen = false
+    // when the component runs, this runs as well (lifecycle hook)
+    mounted() {
+
+      // creating a new collapse element to the navbar (ref="navbar")
+      this.bsCollapse = new Collapse(this.$refs.navbar, {
+        toggle: false // when it runs this will be the default state
+      })
+    },
+
+    methods: {
+
+      // toggle menu method
+      toggleMenu() {
+        this.isOpen = !this.isOpen // true - false (open - close)
+        this.bsCollapse.toggle() // open - closes the menu
+      },
+
+      // close menu method
+      closeMenu() {
+
+        // checks if the menu is open or not and the element is defined
+        if (this.bsCollapse && this.isOpen) {
+          this.bsCollapse.hide() //closes the menu
+          this.isOpen = false // update the state to be closed
+        }
       }
     }
   }
-}
 </script>
-
-<!-- <script setup>
-  // importing elements from bootstrap and vue
-  // Collapse: bootstrap's collaps js component
-  // onMounted: it only runs if the component appeared on the DOM
-  import { Collapse } from 'bootstrap'
-  import { ref, onMounted } from 'vue'
-
-  // DOM element
-  // this is where the navbar will go, inside this variable
-  const navbar = ref(null)
-
-  // defining variable
-  let bsCollapse = null
-
-  onMounted(() => {
-    // connecting the js with html collapse element, can controll the toggle
-    bsCollapse = new Collapse(navbar.value, { toggle: false })
-  })
-
-  // closeMenu function
-  function closeMenu() {
-    bsCollapse.hide()
-  }
-</script> -->

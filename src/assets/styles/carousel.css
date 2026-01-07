@@ -38,7 +38,7 @@
 }
 
 /* card style */
-.card {
+.carousel .card {
   background-color: rgb(148, 200, 220) !important;
   border-radius: 3;
 }

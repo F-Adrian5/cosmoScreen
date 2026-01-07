@@ -18,19 +18,23 @@ a {
   position: relative;
 }
 
-a::before,
-a::after {
+.navbar-nav .nav-link {
+  position: relative;
+}
+
+.navbar-nav .nav-link::before,
+.navbar-nav .nav-link::after {
   content: "";
   position: absolute;
   display: block;
+  width: 0;
+  height: 0;
   border: 0 solid transparent;
-  width: 0%;
-  height: 0%;
   transition: all 0.5s ease;
 }
 
 /* top left corner */
-a::after {
+.navbar-nav .nav-link::after {
   top: 0;
   left: 0;
   border-top: 3px solid transparent;
@@ -38,19 +42,27 @@ a::after {
 }
 
 /* bottom right corner */
-a::before {
+.navbar-nav .nav-link::before {
   right: 0;
   bottom: 0;
   border-bottom: 3px solid transparent;
   border-right: 3px solid transparent;
 }
 
-/* corner item */
-a:hover::before,
-a:hover::after {
+/* hover */
+.navbar-nav .nav-link:hover::before,
+.navbar-nav .nav-link:hover::after {
   width: 20px;
   height: 20px;
   border-color: #A6A6A6;
+}
+
+/* focus frame */
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* Hamburger Icon animation */
@@ -77,7 +89,6 @@ a:hover::after {
 .nav-icon1 span:nth-child(2) { top: 18px; }
 .nav-icon1 span:nth-child(3) { top: 36px; }
 
-/* OPEN STATE */
 .nav-icon1.open span:nth-child(1) {
   top: 18px;
   transform: rotate(135deg);
