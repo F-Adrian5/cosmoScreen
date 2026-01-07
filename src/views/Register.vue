@@ -97,21 +97,21 @@
 
       <!-- registration btn-->
       <button type="submit"
-              class="btn btn_submit w-100 py-2 fw-semibold"
+              class="btn btn_submit w-100 fw-semibold"
               :disabled="!name || !email || !password || 
                          !validEmail || !validPassword">
           Regisztráció
       </button>
 
        <!-- registration link-->
-       <div class="text-center mt-2">
-        <p>Ha már van fiókja 
+       <div class="text-center mt-3">
+        <span>Ha már van fiókja 
           <RouterLink to="/login"
-                      class="link_color">
+                      class="login-link">
             jelentkezzen be
           </RouterLink>
           !
-        </p>
+        </span>
       </div>
 
     </form>

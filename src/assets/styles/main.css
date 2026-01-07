@@ -18,3 +18,14 @@ footer {
   flex-direction: column;
   padding-top: 80px;
 }
+
+.link_color {
+  color: lightseagreen;
+  text-decoration: none;
+}
+
+.link_color:hover {
+  color: rgb(158, 209, 226);
+  text-decoration: underline;
+  transition: all 0.4s;
+}

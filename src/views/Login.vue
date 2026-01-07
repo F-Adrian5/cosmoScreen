@@ -77,14 +77,14 @@
       </button>
       
       <!--register link-->
-      <div class="text-center mt-2">
-        <p>Ha még nincs fiókja 
+      <div class="text-center mt-3">
+        <span>Ha még nincs fiókja 
           <RouterLink to="/register"
-                      class="link_color">
-            regisztráljon
+                      class="register-link">
+              regisztráljon
           </RouterLink>
           !
-        </p>
+        </span>
       </div>
     </form>
   </div>

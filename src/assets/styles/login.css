@@ -1,13 +1,14 @@
 form {
-  color: rgb(148, 220, 219);
+  color: rgb(130, 194, 193);
   background-color: rgb(44, 44, 44);
+  box-shadow: 0px 0px 5px 3px rgba(230, 21, 21, 0.2) !important;
 }
 
 .btn_submit {
-  background-color: rgb(148, 220, 219) !important;
+  background-color: rgb(130, 194, 193) !important;
   color: rgb(44, 44, 44) !important;
 }
 
-.link_color {
+.register-link, .login-link {
   color: lightseagreen;
 }
