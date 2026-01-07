@@ -1,0 +1,88 @@
+{
+  "hu": {
+    "buttons": {
+     "login":"Bejelentkezés",
+     "register":"Regisztráció"
+    },
+    "labels": {
+      "email": "Email cím",
+      "password": "Jelszó",
+      "name":"Név"
+    },
+    "texts": {
+      "welcome": "Üdvözöljük a CosmoScreen oldalán!",
+      "onShow": "Jelenleg vetítjük:",
+      "buffetTitle": "Büfés ajánlataink",
+      "aboutUs": "Rólunk",
+      "login": "Bejelentkezés",
+      "noAccountReg": "Ha még nincs fiókja ",
+      "registerLink": "regisztráljon",
+      "register": "Regisztráció",
+      "existingAccount":"Ha már van fiókja ",
+      "loginLink":"jelentkezzen be"
+
+    },
+    "navbar":{
+      "programList": "Műsorlista",
+      "buffet": "Büfé",
+      "aboutUs": "Rólunk",
+      "language": "Nyelv",
+      "login": "Bejelentkezés"
+    },
+    "footer":{
+      "contacts": "Elérhetőségek",
+      "informations": "Információk",
+      "regulations": "Szabályzatok",
+      "dataFishing": "Adathalászat",
+      "copyright": "Minden jog fentartva CosmoScreen - "
+    },
+    "errorMessages":{
+      "emailError":"Érvénytelen email formátum",
+      "passwordError":"Minimum 6 karakter, nagybetű, szám, speciális karakter",
+      "nameError":"A név nem tartalmazhat számot"
+    }
+  },
+  "en": {
+    "buttons": {
+     "login":"Login",
+     "register":"Register"
+    },
+    "labels": {
+      "email": "Email",
+      "password": "Password",
+      "name":"Name"
+    },
+    "texts": {
+      "welcome": "Welcome to CosmoScreen!",
+      "onShow": "We are currently screening:",
+      "buffetTitle": "Buffet offers",
+      "aboutUs": "About us",
+      "login": "Login",
+      "noAccountReg": "If you don't have an account yet ",
+      "registerLink": "register",
+      "register": "Registration",
+      "existingAccount":"If you already have an account ",
+      "loginLink":"login"
+
+    },
+    "navbar":{
+      "programList": "Program list",
+      "buffet": "Buffet",
+      "aboutUs": "About us",
+      "language": "Language",
+      "login": "Login"
+    },
+    "footer":{
+      "contacts": "Contacts",
+      "informations": "Informations",
+      "regulations": "Regulations",
+      "dataFishing": "Datafishing",
+      "copyright": "All rights reserved CosmoScreen - "
+    },
+    "errorMessages":{
+      "emailError":"Invalid email format",
+      "passwordError":"Minimum 6 characters, uppercase letter, number, special character",
+      "nameError":"The name cannot contain numbers"
+    }
+  }
+}
