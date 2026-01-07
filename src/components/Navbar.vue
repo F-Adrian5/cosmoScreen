@@ -62,8 +62,10 @@
 
           <!-- language select -->
           <li class="nav-item ms-1">
-            <RouterLink class="nav-link d-flex align-items-center px-2" to="#">
-              <font-awesome-icon :icon="['fas', 'language']" class="me-1"/>
+            <RouterLink class="nav-link d-flex align-items-center px-2" 
+                        to="/temp">
+              <font-awesome-icon :icon="['fas', 'language']" 
+                                 class="me-1"/>
                 Nyelv
             </RouterLink>
           </li>
