@@ -26,7 +26,7 @@
         <!--name error-->
         <div class="text-danger mt-1 small" 
              style="min-height: 22px;">
-          <span v-if="name && /\d/.test(name)">
+          <span v-if="name && !/^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ -]+$/.test(name)">
             A név nem tartalmazhat számot
           </span>
         </div>
