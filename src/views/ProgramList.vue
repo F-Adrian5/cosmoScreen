@@ -2,12 +2,10 @@
   <div class="container my-4">
     <div class="row g-3">
       <div v-for="movie in movies" :key="movie.id"
-           class="movie-card p-2 h-100 px-2 py-2
-                  col-12 col-md-6 col-lg-4 col-xl-3">
+           class="p-2 h-100 px-2 py-2 col-12 col-md-6 col-lg-4 col-xl-3">
 
         <!-- movie -->
-        <div class="movie-content d-flex flex-row 
-                    flex-md-column border
+        <div class="movie-card d-flex flex-row flex-md-column border
                     align-items-md-center border-black
                     text-md-center bg-primary-subtle">
           
@@ -16,10 +14,10 @@
                class="movie-image">
 
           <!-- movie content -->
-          <div class="mt-2 mx-2">
-            <h3 class="fs-3 mb-1 fw-bold">{{ movie.title }}</h3>
-            <p class="fs-5 mb-1 text-muted">{{ movie.genre }}</p>
-            <p class="fs-5 mb-3 text-muted">| {{ movie.runtime }} perc</p>
+          <div class="mt-2 mx-3">
+            <h3 class="fs-3 my-1 fw-bold">{{ movie.title }}</h3>
+            <p class="fs-4 mb-1 text-muted">{{ movie.genre }} | {{ movie.runtime }} perc</p>
+            <p class="fs-4 mb-3 text-muted"></p>
           
             <!-- movie time -->
             <div class="movie-times d-flex flex-wrap gap-1 
@@ -27,7 +25,7 @@
                         justify-content-md-center fs-5">
 
               <!-- movie time display -->
-              <span class="badge bg-secondary me-1 mb-1"> 
+              <span class="badge bg-secondary mb-1"> 
                 {{ movie.showing_in }}
               </span>
               

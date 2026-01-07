@@ -5,10 +5,19 @@
   object-fit: cover;
 }
 
+/* if lg breakpoint */
 @media (min-width: 768px) {
   .movie-image {
     width: 100%;
     height: 260px;
     object-fit: cover;
   }
+  .movie-card{
+    min-height: 460px;
+  }
+}
+
+/* movie-card animation */
+.movie-card:hover {
+  color: darkcyan !important;
 }

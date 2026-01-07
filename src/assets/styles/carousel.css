@@ -68,7 +68,7 @@
   }
 }
 
-.movie-card {
+.carousel-card {
   transition:
     transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
     box-shadow 0.35s ease-out;
@@ -76,7 +76,7 @@
 }
 
 /* Hover animation */
-.movie-card:hover {
+.carousel-card:hover {
   transform: scale(1.05);
   box-shadow: 8px 8px 17px rgba(255, 255, 255, 0.85);
   filter: brightness(1.05);

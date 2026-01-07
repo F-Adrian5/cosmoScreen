@@ -4,7 +4,7 @@
       <div class="carousel w-100">
         
         <!-- card -->
-        <div class="card movie-card mt-3 rounded-3"
+        <div class="card carousel-card mt-3 rounded-3"
              v-for="(movie, index) in movies" 
              :key="movie.id" 
              :style="{ '--i': index }">
