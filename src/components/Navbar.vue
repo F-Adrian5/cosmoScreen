@@ -17,15 +17,13 @@
               aria-label="Toggle navigation"
               @click="toggleMenu">
           <div class="nav-icon1" :class="{ open: isOpen }">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span v-for="n in 3" :key="n"></span>
           </div>
       </button>
 
       <!-- content -->
       <div class="collapse navbar-collapse" 
-           id="navbarNav"
+           id= "navbarNav"
            ref="navbar">
         
         <!-- pages -->
