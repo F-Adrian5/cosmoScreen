@@ -34,7 +34,7 @@
             <RouterLink class="nav-link px-2" 
                         @click="closeMenu" 
                         to="/programList">
-              Műsorlista
+             {{ $t('navbar.programList') }}
             </RouterLink>
           </li>
 
@@ -43,7 +43,7 @@
             <RouterLink class="nav-link px-2" 
                         @click="closeMenu" 
                         to="/buffet">
-              Büfé
+              {{ $t('navbar.buffet') }}
             </RouterLink>
           </li>
 
@@ -52,7 +52,7 @@
             <RouterLink class="nav-link px-2"
                         @click="closeMenu"
                         to="/about">
-                Rólunk
+                {{ $t('navbar.aboutUs') }}
             </RouterLink>
           </li>
         </ul>
@@ -61,13 +61,33 @@
         <ul class="navbar-nav fs-4">
 
           <!-- language select -->
-          <li class="nav-item ms-1">
-            <RouterLink class="nav-link d-flex align-items-center px-2" 
-                        to="/temp">
-              <font-awesome-icon :icon="['fas', 'language']" 
-                                 class="me-1"/>
-                Nyelv
-            </RouterLink>
+          <li class="nav-item ms-1" @mouseleave="showLangMenu = false">
+            <div
+              class="nav-link d-flex align-items-center"
+              style="cursor: pointer;"
+              @click="showLangMenu = !showLangMenu"
+            >
+              <font-awesome-icon :icon="['fas','language']" class="me-1"/>
+              {{ $t('navbar.language') }}
+            </div>
+            <ul v-if="showLangMenu" class="dropdown-menu dropdown-menu-end show">
+              <li>
+                <button
+                  class="dropdown-item"
+                  :class="{ active: $lang.lang === 'hu' }"
+                  @click="setLanguage('hu')">
+                  HU
+                </button>
+              </li>
+              <li>
+                <button
+                  class="dropdown-item"
+                  :class="{ active: $lang.lang === 'en' }"
+                  @click="setLanguage('en')">
+                  EN
+                </button>
+              </li>
+            </ul>
           </li>
         
           <!-- login -->
@@ -77,7 +97,7 @@
                         to="/login">
               <font-awesome-icon :icon="['far', 'address-card']" 
                                  class="me-1"/>
-                Bejelentkezés
+                {{ $t('navbar.login') }}
             </RouterLink>
           </li>
         </ul>
@@ -104,7 +124,9 @@
         isOpen: false,
 
         // this is where we are going to save bootstrap's collapse element
-        bsCollapse: null
+        bsCollapse: null,
+
+         showLangMenu: false
       }
     },
 
@@ -133,7 +155,14 @@
           this.bsCollapse.hide() //closes the menu
           this.isOpen = false // update the state to be closed
         }
-      }
+      },
+
+      // method that sets the language
+      setLanguage(lang) {
+        this.$setLang(lang);  //sets the language to hu or en
+        this.showLangMenu = false; //closes the dropdown
+        this.closeMenu(); //closes the hamburger nav
+      },
     }
   }
 </script>

@@ -5,26 +5,84 @@
     <div class="row mb-5">
       <div class="col text-center">
         <h1 class="display-4 fw-bold text-primary">
-          A CosmoScreen Szabályzata
+          {{ $t('regulationsPage.rulesTitle') }}
         </h1>
         <p class="text-light fs-5">
-          Kérjük, olvassa el figyelmesen a következő szabályokat!
+          {{ $t('regulationsPage.rulesAttention') }}
         </p>
       </div>
     </div>
 
     <!-- rules in card -->
-    <div class="row mb-4" 
-         v-for="(section, index) in sections" :key="index">
+    <!-- general rules card -->
+    <div class="row mb-4">
       <div class="col">
         <div class="card shadow-sm rounded-4 p-4 bg-dark border-primary">
           <h3 class="mb-3 text-primary pb-2">
-              {{ section.title }}
+             {{ $t('regulationsPage.generalRules') }}
           </h3>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item bg-dark text-light d-flex align-items-start" 
-                v-for="(item, i) in section.items" :key="i">
-              <span>{{ item }}</span>
+            <li class="list-group-item bg-dark text-light d-flex align-items-start">
+              <span>{{ $t('regulationsPage.followRules') }}</span> 
+            </li>
+            <li class="list-group-item bg-dark text-light d-flex align-items-start">
+              <span>{{ $t('regulationsPage.ticketInfo') }}</span>
+            </li>
+            <li class="list-group-item bg-dark text-light d-flex align-items-start">
+              <span>{{ $t('regulationsPage.enterRestriction') }}</span>
+            </li>
+            <li class="list-group-item bg-dark text-light d-flex align-items-start">
+              <span>{{ $t('regulationsPage.noSmoke') }}</span>
+            </li>
+            <li class="list-group-item bg-dark text-light d-flex align-items-start">
+              <span>{{ $t('regulationsPage.turnOffPhones') }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- safety and hygiene card-->
+    <div class="row mb-4">
+      <div class="col">
+        <div class="card shadow-sm rounded-4 p-4 bg-dark border-primary">
+          <h3 class="mb-3 text-primary pb-2">
+             {{ $t('regulationsPage.safetyAndHygiene') }}
+          </h3>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item bg-dark text-light d-flex align-items-start">
+              <span>{{ $t('regulationsPage.exitAttention') }}</span> 
+            </li>
+            <li class="list-group-item bg-dark text-light d-flex align-items-start">
+              <span>{{ $t('regulationsPage.cleanSurrounding') }}</span>
+            </li>
+            <li class="list-group-item bg-dark text-light d-flex align-items-start">
+              <span>{{ $t('regulationsPage.leftoverArea') }}</span>
+            </li>
+            <li class="list-group-item bg-dark text-light d-flex align-items-start">
+              <span>{{ $t('regulationsPage.disinfectionPoint') }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ticket card-->
+    <div class="row mb-4">
+      <div class="col">
+        <div class="card shadow-sm rounded-4 p-4 bg-dark border-primary">
+          <h3 class="mb-3 text-primary pb-2">
+             {{ $t('regulationsPage.ticketPurchaseTitle') }}
+          </h3>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item bg-dark text-light d-flex align-items-start">
+              <span>{{ $t('regulationsPage.ticketDate') }}</span> 
+            </li>
+            <li class="list-group-item bg-dark text-light d-flex align-items-start">
+              <span>{{ $t('regulationsPage.returnInfo') }}</span>
+            </li>
+            <li class="list-group-item bg-dark text-light d-flex align-items-start">
+              <span>{{ $t('regulationsPage.onlinePurchase') }}</span>
             </li>
           </ul>
         </div>
@@ -35,47 +93,13 @@
     <div class="row mt-5">
       <div class="col text-center">
         <p class="text-light fs-6 mb-3">
-          Kérdés esetén vegye fel bátran velünk a kapcsolatot!
+          {{ $t('regulationsPage.contactUs') }}
         </p>
       </div>
     </div>
 
   </div>
 </template>
-
-<script setup>
-
-  //informations
-  const sections = [
-    {
-      title: 'Általános szabályok',
-      items: [
-        'A mozi területén minden látogató köteles a házirendet betartani.',
-        'A jegyeket a mozi pénztárában vagy online lehet megváltani.',
-        'A filmek elkezdése után a terembe történő belépés csak korlátozottan lehetséges.',
-        'A mozi területén tilos a dohányzás.',
-        'Kérjük, a mobiltelefonokat kapcsolja ki vagy némítsa el a vetítés alatt.'
-      ]
-    },
-    {
-      title: 'Biztonság és higiénia',
-      items: [
-        'Felhívjuk a figyelmet a kijáratok és vészkijáratok rendeltetésszerű használatára.',
-        'Kérjük, tartsa tisztán a saját ülőhelyét és a környezetét.',
-        'Az étel- és italmaradékokat a kijelölt helyen helyezze el.',
-        'Fertőtlenítő pontok a mozi területén elérhetők.'
-      ]
-    },
-    {
-      title: 'Jegyvásárlás és visszatérítés',
-      items: [
-        'A jegyek csak a vásárlás során feltüntetett időpontra érvényesek.',
-        'Visszatérítés csak a mozi szabályzatában rögzített feltételek mellett lehetséges.',
-        'Online vásárlás esetén a jegyeket a mobiltelefonon vagy nyomtatott formában lehet bemutatni.'
-      ]
-    }
-  ]
-</script>
 
 <style scoped>
   .list-group-item {

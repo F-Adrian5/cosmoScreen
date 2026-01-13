@@ -4,13 +4,13 @@
           class="p-4 shadow rounded mt-5"
           style="width: 100%; max-width: 380px;">
 
-      <h4 class="text-center mb-4 fw-bold">Bejelentkezés</h4>
+      <h4 class="text-center mb-4 fw-bold">{{ $t('texts.login') }}</h4>
 
       <!--Email-->
       <div class="mb-3">
         <label for="login_email" 
                class="form-label fw-semibold">
-          Email cím
+          {{ $t('labels.email') }}
         </label>
 
         <input type="email"
@@ -24,7 +24,7 @@
         <div class="text-danger mt-1 small" 
              style="min-height: 22px;">
           <span v-if="email && !validEmail">
-            Érvénytelen email formátum
+            {{ $t('errorMessages.emailError') }}
           </span>
         </div>
       </div>
@@ -33,7 +33,7 @@
       <div class="mb-3">
         <label for="login_password" 
                class="form-label fw-semibold">
-          Jelszó
+          {{ $t('labels.password') }}
         </label>
 
         <div class="d-flex align-items-center position-relative">
@@ -61,7 +61,7 @@
         <div class="text-danger mt-1 small" 
              style="min-height: 42px;">
           <span v-if="password && !validPassword">
-            Minimum 6 karakter, nagybetű, szám, speciális karakter
+            {{ $t('errorMessages.passwordError') }}
           </span>
         </div>
       </div>
@@ -73,15 +73,15 @@
                          !password ||
                          !validEmail ||
                          !validPassword">
-          Bejelentkezés
+          {{ $t('buttons.login') }}
       </button>
       
       <!--register link-->
       <div class="text-center mt-3">
-        <span>Ha még nincs fiókja 
+        <span>{{ $t('texts.noAccountReg') }}
           <RouterLink to="/register"
                       class="register-link">
-              regisztráljon
+              {{ $t('texts.registerLink') }}
           </RouterLink>
           !
         </span>

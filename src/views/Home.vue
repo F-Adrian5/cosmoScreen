@@ -7,8 +7,8 @@
 
 <template>
   <main>
-    <h2 class="text-center text-light mb-5 mt-5">Üdvözöljük a CosmoScreen oldalán!</h2>
-    <p class="fw-bold text-light fs-3">Jelenleg vetítjük:</p>
+    <h2 class="text-center text-light mb-5 mt-5">{{ $t('texts.welcome') }}</h2>
+    <p class="fw-bold text-light fs-3">{{ $t('texts.onShow') }}</p>
     
     <!-- loads the carousel component -->
     <Carousel /> 

@@ -28,8 +28,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 
-// i18n
-import { i18n } from './i18n';
+import language from '@/languages/language'
+
 
 // adding icons to the global libary
 library.add(fas, far, fab)
@@ -46,7 +46,9 @@ app.use(createPinia())
 app.use(router)
 
 // connecting i18n to ta app
-app.use(i18n);
+app.config.globalProperties.$t = language.t;
+app.config.globalProperties.$setLang = language.setLang;
+app.config.globalProperties.$lang = language.state;
 
 // mounting the application
 app.mount('#app')

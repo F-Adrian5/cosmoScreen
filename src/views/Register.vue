@@ -5,14 +5,14 @@
           @submit.prevent="register">
 
       <h4 class="text-center mb-4 fw-bold">
-        Regisztráció
+        {{ $t('texts.register') }}
       </h4>
 
       <!--name-->
       <div class="mb-3">
         <label for="register_name" 
                class="form-label fw-semibold">
-          Név
+          {{ $t('labels.name') }}
         </label>
 
         <input type="text"
@@ -25,9 +25,9 @@
 
         <!--name error-->
         <div class="text-danger mt-1 small" 
-             style="min-height: 22px;">
+             style="min-height: 42px;">
           <span v-if="name && !/^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ -]+$/.test(name)">
-            A név nem tartalmazhat számot
+           {{ $t('errorMessages.nameError') }}
           </span>
         </div>
       </div>
@@ -36,7 +36,7 @@
       <div class="mb-3">
         <label for="register_email" 
                class="form-label fw-semibold">
-          Email cím
+          {{ $t('labels.email') }}
         </label>
 
         <input type="email"
@@ -51,7 +51,7 @@
         <div class="text-danger mt-1 small" 
              style="min-height: 22px;">
           <span v-if="email && !validEmail">
-            Érvénytelen email formátum
+           {{ $t('errorMessages.emailError') }}
           </span>
         </div>
       </div>
@@ -60,7 +60,7 @@
       <div class="mb-3 position-relative">
         <label for="register_password" 
                class="form-label fw-semibold">
-          Jelszó
+          {{ $t('labels.password') }}
         </label>
 
         <div class="d-flex align-items-center position-relative">
@@ -90,7 +90,7 @@
         <div class="text-danger mt-1 small" 
              style="min-height: 42px;">
           <span v-if="password && !validPassword">
-            Minimum 6 karakter, nagybetű, szám, speciális karakter
+            {{ $t('errorMessages.passwordError') }}
           </span>
         </div>
       </div>
@@ -100,20 +100,19 @@
               class="btn btn_submit w-100 fw-semibold"
               :disabled="!name || !email || !password || 
                          !validEmail || !validPassword">
-          Regisztráció
+          {{ $t('buttons.register') }}
       </button>
 
        <!-- registration link-->
        <div class="text-center mt-3">
-        <span>Ha már van fiókja 
+        <span>{{ $t('texts.existingAccount') }} 
           <RouterLink to="/login"
                       class="login-link">
-            jelentkezzen be
+            {{ $t('texts.loginLink') }}
           </RouterLink>
           !
         </span>
       </div>
-
     </form>
   </div>
 </template>
