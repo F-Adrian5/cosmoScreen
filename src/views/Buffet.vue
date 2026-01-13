@@ -10,12 +10,12 @@
       <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4"
            v-for="(offer, index) in offers"
            :key="index">
-        <div class="border rounded h-100 p-3 d-flex flex-column">
+        <div class="border rounded h-100 p-3 d-flex 
+                    flex-column image-wrapper">
 
           <!-- image -->
-          <!-- <img :src="./src/assets/media/images/movie_posters/${offer.img}"> -->
-          <img src="https://dummyimage.com/250x200/000/fff"
-               class="img-fluid mb-3 rounded"
+          <img :src="`./src/assets/media/images/buffet/${offer.img}`"
+               class="img-fluid mb-3 rounded w-100 buffet-img"
                alt="buffe item image">
 
           <!-- text -->
