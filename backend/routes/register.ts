@@ -38,7 +38,6 @@ router.post("/register", async (req, res) => {
       id: result.insertId,
       name,
       email,
-      message: "Sikeres regisztráció"
     });
 
   } catch (err) {
