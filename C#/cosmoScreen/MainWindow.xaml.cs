@@ -21,7 +21,6 @@ namespace cosmoScreen
             InitializeComponent();
         }
 
-
         private void bufe_click(object sender, RoutedEventArgs e)
         {
             bufe bufeWindow = new bufe();

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using MySql.Data.MySqlClient;
+using static cosmoScreen.Methods;
 
 namespace cosmoScreen
 {
@@ -22,30 +23,11 @@ namespace cosmoScreen
     /// </summary>
     public partial class films : Window
     {
-        private MySqlConnection connection = new MySqlConnection("server=localhost;database=cosmoscreen;uid=root");
-
-        private MySqlCommand command;
-
         public films()
         {
             InitializeComponent();
-            AutoRead();
-        }
+            LoadData("SELECT * FROM movies", movie_datagrid);
 
-        public void openConnection()
-        {
-            if (connection.State == ConnectionState.Closed)
-            {
-                connection.Open();
-            }
-        }
-
-        public void closeConnection()
-        {
-            if (connection.State == ConnectionState.Open)
-            {
-                connection.Close();
-            }
         }
 
         private void buffet_menuItem_Click(object sender, RoutedEventArgs e)
@@ -62,65 +44,11 @@ namespace cosmoScreen
             this.Hide();
         }
 
-        public void executeQuery(string query)
-        {
-            try
-            {
-                openConnection();
-
-                command = new MySqlCommand(query, connection);
-
-                if (command.ExecuteNonQuery() >= 1)
-                {
-                    MessageBox.Show("Végrehajtva!");
-                }
-                else
-                {
-                    MessageBox.Show("Nem lett végrehajtva!");
-                }
-            }
-            catch (Exception hiba)
-            {
-                MessageBox.Show(hiba.Message);
-            }
-        }
-
-        private void LoadMovies()
-        {
-            try
-            {
-                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM movies", connection);
-
-                openConnection();
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-                movie_datagrid.ItemsSource = ds.Tables[0].DefaultView;
-                closeConnection();
-            }
-            catch (Exception hiba)
-            {
-                MessageBox.Show(hiba.Message);
-            }
-        }
-
-
-        private void AutoRead()
-        {
-            try
-            {
-                LoadMovies();
-            }
-            catch (Exception hiba)
-            {
-                MessageBox.Show(hiba.Message);
-            }
-        }
-
         private void btn_upload_Click(object sender, RoutedEventArgs e)
         {
             string actor_upload = $"INSERT INTO movies(title, genre, runtime, director, production, age_restriction, showing_in, poster, trailer, description, release_date) VALUES ('{title_input.Text}', '{genre_combobox.Text}', '{runtime_input.Text}', '{director_input.Text}', '{production_input.Text}', '{age_restriction_combobox.Text}', '{showing_in_combobox.Text}', '{poster_input.Text}', '{trailer_input.Text}', '{description_input.Text}', '{release_date_input.SelectedDate?.ToString("yyyy-MM-dd")}')";
             executeQuery(actor_upload);
-            LoadMovies();
+            LoadData("SELECT * FROM movies", movie_datagrid);
         }
         private void InputChanged(object sender, EventArgs e)
         {
@@ -202,7 +130,7 @@ namespace cosmoScreen
             string torol = $"DELETE FROM movies WHERE id ='{movie_id}'";
             movie_datagrid.SelectedItem = null;
             executeQuery(torol);
-            LoadMovies();
+            LoadData("SELECT * FROM movies", movie_datagrid);
             delete_data_btn.IsEnabled = false;
             edit_data_btn.IsEnabled = false;
         }
@@ -212,7 +140,7 @@ namespace cosmoScreen
             string sorfrissites = $"UPDATE movies SET title='{title_input.Text}', genre='{genre_combobox.Text}', runtime='{runtime_input.Text}', director='{director_input.Text}', production='{production_input.Text}',age_restriction='{age_restriction_combobox.Text}', showing_in='{showing_in_combobox.Text}', poster='{poster_input.Text}', trailer='{trailer_input.Text}', description='{description_input.Text}', release_date='{release_date_input.Text}' WHERE id='{movie_id}'";
             executeQuery(sorfrissites);
             movie_datagrid.SelectedItem = null;
-            LoadMovies();
+            LoadData("SELECT * FROM movies", movie_datagrid);
             edit_data_btn.IsEnabled = false;
             delete_data_btn.IsEnabled = false;
         }

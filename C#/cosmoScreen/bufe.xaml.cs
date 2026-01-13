@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using static cosmoScreen.Methods;
 
 namespace cosmoScreen
 {
@@ -23,29 +24,10 @@ namespace cosmoScreen
     public partial class bufe : Window
     {
 
-        MySqlConnection connection = new MySqlConnection("server=localhost;database=cosmoscreen;uid=root");
-        MySqlCommand command;
-
         public bufe()
         {
             InitializeComponent();
-            AutoRead();
-        }
-
-        public void openConnection()
-        {
-            if (connection.State == ConnectionState.Closed)
-            {
-                connection.Open();
-            }
-        }
-
-        public void closeConnection()
-        {
-            if (connection.State == ConnectionState.Open)
-            {
-                connection.Close();
-            }
+            LoadData("SELECT * FROM buffet", buffet_datagrid);
         }
 
         private void films_menuItem_Click(object sender, RoutedEventArgs e)
@@ -62,63 +44,11 @@ namespace cosmoScreen
             this.Hide();
         }
 
-        public void executeQuery(string query)
-        {
-            try
-            {
-                openConnection();
-
-                command = new MySqlCommand(query, connection);
-
-                if (command.ExecuteNonQuery() >= 1)
-                {
-                    MessageBox.Show("Végrehajtva!");
-                }
-                else
-                {
-                    MessageBox.Show("Nem lett végrehajtva!");
-                }
-            }
-            catch (Exception hiba)
-            {
-                MessageBox.Show(hiba.Message);
-            }
-        }
-
-        private void LoadMenu()
-        {
-            try
-            {
-                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM buffet", connection);
-                openConnection();
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-                buffet_datagrid.ItemsSource = ds.Tables[0].DefaultView;
-                closeConnection();
-            }
-            catch (Exception hiba)
-            {
-                MessageBox.Show(hiba.Message);
-            }
-        }
-
-        private void AutoRead()
-        {
-            try
-            {
-                LoadMenu();
-            }
-            catch (Exception hiba)
-            {
-                MessageBox.Show(hiba.Message);
-            }
-        }
-
         private void btn_upload_Click(object sender, RoutedEventArgs e)
         {
             string actor_uplodad = $"INSERT INTO buffet(name,price,description,img) VALUES('{food_name.Text}','{food_price.Text}','{food_description.Text}','{food_image_url.Text}')";
             executeQuery(actor_uplodad);
-            LoadMenu();
+            LoadData("SELECT * FROM buffet", buffet_datagrid);
         }
         private void InputChanged(object sender, TextChangedEventArgs e)
         {
@@ -162,13 +92,12 @@ namespace cosmoScreen
             }
 
         }
-
         private void delete_data_btn_Click(object sender, RoutedEventArgs e)
         {
             string torol = $"DELETE FROM buffet WHERE id ='{buffet_id}'";
             buffet_datagrid.SelectedItem = null;
             executeQuery(torol);
-            LoadMenu();
+            LoadData("SELECT * FROM buffet", buffet_datagrid);
             delete_data_btn.IsEnabled = false;
             edit_data_btn.IsEnabled = false;
         }
@@ -178,7 +107,7 @@ namespace cosmoScreen
             string sorfrissites = $"UPDATE buffet SET name='{food_name.Text}', price='{food_price.Text}', description='{food_description.Text}', img='{food_image_url.Text}' WHERE id='{buffet_id}'";
             executeQuery(sorfrissites);
             buffet_datagrid.SelectedItem = null;
-            LoadMenu();
+            LoadData("SELECT * FROM buffet", buffet_datagrid);
             edit_data_btn.IsEnabled = false;
             delete_data_btn.IsEnabled = false;
         }

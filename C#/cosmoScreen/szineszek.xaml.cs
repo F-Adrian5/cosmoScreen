@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Google.Protobuf.WellKnownTypes;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using static cosmoScreen.Methods;
 
 namespace cosmoScreen
 {
@@ -22,31 +24,11 @@ namespace cosmoScreen
     /// </summary>
     public partial class szineszek : Window
     {
-        MySqlConnection connection = new MySqlConnection("server=localhost;database=cosmoscreen;uid=root");
-        MySqlCommand command;
-
         public szineszek()
         {
             InitializeComponent();
             btn_upload.IsEnabled = false;
-            AutoRead();
-            
-        }
-
-        public void openConnection()
-        {
-            if (connection.State == ConnectionState.Closed)
-            {
-                connection.Open();
-            }
-        }
-
-        public void closeConnection()
-        {
-            if (connection.State == ConnectionState.Open)
-            {
-                connection.Close();
-            }
+            LoadData("SELECT * FROM actors", actors_datagrid);
         }
 
         private void films_menuItem_Click(object sender, RoutedEventArgs e)
@@ -63,63 +45,11 @@ namespace cosmoScreen
             this.Hide();
         }
 
-        public void executeQuery(string query)
-        {
-            try
-            {
-                openConnection();
-
-                command = new MySqlCommand(query, connection);
-
-                if (command.ExecuteNonQuery() >= 1)
-                {
-                    MessageBox.Show("Végrehajtva!");
-                }
-                else
-                {
-                    MessageBox.Show("Nem lett végrehajtva!");
-                }
-            }
-            catch (Exception hiba)
-            {
-                MessageBox.Show(hiba.Message);
-            }
-        }
-
-        private void LoadActors()
-        {
-            try
-            {
-                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM actors", connection);
-                openConnection();
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-                actors_datagrid.ItemsSource = ds.Tables[0].DefaultView;
-                closeConnection();
-            }
-            catch (Exception hiba)
-            {
-                MessageBox.Show(hiba.Message);
-            }
-        }
-
-        private void AutoRead()
-        {
-           try
-           {
-               LoadActors();
-           }
-           catch (Exception hiba)
-           {
-               MessageBox.Show(hiba.Message);
-           }
-        }
-
         private void btn_upload_Click(object sender, RoutedEventArgs e)
         {
             string actor_uplodad = $"INSERT INTO actors(name) VALUES('{actor_name_input.Text}')";
             executeQuery(actor_uplodad);
-            LoadActors();
+            LoadData("SELECT * FROM actors", actors_datagrid);
         }
 
         private void actor_name_input_TextChanged(object sender, TextChangedEventArgs e)
@@ -154,7 +84,7 @@ namespace cosmoScreen
             string torol = $"DELETE FROM actors WHERE id ='{actor_id}'";
             actors_datagrid.SelectedItem = null;
             executeQuery(torol);
-            LoadActors();
+            LoadData("SELECT * FROM actors", actors_datagrid);
             delete_data_btn.IsEnabled = false;
             edit_data_btn.IsEnabled = false;
         }
@@ -164,7 +94,7 @@ namespace cosmoScreen
             string sorfrissites = $"UPDATE actors SET name='{actor_name_input.Text}' WHERE id='{actor_id}'";
             executeQuery(sorfrissites);
             actors_datagrid.SelectedItem = null;
-            LoadActors();
+            LoadData("SELECT * FROM actors", actors_datagrid);
             edit_data_btn.IsEnabled = false;
             delete_data_btn.IsEnabled = false;
         }

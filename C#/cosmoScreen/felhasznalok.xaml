@@ -3,88 +3,178 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:cosmoScreen"
         mc:Ignorable="d"
-        Title="Felhasználók" Height="600" Width="900" MinHeight="450" MinWidth="800"
+        Title="Felhasználók"
+        Height="600"
+        Width="900"
+        MinHeight="450"
+        MinWidth="800"
         Background="#FFB5C6FB">
 
-    <Grid Margin="0">
-        <!-- Sorok -->
+    <Grid>
+
+        <!-- ROWS -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Menü -->
+            <!-- Menu -->
             <RowDefinition Height="Auto"/>
-            <!-- Cím -->
+            <!-- Title -->
             <RowDefinition Height="*"/>
-            <!-- Fő tartalom -->
+            <!-- Content -->
             <RowDefinition Height="Auto"/>
-            <!-- Gombok alul -->
+            <!-- Bottom buttons -->
         </Grid.RowDefinitions>
 
-        <!-- Oszlopok a fő tartalomhoz -->
+        <!-- COLUMNS -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
-            <!-- Bal: input -->
+            <!-- Inputs -->
             <ColumnDefinition Width="3*"/>
-            <!-- Jobb: datagrid -->
+            <!-- DataGrid -->
         </Grid.ColumnDefinitions>
 
-        <!-- Menü -->
-        <Menu Grid.Row="0" Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold" Background="Black" Foreground="LightGray">
-            <MenuItem Header="Filmek" Name="films_menuItem" Click="films_menuItem_Click"/>
-            <MenuItem Header="Büfé" Name="buffet_menuItem" Click="buffet_menuItem_Click"/>
-            <MenuItem Header="Színészek" Name="actor_menuItem" Click="actor_menuItem_Click"/>
-            <MenuItem Header="Felhasználók" Name="user_menuItem" Foreground="#FF9DCC3B"/>
+        <!-- MENU -->
+        <Menu Grid.Row="0"
+              Grid.ColumnSpan="2"
+              FontSize="20"
+              FontWeight="Bold"
+              Background="Black"
+              Foreground="LightGray">
+
+            <MenuItem Header="Filmek" Click="films_menuItem_Click"/>
+            <MenuItem Header="Büfé" Click="buffet_menuItem_Click"/>
+            <MenuItem Header="Színészek" Click="actor_menuItem_Click"/>
+            <MenuItem Header="Felhasználók" Foreground="#FF9DCC3B"/>
         </Menu>
 
-        <!-- Cím -->
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="0,10" HorizontalAlignment="Center">
-            <Label Content="Felhasználók" FontSize="26" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center"/>
-            <Label Content="Felhasználó adatok felvétele" FontSize="22" FontWeight="Bold" FontStyle="Italic" Foreground="#FF693EE4" HorizontalAlignment="Center"/>
+        <!-- TITLE -->
+        <StackPanel Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Margin="0,10"
+                    HorizontalAlignment="Center">
+
+            <Label Content="Felhasználók"
+                   FontSize="26"
+                   FontWeight="Bold"
+                   FontStyle="Italic"/>
+            <Label Content="Felhasználó adatok felvétele"
+                   FontSize="22"
+                   FontWeight="Bold"
+                   FontStyle="Italic"
+                   Foreground="#FF693EE4"/>
         </StackPanel>
 
-        <!-- Bal oldal: Input mezők Grid-ben -->
-        <Grid Grid.Row="2" Grid.Column="0" Margin="10">
+        <!-- INPUTS -->
+        <Grid Grid.Row="2"
+              Grid.Column="0"
+              Margin="15">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
-                <!-- maradék hely -->
             </Grid.RowDefinitions>
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Content="Név:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
-            <TextBox Name="user_name_input" Grid.Row="0" Grid.Column="1" FontSize="16" MaxLength="100" Margin="5" MinWidth="100" TextChanged="InputChanged"/>
+            <Label Content="Név:"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   FontWeight="Bold"
+                   FontSize="16"
+                   VerticalAlignment="Center"/>
 
-            <Label Content="Email:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
-            <TextBox Name="email_input" Grid.Row="1" Grid.Column="1" FontSize="16" MaxLength="150" Margin="5" MinWidth="100" TextChanged="InputChanged"/>
+            <TextBox x:Name="user_name_input"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     FontSize="16"
+                     MaxLength="100"
+                     Margin="5"
+                     TextChanged="InputChanged"/>
 
-            <Label Content="Jelszó:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
-            <TextBox Name="password_input" Grid.Row="2" Grid.Column="1" FontSize="16" MaxLength="20" Margin="5" MinWidth="100" TextChanged="InputChanged"/>
+            <Label Content="Email:"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   FontWeight="Bold"
+                   FontSize="16"
+                   VerticalAlignment="Center"/>
+
+            <TextBox x:Name="email_input"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     FontSize="16"
+                     MaxLength="150"
+                     Margin="5"
+                     TextChanged="InputChanged"/>
+
+            <Label Content="Jelszó:"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   FontWeight="Bold"
+                   FontSize="16"
+                   VerticalAlignment="Center"/>
+
+            <TextBox x:Name="password_input"
+                     Grid.Row="2"
+                     Grid.Column="1"
+                     FontSize="16"
+                     MaxLength="20"
+                     Margin="5"
+                     TextChanged="InputChanged"/>
         </Grid>
 
-        <!-- Jobb oldal: DataGrid -->
-        <DataGrid Name="users_datagrid" Grid.Row="2" Grid.Column="1" Margin="10" AutoGenerateColumns="True"
-                  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                  d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="users_datagrid_SelectionChanged"/>
+        <!-- DATAGRID -->
+        <DataGrid x:Name="users_datagrid"
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  Margin="15"
+                  AutoGenerateColumns="True"
+                  VerticalAlignment="Stretch"
+                  SelectionChanged="users_datagrid_SelectionChanged"/>
 
-        <!-- Alul: gombok Grid-ben, hogy arányosan nőjenek -->
-        <Grid Grid.Row="3" Grid.ColumnSpan="2" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+        <!-- BOTTOM BUTTONS -->
+        <StackPanel Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0,15">
 
-            <Button x:Name="btn_upload" Content="Felvétel" FontSize="22" FontWeight="Bold" IsEnabled="False" Grid.Column="0" Margin="55,-252,175,262" Click="btn_upload_Click" Grid.ColumnSpan="2"/>
-            <Button x:Name="edit_data_btn" Content="Módosítás" FontSize="20" FontWeight="Bold" IsEnabled="False" Grid.Column="2" Margin="5" Click="edit_data_btn_Click"/>
-            <Button x:Name="delete_data_btn" Content="Törlés" FontSize="20" FontWeight="Bold" IsEnabled="False" Grid.Column="3" Margin="5" Click="delete_data_btn_Click"/>
-        </Grid>
+            <!-- Insert -->
+            <Button x:Name="btn_upload"
+                    Content="Felvétel"
+                    Width="180"
+                    Height="60"
+                    Margin="10"
+                    FontSize="22"
+                    FontWeight="Bold"
+                    IsEnabled="False"
+                    Click="btn_upload_Click"/>
 
+            <!-- edit btn -->
+            <Button x:Name="edit_data_btn"
+                    Content="Módosítás"
+                    Width="180"
+                    Height="60"
+                    Margin="10"
+                    FontSize="22"
+                    FontWeight="Bold"
+                    IsEnabled="False"
+                    Click="edit_data_btn_Click"/>
+
+            <!-- delete btn -->
+            <Button x:Name="delete_data_btn"
+                    Content="Törlés"
+                    Width="180"
+                    Height="60"
+                    Margin="10"
+                    FontSize="22"
+                    FontWeight="Bold"
+                    IsEnabled="False"
+                    Click="delete_data_btn_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

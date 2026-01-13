@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static cosmoScreen.Methods;
 
 namespace cosmoScreen
 {
@@ -22,28 +23,10 @@ namespace cosmoScreen
     /// </summary>
     public partial class felhasznalok : Window
     {
-        MySqlConnection connection = new MySqlConnection("server=localhost;database=cosmoscreen;uid=root");
-        MySqlCommand command;
         public felhasznalok()
         {
             InitializeComponent();
-            AutoRead();
-        }
-
-        public void openConnection()
-        {
-            if (connection.State == ConnectionState.Closed)
-            {
-                connection.Open();
-            }
-        }
-
-        public void closeConnection()
-        {
-            if (connection.State == ConnectionState.Open)
-            {
-                connection.Close();
-            }
+            LoadData("SELECT * FROM users", users_datagrid);
         }
 
         private void films_menuItem_Click(object sender, RoutedEventArgs e)
@@ -67,58 +50,6 @@ namespace cosmoScreen
             this.Hide();
         }
 
-        public void executeQuery(string query)
-        {
-            try
-            {
-                openConnection();
-
-                command = new MySqlCommand(query, connection);
-
-                if (command.ExecuteNonQuery() >= 1)
-                {
-                    MessageBox.Show("Végrehajtva!");
-                }
-                else
-                {
-                    MessageBox.Show("Nem lett végrehajtva!");
-                }
-            }
-            catch (Exception hiba)
-            {
-                MessageBox.Show(hiba.Message);
-            }
-        }
-
-        private void LoadUsers()
-        {
-            try
-            {
-                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM users", connection);
-                openConnection();
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-                users_datagrid.ItemsSource = ds.Tables[0].DefaultView;
-                closeConnection();
-            }
-            catch (Exception hiba)
-            {
-                MessageBox.Show(hiba.Message);
-            }
-        }
-
-        private void AutoRead()
-        {
-            try
-            {
-                LoadUsers();
-            }
-            catch (Exception hiba)
-            {
-                MessageBox.Show(hiba.Message);
-            }
-        }
-
         private void btn_upload_Click(object sender, RoutedEventArgs e)
         {
             if (!ValidateInputs())
@@ -135,7 +66,7 @@ namespace cosmoScreen
 
             string user_upload = $"INSERT INTO users(name,email,password) VALUES('{user_name_input.Text}','{email_input.Text}','{password_input.Text}')";
             executeQuery(user_upload);
-            LoadUsers();
+            LoadData("SELECT * FROM users", users_datagrid);
         }
 
         private void InputChanged(object sender, TextChangedEventArgs e)
@@ -184,8 +115,6 @@ namespace cosmoScreen
 
         }
 
-
-
         private int user_id = -1;
         private void users_datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -213,7 +142,7 @@ namespace cosmoScreen
             string torol = $"DELETE FROM users WHERE id ='{user_id}'";
             users_datagrid.SelectedItem = null;
             executeQuery(torol);
-            LoadUsers();
+            LoadData("SELECT * FROM users", users_datagrid);
             delete_data_btn.IsEnabled = false;
             edit_data_btn.IsEnabled = false;
         }
@@ -223,7 +152,7 @@ namespace cosmoScreen
             string sorfrissites = $"UPDATE users SET name='{user_name_input.Text}', email='{email_input.Text}', password='{password_input.Text}' WHERE id='{user_id}'";
             executeQuery(sorfrissites);
             users_datagrid.SelectedItem = null;
-            LoadUsers();
+            LoadData("SELECT * FROM users", users_datagrid);
             edit_data_btn.IsEnabled = false;
             delete_data_btn.IsEnabled = false;
         }
