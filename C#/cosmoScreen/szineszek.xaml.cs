@@ -29,6 +29,8 @@ namespace cosmoScreen
         {
             InitializeComponent();
             btn_upload.IsEnabled = false;
+            AutoRead();
+            
         }
 
         public void openConnection()
@@ -101,18 +103,16 @@ namespace cosmoScreen
             }
         }
 
-        private void get_data_btn_Click(object sender, RoutedEventArgs e)
+        private void AutoRead()
         {
-            try
-            {
-                LoadActors();
-                get_data_btn.IsEnabled = false;
-            }
-            catch (Exception hiba)
-            {
-                MessageBox.Show(hiba.Message);
-            }
-
+           try
+           {
+               LoadActors();
+           }
+           catch (Exception hiba)
+           {
+               MessageBox.Show(hiba.Message);
+           }
         }
 
         private void btn_upload_Click(object sender, RoutedEventArgs e)

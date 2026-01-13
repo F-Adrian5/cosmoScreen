@@ -29,6 +29,7 @@ namespace cosmoScreen
         public films()
         {
             InitializeComponent();
+            AutoRead();
         }
 
         public void openConnection()
@@ -103,18 +104,16 @@ namespace cosmoScreen
         }
 
 
-        private void get_data_btn_Click(object sender, RoutedEventArgs e)
+        private void AutoRead()
         {
             try
             {
                 LoadMovies();
-                get_data_btn.IsEnabled = false;
             }
             catch (Exception hiba)
             {
                 MessageBox.Show(hiba.Message);
             }
-
         }
 
         private void btn_upload_Click(object sender, RoutedEventArgs e)

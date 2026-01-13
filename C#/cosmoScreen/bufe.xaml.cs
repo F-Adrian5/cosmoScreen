@@ -29,6 +29,7 @@ namespace cosmoScreen
         public bufe()
         {
             InitializeComponent();
+            AutoRead();
         }
 
         public void openConnection()
@@ -101,12 +102,11 @@ namespace cosmoScreen
             }
         }
 
-        private void get_data_btn_Click(object sender, RoutedEventArgs e)
+        private void AutoRead()
         {
             try
             {
                 LoadMenu();
-                get_data_btn.IsEnabled = false;
             }
             catch (Exception hiba)
             {

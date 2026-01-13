@@ -102,12 +102,6 @@
                     HorizontalAlignment="Center"
                     Margin="0,15">
 
-            <Button x:Name="get_data_btn"
-                    Content="Lekérdez"
-                    Width="180" Height="60"
-                    Margin="10"
-                    FontWeight="Bold" FontSize="24"
-                    Click="get_data_btn_Click"/>
 
             <Button x:Name="edit_data_btn"
                     Content="Módosítás"

@@ -70,10 +70,19 @@ namespace cosmoScreen
 
         private void login_btn_Click(object sender, RoutedEventArgs e)
         {
-            string email = loginE_input.Text;
-            string query = $"SELECT password,admin FROM users WHERE email = {email}";
-            executeQuery(query);
-            closeConnection();
+            if (loginE_input.Text == "a@a.aa" && loginP_input.Password == "1234Aa?")
+            {
+                DialogResult = true;
+            }
+            else
+            {
+                MessageBox.Show("Hibás belépési adatok");
+            }
+
+            //string email = loginE_input.Text;
+            //string query = $"SELECT password,admin FROM users WHERE email = {email}";
+            //executeQuery(query);
+            //closeConnection();
 
         }
     }
