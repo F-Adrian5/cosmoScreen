@@ -15,7 +15,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Cím -->
+        <!-- Title -->
         <Label Grid.Row="0"
                Content="Bejelentkezés"
                HorizontalAlignment="Center"
@@ -36,7 +36,8 @@
 
             <TextBox Name="loginE_input"
                      Height="35"
-                     Margin="0,5,0,15"/>
+                     Margin="0,5,0,15"
+                     TextChanged="inputChanged"/>
 
             <Label Content="Jelszó:"
                    FontSize="16"
@@ -44,9 +45,11 @@
 
             <PasswordBox Name="loginP_input"
                          Height="35"
-                         Margin="0,5,0,20"/>
+                         Margin="0,5,0,20"
+                         PasswordChanged="inputChanged"/>
 
             <Button Name="login_btn"
+                    IsEnabled="False"
                     Content="Bejelentkezés"
                     Height="50"
                     FontSize="18"
@@ -57,7 +60,6 @@
                     Click="login_btn_Click"/>
         </StackPanel>
 
-        <!-- Alsó margó (opcionális) -->
         <Border Grid.Row="2" Height="20"/>
     </Grid>
 </Window>

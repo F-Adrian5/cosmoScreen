@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static cosmoScreen.Methods;
 
 namespace cosmoScreen
 {
@@ -21,69 +22,69 @@ namespace cosmoScreen
     /// </summary>
     public partial class login : Window
     {
-        MySqlConnection connection = new MySqlConnection("server=localhost;database=cosmoscreen;uid=root");
-        MySqlCommand command;
-
         public login()
         {
             InitializeComponent();
         }
-
-        public void openConnection()
-        {
-            if (connection.State == ConnectionState.Closed)
-            {
-                connection.Open();
-            }
-        }
-
-        public void closeConnection()
-        {
-            if (connection.State == ConnectionState.Open)
-            {
-                connection.Close();
-            }
-        }
-
-        public void executeQuery(string query)
-        {
-            try
-            {
-                openConnection();
-
-                command = new MySqlCommand(query, connection);
-
-                if (command.ExecuteNonQuery() >= 1)
-                {
-                    MessageBox.Show($"Végrehajtva!");
-                }
-                else
-                {
-                    MessageBox.Show("Nem lett végrehajtva!");
-                }
-            }
-            catch (Exception hiba)
-            {
-                MessageBox.Show(hiba.Message);
-            }
-        }
-
         private void login_btn_Click(object sender, RoutedEventArgs e)
         {
-            if (loginE_input.Text == "a@a.aa" && loginP_input.Password == "1234Aa?")
-            {
-                DialogResult = true;
-            }
-            else
-            {
-                MessageBox.Show("Hibás belépési adatok");
-            }
+            // getting what the user typed in
+            string email = loginE_input.Text;
+            string password = loginP_input.Password;
 
-            //string email = loginE_input.Text;
-            //string query = $"SELECT password,admin FROM users WHERE email = {email}";
-            //executeQuery(query);
-            //closeConnection();
+            try
+            {
+                // opening the connection and setting the query
+                openConnection();
+                string query = "SELECT email, password, admin FROM users WHERE email = @email AND admin = 1";
 
+                // adding value to the command variable
+                command = new MySqlCommand(query, connection);
+                
+                // to the commands parameter, added the email variable's data
+                // to the query's @email
+                command.Parameters.AddWithValue("@email", email);
+
+                //creating an sql reader
+                MySqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    // with the reader getting all the data
+                    string dbPass = reader.GetString("password");
+                    string dbEmail = reader.GetString("email");
+                    bool isAdmin = reader.GetBoolean("admin");
+
+                    // checking the data
+                    if (dbPass == password && dbEmail == email && isAdmin)
+                    {
+                        DialogResult = true;
+                    }
+                    else {
+                        MessageBox.Show("Nincs jogosultsága belépni az admin felületre");
+                    
+                    }
+                }
+                else {
+                    MessageBox.Show("Hibás email vagy jelszó!");
+                }
+
+                // closing the reader and the connection
+                reader.Close();
+                closeConnection();
+            }
+            catch (Exception ex)
+            {
+                //error
+                MessageBox.Show("Hiba történt a művelet során: ", ex.Message);
+            }
+        }
+        
+        private void inputChanged(object sender, RoutedEventArgs e)
+        {
+            login_btn.IsEnabled =
+                !string.IsNullOrWhiteSpace(loginE_input.Text) &&
+                !string.IsNullOrWhiteSpace(loginP_input.Password);
         }
     }
 }

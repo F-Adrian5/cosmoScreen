@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static cosmoScreen.Methods;
 
 namespace cosmoScreen
 {
@@ -19,6 +20,7 @@ namespace cosmoScreen
         public MainWindow()
         {
             InitializeComponent();
+            ExitApp(this);
         }
 
         private void bufe_click(object sender, RoutedEventArgs e)

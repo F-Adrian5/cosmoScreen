@@ -27,8 +27,8 @@ namespace cosmoScreen
         public szineszek()
         {
             InitializeComponent();
-            btn_upload.IsEnabled = false;
             LoadData("SELECT * FROM actors", actors_datagrid);
+            ExitApp(this);
         }
 
         private void films_menuItem_Click(object sender, RoutedEventArgs e)

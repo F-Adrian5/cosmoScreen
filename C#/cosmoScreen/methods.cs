@@ -67,5 +67,9 @@ namespace cosmoScreen
                 MessageBox.Show(hiba.Message);
             }
         }
+        public static void ExitApp(Window window)
+        {
+            window.Closed += (sender, Event) => Application.Current.Shutdown();
+        }
     }
 }

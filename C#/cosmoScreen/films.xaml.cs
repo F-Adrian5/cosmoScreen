@@ -27,7 +27,7 @@ namespace cosmoScreen
         {
             InitializeComponent();
             LoadData("SELECT * FROM movies", movie_datagrid);
-
+            ExitApp(this);
         }
 
         private void buffet_menuItem_Click(object sender, RoutedEventArgs e)
