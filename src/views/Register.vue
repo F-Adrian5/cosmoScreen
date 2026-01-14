@@ -5,14 +5,14 @@
           @submit.prevent="register">
 
       <h4 class="text-center mb-4 fw-bold">
-        {{ $t('texts.register') }}
+        {{ $t('registerPage.registerTitle') }}
       </h4>
 
       <!--name-->
       <div class="mb-3">
         <label for="register_name" 
                class="form-label fw-semibold">
-          {{ $t('labels.name') }}
+          {{ $t('registerPage.name') }}
         </label>
 
         <input type="text"
@@ -27,7 +27,7 @@
         <div class="text-danger mt-1 small" 
              style="min-height: 42px;">
           <span v-if="name && !/^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ -]+$/.test(name)">
-           {{ $t('errorMessages.nameError') }}
+           {{ $t('registerPage.nameError') }}
           </span>
         </div>
       </div>
@@ -36,7 +36,7 @@
       <div class="mb-3">
         <label for="register_email" 
                class="form-label fw-semibold">
-          {{ $t('labels.email') }}
+          {{ $t('registerPage.email') }}
         </label>
 
         <input type="email"
@@ -51,7 +51,7 @@
         <div class="text-danger mt-1 small" 
              style="min-height: 22px;">
           <span v-if="email && !validEmail">
-           {{ $t('errorMessages.emailError') }}
+           {{ $t('registerPage.emailError') }}
           </span>
         </div>
       </div>
@@ -60,7 +60,7 @@
       <div class="mb-3 position-relative">
         <label for="register_password" 
                class="form-label fw-semibold">
-          {{ $t('labels.password') }}
+          {{ $t('registerPage.password') }}
         </label>
 
         <div class="d-flex align-items-center position-relative">
@@ -89,7 +89,7 @@
         <div class="text-danger mt-1 small" 
              style="min-height: 42px;">
           <span v-if="password && !validPassword">
-            {{ $t('errorMessages.passwordError') }}
+            {{ $t('registerPage.passwordError') }}
           </span>
         </div>
       </div>
@@ -99,15 +99,15 @@
               class="btn btn_submit w-100 fw-semibold"
               :disabled="!name || !email || !password || 
                          !validEmail || !validPassword">
-          {{ $t('buttons.register') }}
+          {{ $t('registerPage.registerButton') }}
       </button>
 
        <!-- registration link-->
        <div class="text-center mt-3">
-        <span>{{ $t('texts.existingAccount') }} 
+        <span>{{ $t('registerPage.existingAccount') }} 
           <RouterLink to="/login"
                       class="login-link">
-            {{ $t('texts.loginLink') }}
+            {{ $t('registerPage.loginLink') }}
           </RouterLink>
           !
         </span>

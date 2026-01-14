@@ -1,25 +1,4 @@
 { 
-  "buttons": {
-   "login":"Login",
-   "register":"Register"
-  },
-  "labels": {
-    "email": "Email",
-    "password": "Password",
-    "name":"Name"
-  },
-  "texts": {
-    "welcome": "Welcome to CosmoScreen!",
-    "onShow": "We are currently screening:",
-    "buffetTitle": "Buffet offers",
-    "aboutUs": "About us",
-    "login": "Login",
-    "noAccountReg": "If you don't have an account yet ",
-    "registerLink": "register",
-    "register": "Registration",
-    "existingAccount":"If you already have an account ",
-    "loginLink":"login"
-  },
   "navbar":{
     "programList": "Program list",
     "buffet": "Buffet",
@@ -34,18 +13,34 @@
     "dataFishing": "Datafishing",
     "copyright": "All rights reserved CosmoScreen - "
   },
-  "errorMessages":{
+  "homePage":{
+    "welcome": "Welcome to CosmoScreen!",
+    "onShow": "We are currently screening:"
+  },
+  "buffetPage":{
+    "buffetTitle": "Buffet offers"
+  },
+  "loginPage":{
+    "loginTitle": "Login",
+    "email": "Email address",
+    "password": "Password",
+    "loginButton":"Login",
+    "noAccountReg": "If you don't have an account yet ",
+    "registerLink": "register",
+    "emailError":"Invalid email format",
+    "passwordError":"Minimum 6 characters, uppercase letter, number, special character"
+  },
+  "registerPage":{
+    "registerTitle": "Registration",
+    "email": "Email address",
+    "password": "Password",
+    "name":"Name",
+    "registerButton":"Register",
+    "existingAccount":"If you already have an account ",
+    "loginLink":"login",
     "emailError":"Invalid email format",
     "passwordError":"Minimum 6 characters, uppercase letter, number, special character",
-    "nameError":"The name cannot contain numbers or special characters",
-    "serverError":"Server error",
-    "emailPassError":"Incorrect email or password",
-    "existingUserError":"This email is already registered.",
-    "serverNotFound":"The server is not available"
-  },
-  "successMessages":{
-    "sucessfulReg":"Sucessful registration",
-    "successfulLog":"Successful login"
+    "nameError":"The name cannot contain numbers or special characters."
   },
   "regulationsPage":{
     "rulesTitle":"CosmoScreen's Rules",
@@ -67,7 +62,7 @@
     "onlinePurchase":"When purchasing online, tickets can be presented on a mobile phone or in printed form.",
     "contactUs":"If you have any questions, feel free to contact us!"
   },
-  "dataFishing":{
+  "dataFishingPage":{
     "dataFishingTitle":"Phishing Information",
     "dataFishingSubtitle":"Only buy tickets on our official website and protect your data!",
     "importantInfo":"Important information",
@@ -94,5 +89,15 @@
     "teamMember":"Team member",
     "projectManager":"Project manager",
     "finalText":"This exam is a milestone: both a learning process and the beginning of a possible future. We are open to new ideas, development, and building on this foundation."
+  },
+  "errorMessages":{
+    "serverError":"Server error",
+    "emailPassError":"Incorrect email or password",
+    "existingUserError":"This email is already registered.",
+    "serverNotFound":"The server is not available"
+  },
+  "successMessages":{
+    "sucessfulReg":"Sucessful registration",
+    "successfulLog":"Successful login"
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <h1 class="text-center text-light mt-5">{{ $t('texts.buffetTitle') }}</h1>
+      <h1 class="text-center text-light mt-5">{{ $t('buffetPage.buffetTitle') }}</h1>
       <hr class="text-light">
     </div>
 

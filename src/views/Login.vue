@@ -4,13 +4,13 @@
           class="p-4 shadow rounded mt-5"
           style="width: 100%; max-width: 380px;">
 
-      <h4 class="text-center mb-4 fw-bold">{{ $t('texts.login') }}</h4>
+      <h4 class="text-center mb-4 fw-bold">{{ $t('loginPage.loginTitle') }}</h4>
 
       <!--Email-->
       <div class="mb-3">
         <label for="login_email" 
                class="form-label fw-semibold">
-          {{ $t('labels.email') }}
+          {{ $t('loginPage.email') }}
         </label>
 
         <input type="email"
@@ -24,7 +24,7 @@
         <div class="text-danger mt-1 small" 
              style="min-height: 22px;">
           <span v-if="email && !validEmail">
-            {{ $t('errorMessages.emailError') }}
+            {{ $t('loginPage.emailError') }}
           </span>
         </div>
       </div>
@@ -33,7 +33,7 @@
       <div class="mb-3">
         <label for="login_password" 
                class="form-label fw-semibold">
-          {{ $t('labels.password') }}
+          {{ $t('loginPage.password') }}
         </label>
 
         <div class="d-flex align-items-center position-relative">
@@ -61,7 +61,7 @@
         <div class="text-danger mt-1 small" 
              style="min-height: 42px;">
           <span v-if="password && !validPassword">
-            {{ $t('errorMessages.passwordError') }}
+            {{ $t('loginPage.passwordError') }}
           </span>
         </div>
       </div>
@@ -73,15 +73,15 @@
                          !password ||
                          !validEmail ||
                          !validPassword">
-          {{ $t('buttons.login') }}
+          {{ $t('loginPage.loginButton') }}
       </button>
       
       <!--register link-->
       <div class="text-center mt-3">
-        <span>{{ $t('texts.noAccountReg') }}
+        <span>{{ $t('loginPage.noAccountReg') }}
           <RouterLink to="/register"
                       class="register-link">
-              {{ $t('texts.registerLink') }}
+              {{ $t('loginPage.registerLink') }}
           </RouterLink>
           !
         </span>

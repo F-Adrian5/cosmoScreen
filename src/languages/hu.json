@@ -1,25 +1,4 @@
 {
-  "buttons": {
-   "login":"Bejelentkezés",
-   "register":"Regisztráció"
-  },
-  "labels": {
-    "email": "Email cím",
-    "password": "Jelszó",
-    "name":"Név"
-  },
-  "texts": {
-    "welcome": "Üdvözöljük a CosmoScreen oldalán!",
-    "onShow": "Jelenleg vetítjük:",
-    "buffetTitle": "Büfés ajánlataink",
-   
-    "login": "Bejelentkezés",
-    "noAccountReg": "Ha még nincs fiókja ",
-    "registerLink": "regisztráljon",
-    "register": "Regisztráció",
-    "existingAccount":"Ha már van fiókja ",
-    "loginLink":"jelentkezzen be"
-  },
   "navbar":{
     "programList": "Műsorlista",
     "buffet": "Büfé",
@@ -34,18 +13,34 @@
     "dataFishing": "Adathalászat",
     "copyright": "Minden jog fentartva CosmoScreen - "
   },
-  "errorMessages":{
+  "homePage":{
+    "welcome": "Üdvözöljük a CosmoScreen oldalán!",
+    "onShow": "Jelenleg vetítjük:"
+  },
+  "buffetPage":{
+    "buffetTitle": "Büfés ajánlataink"
+  },
+  "loginPage":{
+    "loginTitle": "Bejelentkezés",
+    "email": "Email cím",
+    "password": "Jelszó",
+    "loginButton":"Bejelentkezés",
+    "noAccountReg": "Ha még nincs fiókja ",
+    "registerLink": "regisztráljon",
+    "emailError":"Érvénytelen email formátum",
+    "passwordError":"Minimum 6 karakter, nagybetű, szám, speciális karakter"
+  },
+  "registerPage":{
+    "registerTitle": "Regisztráció",
+    "email": "Email cím",
+    "password": "Jelszó",
+    "name":"Név",
+    "registerButton":"Regisztráció",
+    "existingAccount":"Ha már van fiókja ",
+    "loginLink":"jelentkezzen be",
     "emailError":"Érvénytelen email formátum",
     "passwordError":"Minimum 6 karakter, nagybetű, szám, speciális karakter",
-    "nameError":"A név nem tartalmazhat számot vagy speciális karaktert",
-    "serverError":"Szerver hiba",
-    "emailPassError":"Hibás email vagy jelszó",
-    "existingUserError":"Ez az email már regisztrálva van",
-    "serverNotFound":"Szerver nem elérhető"
-  },
-  "successMessages":{
-    "sucessfulReg":"Sikeres regisztráció!",
-    "successfulLog":"Sikeres bejelentkezés!"
+    "nameError":"A név nem tartalmazhat számot vagy speciális karaktert"
   },
   "regulationsPage":{
     "rulesTitle":"A CosmoScreen Szabályzata",
@@ -67,7 +62,7 @@
     "onlinePurchase":"Online vásárlás esetén a jegyeket a mobiltelefonon vagy nyomtatott formában lehet bemutatni.",
     "contactUs":"Kérdés esetén vegye fel bátran velünk a kapcsolatot!"
   },
-  "dataFishing":{
+  "dataFishingPage":{
     "dataFishingTitle":"Adathalászat Tájékoztató",
     "dataFishingSubtitle":"Csak hivatalos oldalunkon vásárolj jegyet, és védje adatait!",
     "importantInfo":"Fontos tudnivalók",
@@ -94,5 +89,15 @@
     "teamMember":"Csapattag",
     "projectManager":"Projektvezető",
     "finalText":"Ez a vizsgaremek számunkra egy mérföldkő: egyszerre tanulási folyamat és egy lehetséges jövő kezdete. Nyitottak vagyunk az új ötletekre, a fejlődésre és arra, hogy továbbépítsük ezt az alapot."
+  },
+  "errorMessages":{
+    "serverError":"Szerver hiba",
+    "emailPassError":"Hibás email vagy jelszó",
+    "existingUserError":"Ez az email már regisztrálva van",
+    "serverNotFound":"Szerver nem elérhető"
+  },
+  "successMessages":{
+    "sucessfulReg":"Sikeres regisztráció!",
+    "successfulLog":"Sikeres bejelentkezés!"
   }
 }
