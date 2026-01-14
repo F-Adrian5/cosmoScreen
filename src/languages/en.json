@@ -75,5 +75,24 @@
     "neverShareData":"Never enter your password or bank card details on an unknown website.",
     "checkUrl":"Pay attention to the website URL, only the official CosmoScreen domain is safe.",
     "suspiciousEmail":"If you receive a suspicious email, do not click on any links, but contact us instead."
+  },
+  "aboutUsPage":{
+    "aboutUsTitle": "About us",
+    "aboutUsSubtitle":"The cinema experience in digital form",
+    "theStory":"The story",
+    "storyOne":"This website started as an exam paper, but during the design process it became clear to us that we wanted to create more than that. We envisioned an interface that would capture the atmosphere of the cinema: the excitement, the anticipation, and the experience of being captivated by a story.",
+    "storyTwo":"We were inspired by the world of modern movie theaters. The dark tones, clean visuals, and simple navigation all serve the purpose of making the user feel at home in this cinematic environment from the very first moment.",
+    "storyThree":"For us, this project is about learning, creative solutions, and continuous improvement. We wanted to create a foundation that could later be developed into a real, working service.",
+    "goalAndMotivation":"Our Goal and Motivation",
+    "goalTitle":"Our goal",
+    "goalText":"Creating a digital interface that recreates the atmosphere of the cinema, providing excitement and experience for every visitor.",
+    "motivationTitle":"Our motivation",
+    "motivationText":"We draw inspiration from the world of modern movie theaters, creativity, and the joy of continuous learning to make the user experience unique.",
+    "visionTitle":"Our vision",
+    "visionText":"We believe that details matter. Usability, aesthetics, and providing the visitor with not only information but also an atmosphere are important.",
+    "theTeam":"The team",
+    "teamMember":"Team member",
+    "projectManager":"Project manager",
+    "finalText":"This exam is a milestone: both a learning process and the beginning of a possible future. We are open to new ideas, development, and building on this foundation."
   }
 }

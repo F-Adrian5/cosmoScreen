@@ -12,7 +12,7 @@
     "welcome": "Üdvözöljük a CosmoScreen oldalán!",
     "onShow": "Jelenleg vetítjük:",
     "buffetTitle": "Büfés ajánlataink",
-    "aboutUs": "Rólunk",
+   
     "login": "Bejelentkezés",
     "noAccountReg": "Ha még nincs fiókja ",
     "registerLink": "regisztráljon",
@@ -75,5 +75,24 @@
     "neverShareData":"Soha ne add meg a jelszavad vagy bankkártya adataid ismeretlen oldalon.",
     "checkUrl":"Figyeld a weboldal URL-jét, csak a hivatalos CosmoScreen domain a biztonságos.",
     "suspiciousEmail":"Gyanús e-mail esetén ne kattints linkekre, inkább lépj kapcsolatba velünk."
+  },
+  "aboutUsPage":{
+    "aboutUsTitle": "Rólunk",
+    "aboutUsSubtitle":"A mozi élménye digitális formában",
+    "theStory":"A történet",
+    "storyOne":"Ez a weboldal egy vizsgaremekként indult, azonban már a tervezés során világossá vált számunkra, hogy ennél többet szeretnénk létrehozni. Egy olyan felületet képzeltünk el, amely visszaadja a mozi hangulatát: az izgalmat, a várakozást és azt az élményt, amikor egy történet magával ragad.",
+    "storyTwo":"Inspirációnkat a modern filmszínházak világa adta. A sötét tónusok, a letisztult vizuális elemek és az egyszerű navigáció mind azt a célt szolgálják, hogy a felhasználó már az első pillanatban otthon érezze magát ebben a filmes környezetben.",
+    "storyThree":"Számunkra ez a projekt a tanulásról, a kreatív megoldásokról és a folyamatos fejlődésről szól. Egy olyan alapot szerettünk volna megteremteni, amely később akár egy valódi, működő szolgáltatás irányába is továbbfejleszthető.",
+    "goalAndMotivation":"Célunk és Motivációnk",
+    "goalTitle":"Célunk",
+    "goalText":"Olyan digitális felület létrehozása, amely visszaadja a mozi hangulatát, izgalmat és élményt nyújt minden látogatónak.",
+    "motivationTitle":"Motivációnk",
+    "motivationText":"Inspirációt merítünk a modern filmszínházak világából, a kreativitásból és a folyamatos tanulás öröméből, hogy egyedivé tegyük a felhasználói élményt.",
+    "visionTitle":"Szemlélet",
+    "visionText":"Hiszünk abban, hogy a részletek számítanak. Fontos a használhatóság, az esztétikum, és hogy a látogató ne csak információt, hanem hangulatot is kapjon.",
+    "theTeam":"A csapat",
+    "teamMember":"Csapattag",
+    "projectManager":"Projektvezető",
+    "finalText":"Ez a vizsgaremek számunkra egy mérföldkő: egyszerre tanulási folyamat és egy lehetséges jövő kezdete. Nyitottak vagyunk az új ötletekre, a fejlődésre és arra, hogy továbbépítsük ezt az alapot."
   }
 }
