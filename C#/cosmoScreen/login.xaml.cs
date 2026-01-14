@@ -36,7 +36,7 @@ namespace cosmoScreen
             {
                 // opening the connection and setting the query
                 openConnection();
-                string query = "SELECT email, password, admin FROM users WHERE email = @email AND admin = 1";
+                string query = "SELECT email, password, admin FROM users WHERE email = @email";
 
                 // adding value to the command variable
                 command = new MySqlCommand(query, connection);
@@ -56,17 +56,23 @@ namespace cosmoScreen
                     bool isAdmin = reader.GetBoolean("admin");
 
                     // checking the data
-                    if (dbPass == password && dbEmail == email && isAdmin)
+                    if (dbPass == password && dbEmail == email)
                     {
-                        DialogResult = true;
+                        if (isAdmin)
+                        {
+                            DialogResult = true;
+                        }
+                        else {
+                            MessageBox.Show("Nincs jogosultsága belépni az admin felületre");
+                        }
                     }
                     else {
-                        MessageBox.Show("Nincs jogosultsága belépni az admin felületre");
+                        MessageBox.Show("Hibás email vagy jelszó!");
                     
                     }
                 }
                 else {
-                    MessageBox.Show("Hibás email vagy jelszó!");
+                    MessageBox.Show("Nincs ilyen felhasználó regisztrálva!");
                 }
 
                 // closing the reader and the connection
