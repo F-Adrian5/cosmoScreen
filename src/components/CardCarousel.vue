@@ -11,7 +11,8 @@
           
           <!-- image -->
           <img :src="`./src/assets/media/images/movie_posters/${movie.poster}`"
-               class="card-img-top h-75" :alt="movie.title" />
+               class="card-img-top h-75" 
+               :alt="movie.title" />
           
           <!-- card body -->
           <div class="card-body h-25 justify-content-center rounded-3">

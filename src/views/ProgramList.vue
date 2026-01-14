@@ -60,13 +60,15 @@
     showing_in: string
   }
 
+  // creating a reactive array
   const movies = ref<Movie[]>([]);
 
+  // when the app runs, this will be called
   onMounted(async ()=> {
 
+    // a get request to the server
     const data = await axios.get("http://localhost:3000/getPrograms")
     movies.value = data.data;
     console.log(movies)
   })
-
 </script>

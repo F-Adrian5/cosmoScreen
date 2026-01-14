@@ -15,8 +15,7 @@ const port = 3000;
 // connectinc cors and setting it to only allow the 5173 port
 app.use(cors({
   origin: [
-    'http://localhost:5173',
-    'http://localhost:5174'
+    'http://localhost:5173'
   ]
 }))
 

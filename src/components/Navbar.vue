@@ -62,29 +62,26 @@
 
           <!-- language select -->
           <li class="nav-item ms-1" @mouseleave="showLangMenu = false">
-            <div
-              class="nav-link d-flex align-items-center"
-              style="cursor: pointer;"
-              @click="showLangMenu = !showLangMenu"
-            >
+            <div class="nav-link d-flex align-items-center"
+                 style="cursor: pointer;"
+                 @click="showLangMenu = !showLangMenu">
               <font-awesome-icon :icon="['fas','language']" class="me-1"/>
               {{ $t('navbar.language') }}
             </div>
+            
             <ul v-if="showLangMenu" class="dropdown-menu dropdown-menu-end show">
               <li>
-                <button
-                  class="dropdown-item"
-                  :class="{ active: $lang.lang === 'hu' }"
-                  @click="setLanguage('hu')">
-                  HU
+                <button class="dropdown-item"
+                        :class="{ active: $lang.lang === 'hu' }"
+                        @click="setLanguage('hu')">
+                        HU
                 </button>
               </li>
               <li>
-                <button
-                  class="dropdown-item"
-                  :class="{ active: $lang.lang === 'en' }"
-                  @click="setLanguage('en')">
-                  EN
+                <button class="dropdown-item"
+                        :class="{ active: $lang.lang === 'en' }"
+                        @click="setLanguage('en')">
+                        EN
                 </button>
               </li>
             </ul>

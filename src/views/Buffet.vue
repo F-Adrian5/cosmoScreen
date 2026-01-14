@@ -49,9 +49,13 @@
     img: string
   }
 
+  // creating reactive state for the offers
   const offers = ref<Offer[]>([]);
 
+  //when the app runs this function is called
   onMounted(async ()=>{
+
+    //get request to the backend
     const offersData = await axios.get("http://localhost:3000/getBuffet")
     offers.value = offersData.data;
   })

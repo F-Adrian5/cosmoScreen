@@ -1,7 +1,7 @@
 <template>
   <div class="container py-5">
     
-    <!-- Cím -->
+    <!-- Title -->
     <div class="row mb-5">
       <div class="col text-center">
         <h1 class="text-light">
@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <!-- Történet -->
+    <!-- History -->
     <div class="row mb-5">
       <div class="col-lg-8 mx-auto">
         <h3 class="text-light mb-3">
@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <!-- Célunk, Motivációnk, Szemlélet -->
+    <!-- Section -->
     <div class="row mb-5">
       <div class="col-lg-10 mx-auto">
         <h2 class="text-light mb-4 text-center">
@@ -40,7 +40,7 @@
         </h2>
         <div class="row">
           
-          <!-- Célunk -->
+          <!-- Goals -->
           <div class="col-md-4 mb-4">
             <div class="p-4 border border-secondary rounded-3 h-100">
               <h3 class="text-light">
@@ -52,7 +52,7 @@
             </div>
           </div>
 
-          <!-- Motivációnk -->
+          <!-- Motivations -->
           <div class="col-md-4 mb-4">
             <div class="p-4 border border-secondary rounded-3 h-100">
               <h3 class="text-light">
@@ -64,7 +64,7 @@
             </div>
           </div>
 
-          <!-- Szemlélet -->
+          <!-- Visions -->
           <div class="col-md-4 mb-4">
             <div class="p-4 border border-secondary rounded-3 h-100">
               <h3 class="text-light">
@@ -79,7 +79,7 @@
       </div>
     </div>
 
-    <!-- Csapat -->
+    <!-- Team -->
     <div class="row">
       <div class="col-lg-10 mx-auto">
         <h3 class="text-light mb-4 text-center">

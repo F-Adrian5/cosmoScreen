@@ -13,6 +13,7 @@
           <div>Tel.: +36303456789</div>
         </div>
       </div>
+      
       <!-- informations -->
       <div class="col fw-bold text-center mb-3 fs-4">
         {{ $t('footer.informations') }}

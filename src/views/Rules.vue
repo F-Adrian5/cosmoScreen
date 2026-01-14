@@ -17,23 +17,31 @@
     <!-- general rules card -->
     <div class="row mb-4">
       <div class="col">
+
         <div class="card shadow-sm rounded-4 p-4 bg-dark border-primary">
+          
           <h3 class="mb-3 text-primary pb-2">
              {{ $t('regulationsPage.generalRules') }}
           </h3>
+          
           <ul class="list-group list-group-flush">
+            
             <li class="list-group-item bg-dark text-light d-flex align-items-start">
               <span>{{ $t('regulationsPage.followRules') }}</span> 
             </li>
+            
             <li class="list-group-item bg-dark text-light d-flex align-items-start">
               <span>{{ $t('regulationsPage.ticketInfo') }}</span>
             </li>
+            
             <li class="list-group-item bg-dark text-light d-flex align-items-start">
               <span>{{ $t('regulationsPage.enterRestriction') }}</span>
             </li>
+            
             <li class="list-group-item bg-dark text-light d-flex align-items-start">
               <span>{{ $t('regulationsPage.noSmoke') }}</span>
             </li>
+            
             <li class="list-group-item bg-dark text-light d-flex align-items-start">
               <span>{{ $t('regulationsPage.turnOffPhones') }}</span>
             </li>
@@ -46,19 +54,25 @@
     <div class="row mb-4">
       <div class="col">
         <div class="card shadow-sm rounded-4 p-4 bg-dark border-primary">
+          
           <h3 class="mb-3 text-primary pb-2">
              {{ $t('regulationsPage.safetyAndHygiene') }}
           </h3>
+          
           <ul class="list-group list-group-flush">
+            
             <li class="list-group-item bg-dark text-light d-flex align-items-start">
               <span>{{ $t('regulationsPage.exitAttention') }}</span> 
             </li>
+            
             <li class="list-group-item bg-dark text-light d-flex align-items-start">
               <span>{{ $t('regulationsPage.cleanSurrounding') }}</span>
             </li>
+            
             <li class="list-group-item bg-dark text-light d-flex align-items-start">
               <span>{{ $t('regulationsPage.leftoverArea') }}</span>
             </li>
+            
             <li class="list-group-item bg-dark text-light d-flex align-items-start">
               <span>{{ $t('regulationsPage.disinfectionPoint') }}</span>
             </li>
@@ -71,16 +85,21 @@
     <div class="row mb-4">
       <div class="col">
         <div class="card shadow-sm rounded-4 p-4 bg-dark border-primary">
+          
           <h3 class="mb-3 text-primary pb-2">
              {{ $t('regulationsPage.ticketPurchaseTitle') }}
           </h3>
+          
           <ul class="list-group list-group-flush">
+            
             <li class="list-group-item bg-dark text-light d-flex align-items-start">
               <span>{{ $t('regulationsPage.ticketDate') }}</span> 
             </li>
+            
             <li class="list-group-item bg-dark text-light d-flex align-items-start">
               <span>{{ $t('regulationsPage.returnInfo') }}</span>
             </li>
+            
             <li class="list-group-item bg-dark text-light d-flex align-items-start">
               <span>{{ $t('regulationsPage.onlinePurchase') }}</span>
             </li>

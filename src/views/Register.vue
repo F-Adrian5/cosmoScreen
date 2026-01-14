@@ -64,15 +64,14 @@
         </label>
 
         <div class="d-flex align-items-center position-relative">
-          <input
-            :type="showPassword ? 'text' : 'password'"
-            class="form-control form-control-lg"
-            id="register_password"
-            v-model="password"
-            name="password"
-            maxlength="20"
-            required
-            style="padding-right: 2.5rem;">
+          <input :type="showPassword ? 'text' : 'password'"
+                 class="form-control form-control-lg"
+                 id="register_password"
+                 v-model="password"
+                 name="password"
+                 maxlength="20"
+                 required
+                 style="padding-right: 2.5rem;">
 
           <!-- show password -->
           <button type="button"
