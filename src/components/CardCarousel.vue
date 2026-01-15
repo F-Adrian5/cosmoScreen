@@ -59,7 +59,12 @@
               
                 <!-- Movie details -->
                 <div class="col-12 col-md-7">
-                  <p class="fs-4"><strong>Film műfaja:</strong> {{ selectedMovie?.genre }}</p>
+                  <p class="fs-4">
+                    <strong>
+                      Film műfaja:
+                    </strong>
+                    {{ selectedMovie?.genre }}
+                  </p>
 
                   <p class="fs-4">
                     <strong>
@@ -106,7 +111,7 @@
                       class="btn btn-outline-light px-4 fs-4"
                       data-bs-dismiss="modal"
                       @click="($event.currentTarget as HTMLElement).blur()">
-                Close
+                  Close
               </button>
             </div>
           </div>
