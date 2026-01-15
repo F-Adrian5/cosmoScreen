@@ -15,6 +15,10 @@ const getData = [
     query: 'SELECT id, name, price, description, img FROM buffet' 
   },
   { 
+    url: '/getBuffetTypes', 
+    query: 'SELECT DISTINCT type FROM buffet' 
+  },
+  { 
     url: '/getMovies', 
     query: 'SELECT id, title, genre, runtime, director, production, age_restriction, poster, trailer, description, release_date FROM movies' 
   },
