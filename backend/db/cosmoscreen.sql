@@ -206,7 +206,7 @@ INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production
 (13, 'Csillagok háborúja: Egy új remény', 'Sci-Fi', 121, 'George Lucas', 'Lucasfilm', 12, '3D', 'starwars4.jpg', 'starwars4.mp4', 'Egy farmfiú hőssé válik.', '1977-05-25'),
 (14, 'Csillagok háborúja: A Birodalom visszavág', 'Sci-Fi', 124, 'Irvin Kershner', 'Lucasfilm', 12, '3D', 'starwars5.jpg', 'starwars5.mp4', 'A lázadás súlyos veszteségeket szenved.', '1980-05-21'),
 (15, 'Csillagok háborúja: A Jedi visszatér', 'Sci-Fi', 131, 'Richard Marquand', 'Lucasfilm', 12, '3D', 'starwars6.jpg', 'starwars6.mp4', 'A császár végzete közeleg.', '1983-05-25'),
-(16, 'Gladiátor', 'Történelemi', 155, 'Ridley Scott', 'Dreamworks', 16, '2D', 'gladiator.jpg', 'gladiator.mp4', 'Egy elárult tábornok bosszút forral.', '2000. 05. '),
+(16, 'Gladiátor', 'Történelemi', 155, 'Ridley Scott', 'Dreamworks', 16, '2D', 'gladiator.jpg', 'gladiator.mp4', 'Egy elárult tábornok bosszút forral.', '2000-05-05'),
 (17, 'Joker', 'Dráma', 122, 'Todd Phillips', 'Warner Bros.', 16, '2D', 'joker.jpg', 'joker.mp4', 'Egy férfi lassan az őrületbe süllyed.', '2019-10-04'),
 (18, 'A bárányok hallgatnak', 'Bűnügyi', 118, 'Jonathan Demme', 'Orion Pictures', 18, '2D', 'silence_lambs.jpg', 'silence_lambs.mp4', 'Egy nyomozó sorozatgyilkost üldöz.', '1991-02-14'),
 (19, 'Csillagok között', 'Sci-Fi', 169, 'Christopher Nolan', 'Warner Bros.', 12, 'IMAX', 'interstellar.jpg', 'interstellar.mp4', 'Az emberiség új otthont keres a csillagok között.', '2014-11-07'),
@@ -217,7 +217,7 @@ INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production
 (24, 'Titkos ablak', 'Thriller', 96, 'David Koepp', 'Columbia Pictures', 16, 'IMAX', 'secret_window.jpg', 'secret_window.mp4', 'Egy író magánélete felborul, amikor egy titokzatos idegen vádolja plágiummal, és a helyzet egyre veszélyesebbé válik.', '2004-07-16'),
 (25, 'Zombieland', 'Akció', 88, 'Ruben Fleischer', 'Columbia Pictures', 16, '3D', 'zombieland.jpg', 'zombieland.mp4', 'Egy apokaliptikus zombivilágban túlélők különös társasága próbál életben maradni, miközben humoros kalandokba keverednek.', '2009-10-02'),
 (26, 'Jason Bourne', 'Akció', 123, 'Paul Greengrass', 'Universal Pictures', 16, '2D', 'jason_bourne.jpg', 'jason_bourne.mp4', 'Jason Bourne visszatér, hogy felderítse múltja titkait, miközben a CIA üldözi, és életre-halálra menő akciókba keveredik.', '2016-07-29'),
-(27, 'Az egyenlítő', 'Akció', 132, 'Antoine Fuqua', 'Sony Pictures', 18, '3D', 'equalizer.jpg', 'equalizer.mp4', 'Egy visszavonult ügynök igazságot szolgáltat a gyengékért, miközben szembeszáll a maffiával.\r\n', '2014. 09. '),
+(27, 'Az egyenlítő', 'Akció', 132, 'Antoine Fuqua', 'Sony Pictures', 18, '3D', 'equalizer.jpg', 'equalizer.mp4', 'Egy visszavonult ügynök igazságot szolgáltat a gyengékért, miközben szembeszáll a maffiával.\r\n', '2014-09-26 '),
 (28, 'It', 'Horror', 135, 'Andy Muschietti', 'New Line Cinema', 18, '3D', 'it.jpg', 'it.mp4', 'Az Az (It) egy hátborzongató horrorfilm, amelyben egy gyerekeket rettegésben tartó, alakváltó rémség leggyakrabban egy bohóc tér vissza, hogy szembeszálljon egy bátor gyerektársasággal.\r\n', '2017-09-08');
 
 -- --------------------------------------------------------

@@ -2,8 +2,11 @@
   <div class="container-fluid bg-body-tertiary mt-auto footerStyle">
     <div class="row justify-content-center align-items-center 
                 py-3 bg-dark text-light">
+      
       <!-- brand -->
-      <div class="col footerLogo text-center mb-3 fs-3">CosmoScreen</div>
+      <div class="col footerLogo text-center mb-3 fs-3">
+        CosmoScreen
+      </div>
       
       <!-- contacts -->
       <div class="col text-center fw-bold mb-3 fs-4">
