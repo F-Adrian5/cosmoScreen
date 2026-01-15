@@ -1,6 +1,8 @@
 .buffet-img {
-  max-height: 250px;
-  object-fit: cover;
+  max-width: 100%;    /* ne lépje túl a konténert */
+  height: auto;       /* arányos magasság */
+  object-fit: cover;  /* ne torzuljon, töltsön ki */
+  border-radius: 0.25rem;
 }
 
 .image-wrapper {
@@ -34,6 +36,54 @@
 .buffetTypes:focus {
   box-shadow: 0 0 5px 3px rgba(166, 166, 166, 0.2); /* glow */
   background-color: rgba(166, 166, 166, 0.1);
-  color: white !important;
+  color: red !important;
   border-radius: 5px;
+}
+
+/* mobile center styling */
+@media (max-width: 767px) {
+  .offer-name {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .offer-desc {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+  .offer-price {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+/* styling on larger devices */
+@media (min-width: 768px) {
+  .offer-name {
+    font-size: 2rem;
+  }
+  .offer-desc {
+    font-size: 1.5rem;
+  }
+  .offer-price {
+    font-size: 1.75rem;
+  }
+  .buffet-img {
+    max-height: 150px; /* opcionális: nagyobb képernyőn picit nagyobb */
+  }
+}
+
+/* styling on 4K+ devices */
+@media (min-width: 2560px) {
+  .offer-name {
+    font-size: 2.75rem;
+  }
+  .offer-desc {
+    font-size: 2.25rem;
+  }
+  .offer-price {
+    font-size: 2.5rem;
+  }
+  .buffet-img {
+    max-height: 150px; /* opcionális: nagyobb képernyőn picit nagyobb */
+  }
 }

@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Dec 17. 12:59
--- Kiszolgáló verziója: 10.4.32-MariaDB
--- PHP verzió: 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Jan 15, 2026 at 07:14 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Adatbázis: `cosmoscreen`
+-- Database: `cosmoscreen`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `actors`
+-- Table structure for table `actors`
 --
 
 CREATE TABLE `actors` (
@@ -33,7 +33,7 @@ CREATE TABLE `actors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `actors`
+-- Dumping data for table `actors`
 --
 
 INSERT INTO `actors` (`id`, `name`) VALUES
@@ -69,7 +69,7 @@ INSERT INTO `actors` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `actor_in_movie`
+-- Table structure for table `actor_in_movie`
 --
 
 CREATE TABLE `actor_in_movie` (
@@ -79,7 +79,7 @@ CREATE TABLE `actor_in_movie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `actor_in_movie`
+-- Dumping data for table `actor_in_movie`
 --
 
 INSERT INTO `actor_in_movie` (`id`, `movie_id`, `actor_id`) VALUES
@@ -120,7 +120,7 @@ INSERT INTO `actor_in_movie` (`id`, `movie_id`, `actor_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `buffet`
+-- Table structure for table `buffet`
 --
 
 CREATE TABLE `buffet` (
@@ -128,47 +128,48 @@ CREATE TABLE `buffet` (
   `name` varchar(100) NOT NULL,
   `price` int(5) NOT NULL,
   `description` varchar(250) NOT NULL,
+  `type` varchar(25) NOT NULL,
   `img` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `buffet`
+-- Dumping data for table `buffet`
 --
 
-INSERT INTO `buffet` (`id`, `name`, `price`, `description`, `img`) VALUES
-(1, 'Kis Üdítő', 1300, 'Fél liter frissítő kortyolnivaló – tökéletes a mozizás indításához!', 'small_drink.jpg'),
-(2, 'Közepes Üdítő', 1500, 'Több korty, több élmény – az ideális mozis társ!', 'medium_drink.jpg'),
-(3, 'Nagy Üdítő', 1700, 'Egy liter hűsítő ital, hogy kitarts a film végéig!', 'large_drink.jpg'),
-(4, 'Kis Cola', 1300, 'Klasszikus szénsavas cola kis pohárban – a mozi íze!', 'small_cola.jpg'),
-(5, 'Nagy Cola', 1700, 'Nagy buborékok, intenzív íz – cola, ami végigkísér a filmen!', 'large_cola.jpg'),
-(6, 'Kis Víz', 900, 'Maradj hidratált – kicsi, tiszta frissesség.', 'small_water.jpg'),
-(7, 'Nagy Víz', 1200, 'Tiszta, friss víz, ami lehűt az izgalmak közben.', 'large_water.jpg'),
-(8, 'Cukormentes Cola', 1400, 'Minden a buborék, semmi a cukor – bűntudatmentes frissítő!', 'sugarfree_cola.jpg'),
-(9, 'Kis Sprite', 1300, 'Citrom-lime szikra kis pohárban – könnyed és frissítő!', 'small_sprite.jpg'),
-(10, 'Nagy Sprite', 1700, 'Üdítően buborékos – Sprite, ami feldobja a hangulatot!', 'large_sprite.jpg'),
-(11, 'Espresso', 1000, 'Erős és intenzív – egy löket energia a film előtt!', 'espresso.jpg'),
-(12, 'Cappuccino', 1400, 'Selymes hab, gazdag íz – a tökéletes bemelegítés a mozihoz.', 'cappuccino.jpg'),
-(13, 'Latte', 1500, 'Krémes kényelem egy csészében – a legjobb társ a filmhez.', 'latte.jpg'),
-(14, 'Kis Sós Popcorn', 1600, 'Klasszikus sós ropogás mini kiszerelésben – időtlen íz a mozirajongóknak!', 'small_salted_popcorn.jpg'),
-(15, 'Közepes Sós Popcorn', 1800, 'Aranyszínű, sós tökéletesség – a legjobb mozis nasi!', 'medium_salted_popcorn.jpg'),
-(16, 'Nagy Sós Popcorn', 2000, 'Egy vödörnyi sós boldogság, ami kitart a film végéig!', 'large_salted_popcorn.jpg'),
-(17, 'Kis Cheddar Popcorn', 1800, 'Intenzív cheddar íz, ropogós popcorn – sajtos csavar a klasszikusban!', 'small_cheddar_popcorn.jpg'),
-(18, 'Közepes Cheddar Popcorn', 2000, 'Cheddar bevonatú ropogás – igazi sztárnasi!', 'medium_cheddar_popcorn.jpg'),
-(19, 'Nagy Cheddar Popcorn', 2200, 'Extra sajtos, extra nagy adag – az íz és móka bajnoka!', 'large_cheddar_popcorn.jpg'),
-(20, 'Kis Nachos', 1800, 'Mini nachos, maximális íz – tökéletes gyors harapnivaló!', 'small_nachos.jpg'),
-(21, 'Közepes Nachos', 2200, 'Ropogós, sajtos és ellenállhatatlan – nachos, ami ellopja a show-t!', 'medium_nachos.jpg'),
-(22, 'Nagy Nachos', 2400, 'Nagy íz, nagy ropogás – a bátor nassolóknak!', 'large_nachos.jpg'),
-(23, 'Üveges Ital', 900, 'Retró hangulat, modern frissesség – pattintsd le a kupakot és élvezd!', 'glass_bottle.jpg'),
-(24, 'TOMA PET', 900, 'Gyümölcsös frissesség palackban – TOMA, a legjobb szomjoltó!', 'toma_pet.jpg'),
-(25, 'Red Bull', 900, 'Szárnyakat ad a filmhez – turbózd fel a moziélményt!', 'red_bull.jpg'),
-(27, 'Gyerek Menü', 2500, 'Kis popcorn + kis üdítő + meglepetés nasi – a kis mozirajongóknak!', 'kids_combo.jpg'),
-(28, 'Tini Menü', 2900, 'Közepes cheddar popcorn + közepes cola – merész ízek merész nézőknek!', 'teen_combo.jpg'),
-(29, 'Páros Menü', 5200, 'Nagy popcorn közösen + 2 közepes üdíto – tökéletes randi a moziban!', 'couples_combo.jpg');
+INSERT INTO `buffet` (`id`, `name`, `price`, `description`, `type`, `img`) VALUES
+(1, 'Kis Üdítő', 1300, 'Fél liter frissítő kortyolnivaló – tökéletes a mozizás indításához!', 'Üdítő', 'small_drink.jpg'),
+(2, 'Közepes Üdítő', 1500, 'Több korty, több élmény – az ideális mozis társ!', 'Üdítő', 'medium_drink.jpg'),
+(3, 'Nagy Üdítő', 1700, 'Egy liter hűsítő ital, hogy kitarts a film végéig!', 'Üdítő', 'large_drink.jpg'),
+(4, 'Kis Cola', 1300, 'Klasszikus szénsavas cola kis pohárban – a mozi íze!', 'Üdítő', 'small_cola.jpg'),
+(5, 'Nagy Cola', 1700, 'Nagy buborékok, intenzív íz – cola, ami végigkísér a filmen!', 'Üdítő', 'large_cola.jpg'),
+(6, 'Kis Víz', 900, 'Maradj hidratált – kicsi, tiszta frissesség.', 'Víz', 'small_water.jpg'),
+(7, 'Nagy Víz', 1200, 'Tiszta, friss víz, ami lehűt az izgalmak közben.', 'Víz', 'large_water.jpg'),
+(8, 'Cukormentes Cola', 1400, 'Minden a buborék, semmi a cukor – bűntudatmentes frissítő!', 'Üdítő', 'sugarfree_cola.jpg'),
+(9, 'Kis Sprite', 1300, 'Citrom-lime szikra kis pohárban – könnyed és frissítő!', 'Üdítő', 'small_sprite.jpg'),
+(10, 'Nagy Sprite', 1700, 'Üdítően buborékos – Sprite, ami feldobja a hangulatot!', 'Üdítő', 'large_sprite.jpg'),
+(11, 'Espresso', 1000, 'Erős és intenzív – egy löket energia a film előtt!', 'Kávé', 'espresso.jpg'),
+(12, 'Cappuccino', 1400, 'Selymes hab, gazdag íz – a tökéletes bemelegítés a mozihoz.', 'Kávé', 'cappuccino.jpg'),
+(13, 'Latte', 1500, 'Krémes kényelem egy csészében – a legjobb társ a filmhez.', 'Kávé', 'latte.jpg'),
+(14, 'Kis Sós Popcorn', 1600, 'Klasszikus sós ropogás mini kiszerelésben – időtlen íz a mozirajongóknak!', 'Popcorn', 'small_salted_popcorn.jpg'),
+(15, 'Közepes Sós Popcorn', 1800, 'Aranyszínű, sós tökéletesség – a legjobb mozis nasi!', 'Popcorn', 'medium_salted_popcorn.jpg'),
+(16, 'Nagy Sós Popcorn', 2000, 'Egy vödörnyi sós boldogság, ami kitart a film végéig!', 'Popcorn', 'large_salted_popcorn.jpg'),
+(17, 'Kis Cheddar Popcorn', 1800, 'Intenzív cheddar íz, ropogós popcorn – sajtos csavar a klasszikusban!', 'Popcorn', 'small_cheddar_popcorn.jpg'),
+(18, 'Közepes Cheddar Popcorn', 2000, 'Cheddar bevonatú ropogás – igazi sztárnasi!', 'Popcorn', 'medium_cheddar_popcorn.jpg'),
+(19, 'Nagy Cheddar Popcorn', 2200, 'Extra sajtos, extra nagy adag – az íz és móka bajnoka!', 'Popcorn', 'large_cheddar_popcorn.jpg'),
+(20, 'Kis Nachos', 1800, 'Mini nachos, maximális íz – tökéletes gyors harapnivaló!', 'Nachos', 'small_nachos.jpg'),
+(21, 'Közepes Nachos', 2200, 'Ropogós, sajtos és ellenállhatatlan – nachos, ami ellopja a show-t!', 'Nachos', 'medium_nachos.jpg'),
+(22, 'Nagy Nachos', 2400, 'Nagy íz, nagy ropogás – a bátor nassolóknak!', 'Nachos', 'large_nachos.jpg'),
+(23, 'Üveges Ital', 900, 'Retró hangulat, modern frissesség – pattintsd le a kupakot és élvezd!', 'Üdítő', 'glass_bottle.jpg'),
+(24, 'TOMA PET', 900, 'Gyümölcsös frissesség palackban – TOMA, a legjobb szomjoltó!', 'Üdítő', 'toma_pet.jpg'),
+(25, 'Red Bull', 900, 'Szárnyakat ad a filmhez – turbózd fel a moziélményt!', 'Energia Ital', 'red_bull.jpg'),
+(27, 'Gyerek Menü', 2500, 'Kis popcorn + kis üdítő + meglepetés nasi – a kis mozirajongóknak!', 'Menü', 'kids_combo.jpg'),
+(28, 'Tini Menü', 2900, 'Közepes cheddar popcorn + közepes cola – merész ízek merész nézőknek!', 'Menü', 'teen_combo.jpg'),
+(29, 'Páros Menü', 5200, 'Nagy popcorn közösen + 2 közepes üdíto – tökéletes randi a moziban!', 'Menü', 'couples_combo.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `movies`
+-- Table structure for table `movies`
 --
 
 CREATE TABLE `movies` (
@@ -187,7 +188,7 @@ CREATE TABLE `movies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `movies`
+-- Dumping data for table `movies`
 --
 
 INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production`, `age_restriction`, `showing_in`, `poster`, `trailer`, `description`, `release_date`) VALUES
@@ -217,13 +218,13 @@ INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production
 (24, 'Titkos ablak', 'Thriller', 96, 'David Koepp', 'Columbia Pictures', 16, 'IMAX', 'secret_window.jpg', 'secret_window.mp4', 'Egy író magánélete felborul, amikor egy titokzatos idegen vádolja plágiummal, és a helyzet egyre veszélyesebbé válik.', '2004-07-16'),
 (25, 'Zombieland', 'Akció', 88, 'Ruben Fleischer', 'Columbia Pictures', 16, '3D', 'zombieland.jpg', 'zombieland.mp4', 'Egy apokaliptikus zombivilágban túlélők különös társasága próbál életben maradni, miközben humoros kalandokba keverednek.', '2009-10-02'),
 (26, 'Jason Bourne', 'Akció', 123, 'Paul Greengrass', 'Universal Pictures', 16, '2D', 'jason_bourne.jpg', 'jason_bourne.mp4', 'Jason Bourne visszatér, hogy felderítse múltja titkait, miközben a CIA üldözi, és életre-halálra menő akciókba keveredik.', '2016-07-29'),
-(27, 'Az egyenlítő', 'Akció', 132, 'Antoine Fuqua', 'Sony Pictures', 18, '3D', 'equalizer.jpg', 'equalizer.mp4', 'Egy visszavonult ügynök igazságot szolgáltat a gyengékért, miközben szembeszáll a maffiával.\r\n', '2014-09-26 '),
+(27, 'Az egyenlítő', 'Akció', 132, 'Antoine Fuqua', 'Sony Pictures', 18, '3D', 'equalizer.jpg', 'equalizer.mp4', 'Egy visszavonult ügynök igazságot szolgáltat a gyengékért, miközben szembeszáll a maffiával.\r\n', '2014-09-26'),
 (28, 'It', 'Horror', 135, 'Andy Muschietti', 'New Line Cinema', 18, '3D', 'it.jpg', 'it.mp4', 'Az Az (It) egy hátborzongató horrorfilm, amelyben egy gyerekeket rettegésben tartó, alakváltó rémség leggyakrabban egy bohóc tér vissza, hogy szembeszálljon egy bátor gyerektársasággal.\r\n', '2017-09-08');
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `movie_screening`
+-- Table structure for table `movie_screening`
 --
 
 CREATE TABLE `movie_screening` (
@@ -236,7 +237,7 @@ CREATE TABLE `movie_screening` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `movie_screening`
+-- Dumping data for table `movie_screening`
 --
 
 INSERT INTO `movie_screening` (`id`, `movie_id`, `room_id`, `language`, `start`, `end`) VALUES
@@ -264,7 +265,7 @@ INSERT INTO `movie_screening` (`id`, `movie_id`, `room_id`, `language`, `start`,
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `reservation`
+-- Table structure for table `reservation`
 --
 
 CREATE TABLE `reservation` (
@@ -278,7 +279,7 @@ CREATE TABLE `reservation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `reservation`
+-- Dumping data for table `reservation`
 --
 
 INSERT INTO `reservation` (`id`, `user_id`, `total_amount`, `screening_id`, `reservation_date`, `ticket_id`, `seat_id`) VALUES
@@ -296,7 +297,7 @@ INSERT INTO `reservation` (`id`, `user_id`, `total_amount`, `screening_id`, `res
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `rooms`
+-- Table structure for table `rooms`
 --
 
 CREATE TABLE `rooms` (
@@ -305,7 +306,7 @@ CREATE TABLE `rooms` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `rooms`
+-- Dumping data for table `rooms`
 --
 
 INSERT INTO `rooms` (`id`, `capacity`) VALUES
@@ -315,7 +316,7 @@ INSERT INTO `rooms` (`id`, `capacity`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `seats`
+-- Table structure for table `seats`
 --
 
 CREATE TABLE `seats` (
@@ -326,7 +327,7 @@ CREATE TABLE `seats` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `seats`
+-- Dumping data for table `seats`
 --
 
 INSERT INTO `seats` (`id`, `room_id`, `seat_row`, `seat_column`) VALUES
@@ -424,7 +425,7 @@ INSERT INTO `seats` (`id`, `room_id`, `seat_row`, `seat_column`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `tickets`
+-- Table structure for table `tickets`
 --
 
 CREATE TABLE `tickets` (
@@ -434,7 +435,7 @@ CREATE TABLE `tickets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `tickets`
+-- Dumping data for table `tickets`
 --
 
 INSERT INTO `tickets` (`id`, `type`, `price`) VALUES
@@ -447,7 +448,7 @@ INSERT INTO `tickets` (`id`, `type`, `price`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -459,7 +460,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `admin`) VALUES
@@ -486,17 +487,17 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `admin`) VALUES
 (21, 'Ivan Petrov', 'ivanpetrov@mail.ru', 'IvanP_2024', 0);
 
 --
--- Indexek a kiírt táblákhoz
+-- Indexes for dumped tables
 --
 
 --
--- A tábla indexei `actors`
+-- Indexes for table `actors`
 --
 ALTER TABLE `actors`
   ADD PRIMARY KEY (`id`);
 
 --
--- A tábla indexei `actor_in_movie`
+-- Indexes for table `actor_in_movie`
 --
 ALTER TABLE `actor_in_movie`
   ADD PRIMARY KEY (`id`),
@@ -504,19 +505,19 @@ ALTER TABLE `actor_in_movie`
   ADD KEY `actor_id` (`actor_id`);
 
 --
--- A tábla indexei `buffet`
+-- Indexes for table `buffet`
 --
 ALTER TABLE `buffet`
   ADD PRIMARY KEY (`id`);
 
 --
--- A tábla indexei `movies`
+-- Indexes for table `movies`
 --
 ALTER TABLE `movies`
   ADD PRIMARY KEY (`id`);
 
 --
--- A tábla indexei `movie_screening`
+-- Indexes for table `movie_screening`
 --
 ALTER TABLE `movie_screening`
   ADD PRIMARY KEY (`id`),
@@ -524,7 +525,7 @@ ALTER TABLE `movie_screening`
   ADD KEY `room_id` (`room_id`);
 
 --
--- A tábla indexei `reservation`
+-- Indexes for table `reservation`
 --
 ALTER TABLE `reservation`
   ADD PRIMARY KEY (`id`),
@@ -534,115 +535,115 @@ ALTER TABLE `reservation`
   ADD KEY `seat_id` (`seat_id`);
 
 --
--- A tábla indexei `rooms`
+-- Indexes for table `rooms`
 --
 ALTER TABLE `rooms`
   ADD PRIMARY KEY (`id`);
 
 --
--- A tábla indexei `seats`
+-- Indexes for table `seats`
 --
 ALTER TABLE `seats`
   ADD PRIMARY KEY (`id`),
   ADD KEY `room_id` (`room_id`);
 
 --
--- A tábla indexei `tickets`
+-- Indexes for table `tickets`
 --
 ALTER TABLE `tickets`
   ADD PRIMARY KEY (`id`);
 
 --
--- A tábla indexei `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- A kiírt táblák AUTO_INCREMENT értéke
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT a táblához `actors`
+-- AUTO_INCREMENT for table `actors`
 --
 ALTER TABLE `actors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT a táblához `actor_in_movie`
+-- AUTO_INCREMENT for table `actor_in_movie`
 --
 ALTER TABLE `actor_in_movie`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT a táblához `buffet`
+-- AUTO_INCREMENT for table `buffet`
 --
 ALTER TABLE `buffet`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT a táblához `movies`
+-- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT a táblához `movie_screening`
+-- AUTO_INCREMENT for table `movie_screening`
 --
 ALTER TABLE `movie_screening`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT a táblához `reservation`
+-- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT a táblához `rooms`
+-- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT a táblához `seats`
+-- AUTO_INCREMENT for table `seats`
 --
 ALTER TABLE `seats`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
--- AUTO_INCREMENT a táblához `tickets`
+-- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT a táblához `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- Megkötések a kiírt táblákhoz
+-- Constraints for dumped tables
 --
 
 --
--- Megkötések a táblához `actor_in_movie`
+-- Constraints for table `actor_in_movie`
 --
 ALTER TABLE `actor_in_movie`
   ADD CONSTRAINT `actor_in_movie_ibfk_1` FOREIGN KEY (`actor_id`) REFERENCES `actors` (`id`),
   ADD CONSTRAINT `actor_in_movie_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`) ON DELETE SET NULL;
 
 --
--- Megkötések a táblához `movie_screening`
+-- Constraints for table `movie_screening`
 --
 ALTER TABLE `movie_screening`
   ADD CONSTRAINT `movie_screening_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `movie_screening_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`);
 
 --
--- Megkötések a táblához `reservation`
+-- Constraints for table `reservation`
 --
 ALTER TABLE `reservation`
   ADD CONSTRAINT `fk_reservation_seat` FOREIGN KEY (`seat_id`) REFERENCES `seats` (`id`) ON DELETE CASCADE,
@@ -651,7 +652,7 @@ ALTER TABLE `reservation`
   ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`screening_id`) REFERENCES `movie_screening` (`id`);
 
 --
--- Megkötések a táblához `seats`
+-- Constraints for table `seats`
 --
 ALTER TABLE `seats`
   ADD CONSTRAINT `seats_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`);

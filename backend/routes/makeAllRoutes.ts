@@ -12,7 +12,7 @@ const getData = [
   },
   { 
     url: '/getBuffet', 
-    query: 'SELECT id, name, price, description, img FROM buffet' 
+    query: 'SELECT id, name, type, price, description, img FROM buffet' 
   },
   { 
     url: '/getBuffetTypes', 
