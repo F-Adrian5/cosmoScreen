@@ -47,11 +47,6 @@ const getData = [
     query: 'SELECT `id`,`name`,`email`,`password`,`admin` FROM `users`' 
   },
   {
-    url: '/getHome',
-    query: 'SELECT `id`,`poster`,`title` FROM `movies`'
-    //query: 'SELECT `movies`.`id`,`language`,`start`,`end`,`movies`.`title`,`movies`.`description`, `movies`.`age_restriction`,`rooms`.`id` AS "Terem",`movies`.`poster` FROM `movie_screening` JOIN `movies` ON `movie_id` = `movies`.`id` JOIN `rooms`  ON `rooms`.`id` = `room_id`'
-  },
-  {
     url: '/getPrograms',
     query: 'SELECT `id`,`title`,`genre`,`runtime`,`showing_in`,`poster` FROM `movies`'
   }
