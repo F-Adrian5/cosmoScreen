@@ -21,7 +21,9 @@
           <div class="card-body h-25 justify-content-center rounded-3">
 
             <!-- title -->
-            <h5 class="card-title text-center fs-4">{{ movie.title }}</h5>
+            <h5 class="card-title text-center fs-4">
+              {{ movie.title }}
+            </h5>
           </div>
         </div>
       </div>
@@ -75,7 +77,7 @@
 
                   <p class="fs-4">
                     <strong>
-                      Studio:
+                      Studió:
                     </strong> 
                     {{ selectedMovie?.production }}
                   </p>
