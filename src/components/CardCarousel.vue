@@ -65,7 +65,7 @@
                     <strong>
                       Játékidő:
                     </strong> 
-                    {{ selectedMovie?.runtime }}
+                    {{ selectedMovie?.runtime }}p
                   </p>
 
                   <p class="fs-4">
