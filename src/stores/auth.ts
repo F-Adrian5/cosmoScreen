@@ -1,7 +1,6 @@
-// src/stores/auth.ts
 import { defineStore } from 'pinia'
 
-export const useAuthStore = defineStore('auth', {
+export const useAuthStore = defineStore('auth', { //create and export the auth store
   state: () => ({
     user: JSON.parse(localStorage.getItem('user') || 'null') as any | null
   }),

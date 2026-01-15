@@ -3,6 +3,7 @@
     <form class="p-4 shadow rounded mt-5"
           style="width: 100%; max-width: 500px;">
 
+      <!--title-->
       <h4 class="text-center mb-4 fw-bold">
         {{ $t('profilePage.profileTitle') }}
       </h4>
@@ -63,6 +64,7 @@
           {{ $t('profilePage.changeDataButton') }}
       </button>
 
+      <!--logout btn-->
       <button type="button"
               class="btn btn-danger w-100 fw-semibold mt-2"
                @click="logout()">
@@ -107,22 +109,24 @@
 
     setup() {
       const auth = useAuthStore() //store the user condition in auth varriable 
-      const router = useRouter() //
+      const router = useRouter() // use it for navigation
 
+      //logout function
       const logout = () => {
-        auth.logout()
-        router.push('/')
+        auth.logout() //log out
+        router.push('/') //redirect to home page
       }
 
       return { auth, logout }
     },
 
+    //runs when the component is loaded in
     mounted() {
       const auth = useAuthStore()
 
-      if (auth.user) {
-        this.name = auth.user.name
-        this.email = auth.user.email
+      if (auth.user) { //check if there is a logged in user
+        this.name = auth.user.name //take the user name from store and copy it
+        this.email = auth.user.email //take the user email from store and copy it
       }
     },
   })
