@@ -4,7 +4,8 @@
     "buffet": "Büfé",
     "aboutUs": "Rólunk",
     "language": "Nyelv",
-    "login": "Bejelentkezés"
+    "login": "Bejelentkezés",
+    "profile":"Profil"
   },
   "footer":{
     "contacts": "Elérhetőségek",
@@ -40,6 +41,15 @@
     "loginLink":"jelentkezzen be",
     "emailError":"Érvénytelen email formátum",
     "passwordError":"Minimum 6 karakter, nagybetű, szám, speciális karakter",
+    "nameError":"A név nem tartalmazhat számot vagy speciális karaktert"
+  },
+   "profilePage":{
+    "profileTitle": "Profil",
+    "email": "Email cím",
+    "name":"Név",
+    "logoutButton":"Kijelentkezés",
+    "changeDataButton":"Módosítás",
+    "emailError":"Érvénytelen email formátum",
     "nameError":"A név nem tartalmazhat számot vagy speciális karaktert"
   },
   "regulationsPage":{

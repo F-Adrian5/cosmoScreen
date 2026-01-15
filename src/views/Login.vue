@@ -91,10 +91,11 @@
 </template>
 
 <script>
-  import axios from "axios";
+  import { defineComponent } from 'vue'
+  import { useAuthStore } from '@/stores/auth'
 
   // exporting the component
-  export default {
+  export default defineComponent ({
     
     // this function returns the current state, this is a tempelate
     data() {
@@ -128,37 +129,26 @@
     // methods are like events, like click or submit...
     methods: {
       async login() {
-        try {
-
-          // Send post request to the server
-          const response = await axios.post("http://localhost:3000/login", {
-
-            // Email and password entered by the user
+        const res = await fetch('http://localhost:3000/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
             email: this.email,
             password: this.password
-          });
-
-          // Recieve data from the server
-          const data = response.data;
-          console.log("Bejelentkezve:", data);
-
-          // Store user data
-          localStorage.setItem("user", JSON.stringify(data));
-
-          // Redirect to the home page after login
-          this.$router.push("/");
-
-        } catch (err) {
-
-          // Server response error
-          if (err.response) {
-            alert(err.response.data.message);
-          } else {
-            alert("Szerver nem elérhető");
-          }
-          console.error("Login hiba részlete:", err);
+          })
+        })
+      
+        if (!res.ok) {
+          throw new Error('Hibás email vagy jelszó')
         }
-      }
+      
+        const user = await res.json()
+    
+        const auth = useAuthStore();
+        auth.login(user);
+      
+        this.$router.push('/')
+      }     
     }
-  };
+  });
 </script>

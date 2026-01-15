@@ -9,6 +9,7 @@ import DataFishing from '../views/DataFishing.vue'
 import Rules from '../views/Rules.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import Profile from '../views/Profile.vue'
 
 // creating router object
 const router = createRouter({
@@ -53,6 +54,11 @@ const router = createRouter({
       path: '/register',
       name: 'register',
       component: Register,
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile,
     },
   ],
 })

@@ -62,7 +62,7 @@
 
           <!-- language select -->
           <li class="nav-item ms-1" @mouseleave="showLangMenu = false">
-            <div class="nav-link d-flex align-items-center"
+            <div class="nav-link px-2 d-flex align-items-center"
                  style="cursor: pointer;"
                  @click="showLangMenu = !showLangMenu">
               <font-awesome-icon :icon="['fas','language']" class="me-1"/>
@@ -88,13 +88,26 @@
           </li>
         
           <!-- login -->
-          <li class="nav-item ms-1">
+          <li class="nav-item ms-1" 
+              v-if="!isLoggedIn">
             <RouterLink class="nav-link px-2 d-flex align-items-center"
                         @click="closeMenu"
                         to="/login">
               <font-awesome-icon :icon="['far', 'address-card']" 
                                  class="me-1"/>
                 {{ $t('navbar.login') }}
+            </RouterLink>
+          </li>
+
+          <!-- profile -->
+          <li class="nav-item ms-1" 
+              v-else>
+            <RouterLink class="nav-link px-2 d-flex align-items-center"
+                        @click="closeMenu"
+                        to="/profile">
+              <font-awesome-icon :icon="['far', 'user-circle']"
+                                  class="me-1"/>
+                {{ $t('navbar.profile') }}
             </RouterLink>
           </li>
         </ul>
@@ -106,9 +119,11 @@
 <script>
   // inporting collapse from bootstrap
   import { Collapse } from 'bootstrap'
+  import { defineComponent } from 'vue'
+  import { useAuthStore } from '@/stores/auth'
 
   // exporting and creating a new vue component
-  export default {
+  export default defineComponent ({
 
     // component name
     name: 'Navbar',
@@ -123,7 +138,7 @@
         // this is where we are going to save bootstrap's collapse element
         bsCollapse: null,
 
-         showLangMenu: false
+        showLangMenu: false
       }
     },
 
@@ -135,6 +150,18 @@
         toggle: false // when it runs this will be the default state
       })
     },
+
+    setup() {
+      const auth = useAuthStore()
+      return { auth }
+    },
+
+    computed: {
+      isLoggedIn() {
+        return this.auth.isLoggedIn
+      }
+    },
+
 
     methods: {
 
@@ -161,5 +188,5 @@
         this.closeMenu(); //closes the hamburger nav
       },
     }
-  }
+  })
 </script>

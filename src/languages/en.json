@@ -4,7 +4,8 @@
     "buffet": "Buffet",
     "aboutUs": "About us",
     "language": "Language",
-    "login": "Login"
+    "login": "Login",
+    "profile":"Profile"
   },
   "footer":{
     "contacts": "Contacts",
@@ -40,6 +41,15 @@
     "loginLink":"login",
     "emailError":"Invalid email format",
     "passwordError":"Minimum 6 characters, uppercase letter, number, special character",
+    "nameError":"The name cannot contain numbers or special characters."
+  },
+  "profilePage":{
+    "profileTitle": "Profile",
+    "email": "Email address",
+    "name":"Name",
+    "logoutButton":"Log out",
+    "changeDataButton":"Modify", 
+    "emailError":"Invalid email format",
     "nameError":"The name cannot contain numbers or special characters."
   },
   "regulationsPage":{
