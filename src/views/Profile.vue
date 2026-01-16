@@ -108,25 +108,25 @@
     },
 
     setup() {
-      const auth = useAuthStore() //store the user condition in auth varriable 
-      const router = useRouter() // use it for navigation
+      const auth = useAuthStore() // Store the user condition in auth varriable 
+      const router = useRouter() // Use it for navigation
 
-      //logout function
+      // Logout function
       const logout = () => {
-        auth.logout() //log out
-        router.push('/') //redirect to home page
+        auth.logout() // Log out
+        router.push('/') // Redirect to home page
       }
 
       return { auth, logout }
     },
 
-    //runs when the component is loaded in
+    // Runs when the component is loaded in
     mounted() {
       const auth = useAuthStore()
 
-      if (auth.user) { //check if there is a logged in user
-        this.name = auth.user.name //take the user name from store and copy it
-        this.email = auth.user.email //take the user email from store and copy it
+      if (auth.user) { // Check if there is a logged in user
+        this.name = auth.user.name // Take the user name from store and copy it
+        this.email = auth.user.email // Take the user email from store and copy it
       }
     },
   })

@@ -128,26 +128,32 @@
 
     // methods are like events, like click or submit...
     methods: {
+
+      // Login
       async login() {
+
+        // Post request to backend
         const res = await fetch('http://localhost:3000/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
+
+          // Send the email and password given by the user 
           body: JSON.stringify({
             email: this.email,
             password: this.password
           })
         })
       
+        // Error
         if (!res.ok) {
           throw new Error('Hibás email vagy jelszó')
         }
       
         const user = await res.json()
-    
         const auth = useAuthStore();
-        auth.login(user);
+        auth.login(user); // Store user
       
-        this.$router.push('/')
+        this.$router.push('/') // Redirect to home
       }     
     }
   });
