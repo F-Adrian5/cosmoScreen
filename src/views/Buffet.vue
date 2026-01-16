@@ -13,11 +13,12 @@
     <!-- select item -->
     <div class="text-white text-center d-flex 
                 flex-wrap justify-content-center my-3">
-      <button class="m-2 fs-4 p-2 btn buffetTypes" 
-            v-for="buffetType in offerType"
-            :key="buffetType.type"
-            @click="buffetClick(buffetType.type)"> 
-        {{ buffetType.type }}
+      <button class="m-2 fs-4 p-2 btn buffetTypes"
+              :class="{ active: defaultBuffetType === buffetType.type }" 
+              v-for="buffetType in offerType"
+              :key="buffetType.type"
+              @click="buffetClick(buffetType.type)"> 
+          {{ buffetType.type }}
       </button>
     </div>
   
@@ -82,21 +83,22 @@
     type: string
   }
 
-  // creating reactive state for the offers
+  // creating reactive states
   const offers = ref<Offer[]>([]),
         offerType = ref<OfferType[]>([]),
+        defaultBuffetType = ref<string>("Popcorn"),
         displayedOffers = ref<Offer[]>([]);
 
   function buffetClick(buffetType:string) {
+    defaultBuffetType.value = buffetType;
     console.log(buffetType);
     displayedOffers.value = [];
 
     for (let i = 0; i < offers.value.length; i++) {
-      
-      let offer = offers.value[i]
+      let offer = offers.value[i];
       
       if (offer && offer.type === buffetType) {
-        displayedOffers.value.push(offer)
+        displayedOffers.value.push(offer);
       }
     }
   }
@@ -105,19 +107,14 @@
   onMounted(async ()=>{
 
     //get request to the backend
-    const buffetItem = await axios.get("http://localhost:3000/getBuffet")
-    const buffetTypes = await axios.get("http://localhost:3000/getBuffetTypes")
+    const buffetItem = await axios.get("http://localhost:3000/getBuffet");
+    const buffetTypes = await axios.get("http://localhost:3000/getBuffetTypes");
     
     // assigning values
     offers.value = buffetItem.data;
     offerType.value = buffetTypes.data;
 
     // Setting a default value for the page to show
-    buffetClick("Popcorn");
-
-    // DEBUG
-    for (let i = 0; i < offers.value.length; i++) {
-      console.log(offers.value[i]?.type);
-    }
+    buffetClick(defaultBuffetType.value);
   })
 </script>

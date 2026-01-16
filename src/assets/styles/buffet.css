@@ -1,8 +1,8 @@
 .buffet-img {
-  max-width: 100%;    /* ne lépje túl a konténert */
-  height: auto;       /* arányos magasság */
-  object-fit: cover;  /* ne torzuljon, töltsön ki */
-  border-radius: 0.25rem;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;  
+  border-radius: 1rem;
 }
 
 .image-wrapper {
@@ -68,7 +68,7 @@
     font-size: 1.75rem;
   }
   .buffet-img {
-    max-height: 150px; /* opcionális: nagyobb képernyőn picit nagyobb */
+    max-height: 150px;
   }
 }
 
@@ -84,6 +84,6 @@
     font-size: 2.5rem;
   }
   .buffet-img {
-    max-height: 150px; /* opcionális: nagyobb képernyőn picit nagyobb */
+    max-height: 150px;
   }
 }
