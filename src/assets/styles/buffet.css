@@ -17,6 +17,21 @@
   height: 100%;
   object-fit: cover;
 }
+.test{
+  color: rgb(148, 220, 219);
+}
+
+.item_bg{
+  
+  /* background-color: rgba(35, 84, 140); */
+  background-image: url("../media/images/bg10.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 25px;
+  
+  /* rgba(150, 186, 208) */
+  /* rgba(81, 149, 169) */
+}
 
 /* BASIC STYLE - NOT FINAL */
 
@@ -36,9 +51,9 @@
 .buffetTypes:focus {
   box-shadow: 0 0 5px 3px rgba(166, 166, 166, 0.2); /* glow */
   background-color: rgba(166, 166, 166, 0.1);
-  color: red !important;
+  color: rgb(230, 236, 236) !important;
   border-radius: 5px;
-}
+} 
 
 /* mobile center styling */
 @media (max-width: 767px) {

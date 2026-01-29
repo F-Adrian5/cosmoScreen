@@ -11,13 +11,13 @@
     <hr class="text-light">
     
     <!-- select item -->
-    <div class="text-white text-center d-flex 
+    <div class="text-center d-flex 
                 flex-wrap justify-content-center my-3">
       <button class="m-2 fs-4 p-2 btn buffetTypes"
               :class="{ active: defaultBuffetType === buffetType.type }" 
               v-for="buffetType in offerType"
               :key="buffetType.type"
-              @click="buffetClick(buffetType.type)"> 
+              @click="buffetClick(buffetType.type)">
           {{ buffetType.type }}
       </button>
     </div>
@@ -26,7 +26,7 @@
 
     <!-- items list -->
     <div class="container-fluid">
-      <div class="row align-items-center border-bottom py-3"
+      <div class="row align-items-center border border-info-subtle py-3 item_bg mt-3"
            v-for="offer in displayedOffers" :key="offer.id">
     
         <!-- image -->
@@ -41,11 +41,11 @@
         <div class="col-12 col-md-6 col-lg-7 
                     text-center text-md-start">
           
-          <h5 class="offer-name mb-1 text-warning">
+          <h5 class="offer-name mb-1 test">
             {{ offer.name }}
           </h5>
 
-          <p class="offer-desc mb-1 text-danger">
+          <p class="offer-desc mb-1 text-white">
             {{ offer.description }}
           </p>
         </div>
@@ -53,7 +53,7 @@
         <!-- price -->
         <div class="col-12 col-md-3 col-lg-3 
                     text-center text-md-end">
-          <span class="offer-price text-primary">
+          <span class="offer-price text-white">
             {{ offer.price }} Ft
           </span>
         </div>

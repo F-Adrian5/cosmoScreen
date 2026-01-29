@@ -57,17 +57,18 @@
       </div>
 
       <!-- change data btn-->
-      <button type="submit"
+      <button type="button"
               class="btn btn_submit w-100 fw-semibold"
               :disabled="!name || !email ||  
-                         !validEmail">
+                         !validEmail"
+              @click="logout()">
           {{ $t('profilePage.changeDataButton') }}
       </button>
 
       <!--logout btn-->
       <button type="button"
               class="btn btn-danger w-100 fw-semibold mt-2"
-               @click="logout()">
+              >
           {{ $t('profilePage.logoutButton') }}
       </button>
     </form>
