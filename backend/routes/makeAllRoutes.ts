@@ -19,6 +19,10 @@ const getData = [
     query: 'SELECT DISTINCT type FROM buffet' 
   },
   { 
+    url: '/getGenres', 
+    query: 'SELECT DISTINCT genre FROM movies' 
+  },
+  { 
     url: '/getMovies', 
     query: 'SELECT id, title, genre, runtime, director, production, age_restriction, poster, trailer, description, release_date FROM movies' 
   },
@@ -52,7 +56,7 @@ const getData = [
   },
   {
     url: '/getPrograms',
-    query: 'SELECT `id`,`title`,`genre`,`runtime`,`showing_in`,`poster` FROM `movies`'
+    query: 'SELECT `movie_screening`.`id` AS "screening_id", `movie_id` AS "movie_id", `movies`.`title` AS "movie_title", `movies`.`poster`, `movies`.`runtime`, `movies`.`genre`, `movies`.`showing_in`, `room_id`, `language`, `start`, `end` FROM `movie_screening` JOIN `movies` ON `movie_id` = `movies`.`id`'
   }
 ];
 
