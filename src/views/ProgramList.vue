@@ -42,14 +42,15 @@
 
         <select name="genreSelect" 
                 id="genreSelect"
-                class="text-center mx-2">
+                class="text-center mx-2"
+                @change="filter()">
         
-                <option value="">Összes Műfaj</option>
-                <option v-for="genre in genres"
-                        :key="genre"
-                        :value="genre">
-                    {{ genre }}
-                </option>
+            <option value="">Összes Műfaj</option>
+            <option v-for="genre in genres"
+                    :key="genre"
+                    :value="genre">
+                {{ genre }}
+            </option>
         </select>
       </div>
     </div>
@@ -121,6 +122,10 @@
   const movies = ref<Movie[]>([]);
   const days = ["Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"];
   const genres = ref<string[]>([]);
+  
+  function filter(genre:string="all") {
+    console.log(genre);
+  }
 
   // when the app runs, this will be called
   onMounted(async ()=> {
