@@ -42,8 +42,8 @@
           
           <!-- Goals -->
           <div class="col-md-4 mb-4">
-            <div class="p-4 border border-secondary rounded-3 h-100">
-              <h3 class="text-light">
+            <div class="p-4 border border-secondary rounded-3 h-100 bg">
+              <h3 class="text-light text-center mb-4">
                 {{ $t('aboutUsPage.goalTitle') }}
               </h3>
               <p class="text-light mb-0">
@@ -54,8 +54,8 @@
 
           <!-- Motivations -->
           <div class="col-md-4 mb-4">
-            <div class="p-4 border border-secondary rounded-3 h-100">
-              <h3 class="text-light">
+            <div class="p-4 border border-secondary rounded-3 h-100 bg">
+              <h3 class="text-light text-center mb-">
                 {{ $t('aboutUsPage.motivationTitle') }}
               </h3>
               <p class="text-light mb-0">
@@ -66,8 +66,8 @@
 
           <!-- Visions -->
           <div class="col-md-4 mb-4">
-            <div class="p-4 border border-secondary rounded-3 h-100">
-              <h3 class="text-light">
+            <div class="p-4 border border-secondary rounded-3 h-100 bg">
+              <h3 class="text-light text-center mb-4">
                 {{ $t('aboutUsPage.visionTitle') }}
               </h3>
               <p class="text-light mb-0">
@@ -82,9 +82,9 @@
     <!-- Team -->
     <div class="row">
       <div class="col-lg-10 mx-auto">
-        <h3 class="text-light mb-4 text-center">
+        <h2 class="text-light mb-4 text-center">
           {{ $t('aboutUsPage.theTeam') }}
-        </h3>
+        </h2>
 
         <div class="row justify-content-center">
           <div class="col-md-5 mb-4">

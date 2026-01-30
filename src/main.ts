@@ -5,6 +5,7 @@ import './assets/styles/programList.css'
 import './assets/styles/navbar.css'
 import './assets/styles/login.css'
 import './assets/styles/buffet.css'
+import './assets/styles/aboutus.css'
 import './assets/fonts/bespokeStencil/bespoke-stencil.css'
 import './assets/fonts/nippo/nippo.css'
 
