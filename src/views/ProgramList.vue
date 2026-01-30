@@ -45,10 +45,11 @@
                 class="text-center mx-2">
         
                 <option value="">Összes Műfaj</option>
-                <!-- <option v-for="genre in genres"
-                        value="{{ genre }}">
+                <option v-for="genre in genres"
+                        :key="genre"
+                        :value="genre">
                     {{ genre }}
-                </option> -->
+                </option>
         </select>
       </div>
     </div>
@@ -57,7 +58,6 @@
       <hr class="text-white my-3">
     </div>
   </div>
-
 
     <div class="row g-3">
       <div v-for="movie in movies" :key="movie.id"
@@ -120,8 +120,7 @@
   // creating a reactive array
   const movies = ref<Movie[]>([]);
   const days = ["Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"];
-
-  // műfajok!!!
+  const genres = ref<string[]>([]);
 
   // when the app runs, this will be called
   onMounted(async ()=> {
@@ -131,18 +130,15 @@
     movies.value = data.data;
     console.log(movies);
 
-    // const genresData = await axios.get("http://localhost:3000/getGenres");
-    // const genres = ref<[]>([])
+    // get genres 
+    const genresData = await axios.get("http://localhost:3000/getGenres");
+    for (let i = 0; i < genresData.data.length; i++) {
+      
+      // fill the genres ref with data
+      genres.value.push(genresData.data[i].genre);
+    }
 
-    // for (let i = 0; i < genresData.data.length; i++) {
-    //   genres.push(genresData.data[i].genre);
-    // }
-
-    // console.log(genres)
-
-
-
-    // const movieScreeningData = await
+    console.log(genres);
 
   })
 </script>
