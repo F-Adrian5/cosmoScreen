@@ -23,11 +23,12 @@
 
         <select name="daySelect" 
                 id="daySelect"
-                class="text-center mx-2">
+                class="text-center mx-2"
+                @change="filter(day,genre)"
+                v-model="day">
         
-          <option value="">Hétfő</option>
           <option v-for="day in days"
-                  value="{{ day }}">
+                  :value="day">
             {{ day }}
           </option>
         </select>
@@ -43,9 +44,10 @@
         <select name="genreSelect" 
                 id="genreSelect"
                 class="text-center mx-2"
-                @change="filter()">
+                @change="filter(day,genre)"
+                v-model="genre">
         
-            <option value="">Összes Műfaj</option>
+            <option value="all">Összes Műfaj</option>
             <option v-for="genre in genres"
                     :key="genre"
                     :value="genre">
@@ -60,6 +62,7 @@
     </div>
   </div>
 
+    <!-- movie div -->
     <div class="row g-3">
       <div v-for="movie in movies" :key="movie.id"
            class="p-2 h-100 px-2 py-2 col-12 col-md-6 col-lg-4 col-xl-3">
@@ -119,12 +122,22 @@
   }
 
   // creating a reactive array
-  const movies = ref<Movie[]>([]);
-  const days = ["Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"];
+  let movies = ref<Movie[]>([]);
+  const days = ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"];
   const genres = ref<string[]>([]);
+  let genre = ref(),
+      day = ref();
   
-  function filter(genre:string="all") {
-    console.log(genre);
+  // setting up the default values
+  genre.value = "all"
+  day.value = "Hétfő"
+  filter(day.value, genre.value);
+
+  // filter function
+  function filter(day:string="Hétfő", genre:string="all") {
+    day = day
+    genre = genre
+
   }
 
   // when the app runs, this will be called
