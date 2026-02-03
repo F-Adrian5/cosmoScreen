@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import db from '../db.ts';
 import { createRoute } from '../utils/createRoute.ts';
 
 const router = Router();

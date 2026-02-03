@@ -1,6 +1,5 @@
-// importing express, cors, db and exampleRoutes from libary and other files
+// importing express, cors and exampleRoutes from libary and other files
 import express from 'express';
-import db from './db.ts';
 import makeAllRoutes from './routes/makeAllRoutes.ts';
 import login from './routes/login.ts';
 import register from './routes/register.ts';
