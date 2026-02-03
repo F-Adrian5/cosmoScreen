@@ -41,7 +41,7 @@
         <div class="col-12 col-md-6 col-lg-7 
                     text-center text-md-start">
           
-          <h5 class="offer-name mb-1 test">
+          <h5 class="offer-name mb-1 item_name">
             {{ offer.name }}
           </h5>
 
@@ -51,8 +51,8 @@
         </div>
       
         <!-- price -->
-        <div class="col-12 col-md-3 col-lg-3 
-                    text-center text-md-end">
+        <div class="col-12 col-md-3 col-lg-3
+                    text-center text-md-end pe-4">
           <span class="offer-price text-white">
             {{ offer.price }} Ft
           </span>

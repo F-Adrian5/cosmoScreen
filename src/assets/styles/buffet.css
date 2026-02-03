@@ -1,6 +1,6 @@
 .buffet-img {
   max-width: 100%;
-  height: auto;
+  height: 184px;
   object-fit: cover;  
   border-radius: 1rem;
 }
@@ -17,23 +17,17 @@
   height: 100%;
   object-fit: cover;
 }
-.test{
+.item_name{
   color: rgb(148, 220, 219);
 }
 
 .item_bg{
-  
-  /* background-color: rgba(35, 84, 140); */
   background-image: url("../media/images/bg10.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 25px;
-  
-  /* rgba(150, 186, 208) */
-  /* rgba(81, 149, 169) */
 }
 
-/* BASIC STYLE - NOT FINAL */
 
 .buffetTypes {
   color: rgb(148, 220, 219) !important;
