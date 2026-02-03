@@ -16,7 +16,14 @@
   },
   "homePage":{
     "welcome": "Welcome to CosmoScreen!",
-    "onShow": "We are currently screening:"
+    "onShow": "We are currently screening:",
+    "closeBtn": "Close",
+    "movieGenre": "Movie genre:",
+    "runtime":"Runtime:",
+    "production":"Production:",
+    "ageRestriction":"Age restriction:",
+    "releaseDate":"Release date:",
+    "director":"Director:"
   },
   "buffetPage":{
     "buffetTitle": "Buffet offers"

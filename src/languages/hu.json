@@ -16,7 +16,14 @@
   },
   "homePage":{
     "welcome": "Üdvözöljük a CosmoScreen oldalán!",
-    "onShow": "Jelenleg vetítjük:"
+    "onShow": "Jelenleg vetítjük:",
+    "closeBtn": "Bezár",
+    "movieGenre": "Film műfaja:",
+    "runtime":"Játékidő:",
+    "production":"Stúdió:",
+    "ageRestriction":"Korhatár:",
+    "releaseDate":"Megjelenés:",
+    "director":"Rendezte:"
   },
   "buffetPage":{
     "buffetTitle": "Büfés ajánlataink"

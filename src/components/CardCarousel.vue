@@ -63,37 +63,43 @@
                 <div class="col-12 col-md-7">
                   <p class="fs-4">
                     <strong>
-                      Film műfaja:
+                      {{$t('homePage.movieGenre') }}
                     </strong>
                     {{ selectedMovie?.genre }}
                   </p>
 
                   <p class="fs-4">
                     <strong>
-                      Játékidő:
+                      {{$t('homePage.runtime') }}
                     </strong> 
                     {{ selectedMovie?.runtime }}p
                   </p>
 
                   <p class="fs-4">
                     <strong>
-                      Studió:
+                      {{$t('homePage.production') }}
                     </strong> 
                     {{ selectedMovie?.production }}
                   </p>
 
                   <p class="fs-4">
                     <strong>
-                      Korhatár:
+                      {{$t('homePage.ageRestriction') }}
                     </strong> 
                     {{ selectedMovie?.age_restriction }}+
                   </p>
 
                   <p class="fs-4">
                     <strong>
-                      Megjelenés:
+                      {{$t('homePage.releaseDate') }}
                     </strong> 
                     {{ selectedMovie?.release_date }}
+                  </p>
+                  <p class="fs-4">
+                    <strong>
+                      {{$t('homePage.director') }}
+                    </strong> 
+                    {{ selectedMovie?.director }}
                   </p>
                 </div>
                 
@@ -113,7 +119,7 @@
                       class="btn btn-outline-light px-4 fs-4"
                       data-bs-dismiss="modal"
                       @click="($event.currentTarget as HTMLElement).blur()">
-                  Close
+                  {{$t('homePage.closeBtn') }}
               </button>
             </div>
           </div>
