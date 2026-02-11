@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2026 at 07:14 PM
+-- Generation Time: Feb 11, 2026 at 09:58 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -128,7 +128,7 @@ CREATE TABLE `buffet` (
   `name` varchar(100) NOT NULL,
   `price` int(5) NOT NULL,
   `description` varchar(250) NOT NULL,
-  `type` varchar(25) NOT NULL,
+  `type` varchar(50) NOT NULL,
   `img` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -260,7 +260,15 @@ INSERT INTO `movie_screening` (`id`, `movie_id`, `room_id`, `language`, `start`,
 (17, 17, 1, 'English', '19:00', '21:10'),
 (18, 18, 2, 'English', '22:00', '24:00'),
 (19, 19, 1, 'English', '15:00', '17:50'),
-(20, 20, 2, 'English', '18:00', '21:00');
+(20, 20, 2, 'English', '18:00', '21:00'),
+(21, 21, 1, 'English', '21:20', '23:45'),
+(22, 22, 2, 'English', '12:00', '13:50'),
+(23, 23, 1, 'English', '09:00', '11:20'),
+(24, 24, 2, 'English', '13:55', '15:35'),
+(25, 25, 1, 'English', '11:30', '13:00'),
+(26, 26, 2, 'English', '15:40', '17:45'),
+(27, 27, 1, 'English', '13:10', '15:25'),
+(28, 28, 2, 'English', '21:10', '23:25');
 
 -- --------------------------------------------------------
 
@@ -592,7 +600,7 @@ ALTER TABLE `movies`
 -- AUTO_INCREMENT for table `movie_screening`
 --
 ALTER TABLE `movie_screening`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `reservation`
