@@ -122,31 +122,63 @@
   }
 
   // creating a reactive array
-  let movies = ref<Movie[]>([]);
-  const days = ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"];
-  const genres = ref<string[]>([]);
-  let genre = ref(),
-      day = ref();
-  
-  // setting up the default values
-  genre.value = "all"
-  day.value = "Hétfő"
-  filter(day.value, genre.value);
-
-  // filter function
+  let movies = ref<Movie[]>([]),
+      genres = ref<string[]>([]),
+      genre = ref("all"), // setting default value for genre
+      day = ref("Hétfő"); // setting default value for day
+    
+  const allMovies = ref<Movie[]>([]),
+        days = ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"];
+    
+  /** filter function
+   * @param {string} day 
+   * @param {string} genre 
+   */
   function filter(day:string="Hétfő", genre:string="all") {
-    day = day
-    genre = genre
+    console.log(day,genre)
+    let filteredMovies = []
+    
+    //checking if there is any selected genre
+    if (genre != "all") {
+
+      // goes through the movies one by one
+      for (let i = 0; i < allMovies.value.length; i++) {
+        
+        // and if the movie's and the selected genre is equal
+        // than the movie will be pushed to a different list
+        if (allMovies.value[i]?.genre == genre) {
+          filteredMovies.push(allMovies.value[i])
+        }
+      }
+
+      // setting the value of movies to the filtered list
+      movies.value = JSON.parse(JSON.stringify(filteredMovies))
+    } else {
+      
+      // if the genre is 'all'
+      movies.value = allMovies.value;
+    }
+
+  }
+
+  /**
+   * this function will get the movies and assign a random day to it
+   * considering the runtime and timing of the movies
+   */
+  function createScreeningDays() {
+    
+
 
   }
 
   // when the app runs, this will be called
   onMounted(async ()=> {
 
-    // a get request to the server
-    const data = await axios.get("http://localhost:3000/getPrograms");
-    movies.value = data.data;
-    console.log(movies);
+    // geting the programs
+    const moviesData = await axios.get("http://localhost:3000/getPrograms");
+    movies.value = moviesData.data;
+    allMovies.value = moviesData.data;
+    console.log(movies.value);
 
     // get genres 
     const genresData = await axios.get("http://localhost:3000/getGenres");
@@ -156,7 +188,6 @@
       genres.value.push(genresData.data[i].genre);
     }
 
-    console.log(genres);
-
+    console.log(genres.value);
   })
 </script>
