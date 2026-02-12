@@ -3,10 +3,21 @@
     <form class="p-4 shadow rounded mt-5"
           style="width: 100%; max-width: 500px;">
 
-      <!--title-->
-      <h4 class="text-center mb-4 fw-bold">
-        {{ $t('profilePage.profileTitle') }}
-      </h4>
+      <div class="position-relative mb-4">
+
+          <!--title-->
+          <h4 class="text-center fw-bold mb-0">
+              {{ $t('profilePage.profileTitle') }}
+          </h4>
+
+          <!--Edit btn-->
+          <button type="button"
+                    class="btn btn_submit btn-sm px-3 fw-semibold 
+                           position-absolute top-50 end-0 translate-middle-y"
+                    @click="isDisabled = !isDisabled">
+                <i class="fa-regular fa-pen-to-square"></i>
+          </button>
+      </div>
 
       <!--name-->
       <div class="mb-3">
@@ -21,6 +32,7 @@
                v-model="name"
                name="name"
                maxlength="100"
+               :disabled="isDisabled"
                required>
 
         <!--name error-->
@@ -45,6 +57,7 @@
                v-model="email"
                name="email"
                maxlength="150"
+               :disabled="isDisabled"
                required>
 
         <!--Email error-->
@@ -56,20 +69,88 @@
         </div>
       </div>
 
-      <!-- change data btn-->
+      <!-- Password row -->
+      <!-- <div class="row mt-3"> -->
+        <!-- Új jelszó -->
+        <!-- <div class="col-md-6 mb-3">
+          <label class="form-label fw-semibold">
+            {{ $t('profilePage.newPassword') }}
+          </label>
+        
+          <div class="position-relative">
+            <input
+              :type="showPassword1 ? 'text' : 'password'"
+              class="form-control form-control-lg"
+              v-model="new_password"
+              maxlength="20"
+              style="padding-right: 2.5rem;"/>
+          
+            <button type="button"
+                    @click="showPassword1 = !showPassword1"
+                    class="btn position-absolute top-0 end-0 h-100 border-0 bg-transparent">
+              <i :class="showPassword1 ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+            </button>
+          </div>
+        
+          <div class="text-danger small mt-1" style="min-height: 22px;">
+            <span v-if="new_password && !validPassword">
+              {{ $t('profilePage.passwordError') }}
+            </span>
+          </div>
+        </div> -->
+      
+        <!-- Jelszó újra -->
+        <!-- <div class="col-md-6 mb-3">
+          <label class="form-label fw-semibold">
+            {{ $t('profilePage.newPasswordAgain') }}
+          </label>
+        
+          <div class="position-relative">
+            <input
+              :type="showPassword2 ? 'text' : 'password'"
+              class="form-control form-control-lg"
+              v-model="new_password_again"
+              maxlength="20"
+              style="padding-right: 2.5rem;"/>
+          
+            <button type="button"
+                    @click="showPassword2 = !showPassword2"
+                    class="btn position-absolute top-0 end-0 h-100 border-0 bg-transparent">
+              <i :class="showPassword2 ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+            </button>
+          </div>
+        
+          <div class="text-danger small mt-1" style="min-height: 22px;">
+            <span v-if="new_password_again && new_password !== new_password_again">
+              {{ $t('profilePage.passwordAgainError') }}
+            </span>
+          </div>
+        </div>
+      </div> -->
+
       <button type="button"
-              class="btn btn_submit w-100 fw-semibold"
-              :disabled="!name || !email ||  
-                         !validEmail">
-          {{ $t('profilePage.changeDataButton') }}
+              class="btn btn-primary w-100 fw-semibold">
+          {{ $t('profilePage.modifyPassword') }}
       </button>
 
-      <!--logout btn-->
-      <button type="button"
-              class="btn btn-danger w-100 fw-semibold mt-2"
-              @click="logout()">
-          {{ $t('profilePage.logoutButton') }}
-      </button>
+      <div class="row mt-3">
+        <div class="col-md-6 mb-3">
+          <!-- change data btn-->
+          <button type="button"
+                  class="btn btn_submit w-100 fw-semibold mt-2"
+                 >
+              {{$t('profilePage.changeDataButton')}}
+          </button>
+        </div>
+         <div class="col-md-6 mb-3">
+          <!--logout btn-->
+          <button type="button"
+                  class="btn btn-danger w-100 fw-semibold mt-2"
+                  @click="logout()">
+              {{ $t('profilePage.logoutButton') }}
+          </button>
+         </div>
+      </div>
     </form>
   </div>
 </template>
@@ -84,8 +165,11 @@
       return {
         name: '',     //connects to v-model="name"
         email: '',    //connects to v-model="email"
-        password: '',
-        showPassword: false,
+        isDisabled: true
+        // new_password: '',
+        // new_password_again: '',
+        // showPassword1: false,
+        // showPassword2: false,
       };
     },
 
@@ -100,11 +184,6 @@
       validEmail() {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
       },
-
-      //password validation
-      validPassword() {
-        return /(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_\-?:+]).{6,}/.test(this.password);
-      }
     },
 
     setup() {

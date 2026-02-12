@@ -65,7 +65,7 @@
             <div class="nav-link px-2 d-flex align-items-center"
                  style="cursor: pointer;"
                  @click="showLangMenu = !showLangMenu">
-              <font-awesome-icon :icon="['fas','language']" class="me-1"/>
+              <i class="fa-solid fa-language me-1"></i>
               {{ $t('navbar.language') }}
             </div>
             
@@ -93,8 +93,7 @@
             <RouterLink class="nav-link px-2 d-flex align-items-center"
                         @click="closeMenu"
                         to="/login">
-              <font-awesome-icon :icon="['far', 'address-card']" 
-                                 class="me-1"/>
+              <i class="fa-regular fa-address-card me-1"></i>
                 {{ $t('navbar.login') }}
             </RouterLink>
           </li>
@@ -105,8 +104,7 @@
             <RouterLink class="nav-link px-2 d-flex align-items-center"
                         @click="closeMenu"
                         to="/profile">
-              <font-awesome-icon :icon="['far', 'user-circle']"
-                                  class="me-1"/>
+              <i class="fa-regular fa-circle-user me-1"></i>
                 {{ $t('navbar.profile') }}
             </RouterLink>
           </li>

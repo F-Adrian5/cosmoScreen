@@ -57,7 +57,12 @@
     "logoutButton":"Kijelentkezés",
     "changeDataButton":"Módosítás",
     "emailError":"Érvénytelen email formátum",
-    "nameError":"A név nem tartalmazhat számot vagy speciális karaktert"
+    "nameError":"A név nem tartalmazhat számot vagy speciális karaktert",
+    "passwordError":"Minimum 6 karakter, nagybetű, szám, speciális karakter",
+    "passwordAgainError":"Nem egyezik a megadott jelszó",
+    "newPassword":"Új jelszó",
+    "newPasswordAgain":"Jelszó megerősítése",
+    "modifyPassword":"Jelszó módosítása"
   },
   "regulationsPage":{
     "rulesTitle":"A CosmoScreen Szabályzata",

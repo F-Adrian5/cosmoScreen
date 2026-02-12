@@ -57,7 +57,12 @@
     "logoutButton":"Log out",
     "changeDataButton":"Modify", 
     "emailError":"Invalid email format",
-    "nameError":"The name cannot contain numbers or special characters."
+    "nameError":"The name cannot contain numbers or special characters.",
+    "passwordError":"Minimum 6 characters, uppercase letter, number, special character",
+    "passwordAgainError":"The password entered does not match.",
+    "newPassword":"New password",
+    "newPasswordAgain":"Confirm password",
+    "modifyPassword":"Change password"
   },
   "regulationsPage":{
     "rulesTitle":"CosmoScreen's Rules",

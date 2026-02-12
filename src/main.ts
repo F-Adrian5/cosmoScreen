@@ -22,24 +22,14 @@ import App from './App.vue'
 import router from './router'
 
 // fontawesome
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import '@fortawesome/fontawesome-free/css/all.min.css'
 
-// fontawesome icons
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { far } from '@fortawesome/free-regular-svg-icons'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-
+// languages
 import language from '@/languages/language'
-
-
-// adding icons to the global libary
-library.add(fas, far, fab)
 
 // create app
 const app = createApp(App)
 
-app.component('font-awesome-icon', FontAwesomeIcon)
 
 // connecting pinia to the app
 app.use(createPinia())
