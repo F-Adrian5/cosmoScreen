@@ -138,7 +138,8 @@
           <!-- change data btn-->
           <button type="button"
                   class="btn btn_submit w-100 fw-semibold mt-2"
-                 >
+                  @click="updateProfile()"
+                  :disabled="!canSubmit">
               {{$t('profilePage.changeDataButton')}}
           </button>
         </div>
@@ -159,6 +160,7 @@
   import { defineComponent } from 'vue'
   import { useAuthStore } from '@/stores/auth'
   import { useRouter } from 'vue-router'
+  import axios from 'axios'
 
   export default defineComponent({
     data() {
@@ -175,7 +177,7 @@
 
     // this section will do calculations
     // it wont store data
-    // automatically it will update the DOM
+    // automatically it will update the DOM 
     computed: {
 
       // this.email -> will show the current email
@@ -183,6 +185,10 @@
       // and it will return us a true or false value
       validEmail() {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
+      },
+
+      canSubmit() {
+        return this.name && this.validEmail;
       },
     },
 
@@ -208,5 +214,40 @@
         this.email = auth.user.email // Take the user email from store and copy it
       }
     },
+
+    methods: {
+
+      //Update function
+      async updateProfile() {
+
+
+        if (!this.canSubmit) return;
+
+        const auth = useAuthStore()
+
+        try {
+
+          // Send data to backend
+          const response = await axios.put("http://localhost:3000/profile", {
+            id: auth.user.id,
+            name: this.name,
+            email: this.email
+          })
+
+          // Refresh the store and the local storage
+          auth.login(response.data)
+
+          //Feedback
+          alert("Profil frissítve!")
+
+          // Disable the inputs
+          this.isDisabled = true
+
+        } catch (err: any) {
+            console.error(err)
+            alert(err.response?.data?.message || "Hiba a profil frissítésénél")
+          }
+      }
+    }
   })
 </script>

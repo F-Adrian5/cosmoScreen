@@ -3,6 +3,7 @@ import express from 'express';
 import makeAllRoutes from './routes/makeAllRoutes.ts';
 import login from './routes/login.ts';
 import register from './routes/register.ts';
+import profile from './routes/profile.ts';
 import cors from 'cors'
 
 // creates an express application
@@ -27,6 +28,8 @@ app.use(makeAllRoutes);
 app.use(login);
 
 app.use(register);
+
+app.use(profile);
 
 // start the server at the port variable's location
 app.listen(port, () => {
