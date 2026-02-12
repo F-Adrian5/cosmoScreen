@@ -25,7 +25,7 @@
 
           <select name="daySelect" 
                   id="daySelect"
-                  class="text-center mx-2"
+                  class="text-center mx-2 select"
                   @change="filter(day,genre)"
                   v-model="day">
 
@@ -45,7 +45,7 @@
 
           <select name="genreSelect" 
                   id="genreSelect"
-                  class="text-center mx-2"
+                  class="text-center mx-2 select"
                   @change="filter(day,genre)"
                   v-model="genre">
 
@@ -184,6 +184,8 @@
    */
   function createScreeningDays() {
     console.log(allMovies.value.length);
+
+    
 
 
   }

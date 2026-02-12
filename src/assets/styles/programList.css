@@ -27,3 +27,14 @@
     height: 380px;
   }
 }
+
+.select {
+  background-color: rgb(44, 44, 44);
+  color: rgb(0, 184, 181);
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 400;
+  height: 40px;
+  width: 50%;
+  border: none;
+}
