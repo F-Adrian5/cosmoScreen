@@ -21,6 +21,7 @@
                v-model="name"
                name="name"
                maxlength="100"
+               autofocus
                required>
 
         <!--name error-->

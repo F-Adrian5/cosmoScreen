@@ -18,6 +18,7 @@
                id="login_email"
                v-model="email"
                maxlength="150"
+               autofocus
                required>
 
         <!--Email error-->

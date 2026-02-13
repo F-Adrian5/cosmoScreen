@@ -157,7 +157,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue'
+  import { defineComponent, reactive, computed } from 'vue'
   import { useAuthStore } from '@/stores/auth'
   import { useRouter } from 'vue-router'
   import axios from 'axios'
@@ -167,7 +167,9 @@
       return {
         name: '',     //connects to v-model="name"
         email: '',    //connects to v-model="email"
-        isDisabled: true
+        isDisabled: true,
+        originalName: '',
+        originalEmail: ''
         // new_password: '',
         // new_password_again: '',
         // showPassword1: false,
@@ -187,8 +189,19 @@
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
       },
 
+      isChanged() {
+        return (
+          this.name !== this.originalName ||
+          this.email !== this.originalEmail
+        );
+      },
+
       canSubmit() {
-        return this.name && this.validEmail;
+        return (
+         this.isChanged &&
+         this.name.trim() !== '' &&
+         this.validEmail
+        );
       },
     },
 
@@ -212,6 +225,9 @@
       if (auth.user) { // Check if there is a logged in user
         this.name = auth.user.name // Take the user name from store and copy it
         this.email = auth.user.email // Take the user email from store and copy it
+
+        this.originalName = this.auth.user.name
+        this.originalEmail = this.auth.user.email
       }
     },
 
