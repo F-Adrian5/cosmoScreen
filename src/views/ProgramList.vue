@@ -115,6 +115,14 @@
         </div>
       </div>
     </div>
+
+    <!-- if there is no film with filter -->
+    <div>
+      <h1 class="text-center text-light">
+        Szűrés alapján nem találtunk filmet!
+      </h1>
+    </div>
+
   </div>
 </template>
 
@@ -136,6 +144,7 @@
     showing_in: string
     language: string
     room_id: number
+    screeningDay: string | undefined
   }
 
   // creating a reactive array
@@ -156,26 +165,26 @@
     let filteredMovies = []
     
     //checking if there is any selected genre
-    if (genre != "all") {
+    if (genre != "all" && day) {
 
       // goes through the movies one by one
       for (let i = 0; i < allMovies.value.length; i++) {
         
         // and if the movie's and the selected genre is equal
         // than the movie will be pushed to a different list
-        if (allMovies.value[i]?.genre == genre) {
+        if (allMovies.value[i]?.genre == genre && 
+            allMovies.value[i]?.screeningDay == day) {
           filteredMovies.push(allMovies.value[i])
         }
       }
 
       // setting the value of movies to the filtered list
-      movies.value = JSON.parse(JSON.stringify(filteredMovies))
+      movies.value = JSON.parse(JSON.stringify(filteredMovies));
     } else {
       
       // if the genre is 'all'
       movies.value = allMovies.value;
     }
-
   }
 
   /**
@@ -185,9 +194,15 @@
   function createScreeningDays() {
     console.log(allMovies.value.length);
 
-    
-
-
+    // creating and assigning random days to the movies
+    for (let i = 0; i < allMovies.value.length; i++) {
+      let randomValue = Math.floor(Math.random() * 7), // 0-6 M-S
+          randomDay = days[randomValue];
+      
+      // !. means that the programmer knows that the value wont be null!
+      allMovies.value[i]!.screeningDay = randomDay;
+    }
+    console.log(allMovies.value)
   }
 
   // when the app runs, this will be called
