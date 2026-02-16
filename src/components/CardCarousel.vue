@@ -135,38 +135,24 @@
   // defineComponent: this is how we define components
   // ref: every time if something changes ref reacts
   import { ref, onMounted } from "vue";
-  import axios from "axios";
+  import type { CarouselMovie } from "@/types/Movie";
+  import { carouselMovieServices } from "@/services/cardCarouselServices";
   import "../assets/styles/carousel.css";
-
-  // this will make a Movie object, and we can set what records it can have
-  interface Movie {
-    id: number
-    title: string
-    genre: string
-    runtime: number
-    director: string
-    production: string
-    age_restriction: number
-    poster: string
-    trailer: string
-    description: string
-    release_date: string
-  }
 
   // movies will be a reactive variable
   // it is basically a variable, 
   // that if you change it will automatically change in the HTML
   // so if we modify the data, the UI will automatically update
-  const movies = ref<Movie[]>([]);
-  const selectedMovie = ref<Movie | null>(null);
+  const movies = ref<CarouselMovie[]>([]);
+  const selectedMovie = ref<CarouselMovie | null>(null);
 
-  function selectMovie(movie: Movie) {
+  function selectMovie(movie: CarouselMovie) {
     selectedMovie.value = movie;
   }
 
   // when the site runs than we get the movies
   onMounted(async ()=> {
-    const response = await axios.get("http://localhost:3000/getMovies")
-    movies.value = response.data;
+    const response = await carouselMovieServices.getMovies();
+    movies.value = response;
   })  
 </script>

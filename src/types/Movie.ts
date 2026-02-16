@@ -12,3 +12,17 @@ export interface Movie {
   room_id: number;
   screeningDay?: string; // Optional, not all movies interface will have a value for this one
 }
+
+export interface CarouselMovie {
+  id: number
+  title: string
+  genre: string
+  runtime: number
+  director: string
+  production: string
+  age_restriction: number
+  poster: string
+  trailer: string
+  description: string
+  release_date: string
+}
