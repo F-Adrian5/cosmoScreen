@@ -63,58 +63,14 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from "vue";
+import { useBuffet } from "@/composables/useBuffet";
 
-  // importing.
-  import { ref, onMounted } from "vue";
-  import axios from "axios";
+// using the useBuffet items
+const { offerType, defaultBuffetType, displayedOffers, buffetClick, loadBuffetData } = useBuffet();
 
-  // offers interface
-  interface Offer {
-    id: number
-    name: string
-    price: number
-    type: string
-    description: string
-    img: string
-  }
-
-  // offerType interface
-  interface OfferType {
-    type: string
-  }
-
-  // creating reactive states
-  const offers = ref<Offer[]>([]),
-        offerType = ref<OfferType[]>([]),
-        defaultBuffetType = ref<string>("Popcorn"),
-        displayedOffers = ref<Offer[]>([]);
-
-  function buffetClick(buffetType:string) {
-    defaultBuffetType.value = buffetType;
-    console.log(buffetType);
-    displayedOffers.value = [];
-
-    for (let i = 0; i < offers.value.length; i++) {
-      let offer = offers.value[i];
-      
-      if (offer && offer.type === buffetType) {
-        displayedOffers.value.push(offer);
-      }
-    }
-  }
-
-  //when the app runs this function is called
-  onMounted(async ()=>{
-
-    //get request to the backend
-    const buffetItem = await axios.get("http://localhost:3000/getBuffet");
-    const buffetTypes = await axios.get("http://localhost:3000/getBuffetTypes");
-    
-    // assigning values
-    offers.value = buffetItem.data;
-    offerType.value = buffetTypes.data;
-
-    // Setting a default value for the page to show
-    buffetClick(defaultBuffetType.value);
-  })
+// when the DOM runs...
+onMounted(() => {
+  loadBuffetData();
+});
 </script>
