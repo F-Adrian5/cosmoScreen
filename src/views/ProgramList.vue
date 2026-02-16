@@ -127,102 +127,19 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from 'vue';
+import { useFilter } from '@/composables/useFilter';
 
-  // importing.
-  import { ref, onMounted } from "vue";
-  import axios from "axios";
+// pulling the items from the composable, that will be needed
+const { movies, genres, days, filter, loadData } = useFilter();
 
-  // this will make a Movie object, and we can set what records it can have
-  interface Movie {
-    id: number
-    poster: string
-    movie_title: string
-    genre: string
-    runtime: number
-    start: string
-    end: string
-    showing_in: string
-    language: string
-    room_id: number
-    screeningDay: string | undefined
-  }
+// local states
+const day = ref("Hétfő");
+const genre = ref("all");
 
-  // creating a reactive array
-  let movies = ref<Movie[]>([]),
-      genres = ref<string[]>([]),
-      genre = ref("all"), // setting default value for genre
-      day = ref("Hétfő"); // setting default value for day
-    
-  const allMovies = ref<Movie[]>([]),
-        days = ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"];
-    
-  /** filter function
-   * @param {string} day 
-   * @param {string} genre 
-   */
-  function filter(day:string="Hétfő", genre:string="all") {
-    console.log(day,genre)
-    let filteredMovies = []
-    
-    //checking if there is any selected genre
-    if (genre != "all" && day) {
-
-      // goes through the movies one by one
-      for (let i = 0; i < allMovies.value.length; i++) {
-        
-        // and if the movie's and the selected genre is equal
-        // than the movie will be pushed to a different list
-        if (allMovies.value[i]?.genre == genre && 
-            allMovies.value[i]?.screeningDay == day) {
-          filteredMovies.push(allMovies.value[i])
-        }
-      }
-
-      // setting the value of movies to the filtered list
-      movies.value = JSON.parse(JSON.stringify(filteredMovies));
-    } else {
-      
-      // if the genre is 'all'
-      movies.value = allMovies.value;
-    }
-  }
-
-  /**
-   * this function will get the movies and assign a random day to it
-   * considering the runtime and timing of the movies
-   */
-  function createScreeningDays() {
-    console.log(allMovies.value.length);
-
-    // creating and assigning random days to the movies
-    for (let i = 0; i < allMovies.value.length; i++) {
-      let randomValue = Math.floor(Math.random() * 7), // 0-6 M-S
-          randomDay = days[randomValue];
-      
-      // !. means that the programmer knows that the value wont be null!
-      allMovies.value[i]!.screeningDay = randomDay;
-    }
-    console.log(allMovies.value)
-  }
-
-  // when the app runs, this will be called
-  onMounted(async ()=> {
-
-    // geting the programs
-    const moviesData = await axios.get("http://localhost:3000/getPrograms");
-    movies.value = moviesData.data;
-    allMovies.value = moviesData.data;
-    console.log(movies.value);
-
-    // get genres 
-    const genresData = await axios.get("http://localhost:3000/getGenres");
-    for (let i = 0; i < genresData.data.length; i++) {
-      
-      // fill the genres ref with data
-      genres.value.push(genresData.data[i].genre);
-    }
-
-    createScreeningDays();
-    console.log(genres.value);
-  })
+// when the DOM loads
+onMounted(async () => {
+  await loadData(); // fills allMovies and movies with data
+  filter(); // calling the filter function
+});
 </script>
