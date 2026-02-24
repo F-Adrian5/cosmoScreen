@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-center align-items-center mt-5">
     <form class="p-4 shadow rounded mt-5"
           style="width: 100%; max-width: 380px;"
-          @submit.prevent="register">
+          @submit.prevent="register(user)">
 
       <h4 class="text-center mb-4 fw-bold">
         {{ $t('registerPage.registerTitle') }}
@@ -18,7 +18,7 @@
         <input type="text"
                class="form-control form-control-lg"
                id="register_name"
-               v-model="name"
+               v-model="user.name"
                name="name"
                maxlength="100"
                autofocus
@@ -27,7 +27,7 @@
         <!--name error-->
         <div class="text-danger mt-1 small" 
              style="min-height: 42px;">
-          <span v-if="name && !/^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ -]+$/.test(name)">
+          <span v-if="user.name && !/^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ -]+$/.test(user.name)">
            {{ $t('registerPage.nameError') }}
           </span>
         </div>
@@ -43,7 +43,7 @@
         <input type="email"
                class="form-control form-control-lg"
                id="register_email"
-               v-model="email"
+               v-model="user.email"
                name="email"
                maxlength="150"
                required>
@@ -51,7 +51,7 @@
         <!--Email error-->
         <div class="text-danger mt-1 small" 
              style="min-height: 22px;">
-          <span v-if="email && !validEmail">
+          <span v-if="user.email && !validEmail(user)">
            {{ $t('registerPage.emailError') }}
           </span>
         </div>
@@ -65,10 +65,10 @@
         </label>
 
         <div class="d-flex align-items-center position-relative">
-          <input :type="showPassword ? 'text' : 'password'"
+          <input :type="user.showPassword ? 'text' : 'password'"
                  class="form-control form-control-lg"
                  id="register_password"
-                 v-model="password"
+                 v-model="user.password"
                  name="password"
                  maxlength="20"
                  required
@@ -76,11 +76,11 @@
 
           <!-- show password -->
           <button type="button"
-                  @click="showPassword = !showPassword"
+                  @click="user.showPassword = !user.showPassword"
                   class="btn position-absolute border-0 bg-transparent d-flex 
                          align-items-center justify-content-center p-0"
                   style="width: 2.5rem; height: 100%; right: 0; cursor: pointer;">
-            <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"
+            <i :class="user.showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"
                style="font-size: 1.2rem; color: black;">
             </i>
           </button>
@@ -89,7 +89,7 @@
         <!-- password error -->
         <div class="text-danger mt-1 small" 
              style="min-height: 42px;">
-          <span v-if="password && !validPassword">
+          <span v-if="user.password && !validPassword(user)">
             {{ $t('registerPage.passwordError') }}
           </span>
         </div>
@@ -98,8 +98,8 @@
       <!-- registration btn-->
       <button type="submit"
               class="btn btn_submit w-100 fw-semibold"
-              :disabled="!name || !email || !password || 
-                         !validEmail || !validPassword">
+              :disabled="!user.name || !user.email || !user.password || 
+                         !validEmail(user) || !validPassword(user)">
           {{ $t('registerPage.registerButton') }}
       </button>
 
@@ -117,74 +117,48 @@
   </div>
 </template>
 
-<script>
-  import axios from "axios";
+<script lang="ts" setup>
+  import { ref } from 'vue'
+  import { useRouter } from 'vue-router'
+  import type { RegisterUserdata } from '@/types/User'
+  import { registerServices } from '@/services/registerServices'
+  import { validEmail, validPassword } from '@/utils/validation'
 
-  // exporting the component
-  export default {
+  let user = ref<RegisterUserdata>({
+    name: '',
+    email: '',
+    password: '',
+    showPassword: false
+  })
 
-    // this function returns the current state, this is a tempelate
-    data() {
-      return {
-        name: '',     //connects to v-model="name"
-        email: '',    //connects to v-model="email"
-        password: '',
-        showPassword: false,
-      };
-    },
+  const router = useRouter();
 
-    // this section will do calculations
-    // it wont store data
-    // automatically it will update the DOM
-    computed: {
+  async function register(user:RegisterUserdata) {
+    try {
 
-      // this.email -> will show the current email
-      // regex.test(x) -> this will test that specific 'x' value,
-      // and it will return us a true or false value
-      validEmail() {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
-      },
+      // Receive data from the server
+      const data = await registerServices.getUserData(
+        user.name,
+        user.email,
+        user.password
+      )
+      console.log("Sikeres regisztráció:", data);
 
-      //password validation
-      validPassword() {
-        return /(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_\-?:+]).{6,}/.test(this.password);
+      // Store user data
+      localStorage.setItem("user", JSON.stringify(data));
+
+      // Redirect to the home page after registration
+      router.push('/');
+
+    } catch (err: any) {
+
+      // Server response error
+      if (err.response) {
+        alert(err.response.data.message);
+      } else {
+        alert("Szerver nem elérhető");
       }
-    },
-
-    // methods are like events, like click or submit...
-   methods: {
-      async register() {
-        try {
-          // Send post request to the server
-          const response = await axios.post("http://localhost:3000/register", {
-
-            // Name, email and password entered by the user
-            name: this.name,
-            email: this.email,
-            password: this.password
-          });
-
-          // Receive data from the server
-          const data = response.data;
-          console.log("Sikeres regisztráció:", data);
-
-          // Store user data
-          localStorage.setItem("user", JSON.stringify(data));
-
-          // Redirect to the home page after registration
-          this.$router.push("/");
-
-        } catch (err) {
-
-          // Server response error
-          if (err.response) {
-            alert(err.response.data.message);
-          } else {
-            alert("Szerver nem elérhető");
-          }
-          console.error("Register hiba részlete:", err);
-        }
-      }
+      console.error("Register hiba részlete:", err);
     }
-  };
+  }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-content-center align-items-center mt-5">
-    <form @submit.prevent="login"
+    <form @submit.prevent="login(user)"
           class="p-4 shadow rounded mt-5"
           style="width: 100%; max-width: 380px;">
 
@@ -16,7 +16,7 @@
         <input type="email"
                class="form-control form-control-lg"
                id="login_email"
-               v-model="email"
+               v-model="user.email"
                maxlength="150"
                autofocus
                required>
@@ -24,7 +24,7 @@
         <!--Email error-->
         <div class="text-danger mt-1 small" 
              style="min-height: 22px;">
-          <span v-if="email && !validEmail">
+          <span v-if="user.email && !validEmail(user)">
             {{ $t('loginPage.emailError') }}
           </span>
         </div>
@@ -38,21 +38,21 @@
         </label>
 
         <div class="d-flex align-items-center position-relative">
-          <input :type="showPassword ? 'text' : 'password'"
+          <input :type="user.showPassword ? 'text' : 'password'"
                  class="form-control form-control-lg"
                  id="login_password"
-                 v-model="password"
+                 v-model="user.password"
                  maxlength="20"
                  required
                  style="padding-right: 2.5rem;">
 
           <!-- show password -->
           <button type="button"
-                  @click="showPassword = !showPassword"
+                  @click="user.showPassword = !user.showPassword"
                   class="btn position-absolute border-0 bg-transparent d-flex 
                          align-items-center justify-content-center p-0"
                   style="width: 2.5rem; height: 100%; right: 0; cursor: pointer;">
-            <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"
+            <i :class="user.showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"
                style="font-size: 1.2rem; color: black;">
             </i>
           </button>
@@ -61,7 +61,7 @@
         <!--password error -->
         <div class="text-danger mt-1 small" 
              style="min-height: 42px;">
-          <span v-if="password && !validPassword">
+          <span v-if="user.password && !validPassword(user)">
             {{ $t('loginPage.passwordError') }}
           </span>
         </div>
@@ -70,10 +70,10 @@
       <!--login btn-->
       <button type="submit"
               class="btn btn_submit w-100 py-2 fw-semibold"
-              :disabled="!email || 
-                         !password ||
-                         !validEmail ||
-                         !validPassword">
+              :disabled="!user.email || 
+                         !user.password ||
+                         !validEmail(user) ||
+                         !validPassword(user)">
           {{ $t('loginPage.loginButton') }}
       </button>
       
@@ -91,71 +91,40 @@
   </div>
 </template>
 
-<script>
-  import { defineComponent } from 'vue'
+<script lang="ts" setup>
+  import { ref } from 'vue'
   import { useAuthStore } from '@/stores/auth'
+  import { useRouter } from 'vue-router'
+  import type { LoginUserdata } from '@/types/User'
+  import { loginServices } from '@/services/loginServices'
+  import { validEmail, validPassword } from '@/utils/validation'
 
-  // exporting the component
-  export default defineComponent ({
+  let user = ref<LoginUserdata>({
+    email: '',
+    password: '',
+    showPassword: false
+  })
     
-    // this function returns the current state, this is a tempelate
-    data() {
-      return {
-        email: "",            //connects to v-model="email"
-        password: "",         //connects to v-model="password"
-        showPassword: false,  //connects to v-model="showPassword"
-      };
-    },
+  const router = useRouter();
 
-    // this section will do calculations
-    // it wont store data
-    // automatically it will update the DOM
-    computed: {
+  // Login
+  async function login(user:LoginUserdata) {
 
-      //Email validation
-      validEmail() {
-
-        // this.email -> will show the current email
-        // regex.test(x) -> this will test that specific 'x' value,
-        // and it will return us a true or false value
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
-      },
-
-      //password validation
-      validPassword() {
-        return /(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_\-?:+]).{6,}/.test(this.password);
-      }
-    },
-
-    // methods are like events, like click or submit...
-    methods: {
-
-      // Login
-      async login() {
-
-        // Post request to backend
-        const res = await fetch('http://localhost:3000/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-
-          // Send the email and password given by the user 
-          body: JSON.stringify({
-            email: this.email,
-            password: this.password
-          })
-        })
+    // Post request to backend
+    const res = await loginServices.getUserData(
       
-        // Error
-        if (!res.ok) {
-          throw new Error('Hibás email vagy jelszó')
-        }
+      user.email,
+      user.password
+    );
       
-        const user = await res.json()
-        const auth = useAuthStore();
-        auth.login(user); // Store user
-      
-        this.$router.push('/') // Redirect to home
-      }     
+    // Error
+    if (!res) {
+      throw new Error('Hibás email vagy jelszó')
     }
-  });
+      
+    const auth = useAuthStore();
+    auth.login(res); // Store user
+      
+    router.push('/');
+  }     
 </script>
