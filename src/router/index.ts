@@ -10,6 +10,7 @@ import Rules from '../views/Rules.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Profile from '../views/Profile.vue'
+import Password from '../views/Password.vue'
 
 // creating router object
 const router = createRouter({
@@ -59,6 +60,11 @@ const router = createRouter({
       path: '/profile',
       name: 'profile',
       component: Profile,
+    },
+    {
+      path: '/password',
+      name: 'password',
+      component: Password,
     },
   ],
 })

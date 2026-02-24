@@ -25,6 +25,14 @@
     "releaseDate":"Release date:",
     "director":"Director:"
   },
+  "programListPage":{
+    "title":"Program list",
+    "screeningFilter":"Screening filter",
+    "day":"Day:",
+    "genre":"Genre:",
+    "notFound":"No movies found based on your filter!"
+  },
+
   "buffetPage":{
     "buffetTitle": "Buffet offers"
   },

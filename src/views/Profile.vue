@@ -20,7 +20,7 @@
       </div>
 
       <!--name-->
-      <div class="mb-3">
+      <div>
         <label for="register_name" 
                class="form-label fw-semibold">
           {{ $t('profilePage.name') }}
@@ -69,68 +69,14 @@
         </div>
       </div>
 
-      <!-- Password row -->
-      <!-- <div class="row mt-3"> -->
-        <!-- Új jelszó -->
-        <!-- <div class="col-md-6 mb-3">
-          <label class="form-label fw-semibold">
-            {{ $t('profilePage.newPassword') }}
-          </label>
-        
-          <div class="position-relative">
-            <input
-              :type="showPassword1 ? 'text' : 'password'"
-              class="form-control form-control-lg"
-              v-model="new_password"
-              maxlength="20"
-              style="padding-right: 2.5rem;"/>
-          
-            <button type="button"
-                    @click="showPassword1 = !showPassword1"
-                    class="btn position-absolute top-0 end-0 h-100 border-0 bg-transparent">
-              <i :class="showPassword1 ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
-            </button>
-          </div>
-        
-          <div class="text-danger small mt-1" style="min-height: 22px;">
-            <span v-if="new_password && !validPassword">
-              {{ $t('profilePage.passwordError') }}
-            </span>
-          </div>
-        </div> -->
-      
-        <!-- Jelszó újra -->
-        <!-- <div class="col-md-6 mb-3">
-          <label class="form-label fw-semibold">
-            {{ $t('profilePage.newPasswordAgain') }}
-          </label>
-        
-          <div class="position-relative">
-            <input
-              :type="showPassword2 ? 'text' : 'password'"
-              class="form-control form-control-lg"
-              v-model="new_password_again"
-              maxlength="20"
-              style="padding-right: 2.5rem;"/>
-          
-            <button type="button"
-                    @click="showPassword2 = !showPassword2"
-                    class="btn position-absolute top-0 end-0 h-100 border-0 bg-transparent">
-              <i :class="showPassword2 ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
-            </button>
-          </div>
-        
-          <div class="text-danger small mt-1" style="min-height: 22px;">
-            <span v-if="new_password_again && new_password !== new_password_again">
-              {{ $t('profilePage.passwordAgainError') }}
-            </span>
-          </div>
-        </div>
-      </div> -->
-
+      <!--Modify password btn-->
       <button type="button"
               class="btn btn-primary w-100 fw-semibold">
+        <RouterLink class="text-light px-2 link-underline 
+                           link-underline-opacity-0"
+                    to="/password">
           {{ $t('profilePage.modifyPassword') }}
+        </RouterLink>
       </button>
 
       <div class="row mt-3">
@@ -170,10 +116,6 @@
         isDisabled: true,
         originalName: '',
         originalEmail: ''
-        // new_password: '',
-        // new_password_again: '',
-        // showPassword1: false,
-        // showPassword2: false,
       };
     },
 

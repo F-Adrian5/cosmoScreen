@@ -25,6 +25,13 @@
     "releaseDate":"Megjelenés:",
     "director":"Rendezte:"
   },
+  "programListPage":{
+    "title":"Műsorlista",
+    "screeningFilter":"Vetítési szűrő",
+    "day":"Nap:",
+    "genre":"Műfaj:",
+    "notFound":"Szűrés alapján nem találtunk filmet!"
+  },
   "buffetPage":{
     "buffetTitle": "Büfés ajánlataink"
   },

@@ -7,7 +7,7 @@
       <!-- title -->
       <div class="col-12">
         <h1 class="text-center text-white mb-5">
-          Vetítési szűrő
+          {{ $t('programListPage.title') }}
         </h1>
       
         <hr class="text-white my-3 mt-4">
@@ -16,11 +16,13 @@
       <!-- selection -->
       <div class="row text-center fs-2">
 
+        <h3 class="text-light">{{ $t('programListPage.screeningFilter') }}</h3>
+
         <!-- day -->
         <div class="col-12 col-md-6 my-2">
           <label for="daySelect" 
                class="text-light">
-            Nap:
+            {{ $t('programListPage.day') }}
           </label>
 
           <select name="daySelect" 
@@ -40,7 +42,7 @@
         <div class="col-12 col-md-6 my-2">
           <label for="genreSelect" 
                  class="text-light">
-            Műfaj:
+           {{ $t('programListPage.genre') }}
           </label>
 
           <select name="genreSelect" 
@@ -119,7 +121,7 @@
     <!-- if there is no film with filter -->
     <div>
       <h1 class="text-center text-light">
-        Szűrés alapján nem találtunk filmet!
+        {{ $t('programListPage.notFound') }}
       </h1>
     </div>
 
