@@ -16,7 +16,9 @@
       <!-- selection -->
       <div class="row text-center fs-2">
 
-        <h3 class="text-light">{{ $t('programListPage.screeningFilter') }}</h3>
+        <h3 class="text-light">
+          {{ $t('programListPage.screeningFilter') }}
+        </h3>
 
         <!-- day -->
         <div class="col-12 col-md-6 my-2">
@@ -51,7 +53,9 @@
                   @change="filter(day,genre)"
                   v-model="genre">
 
-              <option value="all">Összes Műfaj</option>
+              <option value="all">
+                Összes Műfaj
+              </option>
               <option v-for="genre in genres"
                       :key="genre"
                       :value="genre">
@@ -120,7 +124,8 @@
 
     <!-- if there is no film with filter -->
     <div>
-      <h1 class="text-center text-light">
+      <h1 class="text-center text-warning fw-bold my-5"
+          v-show="!movies.length">
         {{ $t('programListPage.notFound') }}
       </h1>
     </div>
