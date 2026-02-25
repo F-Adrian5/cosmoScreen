@@ -14,17 +14,8 @@
           
           <!-- image -->
           <img :src="`./src/assets/media/images/movie_posters/${movie.poster}`"
-               class="card-img-top h-75"
+               class="card-img h-100"
                :alt="movie.title" />
-          
-          <!-- card body -->
-          <div class="card-body h-25 justify-content-center rounded-3">
-
-            <!-- title -->
-            <h5 class="card-title text-center fs-4">
-              {{ movie.title }}
-            </h5>
-          </div>
         </div>
       </div>
 
