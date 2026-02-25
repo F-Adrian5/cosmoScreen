@@ -1,15 +1,19 @@
 <template>
   <div class="container">
     <div class="row align-text-center">
-      <div class="carousel w-100">
+      <div class="carousel w-100"
+           :style="{'--items': movies.length}">
         
         <!-- card -->
-        <div class="card carousel-card mt-3 rounded-3"
+        <div class="card carousel-card mt-3 rounded-2"
              v-for="(movie, index) in movies" 
-             :key="movie.id" 
-             :style="{ '--i': index }"
+             :key="movie.id"
+             :style="{
+                '--i': index,
+                '--carousel-duration': movies.length * 5 + 's'
+              }"
              data-bs-toggle="modal"
-             data-bs-target="#exampleModal"
+             data-bs-target="#movieModal"
              @click="selectMovie(movie)">
           
           <!-- image -->
@@ -21,9 +25,9 @@
 
       <!-- Modal -->
       <div class="modal fade"
-           id="exampleModal"
+           id="movieModal"
            tabindex="-1"
-           aria-labelledby="exampleModalLabel">
+           aria-labelledby="movieModalLabel">
 
         <div class="modal-dialog modal-dialog-centered modal-lg 
                     modal-fullscreen-sm-down modal-dialog-scrollable">
@@ -32,7 +36,7 @@
             <!-- Header -->
             <div class="modal-header border-0">
               <h1 class="modal-title fs-2 fw-bold mx-auto w-100 text-center" 
-                  id="exampleModalLabel">
+                  id="movieModalLabel">
                 {{ selectedMovie?.title }}
               </h1>
             </div>
@@ -108,8 +112,7 @@
             <div class="modal-footer border-0">
               <button type="button"
                       class="btn btn-outline-light px-4 fs-4"
-                      data-bs-dismiss="modal"
-                      @click="($event.currentTarget as HTMLElement).blur()">
+                      data-bs-dismiss="modal">
                   {{$t('homePage.closeBtn') }}
               </button>
             </div>
@@ -143,7 +146,11 @@
 
   // when the site runs than we get the movies
   onMounted(async ()=> {
+
+    // get the data from the services and assigning the values 
+    // to the movies, and logging the number of films
     const response = await carouselMovieServices.getMovies();
     movies.value = response;
+    console.log("Number of films: " + movies.value.length);
   })  
 </script>

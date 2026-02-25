@@ -1,7 +1,9 @@
 /* carousel style */
 .carousel {
-  --items: 28;
+  --items: 1;
+  --card-width: 280px;
   --carousel-duration: 110s;
+
   height: 550px;
   position: relative;
   width: 100%;
