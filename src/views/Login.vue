@@ -24,7 +24,7 @@
         <!--Email error-->
         <div class="text-danger mt-1 small" 
              style="min-height: 22px;">
-          <span v-if="user.email && !validEmail(user)">
+          <span v-if="user.email && !validEmail(user.email)">
             {{ $t('loginPage.emailError') }}
           </span>
         </div>
@@ -61,7 +61,7 @@
         <!--password error -->
         <div class="text-danger mt-1 small" 
              style="min-height: 42px;">
-          <span v-if="user.password && !validPassword(user)">
+          <span v-if="user.password && !validPassword(user.password)">
             {{ $t('loginPage.passwordError') }}
           </span>
         </div>
@@ -72,8 +72,8 @@
               class="btn btn_submit w-100 py-2 fw-semibold"
               :disabled="!user.email || 
                          !user.password ||
-                         !validEmail(user) ||
-                         !validPassword(user)">
+                         !validEmail(user.email) ||
+                         !validPassword(user.password)">
           {{ $t('loginPage.loginButton') }}
       </button>
       

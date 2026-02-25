@@ -14,7 +14,7 @@
           <button type="button"
                     class="btn btn_submit btn-sm px-3 fw-semibold 
                            position-absolute top-50 end-0 translate-middle-y"
-                    @click="isDisabled = !isDisabled">
+                    @click="user.isDisabled = !user.isDisabled">
                 <i class="fa-regular fa-pen-to-square"></i>
           </button>
       </div>
@@ -29,16 +29,16 @@
         <input type="text"
                class="form-control form-control-lg"
                id="register_name"
-               v-model="name"
+               v-model="user.name"
                name="name"
                maxlength="100"
-               :disabled="isDisabled"
+               :disabled="user.isDisabled"
                required>
 
         <!--name error-->
         <div class="text-danger mt-1 small" 
              style="min-height: 42px;">
-          <span v-if="name && !/^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ -]+$/.test(name)">
+          <span v-if="user.name && !/^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ -]+$/.test(user.name)">
            {{ $t('profilePage.nameError') }}
           </span>
         </div>
@@ -54,16 +54,16 @@
         <input type="email"
                class="form-control form-control-lg"
                id="register_email"
-               v-model="email"
+               v-model="user.email"
                name="email"
                maxlength="150"
-               :disabled="isDisabled"
+               :disabled="user.isDisabled"
                required>
 
         <!--Email error-->
         <div class="text-danger mt-1 small" 
              style="min-height: 22px;">
-          <span v-if="email && !validEmail">
+          <span v-if="user.email && !validEmail(user.email)">
            {{ $t('profilePage.emailError') }}
           </span>
         </div>
@@ -84,7 +84,7 @@
           <!-- change data btn-->
           <button type="button"
                   class="btn btn_submit w-100 fw-semibold mt-2"
-                  @click="updateProfile()"
+                  @click="updateProfile"
                   :disabled="!canSubmit">
               {{$t('profilePage.changeDataButton')}}
           </button>
@@ -102,110 +102,88 @@
   </div>
 </template>
 
-<script lang="ts">
-  import { defineComponent, reactive, computed } from 'vue'
+<script lang="ts" setup>
+  import { ref, computed } from 'vue'
+  import type { ProfilUserdata } from '@/types/User'
   import { useAuthStore } from '@/stores/auth'
   import { useRouter } from 'vue-router'
-  import axios from 'axios'
+  import { profileServices } from '@/services/profileServices'
+  import { validEmail } from '@/utils/validation'
 
-  export default defineComponent({
-    data() {
-      return {
-        name: '',     //connects to v-model="name"
-        email: '',    //connects to v-model="email"
-        isDisabled: true,
-        originalName: '',
-        originalEmail: ''
-      };
-    },
 
-    // this section will do calculations
-    // it wont store data
-    // automatically it will update the DOM 
-    computed: {
+  let user = ref<ProfilUserdata>({
+    name: '',
+    email: '',
+    isDisabled: true,
+    originalName: '',
+    originalEmail: '',
+  })
 
-      // this.email -> will show the current email
-      // regex.test(x) -> this will test that specific 'x' value,
-      // and it will return us a true or false value
-      validEmail() {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
-      },
+  const isChanged = computed(() => {
+    return (
+      user.value.name !== user.value.originalName ||
+      user.value.email !== user.value.originalEmail
+    ) 
+  })
 
-      isChanged() {
-        return (
-          this.name !== this.originalName ||
-          this.email !== this.originalEmail
-        );
-      },
+  const canSubmit = computed(() => {
+    return (
+      isChanged.value &&
+      user.value.name.trim() !== '' &&
+      validEmail(user.value.email)
+    )
+  })
 
-      canSubmit() {
-        return (
-         this.isChanged &&
-         this.name.trim() !== '' &&
-         this.validEmail
-        );
-      },
-    },
+  const auth = useAuthStore() // Store the user condition in auth varriable 
+  const router = useRouter() // Use it for navigation
 
-    setup() {
-      const auth = useAuthStore() // Store the user condition in auth varriable 
-      const router = useRouter() // Use it for navigation
+  // Logout function
+  const logout = () => {
+    auth.logout() // Log out
+    router.push('/') // Redirect to home page
+  }
+    
 
-      // Logout function
-      const logout = () => {
-        auth.logout() // Log out
-        router.push('/') // Redirect to home page
-      }
 
-      return { auth, logout }
-    },
+  if (auth.user) { // Check if there is a logged in user
+    user.value.name = auth.user.name // Take the user name from store and copy it
+    user.value.email = auth.user.email // Take the user email from store and copy it
 
-    // Runs when the component is loaded in
-    mounted() {
+    user.value.originalName = auth.user.name
+    user.value.originalEmail = auth.user.email
+  }
+
+
+  //Update function
+  async function updateProfile() {
+
+
+    if (!canSubmit.value) return;
+
       const auth = useAuthStore()
 
-      if (auth.user) { // Check if there is a logged in user
-        this.name = auth.user.name // Take the user name from store and copy it
-        this.email = auth.user.email // Take the user email from store and copy it
+      try {
+        let response = await profileServices.getUserData(
+          auth.user.id,
+          user.value.name,
+          user.value.email
+        )
 
-        this.originalName = this.auth.user.name
-        this.originalEmail = this.auth.user.email
-      }
-    },
+        // Refresh the store and the local storage
+        auth.login(response.data)
 
-    methods: {
+        //Feedback
+        alert("Profil frissítve!")
 
-      //Update function
-      async updateProfile() {
+        user.value.originalName = user.value.name
+        user.value.originalEmail = user.value.email
 
+        // Disable the inputs
+        user.value.isDisabled = true
 
-        if (!this.canSubmit) return;
-
-        const auth = useAuthStore()
-
-        try {
-
-          // Send data to backend
-          const response = await axios.put("http://localhost:3000/profile", {
-            id: auth.user.id,
-            name: this.name,
-            email: this.email
-          })
-
-          // Refresh the store and the local storage
-          auth.login(response.data)
-
-          //Feedback
-          alert("Profil frissítve!")
-
-          // Disable the inputs
-          this.isDisabled = true
-
-        } catch (err: any) {
-            console.error(err)
-            alert(err.response?.data?.message || "Hiba a profil frissítésénél")
-          }
-      }
+      } catch (err: any) {
+          console.error(err)
+          alert(err.response?.data?.message || "Hiba a profil frissítésénél")
+        }
     }
-  })
 </script>

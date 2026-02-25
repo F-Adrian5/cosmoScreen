@@ -51,7 +51,7 @@
         <!--Email error-->
         <div class="text-danger mt-1 small" 
              style="min-height: 22px;">
-          <span v-if="user.email && !validEmail(user)">
+          <span v-if="user.email && !validEmail(user.email)">
            {{ $t('registerPage.emailError') }}
           </span>
         </div>
@@ -89,7 +89,7 @@
         <!-- password error -->
         <div class="text-danger mt-1 small" 
              style="min-height: 42px;">
-          <span v-if="user.password && !validPassword(user)">
+          <span v-if="user.password && !validPassword(user.password)">
             {{ $t('registerPage.passwordError') }}
           </span>
         </div>
@@ -99,7 +99,7 @@
       <button type="submit"
               class="btn btn_submit w-100 fw-semibold"
               :disabled="!user.name || !user.email || !user.password || 
-                         !validEmail(user) || !validPassword(user)">
+                         !validEmail(user.email) || !validPassword(user.password)">
           {{ $t('registerPage.registerButton') }}
       </button>
 
