@@ -135,7 +135,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { useFilter } from '@/composables/useFilter';
+import { useFilter,  } from '@/composables/useFilter';
 
 // pulling the items from the composable, that will be needed
 const { movies, genres, days, filter, loadData } = useFilter();
