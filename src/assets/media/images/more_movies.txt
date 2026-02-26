@@ -1,0 +1,25 @@
+
+id title genre runtime director production age_restriction showing_in poster trailer description release_date
+
+29 Szemfényvesztők-thriller-115-Louis Leterrier-Summit Entertainment-12-3D-now_you_see_me.jpg-no-Egy FBI-ügynök és egy Interpol-nyomozó egy illuzionista csapatot követ nyomon, akik előadásaik során bankrablásokat hajtanak végre, és a pénzzel jutalmazzák a közönséget.-2013. május 31.
+30 Wonka-musical-116-Paul King-Warner Bros.-6-2D-wonka.jpg-no-A fiatal és szegény Willy Wonka arról álmodik, hogy boltot nyit egy csokoládéjáról híres városban, amikor rájön, hogy az iparágat kapzsi csokoládékészítők kartellje irányítja.-2023. december 15
+31 Vasember-akció-126-Jon Favreau-Marvel Studios-12-3D-ironman.jpg-no-Miután fogságba ejtették egy afgán barlangban, Tony Stark milliárdos mérnök egy egyedi, fegyverré alakított páncélt hoz létre, hogy felvegye a harcot a gonosz ellen.-2008. május 2
+32 Zsivány Egyes: Egy Star Wars-történet-Sci-Fi-133-Gareth Edwards-Lucasfilm-12-3D-rogue_one.jpg-no-Egy konfliktus idején egy csapat valószínűtlen hős összefog, hogy ellopják a Halálcsillag, a Birodalom végső pusztító fegyverének terveit.-2016. december 16
+33 A csodálatos Pókember-akció-136-Marc Webb-Sony Pictures-12-3D-the_amazing_spiderman.jpg-no-Miután Peter Parkert megcsípi egy genetikailag módosított pók, új, pókszerű képességekre tesz szert, és elindul, hogy megmentse a várost egy titokzatos hüllő ellenség machinációitól.-2012. július 3
+34 Terminátor 2. Az ítélet napja-Sci-Fi-137-James Cameron-Carolco Pictures-16-2D-terminator2.jpg-no-Egy jövőbeli kiborg, aki ugyanolyan, mint aki nem tudta megölni Sarah Connort, most meg kell védenie tízéves fiát, Johnt egy még fejlettebb és erősebb kiborgtól.-1991. július 3
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
