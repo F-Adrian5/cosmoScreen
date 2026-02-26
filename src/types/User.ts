@@ -18,3 +18,10 @@ export interface ProfilUserdata {
   originalName: string,
   originalEmail: string,
 }
+
+export interface PasswordUserdata {
+  new_password: string,
+  new_password_again: string,
+  showPassword1: boolean,
+  showPassword2: boolean,
+}

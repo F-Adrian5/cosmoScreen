@@ -70,14 +70,15 @@
       </div>
 
       <!--Modify password btn-->
-      <button type="button"
-              class="btn btn-primary w-100 fw-semibold">
-        <RouterLink class="text-light px-2 link-underline 
-                           link-underline-opacity-0"
-                    to="/password">
+      <RouterLink class="text-light px-2 link-underline 
+                         link-underline-opacity-0"
+                  to="/password">
+
+        <button type="button"
+                class="btn btn-primary w-100 fw-semibold">
           {{ $t('profilePage.modifyPassword') }}
-        </RouterLink>
-      </button>
+        </button>
+      </RouterLink>
 
       <div class="row mt-3">
         <div class="col-md-6 mb-3">

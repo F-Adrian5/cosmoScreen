@@ -112,7 +112,6 @@
 
     // Post request to backend
     const res = await loginServices.getUserData(
-      
       user.email,
       user.password
     );
