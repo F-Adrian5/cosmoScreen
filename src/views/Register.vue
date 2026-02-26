@@ -124,6 +124,7 @@
   import { registerServices } from '@/services/registerServices'
   import { validEmail, validPassword } from '@/utils/validation'
 
+  //Initialize custom type
   let user = ref<RegisterUserdata>({
     name: '',
     email: '',
@@ -131,12 +132,14 @@
     showPassword: false
   })
 
+  //Initialize router
   const router = useRouter();
 
+  //Register function
   async function register(user:RegisterUserdata) {
     try {
 
-      // Receive data from the server
+      //Receive data from the server
       const data = await registerServices.getUserData(
         user.name,
         user.email,
@@ -144,15 +147,15 @@
       )
       console.log("Sikeres regisztráció:", data);
 
-      // Store user data
+      //Store user data
       localStorage.setItem("user", JSON.stringify(data));
 
-      // Redirect to the home page after registration
+      //Redirect to the home page after registration
       router.push('/');
 
     } catch (err: any) {
 
-      // Server response error
+      //Server response error
       if (err.response) {
         alert(err.response.data.message);
       } else {

@@ -99,31 +99,36 @@
   import { loginServices } from '@/services/loginServices'
   import { validEmail, validPassword } from '@/utils/validation'
 
+  //Initialize custom type
   let user = ref<LoginUserdata>({
     email: '',
     password: '',
     showPassword: false
   })
-    
+
+  //Initialize router
   const router = useRouter();
 
-  // Login
+  //Login
   async function login(user:LoginUserdata) {
+    try{
 
-    // Post request to backend
-    const res = await loginServices.getUserData(
-      user.email,
-      user.password
-    );
+      //Post request to backend
+      const res = await loginServices.getUserData(
+        user.email,
+        user.password
+      )
+
+      const auth = useAuthStore();
+      auth.login(res); // Store user
       
-    // Error
-    if (!res) {
-      throw new Error('Hibás email vagy jelszó')
+      //Redirect to the home page
+      router.push('/');
     }
-      
-    const auth = useAuthStore();
-    auth.login(res); // Store user
-      
-    router.push('/');
+    //Error
+    catch (err: any) {
+      console.error(err);
+      alert(err.response?.data?.message || "Hiba a bejelentkezés során");
+    }
   }     
 </script>

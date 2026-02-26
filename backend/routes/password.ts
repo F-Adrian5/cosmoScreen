@@ -32,11 +32,12 @@ router.put("/password", async (req, res) => {
       [new_password, id]
     );
 
+    // Modify error
     if (result.affectedRows === 0) {
       return res.status(500).json({ message: "Jelszó frissítése sikertelen" });
     }
 
-    // Return updated user data (without password)
+    // Return updated user data
     return res.status(200).json({
       id: users[0].id,
       name: users[0].name,
@@ -45,8 +46,8 @@ router.put("/password", async (req, res) => {
 
   } catch (err) {
 
+    // Server error
     console.error("Jelszó módosítási hiba:", err);
-
     return res.status(500).json({ message: "Szerver hiba" });
   }
 });

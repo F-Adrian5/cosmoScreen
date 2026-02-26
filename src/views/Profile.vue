@@ -82,7 +82,8 @@
 
       <div class="row mt-3">
         <div class="col-md-6 mb-3">
-          <!-- change data btn-->
+
+          <!-- Change data btn-->
           <button type="button"
                   class="btn btn_submit w-100 fw-semibold mt-2"
                   @click="updateProfile"
@@ -91,7 +92,8 @@
           </button>
         </div>
          <div class="col-md-6 mb-3">
-          <!--logout btn-->
+
+          <!--Logout btn-->
           <button type="button"
                   class="btn btn-danger w-100 fw-semibold mt-2"
                   @click="logout()">
@@ -111,7 +113,7 @@
   import { profileServices } from '@/services/profileServices'
   import { validEmail } from '@/utils/validation'
 
-
+  //Initialize custom type
   let user = ref<ProfilUserdata>({
     name: '',
     email: '',
@@ -120,6 +122,7 @@
     originalEmail: '',
   })
 
+  //Checks if there is a change in the inputs
   const isChanged = computed(() => {
     return (
       user.value.name !== user.value.originalName ||
@@ -127,6 +130,7 @@
     ) 
   })
 
+  //Checks if everything is valid in this function
   const canSubmit = computed(() => {
     return (
       isChanged.value &&
@@ -159,18 +163,21 @@
   async function updateProfile() {
 
 
+    //If its not submitable than it returns
     if (!canSubmit.value) return;
 
       const auth = useAuthStore()
 
       try {
+
+        //Get user data
         let response = await profileServices.getUserData(
           auth.user.id,
           user.value.name,
           user.value.email
         )
 
-        // Refresh the store and the local storage
+        //Refresh the store and the local storage
         auth.login(response.data)
 
         //Feedback
@@ -179,9 +186,10 @@
         user.value.originalName = user.value.name
         user.value.originalEmail = user.value.email
 
-        // Disable the inputs
+        //Disable the inputs
         user.value.isDisabled = true
 
+        //Server error
       } catch (err: any) {
           console.error(err)
           alert(err.response?.data?.message || "Hiba a profil frissítésénél")

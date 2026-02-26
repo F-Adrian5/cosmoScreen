@@ -87,8 +87,9 @@
     import { validPassword } from '@/utils/validation'
     import { passwordServices } from '@/services/passwordServices'
     import { useRouter } from 'vue-router'
-     import { useAuthStore } from '@/stores/auth'
+    import { useAuthStore } from '@/stores/auth'
 
+    //Initialize custom type
     let user = ref<PasswordUserdata>({
       new_password: '',
       new_password_again: '',
@@ -96,7 +97,8 @@
       showPassword2: false,
     })
 
-     const router = useRouter();
+    //Initialize router
+    const router = useRouter();
 
     //Update function
     async function updatePassword() {
@@ -104,21 +106,26 @@
       const auth = useAuthStore();
 
       try {
+
+        //Get user data
         let response = await passwordServices.getUserData(
           auth.user.id,
           user.value.new_password
         )
 
-        // Refresh the store and the local storage
+        //Refresh the store and the local storage
         auth.login(response)
 
         //Feedback
         alert("Jelszó frissítve!")
+
+        //Redirect to profile page
         router.push('/profile');
 
+        //Error
       } catch (err: any) {
           console.error(err)
-          alert(err.response?.data?.message || "Hiba a profil frissítésénél")
+          alert(err.response?.data?.message || "Hiba a jelszó frissítésénél")
         }
     }
 
