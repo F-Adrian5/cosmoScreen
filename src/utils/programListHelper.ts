@@ -8,10 +8,40 @@ import type { Movie } from "@/types/Movie";
  */
 export function createScreeningDays(movieList: Movie[], days: string[]) {
   
+  let week: Record<string, Movie[]> = {},
+      conflictedMovies:any = [],
+      previousFilm:any,
+      currentDay:any,
+      currentFilm:any;
+
+  for (let i = 0; i < days.length; i++) {
+    week[days[i]!] = [];    
+  }
+
+  console.log(week);
+
   // creating the random days and assigning them to the movies
-  for (let i = 0; i < movieList.length; i++) {
-    let randomValue = Math.floor(Math.random() * 7); // 0-6 M-S
-    let randomDay = days[randomValue];
+  for (let day = 0; day < days.length; day++) {
+    // let randomValue = Math.floor(Math.random() * 7); // 0-6 M-S
+    // let randomDay = days[randomValue];
+    currentDay = days[day]
+
+    for (let i = 0; i < movieList.length; i++) {
+      currentFilm = movieList[i];
+      let filmsToday:any = week[currentDay],
+          isConflict = false;
+
+      for (let j = 0; j < filmsToday!.length; j++) {
+        const existing = filmsToday[j]!;
+        if (
+          currentFilm.start < existing.end && 
+          currentFilm.end > existing.start
+        ) {
+          isConflict = true;
+          break;
+        }
+      }
+    }
 
     // kiszelektál egy random napot -> egy forral át kell menni
     // a mondjuk hétfőn és ott idő rendi sorrendbe rakni,
@@ -65,14 +95,40 @@ export function createScreeningDays(movieList: Movie[], days: string[]) {
         ⚠️ könnyen nagyon komplex és nehezen debugolható lesz
 
 
+    🧩 Egyszerű stabil modell
+
+    Idő szerint rendez
+
+    Filmről filmre halad
+
+    Megnézed hova fér
+
+    Random választás a valid napok közül
+
+    Ha nincs valid nap → külön lista
+
+    Ez:
+
+    determinisztikus szerkezet
+
+    randomizált döntés
+
+    nem robban exponenciálisan
+
+    debugolható
+
+    jó szóval azt kellene hogy a napokon sorba haladunk és random választunk egy filmet és megnézzük hogy abba az időintervallumba befér e ha nem akkor eltároljuk egy másik változóban és sorsolunk ujjat addig mig minimum 5 film be nem ment a hetfőbe, utánna megállunk, és átmegyünk a keddre, amit eddig nem sikerült berakni azon megyünk át elősször, ha valamit ott ujra nem lehet akkor marad a változóban, ha még nincs meg az 5 film akkor az elérhető filmekből még rakunk bele. Ha H-V-ig megvagyunk és még vannak elérhető filmek akkor ujra vissza megyünk a hétfőre és ott egy filmet berakunk, majd megyünk a keddre , ha nem lehet egy filmet behelyezni akkor eltároljuk máshol és amikor szerdára megyunk akkor azonnal vele kezdünk és ez igy megy tovább. Ez jó?Az a baj hogy itt is lehet végtelen hibakazelés. Vagy megadom hogy 5 ször futthat le és utánna hadja , vagy ezt valamilyen változóban checkelni.
+
     */
 
     // !. means that the programmer knows that the value won't be null!
-    movieList[i]!.screeningDay = randomDay;
+    // movieList[i]!.screeningDay = randomDay;
   }
 
+  console.log()
+
   // returning the random movieList
-  return movieList;
+  // return movieList;
 }
 
 
