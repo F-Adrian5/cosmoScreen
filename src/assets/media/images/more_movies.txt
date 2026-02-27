@@ -7,19 +7,19 @@ id title genre runtime director production age_restriction showing_in poster tra
 32 Zsivány Egyes: Egy Star Wars-történet-Sci-Fi-133-Gareth Edwards-Lucasfilm-12-3D-rogue_one.jpg-no-Egy konfliktus idején egy csapat valószínűtlen hős összefog, hogy ellopják a Halálcsillag, a Birodalom végső pusztító fegyverének terveit.-2016. december 16
 33 A csodálatos Pókember-akció-136-Marc Webb-Sony Pictures-12-3D-the_amazing_spiderman.jpg-no-Miután Peter Parkert megcsípi egy genetikailag módosított pók, új, pókszerű képességekre tesz szert, és elindul, hogy megmentse a várost egy titokzatos hüllő ellenség machinációitól.-2012. július 3
 34 Terminátor 2. Az ítélet napja-Sci-Fi-137-James Cameron-Carolco Pictures-16-2D-terminator2.jpg-no-Egy jövőbeli kiborg, aki ugyanolyan, mint aki nem tudta megölni Sarah Connort, most meg kell védenie tízéves fiát, Johnt egy még fejlettebb és erősebb kiborgtól.-1991. július 3
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
+35 John Wick-akció-101-Chad Stahelski-Summit Entertainment-18-3D-john_wick.jgp-no-John Wick egykori bérgyilkos gyászolja igaz szerelme elvesztését. Amikor betörnek a házába, kirabolják, és megölik a kutyáját, kénytelen visszatérni a tettekhez, hogy bosszút álljon.-2014. október 24
+36 A Karib-tenger kalózai: Salazar bosszúja-akció-129-Joachim Rønning/Espen Sandberg-Walt Disney Pictures-12-2D-potc_salazar.jpg-no-Jack Sparrow kapitány Poszeidón háromszögét keresi, hogy uralja a tengert, miközben régi riválisa, Salazar kapitány és egy halálos szellemekből álló legénység üldözi, akik megszöktek az Ördög Háromszögéből.-2017. május 26
+37 Top Gun: Maverick-akció-130-Joseph Kosinski-Paramount Pictures-12-3D-top_gun.jpg-no-A történetben Maverick szembeszáll a múltjával, miközben egy veszélyes küldetésre képez ki egy csoport fiatalabb Top Gun-végzettet, köztük elhunyt legjobb barátja fiát.-2022. május 27
+38 Kapj el, ha tudsz-dráma-141-Steven Spielberg-DreamWorks Pictures-12-2D-catch_me_if_you_can.jpg-no-Alig 17 éves Frank képzett hamisító, aki orvosként, ügyvédként és pilótaként végzett. Carl, az FBI-ügynök megszállottan próbálja felkutatni a szélhámost, aki csak élvezi az üldözést.-2002. december 25
+39 Mission: Impossible - Titkos nemzet-akció-131-Christopher McQuarrie-16-3D-mi_secret_nation.jpg-no-Ethan és csapata eddigi leglehetetlenebb küldetésükre vállalkoznak: fel kell számolniuk egy hozzájuk hasonlóan magasan képzett, a Nemzetközi Valutaalap (IMF) megsemmisítésére elkötelezett nemzetközi gazember szervezetet.-2015. július 31.
+40 Truman Show-dráma-103-Peter Weir-Paramount Pictures-12-2D-trueman_show.jpg-no-Egy biztosítási ügynök gyanítani kezdi, hogy az egész élete valójában valami valóságshow.-1998. június 5
+41 A fegyvertelen katona-történelmi-Mel Gibson-Summit Entertainment-18-2D-hacksaw_ridge.jpg-no-Desmond T. Doss, az okinawai csatában szolgáló amerikai hadsereg orvosa megtagadja az emberek megölését, és ő lesz az első ember az amerikai történelemben, aki lövés nélkül kapta meg a Becsületrendet.-2016. november 4
+42 Sikoly-horror-111-Wes Craven-Dimension Films-18-IMAX-scream.jpg-no-A kaliforniai Woodsboro kisvárosában egy Szellemarc néven ismert álarcos gyilkos középiskolás diákokat kezd gyilkolni, és egy baráti társaságnak a horrorfilmekben szerzett tudását kell felhasználnia a gyilkos leleplezésére.-1996. december 20
+43 Fűrész-horror-103-James Wan-Twisted Pictures-18-3D-saw.jpg-no-Két férfi egy holttest két oldalán ébred, és mindegyiküknek konkrét utasítása van arra, hogy megölje a másikat, elmeneküljön, vagy szembenézzen a következményekkel. Ez a két férfi Jigsaw játékainak legújabb versenyzői.-2004. október 29
+44 A legnagyobb showman-musical-95-Michael Gracey-Twentieth Century Fox-12-2D-the_greatest_showman.jpg-no-A show-biznisz születését ünnepli, és egy látnokról mesél, aki a semmiből emelkedett fel, hogy egy világméretű szenzációvá vált látványosságot alkosson.-2017. december 20
+45 Pókember: A Pókverzumon át-animáció-140-Joaquim Dos Santos/Kemp Powers/Justin K. Thompson-Sony Pictures-12-3D-spiderman_atsv.jpg-no-A multiverzumon át utazva Miles Morales egy új Pókemberekből álló csapattal találkozik, akik különböző dimenziókból származó hősökből állnak. De amikor a hősök összecsapnak azon, hogyan kezeljék az új fenyegetést, Miles válaszút elé kerül.-2023. június 2
+46 Zöld könyv: Útmutató az élethez-dráma-130-Peter Farrelly-DreamWorks Pictures-12-2D-green_book.jpg-no-Egy olasz-amerikai munkásosztálybeli kidobó egy afroamerikai klasszikus zongorista sofőrje lesz, miközben az 1960-as évek amerikai Délén turnézik.-2018. november 16
+47 Jumanji: Vár a dzsungel-fantasy-119-Jake Kasdan-Columbia Pictures-12-3D-jumanji.jpg-no-Négy tinédzsert szippant be egy varázslatos videojáték, és az egyetlen módja a menekülésnek, ha együttműködnek a játék befejezésében.-2017. december 20
+48 Kingsman: A titkos szolgálat-akció-129-Matthew Vaughn-Twentieth Century Fox-16-3D-kingsman.jpg-no-Egy kémszervezet egy ígéretes utcagyereket toboroz be a kiképzőprogramjába, miközben egy eltorzult techzseni globális fenyegetést jelent.-2014. február 13
+49 Nagyfiúk-komédia-102-Dennis Dugan-Columbia Pictures-12-2D-grownups.jpg-no-Miután középiskolai kosárlabdaedzőjük meghal, öt jó barát és korábbi csapattárs újra együtt töltik a július negyediki ünnepi hétvégét.-2010. június 25
+50 Másnaposok-komédia-100-Todd Phillips-Warner Bros.-18-2D-hangover.jpg-no-Három haver egy legénybúcsúról ébred Las Vegasban, és semmire sem emlékszik az előző éjszakából, a legény pedig eltűnt. Körbe kell barangolniuk a városban, hogy megtalálják barátjukat az esküvőjére.-2009.június 5
