@@ -9,9 +9,8 @@ import type { Movie } from "@/types/Movie";
 export function createScreeningDays(movieList: Movie[], days: string[]) {
   
   let week: Record<string, Movie[]> = {},
-      conflictedMovies:any = [],
-      previousFilm:any,
       currentDay:any,
+      modifiedMovieList = movieList,
       currentFilm:any;
 
   for (let i = 0; i < days.length; i++) {
@@ -22,25 +21,19 @@ export function createScreeningDays(movieList: Movie[], days: string[]) {
 
   // creating the random days and assigning them to the movies
   for (let day = 0; day < days.length; day++) {
-    // let randomValue = Math.floor(Math.random() * 7); // 0-6 M-S
-    // let randomDay = days[randomValue];
     currentDay = days[day]
 
-    for (let i = 0; i < movieList.length; i++) {
+    for (let i = 0; i < modifiedMovieList.length; i++) {
       currentFilm = movieList[i];
-      let filmsToday:any = week[currentDay],
-          isConflict = false;
+      
+      if (week[currentDay]?.length == 0) {
+        week[currentDay]?.push(currentFilm);
+        // modifiedMovieList.filter((element, index)=>{
 
-      for (let j = 0; j < filmsToday!.length; j++) {
-        const existing = filmsToday[j]!;
-        if (
-          currentFilm.start < existing.end && 
-          currentFilm.end > existing.start
-        ) {
-          isConflict = true;
-          break;
-        }
+        // })
       }
+
+      break;
     }
 
     // kiszelektál egy random napot -> egy forral át kell menni
@@ -125,7 +118,7 @@ export function createScreeningDays(movieList: Movie[], days: string[]) {
     // movieList[i]!.screeningDay = randomDay;
   }
 
-  console.log()
+  console.log(week)
 
   // returning the random movieList
   // return movieList;
