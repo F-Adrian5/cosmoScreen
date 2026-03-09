@@ -9,7 +9,7 @@
         Width="900"
         MinHeight="450"
         MinWidth="800"
-        Background="#FFB5C6FB">
+        Background="#FF2C2D31">
 
     <Grid>
 
@@ -56,12 +56,12 @@
             <Label Content="Felhasználók"
                    FontSize="26"
                    FontWeight="Bold"
-                   FontStyle="Italic"/>
+                   FontStyle="Italic" Foreground="#FFA09D9D"/>
             <Label Content="Felhasználó adatok felvétele"
                    FontSize="22"
                    FontWeight="Bold"
                    FontStyle="Italic"
-                   Foreground="#FF693EE4"/>
+                   Foreground="#FFA09D9D"/>
         </StackPanel>
 
         <!-- INPUTS -->
@@ -86,7 +86,7 @@
                    Grid.Column="0"
                    FontWeight="Bold"
                    FontSize="16"
-                   VerticalAlignment="Center"/>
+                   VerticalAlignment="Center" Foreground="#FF9DCC3B"/>
 
             <TextBox x:Name="user_name_input"
                      Grid.Row="0"
@@ -101,7 +101,7 @@
                    Grid.Column="0"
                    FontWeight="Bold"
                    FontSize="16"
-                   VerticalAlignment="Center"/>
+                   VerticalAlignment="Center" Foreground="#FF9DCC3B"/>
 
             <TextBox x:Name="email_input"
                      Grid.Row="1"
@@ -116,7 +116,7 @@
                    Grid.Column="0"
                    FontWeight="Bold"
                    FontSize="16"
-                   VerticalAlignment="Center"/>
+                   VerticalAlignment="Center" Foreground="#FF9DCC3B"/>
 
             <TextBox x:Name="password_input"
                      Grid.Row="2"
@@ -152,7 +152,7 @@
                     FontSize="22"
                     FontWeight="Bold"
                     IsEnabled="False"
-                    Click="btn_upload_Click"/>
+                    Click="btn_upload_Click" Foreground="#FF9DCC3B" Background="Black"/>
 
             <!-- edit btn -->
             <Button x:Name="edit_data_btn"
@@ -163,7 +163,7 @@
                     FontSize="22"
                     FontWeight="Bold"
                     IsEnabled="False"
-                    Click="edit_data_btn_Click"/>
+                    Click="edit_data_btn_Click" Foreground="#FF9DCC3B" Background="Black"/>
 
             <!-- delete btn -->
             <Button x:Name="delete_data_btn"
@@ -174,7 +174,7 @@
                     FontSize="22"
                     FontWeight="Bold"
                     IsEnabled="False"
-                    Click="delete_data_btn_Click"/>
+                    Click="delete_data_btn_Click" Foreground="#FF9DCC3B" Background="Black"/>
         </StackPanel>
     </Grid>
 </Window>

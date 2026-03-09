@@ -4,7 +4,7 @@
         Title="Filmek"
         Height="900"
         Width="1000"
-        Background="#FFB5C6FB">
+        Background="#FF2C2D31">
 
     <Grid>
         <!-- ROWS -->
@@ -39,7 +39,7 @@
                FontSize="26"
                FontWeight="Bold"
                FontStyle="Italic"
-               Margin="0,20,0,10"/>
+               Margin="0,20,0,10" Foreground="#FFA09D9D"/>
 
         <!-- MAIN CONTENT -->
         <Grid Grid.Row="2" Margin="20">
@@ -57,28 +57,28 @@
                            FontSize="22"
                            FontWeight="Bold"
                            FontStyle="Italic"
-                           Foreground="#FF693EE4"
+                           Foreground="#FFA09D9D"
                            Margin="0,0,0,20"/>
 
-                    <Label Content="Cím:" FontWeight="Bold" FontSize="16"/>
+                    <Label Content="Cím:" FontWeight="Bold" FontSize="16" Foreground="#FF9DCC3B"/>
                     <TextBox x:Name="title_input" FontSize="16" MaxLength="200" TextChanged="InputChanged"/>
 
-                    <Label Content="Játékidő:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0"/>
+                    <Label Content="Játékidő:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" Foreground="#FF9DCC3B"/>
                     <TextBox x:Name="runtime_input" FontSize="16" MaxLength="3" TextChanged="InputChanged"/>
 
-                    <Label Content="Rendező:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0"/>
+                    <Label Content="Rendező:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" Foreground="#FF9DCC3B"/>
                     <TextBox x:Name="director_input" FontSize="16" MaxLength="200" TextChanged="InputChanged"/>
 
-                    <Label Content="Stúdió:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0"/>
+                    <Label Content="Stúdió:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" Foreground="#FF9DCC3B"/>
                     <TextBox x:Name="production_input" FontSize="16" MaxLength="25" TextChanged="InputChanged"/>
 
-                    <Label Content="Poszter URL:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0"/>
+                    <Label Content="Poszter URL:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" Foreground="#FF9DCC3B"/>
                     <TextBox x:Name="poster_input" FontSize="16" MaxLength="200" TextChanged="InputChanged"/>
 
-                    <Label Content="Előzetes URL:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0"/>
+                    <Label Content="Előzetes URL:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" Foreground="#FF9DCC3B"/>
                     <TextBox x:Name="trailer_input" FontSize="16" MaxLength="200" TextChanged="InputChanged"/>
 
-                    <Label Content="Műfaj:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0"/>
+                    <Label Content="Műfaj:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" Foreground="#FF9DCC3B"/>
                     <ComboBox x:Name="genre_combobox" FontSize="16" SelectionChanged="InputChanged">
                         <ComboBoxItem Content="Akció"/>
                         <ComboBoxItem Content="Dráma"/>
@@ -91,7 +91,7 @@
                         <ComboBoxItem Content="Thriller"/>
                     </ComboBox>
 
-                    <Label Content="Korhatár:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0"/>
+                    <Label Content="Korhatár:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" Foreground="#FF9DCC3B"/>
                     <ComboBox x:Name="age_restriction_combobox" FontSize="16" SelectionChanged="InputChanged">
                         <ComboBoxItem Content="7"/>
                         <ComboBoxItem Content="12"/>
@@ -99,7 +99,7 @@
                         <ComboBoxItem Content="18"/>
                     </ComboBox>
 
-                    <Label Content="Formátum:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0"/>
+                    <Label Content="Formátum:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" Foreground="#FF9DCC3B"/>
                     <ComboBox x:Name="showing_in_combobox" FontSize="16" SelectionChanged="InputChanged">
                         <ComboBoxItem Content="IMAX"/>
                         <ComboBoxItem Content="4DX"/>
@@ -108,10 +108,10 @@
                         <ComboBoxItem Content="3D"/>
                     </ComboBox>
 
-                    <Label Content="Megjelenési dátum:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0"/>
+                    <Label Content="Megjelenési dátum:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" Foreground="#FF9DCC3B"/>
                     <DatePicker x:Name="release_date_input" FontSize="16" SelectedDateChanged="InputChanged"/>
 
-                    <Label Content="Leírás:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0"/>
+                    <Label Content="Leírás:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" Foreground="#FF9DCC3B"/>
                     <TextBox x:Name="description_input"
                              FontSize="16"
                              MaxLength="250"
@@ -146,7 +146,7 @@
                     FontSize="24"
                     FontWeight="Bold"
                     IsEnabled="False"
-                    Click="btn_upload_Click"/>
+                    Click="btn_upload_Click" Foreground="#FF9DCC3B" Background="Black"/>
 
             <!-- edit btn -->
             <Button x:Name="edit_data_btn"
@@ -157,7 +157,7 @@
                     FontSize="24"
                     FontWeight="Bold"
                     IsEnabled="False"
-                    Click="edit_data_btn_Click"/>
+                    Click="edit_data_btn_Click" Foreground="#FF9DCC3B" Background="Black"/>
 
             <!-- delete btn -->
             <Button x:Name="delete_data_btn"
@@ -168,7 +168,7 @@
                     FontSize="24"
                     FontWeight="Bold"
                     IsEnabled="False"
-                    Click="delete_data_btn_Click"/>
+                    Click="delete_data_btn_Click" Foreground="#FF9DCC3B" Background="Black"/>
         </StackPanel>
     </Grid>
 </Window>
