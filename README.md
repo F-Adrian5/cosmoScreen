@@ -62,4 +62,4 @@ A **CosmoScreen WPF** a weboldal adminisztratív felülete, amely lehetővé tes
 
 ---
 
-### ⚠️ A felület használatára Adminisztrátori jogosultságra van szükségese!
+### ⚠️ A felület használatára Adminisztrátori jogosultságra van szüksége!
