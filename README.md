@@ -60,4 +60,6 @@ A **CosmoScreen WPF** a weboldal adminisztratív felülete, amely lehetővé tes
 1. A telepítés után keresse meg az asztalon a **cosmoscreen.exe** fájlt.
 2. A program indításához kattintson rá **dupla kattintással**.
 
-### ⚠️ A felület használatához admin jogosultság szükséges!
+---
+
+### ⚠️ A felület használatára Adminisztrátori jogosultságra van szükségese!
