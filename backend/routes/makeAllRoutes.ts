@@ -55,7 +55,7 @@ const getData = [
   },
   {
     url: '/getPrograms',
-    query: 'SELECT `movie_screening`.`id` AS "screening_id", `movie_id` AS "movie_id", `movies`.`title` AS "movie_title", `movies`.`poster`, `movies`.`runtime`, `movies`.`genre`, `movies`.`showing_in`, `room_id`, `language`, `start`, `end` FROM `movie_screening` JOIN `movies` ON `movie_id` = `movies`.`id`'
+    query: 'SELECT `movie_screening`.`id` AS "screening_id", `movie_id` AS "movie_id", `movies`.`title` AS "movie_title", `movies`.`poster`, `movies`.`runtime`, `movies`.`genre`, `movies`.`showing_in`, `room_id`, `language` FROM `movie_screening` JOIN `movies` ON `movie_id` = `movies`.`id`'
   }
 ];
 
