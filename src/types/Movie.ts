@@ -23,7 +23,6 @@ export interface CarouselMovie {
   production: string
   age_restriction: number
   poster: string
-  trailer: string
   description: string
   release_date: string
 }

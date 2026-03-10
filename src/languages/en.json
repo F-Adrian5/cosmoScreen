@@ -120,6 +120,10 @@
     "projectManager":"Project manager",
     "finalText":"This exam is a milestone: both a learning process and the beginning of a possible future. We are open to new ideas, development, and building on this foundation."
   },
+   "passwordPage":{
+    "changeDataButton":"Modify",
+    "cancelButton":"Cancel"
+  },
   "errorMessages":{
     "serverError":"Server error",
     "emailPassError":"Incorrect email or password",

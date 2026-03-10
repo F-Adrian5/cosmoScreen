@@ -119,6 +119,10 @@
     "projectManager":"Projektvezető",
     "finalText":"Ez a vizsgaremek számunkra egy mérföldkő: egyszerre tanulási folyamat és egy lehetséges jövő kezdete. Nyitottak vagyunk az új ötletekre, a fejlődésre és arra, hogy továbbépítsük ezt az alapot."
   },
+  "passwordPage":{
+    "changeDataButton":"Módosítás",
+    "cancelButton":"Mégse"
+  },
   "errorMessages":{
     "serverError":"Szerver hiba",
     "emailPassError":"Hibás email vagy jelszó",

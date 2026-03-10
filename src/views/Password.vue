@@ -69,14 +69,29 @@
         </div>
       </div>
 
-      <!-- Submit Button -->
-      <button type="button" 
-              class="btn btn-primary w-100 fw-semibold"
-              @click="updatePassword"
-              :disabled="!validPassword(user.new_password) || user.new_password !== user.new_password_again">
-        {{ $t('profilePage.changeDataButton') }}
-      </button>
+      <div class="row mt-3">
+        <div class="col-md-6 mb-3">
 
+          <!-- Submit Button -->
+          <button type="button" 
+                  class="btn btn-primary w-100 fw-semibold"
+                  @click="updatePassword"
+                  :disabled="!validPassword(user.new_password) || user.new_password !== user.new_password_again">
+            {{ $t('passwordPage.changeDataButton') }}
+          </button>
+        </div>
+        <div class="col-md-6 mb-3">
+
+          <!--Cancel Button-->
+          <button type="button" 
+                  class="btn btn-danger w-100 fw-semibold"
+                  @click="goToPage('/profile')">
+            {{ $t('passwordPage.cancelButton') }}
+          </button>
+        </div>
+      </div>
+
+      
     </form>
   </div>
 </template>
@@ -88,6 +103,7 @@
     import { passwordServices } from '@/services/passwordServices'
     import { useRouter } from 'vue-router'
     import { useAuthStore } from '@/stores/auth'
+    import { goToPage } from '@/utils/passwordCancel'
 
     //Initialize custom type
     let user = ref<PasswordUserdata>({
