@@ -55,15 +55,7 @@
             Foreground="White"
             Background="Black"
             BorderBrush="Transparent"
-            Margin="412,-1,10,103" Grid.RowSpan="2" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
+            Margin="401,-2,15,103" Grid.RowSpan="2" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
         </Button>
 
         <!-- TITLE -->
@@ -75,12 +67,17 @@
             <Label Content="Felhasználók"
                    FontSize="26"
                    FontWeight="Bold"
-                   FontStyle="Italic" Foreground="#FFA09D9D"/>
+                   FontStyle="Italic" 
+                   Foreground="#FFA09D9D"
+                   HorizontalAlignment="Center"/>
+            
             <Label Content="Felhasználó adatok felvétele"
                    FontSize="22"
                    FontWeight="Bold"
                    FontStyle="Italic"
-                   Foreground="#FFA09D9D"/>
+                   Foreground="#FFA09D9D"
+                   HorizontalAlignment="Center"/>
+            
         </StackPanel>
 
         <!-- INPUTS -->
