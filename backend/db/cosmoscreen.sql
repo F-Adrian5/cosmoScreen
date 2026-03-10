@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Már 10. 10:24
+-- Létrehozás ideje: 2026. Már 10. 13:21
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -64,7 +64,24 @@ INSERT INTO `actors` (`id`, `name`) VALUES
 (25, 'Matthew McConaughey'),
 (26, 'Cillian Murphy'),
 (27, 'Adam Sandler'),
-(28, 'Bill Skarsgård');
+(28, 'Bill Skarsgård'),
+(29, 'Jesse Eisenberg'),
+(30, 'Woody Harrelson'),
+(31, 'Timothée Chalamet'),
+(32, 'Robert Downey Jr.'),
+(33, 'Diego Luna'),
+(34, 'Andrew Garfield'),
+(35, 'Arnold Schwarzenegger'),
+(36, 'Tom Cruise'),
+(37, 'Matthew Lillard'),
+(38, 'Cary Elwes'),
+(39, 'Hugh Jackman'),
+(40, 'Shameik Moore'),
+(41, 'Viggo Mortensen'),
+(42, 'Dwayne Johnson'),
+(43, 'Taron Egerton'),
+(44, 'Bradley Cooper'),
+(45, 'Jim Carrey');
 
 -- --------------------------------------------------------
 
@@ -115,7 +132,32 @@ INSERT INTO `actor_in_movie` (`id`, `movie_id`, `actor_id`) VALUES
 (30, 26, 16),
 (31, 27, 17),
 (38, 9, 18),
-(39, 28, 28);
+(39, 28, 28),
+(40, 29, 30),
+(41, 29, 29),
+(42, 29, 6),
+(43, 25, 30),
+(44, 30, 31),
+(45, 31, 32),
+(46, 32, 33),
+(47, 33, 34),
+(48, 34, 35),
+(49, 35, 12),
+(50, 36, 14),
+(51, 37, 36),
+(52, 38, 4),
+(53, 38, 5),
+(54, 39, 34),
+(55, 40, 37),
+(56, 43, 40),
+(57, 44, 41),
+(58, 45, 42),
+(59, 46, 43),
+(60, 46, 22),
+(61, 47, 27),
+(62, 48, 44),
+(63, 49, 36),
+(64, 50, 45);
 
 -- --------------------------------------------------------
 
@@ -191,34 +233,34 @@ CREATE TABLE `movies` (
 --
 
 INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production`, `age_restriction`, `showing_in`, `poster`, `description`, `release_date`) VALUES
-(1, 'A Keresztapa', 'Bűnügyi', 175, 'Francis Ford Coppola', 'Paramount Pictures', 18, 'IMAX', 'godfather.jpg', 'Egy maffiacsalád felemelkedése és bukása.', '1972-03-24'),
-(2, 'A Keresztapa II.', 'Bűnügyi', 202, 'Francis Ford Coppola', 'Paramount Pictures', 18, 'IMAX', 'godfather2.jpg', 'A Corleone család öröksége folytatódik.', '1974-12-20'),
-(3, 'A Sötét Lovag', 'Akció', 152, 'Christopher Nolan', 'Warner Bros.', 16, '4DX', 'dark_knight.jpg', 'Batman szembeszáll a Joker káoszával.', '2008-07-18'),
-(4, 'Ponyvaregény', 'Bűnügyi', 154, 'Quentin Tarantino', 'Miramax', 18, '3D', 'pulp_fiction.jpg', 'Egymásba fonódó bűntörténetek.', '1994-10-14'),
-(5, 'Schindler listája', 'Dráma', 195, 'Steven Spielberg', 'Universal Pictures', 16, '3D', 'schindlers_list.jpg', 'Egy férfi zsidókat ment meg a II. világháborúban.', '1993-12-15'),
-(6, 'Forrest Gump', 'Dráma', 142, 'Robert Zemeckis', 'Paramount Pictures', 12, '3D', 'forrest_gump.jpg', 'Egy egyszerű ember nagy történelmet él meg.', '1994-07-06'),
-(7, 'Eredet', 'Sci-Fi', 148, 'Christopher Nolan', 'Warner', 16, '2D', 'inception.jpg', 'Álmok az álmokban.', '2010-07-16'),
-(8, 'Harcosok klubja', 'Dráma', 139, 'David Fincher', 'Twentieth Century Fox', 18, '3D', 'fight_club.jpg', 'Egy titkos klub káoszba torkollik.', '1999-10-15'),
-(9, 'A Gyűrűk ura: A Gyűrű Szövetsége', 'Fantasy', 178, 'Peter Jackson', 'New Line Cinema', 12, 'SCREENX', 'lotr1.jpg', 'Egy hobbit viszi az elátkozott gyűrűt.', '2001-12-19'),
-(10, 'A Gyűrűk ura: A Két Torony', 'Fantasy', 179, 'Peter Jackson', 'New Line Cinema', 12, 'SCREENX', 'lotr2.jpg', 'A Szövetség tagjai különválnak.', '2002-12-18'),
-(11, 'A Gyűrűk ura: A Király Visszatér', 'Fantasy', 201, 'Peter Jackson', 'New Line Cinema', 12, 'SCREENX', 'lotr3.jpg', 'A végső csata Középföldéért.', '2003-12-17'),
-(12, 'Mátrix', 'Sci-Fi', 136, 'Lana Wachowski / Lilly Wachowski', 'Warner Bros.', 16, '4DX', 'matrix.jpg', 'Egy hacker rájön, hogy a valóság csak illúzió.', '1999-03-31'),
-(13, 'Csillagok háborúja: Egy új remény', 'Sci-Fi', 121, 'George Lucas', 'Lucasfilm', 12, '3D', 'starwars4.jpg', 'Egy farmfiú hőssé válik.', '1977-05-25'),
-(14, 'Csillagok háborúja: A Birodalom visszavág', 'Sci-Fi', 124, 'Irvin Kershner', 'Lucasfilm', 12, '3D', 'starwars5.jpg', 'A lázadás súlyos veszteségeket szenved.', '1980-05-21'),
-(15, 'Csillagok háborúja: A Jedi visszatér', 'Sci-Fi', 131, 'Richard Marquand', 'Lucasfilm', 12, '3D', 'starwars6.jpg', 'A császár végzete közeleg.', '1983-05-25'),
-(16, 'Gladiátor', 'Történelemi', 155, 'Ridley Scott', 'DreamWorks Pictures', 16, '2D', 'gladiator.jpg', 'Egy elárult tábornok bosszút forral.', '2000-05-05'),
-(17, 'Joker', 'Dráma', 122, 'Todd Phillips', 'Warner Bros.', 16, '2D', 'joker.jpg', 'Egy férfi lassan az őrületbe süllyed.', '2019-10-04'),
-(18, 'A bárányok hallgatnak', 'Bűnügyi', 118, 'Jonathan Demme', 'Orion Pictures', 18, '2D', 'silence_lambs.jpg', 'Egy nyomozó sorozatgyilkost üldöz.', '1991-02-14'),
-(19, 'Csillagok között', 'Sci-Fi', 169, 'Christopher Nolan', 'Warner Bros.', 12, 'IMAX', 'interstellar.jpg', 'Az emberiség új otthont keres a csillagok között.', '2014-11-07'),
-(20, 'Oppenheimer', 'Dráma', 180, 'Christopher Nolan', 'Universal Pictures', 16, '3D', 'oppenheimer.jpg', 'Az atombomba megalkotásának története.', '2023-07-21'),
-(21, 'A remény rabjai', 'Dráma', 142, 'Frank Darabont', 'Warner Bros.', 18, '2D', 'shawshank_redemption.jpg', 'Egy ártatlanul elítélt férfi a Shawshank börtönben barátságot köt, és reményt talál a szabadságra.', '1994-09-23'),
-(22, 'Jojo nyuszi', 'Dráma', 108, 'Taika Waititi', 'Twentieth Century Fox', 12, '2D', 'jojo_rabbit.jpg', 'Egy fiatal náci fiú képzeletbeli barátja, Adolf Hitler segítségével fedezi fel az emberiességet és a háború kegyetlenségét.', '2019-10-18'),
-(23, 'Csillagok háborúja: Baljós árnyak', 'Sci-Fi', 136, 'George Lucas', 'Lucasfilm', 12, '3D', 'starwars1.jpg', 'Egy fiatal jedi, Qui-Gon Jinn és tanítványa, Obi-Wan Kenobi megpróbálják megvédeni a Galaktikus Köztársaságot és felfedezik a titokzatos Sith-ek fenyegetését.', '1999-05-19'),
-(24, 'Titkos ablak', 'Thriller', 96, 'David Koepp', 'Columbia Pictures', 16, 'IMAX', 'secret_window.jpg', 'Egy író magánélete felborul, amikor egy titokzatos idegen vádolja plágiummal, és a helyzet egyre veszélyesebbé válik.', '2004-07-16'),
-(25, 'Zombieland', 'Akció', 88, 'Ruben Fleischer', 'Columbia Pictures', 16, '3D', 'zombieland.jpg', 'Egy apokaliptikus zombivilágban túlélők különös társasága próbál életben maradni, miközben humoros kalandokba keverednek.', '2009-10-02'),
-(26, 'Jason Bourne', 'Akció', 123, 'Paul Greengrass', 'Universal Pictures', 16, '2D', 'jason_bourne.jpg', 'Jason Bourne visszatér, hogy felderítse múltja titkait, miközben a CIA üldözi, és életre-halálra menő akciókba keveredik.', '2016-07-29'),
-(27, 'Az egyenlítő', 'Akció', 132, 'Antoine Fuqua', 'Sony Pictures', 18, '3D', 'equalizer.jpg', 'Egy visszavonult ügynök igazságot szolgáltat a gyengékért, miközben szembeszáll a maffiával.\r\n', '2014-09-26'),
-(28, 'It', 'Horror', 135, 'Andy Muschietti', 'New Line Cinema', 18, '3D', 'it.jpg', 'Az Az (It) egy hátborzongató horrorfilm, amelyben egy gyerekeket rettegésben tartó, alakváltó rémség leggyakrabban egy bohóc tér vissza, hogy szembeszálljon egy bátor gyerektársasággal.\r\n', '2017-09-08'),
+(1, 'A Keresztapa', 'Bűnügyi', 175, 'Francis Ford Coppola', 'Paramount Pictures', 18, 'IMAX', 'godfather.jpg', 'Egy szervezett bűnözéssel foglalkozó dinasztia idősödő pátriárkája titkos birodalma feletti irányítást vonakodó fiára ruházza át.', '1972-03-24'),
+(2, 'A Keresztapa II.', 'Bűnügyi', 202, 'Francis Ford Coppola', 'Paramount Pictures', 18, 'IMAX', 'godfather2.jpg', 'Vito Corleone korai életét és karrierjét az 1920-as évek New Yorkjában mutatja be a film, miközben fia, Michael kiterjeszti és szorosabbra fűzi hatalmát a családi bűnszövetkezet felett.', '1974-12-20'),
+(3, 'A Sötét Lovag', 'Akció', 152, 'Christopher Nolan', 'Warner Bros.', 16, '4DX', 'dark_knight.jpg', 'Amikor egy Joker néven ismert fenyegetés káoszt és pusztítást végez Gotham népén, Batmannek, James Gordonnak és Harvey Dentnek együtt kell működniük, hogy véget vessenek az őrületnek.', '2008-07-18'),
+(4, 'Ponyvaregény', 'Bűnügyi', 154, 'Quentin Tarantino', 'Miramax', 18, '3D', 'pulp_fiction.jpg', 'Két maffiabérlő, egy bokszoló, egy gengszter és felesége, valamint két étkezdei bandita élete fonódik össze négy erőszakról és megváltásról szóló történetben.', '1994-10-14'),
+(5, 'Schindler listája', 'Dráma', 195, 'Steven Spielberg', 'Universal Pictures', 16, '3D', 'schindlers_list.jpg', 'A második világháború alatt a németek által megszállt Lengyelországban Oskar Schindler iparmágnás fokozatosan aggódni kezd zsidó munkaerejéért, miután tanúja volt a nácik üldöztetésének.', '1993-12-15'),
+(6, 'Forrest Gump', 'Dráma', 142, 'Robert Zemeckis', 'Paramount Pictures', 12, '3D', 'forrest_gump.jpg', 'Az Egyesült Államok történelme az 1950-es és 70-es évek között egy 75-ös IQ-val rendelkező alabamai férfi szemszögéből bontakozik ki, aki vágyik arra, hogy újra találkozhasson gyerekkori szerelmével.', '1994-07-06'),
+(7, 'Eredet', 'Sci-Fi', 148, 'Christopher Nolan', 'Warner', 16, '2D', 'inception.jpg', 'Egy tolvaj, aki álommegosztó technológia segítségével lop el vállalati titkokat, azzal a fordított feladattal szembesül, hogy egy ötletet ültessen egy vezérigazgató fejébe, de tragikus múltja katasztrófára ítélheti a projektet és csapatát.', '2010-07-16'),
+(8, 'Harcosok klubja', 'Dráma', 139, 'David Fincher', 'Twentieth Century Fox', 18, '3D', 'fight_club.jpg', 'Egy álmatlanságban szenvedő irodai dolgozó és egy ördögtől fogva aggódó szappanfőző egy földalatti verekedős klubot alapít, amely sokkal jobban fejlődik.', '1999-10-15'),
+(9, 'A Gyűrűk ura: A Gyűrű Szövetsége', 'Fantasy', 178, 'Peter Jackson', 'New Line Cinema', 12, 'SCREENX', 'lotr1.jpg', 'Egy szelíd Megyéből származó hobbit és nyolc társa útra kel, hogy elpusztítsa a hatalmas Egy Gyűrűt, és megmentse Középföldét Sauron Sötét Nagyúrtól.', '2001-12-19'),
+(10, 'A Gyűrűk ura: A Két Torony', 'Fantasy', 179, 'Peter Jackson', 'New Line Cinema', 12, 'SCREENX', 'lotr2.jpg', 'Miközben Frodó és Samu a ravasz Gollum segítségével közelebb araszolnak Mordorhoz, a megosztott társaság szembeszáll Sauron új szövetségesével, Szarumánnal és isengardi hordáival.', '2002-12-18'),
+(11, 'A Gyűrűk ura: A Király Visszatér', 'Fantasy', 201, 'Peter Jackson', 'New Line Cinema', 12, 'SCREENX', 'lotr3.jpg', 'Gandalf és Aragorn az Emberek Világát vezetik Sauron serege ellen, hogy eltereljék tekintetét Frodóról és Samről, miközben az Egy Gyűrűvel közelednek a Végzet Hegyéhez.', '2003-12-17'),
+(12, 'Mátrix', 'Sci-Fi', 136, 'Lana Wachowski / Lilly Wachowski', 'Warner Bros.', 16, '4DX', 'matrix.jpg', 'Amikor egy gyönyörű idegen elvezeti a számítógépes hackert, Neót egy félelmetes alvilágba, felfedezi a sokkoló igazságot – az élet, amit ismer, egy gonosz kiberintelligencia bonyolult megtévesztése.', '1999-03-31'),
+(13, 'Csillagok háborúja: Egy új remény', 'Sci-Fi', 121, 'George Lucas', 'Lucasfilm', 12, '3D', 'starwars4.jpg', 'Luke Skywalker egyesíti erőit egy Jedi lovaggal, egy öntelt pilótával, egy wookiee-vel és két droiddal, hogy megmentsék a galaxist a Birodalom világpusztító harci állomásától, miközben megpróbálja megmenteni Leia hercegnőt a titokzatos Darth Vadertől', '1977-05-25'),
+(14, 'Csillagok háborúja: A Birodalom visszavág', 'Sci-Fi', 124, 'Irvin Kershner', 'Lucasfilm', 12, '3D', 'starwars5.jpg', 'Miután a Birodalom legyőzi a Lázadók Szövetségét, Luke Skywalker Yoda Jedi mesterrel kezdi meg a kiképzést, miközben Darth Vader és Boba Fett fejvadász a galaxisban üldözi Luke barátait.', '1980-05-21'),
+(15, 'Csillagok háborúja: A Jedi visszatér', 'Sci-Fi', 131, 'Richard Marquand', 'Lucasfilm', 12, '3D', 'starwars6.jpg', 'Miután megmentik Han Solót Jabba, a Hutt karmai közül, a Lázadók Szövetsége megpróbálja elpusztítani a második Halálcsillagot, miközben Luke küzd, hogy segítsen Darth Vadernek visszatérni a sötét oldalról.', '1983-05-25'),
+(16, 'Gladiátor', 'Történelemi', 155, 'Ridley Scott', 'DreamWorks Pictures', 16, '2D', 'gladiator.jpg', 'Egy korábbi római hadvezér bosszút áll a korrupt császáron, aki meggyilkolta családját és rabszolgasorba küldte őt.', '2000-05-05'),
+(17, 'Joker', 'Dráma', 122, 'Todd Phillips', 'Warner Bros.', 16, '2D', 'joker.jpg', 'Arthur Fleck, egy partibohóc és egy sikertelen stand-up komikus, szegénységben él beteg édesanyjával. Amikor azonban a társadalom elutasítja és különcnek bélyegzi, úgy dönt, hogy Gotham City káoszával teli életét vállalja.', '2019-10-04'),
+(18, 'A bárányok hallgatnak', 'Bűnügyi', 118, 'Jonathan Demme', 'Orion Pictures', 18, '2D', 'silence_lambs.jpg', 'Egy fiatal FBI-kadétnak egy bebörtönzött és manipulatív kannibálgyilkos segítségét kell kérnie, hogy elkapjon egy másik sorozatgyilkost, egy őrültet, aki lenyúzza áldozatait.', '1991-02-14'),
+(19, 'Csillagok között', 'Sci-Fi', 169, 'Christopher Nolan', 'Warner Bros.', 12, 'IMAX', 'interstellar.jpg', 'Amikor a Föld a jövőben lakhatatlanná válik, Joseph Cooper, a farmer és egykori NASA-pilóta feladata egy űrhajó vezénylése egy kutatócsoporttal együtt, hogy új bolygót találjanak az emberek számára.', '2014-11-07'),
+(20, 'Oppenheimer', 'Dráma', 180, 'Christopher Nolan', 'Universal Pictures', 16, '3D', 'oppenheimer.jpg', 'J. Robert Oppenheimer, a második világháborút lezáró atombombák kifejlesztésében nagy szerepet játszó fizikus életének dramatizálása.', '2023-07-21'),
+(21, 'A remény rabjai', 'Dráma', 142, 'Frank Darabont', 'Warner Bros.', 18, '2D', 'shawshank_redemption.jpg', 'Egy uxoricide-ért elítélt bankár negyed évszázadon át barátságot köt egy megrögzött fegyenccsel, miközben ártatlanságát megőrizve az egyszerű együttérzés révén próbál reménykedni.', '1994-09-23'),
+(22, 'Jojo nyuszi', 'Dráma', 108, 'Taika Waititi', 'Twentieth Century Fox', 12, '2D', 'jojo_rabbit.jpg', 'Egy fiatal német fiú a Hitlerjugendből, akinek hőse és képzeletbeli barátja az ország diktátora, megdöbbenve fedezi fel, hogy édesanyja egy zsidó lányt rejteget otthonukban.', '2019-10-18'),
+(23, 'Csillagok háborúja: Baljós árnyak', 'Sci-Fi', 136, 'George Lucas', 'Lucasfilm', 12, '3D', 'starwars1.jpg', 'Két Jedi megszökik egy ellenséges blokádból, hogy szövetségeseket találjon, és egy fiatal fiúra bukkan, aki egyensúlyt hozhat az Erőbe, de a régóta szunnyadó Sith-ek újra felbukkannak, hogy visszaszerezzék korábbi dicsőségüket.\n', '1999-05-19'),
+(24, 'Titkos ablak', 'Thriller', 96, 'David Koepp', 'Columbia Pictures', 16, 'IMAX', 'secret_window.jpg', 'Rejtélyes események sújtanak egy bajba jutott írót, miután egy fenyegető idegen plágiummal vádolja meg.', '2004-07-16'),
+(25, 'Zombieland', 'Akció', 88, 'Ruben Fleischer', 'Columbia Pictures', 16, '3D', 'zombieland.jpg', 'Egy félénk diák, aki Ohioban próbálja elérni családját, egy fegyvert cipelő bandatag, aki az utolsó Twinkie-t keresi, és két nővér, akik egy vidámparkba igyekszenek eljutni, egyesítik erőiket egy zombiktól hemzsegő Amerikában.\n', '2009-10-02'),
+(26, 'Jason Bourne', 'Akció', 123, 'Paul Greengrass', 'Universal Pictures', 16, '2D', 'jason_bourne.jpg', 'A CIA legveszélyesebb egykori ügynökét előcsalogatják rejtekhelyéről, hogy további robbanékony igazságokat fedjen fel múltjával kapcsolatban.\n', '2016-07-29'),
+(27, 'Az egyenlítő', 'Akció', 132, 'Antoine Fuqua', 'Sony Pictures', 18, '3D', 'equalizer.jpg', 'Egy férfi, aki azt hiszi, hogy maga mögött hagyta titokzatos múltját, nem nézheti tétlenül, amikor találkozik egy fiatal lánnyal, akit ultraerőszakos orosz gengszterek irányítanak.', '2014-09-26'),
+(28, 'It', 'Horror', 135, 'Andy Muschietti', 'New Line Cinema', 18, '3D', 'it.jpg', '1989 nyarán egy csapat zaklatott gyerek összefog, hogy elpusztítson egy alakváltó szörnyeteget, amely bohócnak álcázza magát, és Derry, a maine-i kisvárosuk gyermekeire vadászik.', '2017-09-08'),
 (29, 'Szemfényvesztők', 'Thriller', 115, 'Louis Leterrier', 'Summit Entertainment', 12, '3D', 'now_you_see_me.jpg', 'Egy FBI-ügynök és egy Interpol nyomozó egy illuzionista csapatot követ nyomon, akik előadásaik során bankrablásokat hajtanak végre, és a pénzzel jutalmazzák a közönséget.', '2013-05-31'),
 (30, 'Wonka', 'Musical', 116, 'Paul King', 'Warner Bros.', 6, '2D', 'wonka.jpg', 'A fiatal és szegény Willy Wonka arról álmodik, hogy boltot nyit egy csokoládéjáról híres városban, amikor rájön, hogy az iparágat kapzsi csokoládékészítők kartellje irányítja.', '2023-12-15'),
 (31, 'Vasember', 'Akció', 126, 'Jon Favreau', 'Marvel Studios', 12, '3D', 'ironman.jpg', 'Miután fogságba ejtették egy afgán barlangban, Tony Stark milliárdos mérnök egy egyedi, fegyverré alakított páncélt hoz létre, hogy felvegye a harcot a gonosz ellen.', '2008-05-02'),
@@ -252,36 +294,64 @@ CREATE TABLE `movie_screening` (
   `id` int(11) NOT NULL,
   `movie_id` int(11) DEFAULT NULL,
   `room_id` int(11) NOT NULL,
-  `language` varchar(50) NOT NULL,
-  `start` varchar(5) NOT NULL,
-  `end` varchar(5) NOT NULL
+  `language` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- A tábla adatainak kiíratása `movie_screening`
 --
 
-INSERT INTO `movie_screening` (`id`, `movie_id`, `room_id`, `language`, `start`, `end`) VALUES
-(1, 1, 1, 'English', '18:00', '21:00'),
-(2, 2, 2, 'English', '20:00', '23:20'),
-(3, 3, 1, 'English', '17:00', '19:30'),
-(4, 4, 2, 'English', '19:00', '21:30'),
-(5, 5, 1, 'English', '15:00', '18:00'),
-(6, 6, 2, 'English', '14:00', '16:30'),
-(7, 7, 1, 'English', '18:00', '20:30'),
-(8, 8, 2, 'English', '21:00', '23:20'),
-(9, 9, 1, 'English', '13:00', '16:00'),
-(10, 10, 2, 'English', '16:30', '19:30'),
-(11, 11, 1, 'English', '20:00', '23:20'),
-(12, 12, 2, 'English', '18:00', '20:20'),
-(13, 13, 1, 'English', '12:00', '14:10'),
-(14, 14, 2, 'English', '14:30', '16:40'),
-(15, 15, 1, 'English', '17:00', '19:10'),
-(16, 16, 2, 'English', '20:00', '23:00'),
-(17, 17, 1, 'English', '19:00', '21:10'),
-(18, 18, 2, 'English', '21:00', '23:00'),
-(19, 19, 1, 'English', '15:00', '17:50'),
-(20, 20, 2, 'English', '18:00', '21:00');
+INSERT INTO `movie_screening` (`id`, `movie_id`, `room_id`, `language`) VALUES
+(1, 1, 1, 'English'),
+(2, 2, 2, 'English'),
+(3, 3, 1, 'English'),
+(4, 4, 2, 'English'),
+(5, 5, 1, 'English'),
+(6, 6, 2, 'English'),
+(7, 7, 1, 'English'),
+(8, 8, 2, 'English'),
+(9, 9, 1, 'English'),
+(10, 10, 2, 'English'),
+(11, 11, 1, 'English'),
+(12, 12, 2, 'English'),
+(13, 13, 1, 'English'),
+(14, 14, 2, 'English'),
+(15, 15, 1, 'English'),
+(16, 16, 2, 'English'),
+(17, 17, 1, 'English'),
+(18, 18, 2, 'English'),
+(19, 19, 1, 'English'),
+(20, 20, 2, 'English'),
+(21, 21, 1, 'Magyar'),
+(22, 22, 2, 'Magyar'),
+(23, 23, 1, 'Magyar'),
+(24, 24, 2, 'English'),
+(25, 25, 1, 'Magyar'),
+(26, 26, 2, 'Magyar'),
+(27, 27, 1, 'Magyar'),
+(28, 28, 2, 'Magyar'),
+(29, 29, 1, 'Magyar'),
+(30, 30, 2, 'English'),
+(31, 31, 1, 'Magyar'),
+(32, 32, 2, 'Magyar'),
+(33, 33, 1, 'Magyar'),
+(34, 34, 2, 'Magyar'),
+(35, 35, 1, 'Magyar'),
+(36, 36, 2, 'Magyar'),
+(37, 37, 1, 'Magyar'),
+(38, 38, 2, 'Magyar'),
+(39, 39, 1, 'Magyar'),
+(40, 40, 2, 'English'),
+(41, 41, 1, 'Magyar'),
+(42, 42, 2, 'English'),
+(43, 43, 1, 'Magyar'),
+(44, 44, 2, 'Magyar'),
+(45, 45, 1, 'Magyar'),
+(46, 46, 2, 'Magyar'),
+(47, 47, 1, 'Magyar'),
+(48, 48, 2, 'Magyar'),
+(49, 49, 1, 'Magyar'),
+(50, 50, 2, 'English');
 
 -- --------------------------------------------------------
 
@@ -487,7 +557,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `admin`) VALUES
 (1, 'admin', 'admin@gmail.com', 'Admin_1234', 1),
 (2, 'Anna Kovács', 'annakovacs@freemail.hu', 'Anna_K2025', 0),
-(3, 'Bence Tóth', 'bencetoth@gmail.com', 'BenT_85x', 0),
+(3, 'Bence Tóth', 'bencetoth@gmail.com', 'BenT_86x', 0),
 (4, 'Csilla Horváth', 'csillahorvath@citromail.hu', 'Csilla-H91', 0),
 (5, 'Dávid Kiss', 'davidkiss@outlook.com', 'Dk:Pass2023', 0),
 (6, 'Eszter Farkas', 'eszter_farkas@protonmail.com', 'EszF_77a', 0),
@@ -591,13 +661,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `actors`
 --
 ALTER TABLE `actors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT a táblához `actor_in_movie`
 --
 ALTER TABLE `actor_in_movie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT a táblához `buffet`
@@ -615,7 +685,7 @@ ALTER TABLE `movies`
 -- AUTO_INCREMENT a táblához `movie_screening`
 --
 ALTER TABLE `movie_screening`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT a táblához `reservation`

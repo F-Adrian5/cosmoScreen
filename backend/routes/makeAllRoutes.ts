@@ -23,7 +23,7 @@ const getData = [
   },
   { 
     url: '/getMovies', 
-    query: 'SELECT id, title, genre, runtime, director, production, age_restriction, poster, trailer, description, release_date FROM movies' 
+    query: 'SELECT id, title, genre, runtime, director, production, age_restriction, poster, description, release_date FROM movies' 
   },
   { 
     url: '/getActorInMovie', 
