@@ -1,210 +1,129 @@
 import type { Movie } from "@/types/Movie";
 
+/** shuffles a given array. By copying the given array than sorting and randomizing it
+ * @param {Array} array gets an array to shuffle
+ * @returns {Array} an array that is shuffeled
+ */
+function shuffle (array:any): any {
+  return [...array].sort(() => Math.random() - 0.5);
+}
+
+/** This function will make the runtime to hours and minutes
+ * @param {number} runtime a number that refers to the number of minutes, that a film is played 
+ * @returns {string} the time of the screening: 02:05, 11:11, 15:15
+ */
+function runtimeToTime(runtime: number): string {
+
+  // declaring variables
+  // counting the hours and minutes
+  const hours = Math.floor(runtime / 60);
+  const minutes = runtime % 60;
+
+  // returns the time in string
+  return `${hours >= 10 ? hours : '0' + hours}:${minutes >= 10 ? minutes : '0' + minutes }`
+}
+
+/** This will 
+ * @param {Movie} movies 
+ * @returns 
+ */
+function generateTimes(movies: Movie[]) {
+
+  let openingTime = 8 * 60,
+      closingTime = 23 * 60 + 30,
+      breaksBetweenFilms = 15,
+      current = openingTime;
+
+  const scheduledMovies: Movie[] = [];
+
+  for (const movie of movies) {
+
+    let runtime = movie.runtime;
+
+    if (!(current + runtime > closingTime)) {
+      const start = current,
+            end = current + runtime;
+
+      movie.start = runtimeToTime(start);
+      movie.end = runtimeToTime(end);
+
+      scheduledMovies.push(movie);
+
+      current = end + breaksBetweenFilms;
+    } else {
+      break;
+    }
+
+
+  }
+  return scheduledMovies;
+}
+
 /**
- * This function takes the movies and assigns a random day to each movie
+ * This function...
  * @param {Movie} movieList, takes the movies as a type
  * @param {string[]} days, takes the days
  * @returns {Movie} 
  */
 export function createScreeningDays(movieList: Movie[], days: string[]) {
-  
-  let week: Record<string, Movie[]> = {},
-      currentDay:any,
-      modifiedMovieList = movieList,
-      currentFilm:any;
 
-  for (let i = 0; i < days.length; i++) {
-    week[days[i]!] = [];    
+  const MIN_PER_DAY = 5;
+
+  const week: Record<string, Movie[]> = {};
+
+  for (const day of days) {
+    week[day] = [];
   }
 
-  console.log(week);
+  const movies = shuffle(movieList);
 
-  // creating the random days and assigning them to the movies
-  for (let day = 0; day < days.length; day++) {
-    currentDay = days[day]
+  let index = 0;
 
-    for (let i = 0; i < modifiedMovieList.length; i++) {
-      currentFilm = movieList[i];
-      
-      if (week[currentDay]?.length == 0) {
-        week[currentDay]?.push(currentFilm);
-        // modifiedMovieList.filter((element, index)=>{
+  /**
+   * minimum films per day
+   */
+  for (const day of days) {
 
-        // })
-      }
+    for (let i = 0; i < MIN_PER_DAY; i++) {
 
-      break;
+      if (!movies[index]) break;
+
+      week[day]!.push(movies[index]!);
+
+      index++;
+
     }
 
-    // kiszelektál egy random napot -> egy forral át kell menni
-    // a mondjuk hétfőn és ott idő rendi sorrendbe rakni,
-    // Ha 2 film ütközik akkor az egyiket kivesszük és átrakjuk egy
-    // másik listába, mikor végig mentünk az összes napon akkor
-    // megnézzük melyik filmeket nem tudtunk elhelyezni és átmegyünk 
-    // azon a listán és (valahogy) megpróbáljuk beilleszteni 
-    // (megnézzük hogy az adott napban valamelyik film bele illeszthető e)
-    // ha igen beleillesszük, ha nem akkor megyünk tövább
-    // --------------------------------------------------------
-    // Mi lesz ha 2 filmet is be tudunk illeszteni? -> akkor félretesszük
-    // öket és majd a végén megnézzük hogy melyik hova a legjobb fit.
-    // Ha van olyan film amit nem tudunk sehova sem elhelyezni akkor azt
-    // csak a consolra kiirjuk, hogy tudja a fejlesztő
-    // -> !Minimum 5 film legyen egy nap, ne legyen az 
-    // hogy 1 nap 40 film van és a többinél meg alig
-    // -------------------------------------------------------
-    // Napok feltöltése: elsőnek minden napot feltöltök a minimum filmmel
-    // - utánna meg amennyi film marad azt helyesen feltöltöm
-    // ------------------A legnagyobb logikai gubanc-----------
-    // most: Először random → majd javítgatjuk
-    // helyes: Először szabály → azon belül random
-    // optimalizálás fontossága: Egyenletes napi eloszlás? Időütközésmentesség?
-    // -------------Konkrét logikai problémák a kommented alapján---------
-    // > Ha kevés a film, ez matematikailag lehetetlen lehet.
-    // - Meg kell nézni hogy az összes film amit vetitünk azt ha a napokkal
-    //   elosztom akkor az több e mint 5, ha nem akkor a filmeket osztom
-    //   a napokkal és ha mondjuk 3.85 jön ki akkor a minimum 3 legyen,
-    //   a maradék meg random megy be, néha 4 néha 3 film lesz.
-    // > 
-    /* 2. Utólagos beillesztés komplexitása
-       3. „Ha nem tudjuk elhelyezni, kiírjuk console-ra”
-            Logikailag az azt jelenti:
-            → az algoritmus nem garantál megoldást
-            Ez productionben veszélyes lehet.
-
-            9️⃣ Összegzés
-          
-        A gondolkodásod jó irány:
-          
-        ✔ külön lista ütközőknek
-        ✔ több körös beillesztés
-        ✔ fallback kezelés
-        ✔ minimum constraint
-          
-        De:
-          
-        ⚠️ a random → majd javítjuk modell instabil
-        ⚠️ minimum constraint jelenleg nem garantált
-        ⚠️ több jó fit kezelése kombinatorikusan robbanhat
-        ⚠️ könnyen nagyon komplex és nehezen debugolható lesz
-
-
-    🧩 Egyszerű stabil modell
-
-    Idő szerint rendez
-
-    Filmről filmre halad
-
-    Megnézed hova fér
-
-    Random választás a valid napok közül
-
-    Ha nincs valid nap → külön lista
-
-    Ez:
-
-    determinisztikus szerkezet
-
-    randomizált döntés
-
-    nem robban exponenciálisan
-
-    debugolható
-
-    jó szóval azt kellene hogy a napokon sorba haladunk és random választunk egy filmet és megnézzük hogy abba az időintervallumba befér e ha nem akkor eltároljuk egy másik változóban és sorsolunk ujjat addig mig minimum 5 film be nem ment a hetfőbe, utánna megállunk, és átmegyünk a keddre, amit eddig nem sikerült berakni azon megyünk át elősször, ha valamit ott ujra nem lehet akkor marad a változóban, ha még nincs meg az 5 film akkor az elérhető filmekből még rakunk bele. Ha H-V-ig megvagyunk és még vannak elérhető filmek akkor ujra vissza megyünk a hétfőre és ott egy filmet berakunk, majd megyünk a keddre , ha nem lehet egy filmet behelyezni akkor eltároljuk máshol és amikor szerdára megyunk akkor azonnal vele kezdünk és ez igy megy tovább. Ez jó?Az a baj hogy itt is lehet végtelen hibakazelés. Vagy megadom hogy 5 ször futthat le és utánna hadja , vagy ezt valamilyen változóban checkelni.
-
-    */
-
-    // !. means that the programmer knows that the value won't be null!
-    // movieList[i]!.screeningDay = randomDay;
   }
 
-  console.log(week)
+  /**
+   * remaining movies
+   */
+  while (index < movies.length) {
 
-  // returning the random movieList
-  // return movieList;
+    const randomDay = days[Math.floor(Math.random() * days.length)]!;
+
+    week[randomDay]!.push(movies[index]!);
+
+    index++;
+
+  }
+
+  /**
+   * generate times
+   */
+  for (const day of days) {
+
+    const scheduled = generateTimes(week[day]!);
+
+    for (const movie of scheduled) {
+      movie.screeningDay = day;
+    }
+
+    week[day] = scheduled;
+
+  }
+
+  return week;
+
 }
-
-
-
-//--------------------------------------------
-
-// NOT WORKING, semi good
-// export function createScreeningDays(movieList: Movie[],days: string[]) {
-//   const shuffledDays = shuffleArray(days);
-//   for (let i = 0; i < movieList.length; i++) {
-
-//     let currentMovie = movieList[i];
-//     let dayFound = false;
-
-//     // végigmegyünk az összes napon
-//     for (let d = 0; d < shuffledDays.length; d++) {
-
-//       let currentDay = shuffledDays[d];
-//       let conflictFound = false;
-
-//       // megnézzük az összes többi filmet
-//       for (let j = 0; j < movieList.length; j++) {
-
-//         let otherMovie = movieList[j];
-
-//         // ne önmagát hasonlítsa
-//         if (i === j) continue;
-
-//         // csak akkor érdekes ha:
-//         // - ugyanaz a terem
-//         // - már kapott napot
-//         if (
-//           otherMovie?.room_id === currentMovie?.room_id &&
-//           otherMovie?.screeningDay === currentDay
-//         ) {
-
-//           // idő ütközés ellenőrzés
-//           if (timesOverlap(currentMovie!, otherMovie!)) {
-//             conflictFound = true;
-//             break;
-//           }
-//         }
-//       }
-
-//       // ha nem találtunk konfliktust, jó ez a nap
-//       if (!conflictFound) {
-//         currentMovie!.screeningDay = currentDay;
-//         dayFound = true;
-//         break;
-//       }
-//     }
-
-//     if (!dayFound) {
-//       console.log("Nem találtunk megfelelő napot:", currentMovie?.movie_title);
-//     }
-//   }
-
-//   return movieList;
-// }
-
-// function shuffleArray<T>(array: T[]): T[] {
-//   return [...array].sort(() => Math.random() - 0.5);
-// }
-
-// function timesOverlap(a: Movie, b: Movie): boolean {
-
-//   const aStart = convertToMinutes(a.start);
-//   const aEnd = convertToMinutes(a.end);
-
-//   const bStart = convertToMinutes(b.start);
-//   const bEnd = convertToMinutes(b.end);
-
-//   if (aStart < bEnd && bStart < aEnd) {
-//     return true;
-//   }
-
-//   return false;
-// }
-
-// function convertToMinutes(time: string): number {
-//   let parts = time.split(':');
-//   let hours = Number(parts[0]);
-//   let minutes = Number(parts[1]);
-
-//   return hours * 60 + minutes;
-// }

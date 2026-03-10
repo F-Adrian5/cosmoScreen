@@ -5,12 +5,13 @@ export interface Movie {
   movie_title: string;
   genre: string;
   runtime: number;
-  start: string;
-  end: string;
   showing_in: string;
   language: string;
   room_id: number;
-  screeningDay?: string; // Optional, not all movies interface will have a value for this one
+
+  start?: string;
+  end?: string;
+  screeningDay?: string;
 }
 
 export interface CarouselMovie {

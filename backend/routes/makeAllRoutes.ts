@@ -31,7 +31,7 @@ const getData = [
   },
   { 
     url: '/getMovieScreening', 
-    query: 'SELECT `id`,`movie_id`,`room_id`,`language`,`start`,`end` FROM `movie_screening`' 
+    query: 'SELECT `id`,`movie_id`,`room_id`,`language` FROM `movie_screening`' 
   },
   { 
     url: '/getReservation', 

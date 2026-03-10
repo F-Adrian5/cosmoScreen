@@ -5,74 +5,60 @@ import { createScreeningDays } from "@/utils/programListHelper";
 
 export function useFilter() {
 
-  // declaring the variables that the function will use
   const movies = ref<Movie[]>([]),
         allMovies = ref<Movie[]>([]),
         genres = ref<string[]>([]),
-        days = ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"];
+        days = [ "Hétfő", "Kedd", "Szerda", "Csütörtök",
+                 "Péntek", "Szombat", "Vasárnap"];
 
-  /** filter function
-   * @param {string} day
-   * @param {string} genre
+  /**
+   * filter function
    */
   function filter(day: string = "Hétfő", genre: string = "all") {
-    console.log(day, genre);
-    let filteredMovies = [];
 
-    // if there is a selected genre
-    if (genre != "all" && day) {
+    const filtered = allMovies.value.filter(movie => {
 
-      // iterating through all the movies and finding those who mach the genre and the given day
-      for (let i = 0; i < allMovies.value.length; i++) {
-        if ( allMovies.value[i]?.genre == genre &&
-             allMovies.value[i]?.screeningDay == day) {
+      const dayMatch = movie.screeningDay === day;
+      const genreMatch = genre === "all" || movie.genre === genre;
 
-          // pushing the values of the correct item to the filteredMovies
-          filteredMovies.push(allMovies.value[i]);
-        }
-      }
-      
-      // setting the main DOM movies value to the filtered one
-      movies.value = JSON.parse(JSON.stringify(filteredMovies));
-    } else {
+      return dayMatch && genreMatch;
 
-      // iterating through all the movies and finding those who mach the given day
-      for (let i = 0; i < allMovies.value.length; i++) {
-        if (allMovies.value[i]?.screeningDay == day) {
+    });
 
-          // pushing the values of the correct item to the filteredMovies
-          filteredMovies.push(allMovies.value[i])
-        }
-        
-        // setting the main DOM movies value to the filtered one
-        movies.value = JSON.parse(JSON.stringify(filteredMovies));
-      }
-    }
+    movies.value = filtered;
+
   }
 
-  // fetching the data
+  /**
+   * load data
+   */
   const loadData = async () => {
 
-    // getting the programs
     const rawMovies = await movieService.getPrograms();
-    
-    // setting values
-    movies.value = rawMovies;
-    allMovies.value = rawMovies;
-    
-    // creating the random days
-    createScreeningDays(allMovies.value, days);
-  
-    // getting the genres
-    const rawGenres = await movieService.getGenres();
-    
-    // filling the genres with the api data
-    for (let i = 0; i < rawGenres.length; i++) {
-      genres.value.push(rawGenres[i].genre);
+
+    const week = createScreeningDays(rawMovies, days);
+
+    const flattened: Movie[] = [];
+
+    for (const day of days) {
+
+      for (const movie of week[day]!) {
+
+        flattened.push(movie);
+
+      }
+
     }
+
+    allMovies.value = flattened;
+    movies.value = flattened;
+
+    const rawGenres = await movieService.getGenres();
+
+    genres.value = rawGenres.map((g: any) => g.genre);
+
   };
 
-  // exporting what the programList.vue will need
   return {
     movies,
     allMovies,
