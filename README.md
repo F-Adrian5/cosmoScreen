@@ -5,7 +5,7 @@
 ---
 
 ## Projekt áttekintés
-A **CosmoScreen WPF** a weboldal adminisztratív felülete, amely lehetővé teszi az adatok kezelését és karbantartását.
+A **CosmoScreen WPF** a weboldal Adminisztratív felülete, amely lehetővé teszi az adatok megtekintését, feltöltését, módosítását és törlését.
 
 ---
 
@@ -15,7 +15,7 @@ A **CosmoScreen WPF** a weboldal adminisztratív felülete, amely lehetővé tes
   - Büfé
   - Filmek
   - Színészek
-- **Installer**: A későbbiekben elérhető lesz, amivel egyszerűen telepíthető a szoftver. A letöltés és telepítés csak adminisztrátorok számára engedélyezett.
+- **Installer**: Elérhető, a telepítési útmutató a "Projekt telepítése és elindítása" cím alatt található! A bejelentkezés csak is Adminisztrátorok számára engedélyezett.
 
 ---
 
@@ -24,7 +24,7 @@ A **CosmoScreen WPF** a weboldal adminisztratív felülete, amely lehetővé tes
 | Szerep | Név |
 |--------|-----|
 | **Projektvezető** | Fodor Adrián László |
-| **Tagok** | Kriván Balázs, Fodor Adrián László |
+| **Projekt tag** | Kriván Balázs |
 
 ---
 
