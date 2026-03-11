@@ -23,107 +23,128 @@ function runtimeToTime(runtime: number): string {
   return `${hours >= 10 ? hours : '0' + hours}:${minutes >= 10 ? minutes : '0' + minutes }`
 }
 
-/** This will 
- * @param {Movie} movies 
- * @returns 
+/** This will schedule the movies for a given day
+ * @param {Movie} movies takes in the movies that we want to schedule
+ * @returns {Movie} the list of the movies that can be shown without any time conflict
  */
-function generateTimes(movies: Movie[]) {
+function generateTimes(movies: Movie[]): Movie {
 
+  // setting variables
   let openingTime = 8 * 60,
       closingTime = 23 * 60 + 30,
       breaksBetweenFilms = 15,
       current = openingTime;
 
-  const scheduledMovies: Movie[] = [];
+  // creating a var that will store all the scheduled movies
+  const scheduledMovies:any = [];
 
+  // going through the movies
   for (const movie of movies) {
 
     let runtime = movie.runtime;
 
+    // checking if when the film ends, we will be open
     if (!(current + runtime > closingTime)) {
+
+      // if yes -> setting some variables
       const start = current,
             end = current + runtime;
 
+      // calculating the time for the start and end
       movie.start = runtimeToTime(start);
       movie.end = runtimeToTime(end);
 
+      // pushing the movie to the scheduled list
       scheduledMovies.push(movie);
 
+      // setting the current time to the films end + the break
       current = end + breaksBetweenFilms;
     } else {
+
+      // if no, than the cycle will break, exit.
       break;
     }
-
-
   }
+
+  // The function will return a list of the movies that can be shown on a given day
   return scheduledMovies;
 }
 
 /**
- * This function...
- * @param {Movie} movieList, takes the movies as a type
+ * This function will create a cheduled week with every day having at least 5 films
+ * if there are some left than it will randomly assing it to a day.
+ * This function will also take runtime into a count so we dont have any timing conflicts
+ * @param {Movie} movieList, takes the movies
  * @param {string[]} days, takes the days
- * @returns {Movie} 
+ * @returns {Movie} the scheduled week
  */
 export function createScreeningDays(movieList: Movie[], days: string[]) {
 
-  const MIN_PER_DAY = 5;
+  // declaring the minimum films per day
+  // creating a week, that has a "object" type
+  // Record<keyType, valueType> -> its like an object, but you can set the key-value type
+  const minNumFilmPerDay = 5,
+        week: Record<string, Movie[]> = {},
+        movies = shuffle(movieList); // shuffles the list
 
-  const week: Record<string, Movie[]> = {};
-
-  for (const day of days) {
-    week[day] = [];
-  }
-
-  const movies = shuffle(movieList);
-
+  // declaring a helper index
   let index = 0;
 
-  /**
-   * minimum films per day
-   */
+  // going through all of the days
   for (const day of days) {
 
-    for (let i = 0; i < MIN_PER_DAY; i++) {
+    // each day we set an empthy list to that specific day
+    week[day] = [];
 
-      if (!movies[index]) break;
+    // This for will run as many times as the min num. of films is reached
+    for (let i = 0; i < minNumFilmPerDay; i++) {
+      
+      // if we still have a movie
+      if (movies[index]) {
 
-      week[day]!.push(movies[index]!);
+        // than we ensoure our program that the week[day] cant be null
+        // and we set the value
+        week[day]!.push(movies[index]!);
 
-      index++;
+        // than we increment the index to prevent giving the same movie
+        index++;
+      } else {
 
+        // if we dont have any movies left than we break out of the cycle
+        break;
+      }
     }
-
   }
 
-  /**
-   * remaining movies
-   */
+  // if we still have movies to set
   while (index < movies.length) {
 
+    // we select a random day
     const randomDay = days[Math.floor(Math.random() * days.length)]!;
 
+    // that random day cant be null, so we push the movie data to it.
     week[randomDay]!.push(movies[index]!);
 
+    // than we increment the index to prevent giving the same movie
     index++;
-
   }
 
-  /**
-   * generate times
-   */
+  // we go through all the days
   for (const day of days) {
 
-    const scheduled = generateTimes(week[day]!);
+    // select a day and generate the time for the screening
+    const scheduled:any = generateTimes(week[day]!);
 
+    // setting the screeningDay's value to the current day for all of our films
     for (const movie of scheduled) {
       movie.screeningDay = day;
     }
 
+    // setting that week's day to the scheduled movie screening time list
     week[day] = scheduled;
-
   }
 
+  // in the end we return the week, that will determine 
+  // each day what we will show and at what time
   return week;
-
 }
