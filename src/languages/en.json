@@ -44,7 +44,8 @@
     "noAccountReg": "If you don't have an account yet ",
     "registerLink": "register",
     "emailError":"Invalid email format",
-    "passwordError":"Minimum 6 characters, uppercase letter, number, special character"
+    "passwordError":"Minimum 6 characters, uppercase letter, number, special character",
+    "forgottenPassword":"Forgot your password?"
   },
   "registerPage":{
     "registerTitle": "Registration",

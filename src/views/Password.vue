@@ -85,7 +85,7 @@
           <!--Cancel Button-->
           <button type="button" 
                   class="btn btn-danger w-100 fw-semibold"
-                  @click="goToPage('/profile')">
+                  @click="goToPage(auth.user ? '/profile' : '/login')">
             {{ $t('passwordPage.cancelButton') }}
           </button>
         </div>
@@ -115,11 +115,10 @@
 
     //Initialize router
     const router = useRouter();
+    const auth = useAuthStore();
 
     //Update function
     async function updatePassword() {
-
-      const auth = useAuthStore();
 
       try {
 

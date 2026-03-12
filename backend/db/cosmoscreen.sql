@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 11, 2026 at 10:43 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Gép: 127.0.0.1
+-- Létrehozás ideje: 2026. Már 12. 13:06
+-- Kiszolgáló verziója: 10.4.32-MariaDB
+-- PHP verzió: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,75 +18,76 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cosmoscreen`
+-- Adatbázis: `cosmoscreen`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `actors`
+-- Tábla szerkezet ehhez a táblához `actors`
 --
 
 CREATE TABLE `actors` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL
+  `name` varchar(100) NOT NULL,
+  `info_link` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `actors`
+-- A tábla adatainak kiíratása `actors`
 --
 
-INSERT INTO `actors` (`id`, `name`) VALUES
-(1, 'Marlon Brando'),
-(2, 'Al Pacino'),
-(3, 'Robert De Niro'),
-(4, 'Leonardo DiCaprio'),
-(5, 'Tom Hanks'),
-(6, 'Morgan Freeman'),
-(7, 'Christian Bale'),
-(8, 'Heath Ledger'),
-(9, 'Scarlett Johansson'),
-(10, 'Brad Pitt'),
-(11, 'Natalie Portman'),
-(12, 'Keanu Reeves'),
-(13, 'Harrison Ford'),
-(14, 'Johnny Depp'),
-(15, 'Emma Stone'),
-(16, 'Matt Damon'),
-(17, 'Denzel Washington'),
-(18, 'Cate Blanchett'),
-(19, 'Anthony Hopkins'),
-(20, 'Joaquin Phoenix'),
-(21, 'John Travolta'),
-(22, 'Samuel L. Jackson'),
-(23, 'Liam Neeson'),
-(24, 'Elijah Wood'),
-(25, 'Matthew McConaughey'),
-(26, 'Cillian Murphy'),
-(27, 'Adam Sandler'),
-(28, 'Bill Skarsgård'),
-(29, 'Jesse Eisenberg'),
-(30, 'Woody Harrelson'),
-(31, 'Timothée Chalamet'),
-(32, 'Robert Downey Jr.'),
-(33, 'Diego Luna'),
-(34, 'Andrew Garfield'),
-(35, 'Arnold Schwarzenegger'),
-(36, 'Tom Cruise'),
-(37, 'Matthew Lillard'),
-(38, 'Cary Elwes'),
-(39, 'Hugh Jackman'),
-(40, 'Shameik Moore'),
-(41, 'Viggo Mortensen'),
-(42, 'Dwayne Johnson'),
-(43, 'Taron Egerton'),
-(44, 'Bradley Cooper'),
-(45, 'Jim Carrey');
+INSERT INTO `actors` (`id`, `name`, `info_link`) VALUES
+(1, 'Marlon Brando', 'https://www.imdb.com/name/nm0000008/?ref_=nv_sr_srsg_7_tt_0_nm_8_in_0_q_marlo'),
+(2, 'Al Pacino', 'https://www.imdb.com/name/nm0000199/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_al%20'),
+(3, 'Robert De Niro', 'https://www.imdb.com/name/nm0000134/?ref_=nv_sr_srsg_8_tt_0_nm_8_in_0_q_rober'),
+(4, 'Leonardo DiCaprio', 'https://www.imdb.com/name/nm0000138/?ref_=nv_sr_srsg_4_tt_1_nm_6_in_0_q_leo'),
+(5, 'Tom Hanks', 'https://www.imdb.com/name/nm0000158/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_tom%20h'),
+(6, 'Morgan Freeman', 'https://www.imdb.com/name/nm0000151/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_morga'),
+(7, 'Christian Bale', 'https://www.imdb.com/name/nm0000288/?ref_=nv_sr_srsg_1_tt_0_nm_7_in_0_q_chri'),
+(8, 'Heath Ledger', 'https://www.imdb.com/name/nm0005132/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_heath'),
+(9, 'Scarlett Johansson', 'https://www.imdb.com/name/nm0424060/?ref_=nv_sr_srsg_1_tt_1_nm_6_in_0_q_scarl'),
+(10, 'Brad Pitt', 'https://www.imdb.com/name/nm0000093/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_brad'),
+(11, 'Natalie Portman', 'https://www.imdb.com/name/nm0000204/?ref_=nv_sr_srsg_1_tt_1_nm_6_in_0_q_natali'),
+(12, 'Keanu Reeves', 'https://www.imdb.com/name/nm0000206/?ref_=nv_sr_srsg_1_tt_0_nm_7_in_0_q_kea'),
+(13, 'Harrison Ford', 'https://www.imdb.com/name/nm0000148/?ref_=nv_sr_srsg_0_tt_2_nm_6_in_0_q_harr'),
+(14, 'Johnny Depp', 'https://www.imdb.com/name/nm0000136/?ref_=nv_sr_srsg_6_tt_0_nm_8_in_0_q_joh'),
+(15, 'Emma Stone', 'https://www.imdb.com/name/nm1297015/?ref_=nv_sr_srsg_2_tt_1_nm_5_in_0_q_emma'),
+(16, 'Matt Damon', 'https://www.imdb.com/name/nm0000354/?ref_=nv_sr_srsg_3_tt_0_nm_8_in_0_q_matt'),
+(17, 'Denzel Washington', 'https://www.imdb.com/name/nm0000243/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_denz'),
+(18, 'Cate Blanchett', 'https://www.imdb.com/name/nm0000949/?ref_=nv_sr_srsg_1_tt_0_nm_7_in_0_q_cate'),
+(19, 'Anthony Hopkins', 'https://www.imdb.com/name/nm0000164/?ref_=nv_sr_srsg_6_tt_0_nm_8_in_0_q_antho'),
+(20, 'Joaquin Phoenix', 'https://www.imdb.com/name/nm0001618/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_joaq'),
+(21, 'John Travolta', 'https://www.imdb.com/name/nm0000237/?ref_=nv_sr_srsg_0_tt_1_nm_7_in_0_q_john%20tr'),
+(22, 'Samuel L. Jackson', 'https://www.imdb.com/name/nm0000168/?ref_=nv_sr_srsg_3_tt_0_nm_8_in_0_q_samuel'),
+(23, 'Liam Neeson', 'https://www.imdb.com/name/nm0000553/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_liam'),
+(24, 'Elijah Wood', 'https://www.imdb.com/name/nm0000704/?ref_=nv_sr_srsg_1_tt_0_nm_7_in_0_q_elij'),
+(25, 'Matthew McConaughey', 'https://www.imdb.com/name/nm0000190/?ref_=nv_sr_srsg_3_tt_0_nm_8_in_0_q_matthew'),
+(26, 'Cillian Murphy', 'https://www.imdb.com/name/nm0614165/?ref_=nv_sr_srsg_1_tt_0_nm_7_in_0_q_cilian'),
+(27, 'Adam Sandler', 'https://www.imdb.com/name/nm0001191/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_adam'),
+(28, 'Bill Skarsgård', 'https://www.imdb.com/name/nm0803889/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_bill'),
+(29, 'Jesse Eisenberg', 'https://www.imdb.com/name/nm0251986/?ref_=nv_sr_srsg_0_tt_1_nm_7_in_0_q_jesse%20e'),
+(30, 'Woody Harrelson', 'https://www.imdb.com/name/nm0000437/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_woody'),
+(31, 'Timothée Chalamet', 'https://www.imdb.com/name/nm3154303/?ref_=nv_sr_srsg_2_tt_0_nm_6_in_0_q_timot'),
+(32, 'Robert Downey Jr.', 'https://www.imdb.com/name/nm0000375/?ref_=nv_sr_srsg_6_tt_0_nm_8_in_0_q_robert%20d'),
+(33, 'Diego Luna', 'https://www.imdb.com/name/nm0526019/?ref_=nv_sr_srsg_0_tt_1_nm_7_in_0_q_diego'),
+(34, 'Andrew Garfield', 'https://www.imdb.com/name/nm1940449/?ref_=nv_sr_srsg_3_tt_0_nm_8_in_0_q_andrew'),
+(35, 'Arnold Schwarzenegger', 'https://www.imdb.com/name/nm0000216/?ref_=nv_sr_srsg_1_tt_1_nm_6_in_0_q_arnold'),
+(36, 'Tom Cruise', 'https://www.imdb.com/name/nm0000129/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_tom'),
+(37, 'Matthew Lillard', 'https://www.imdb.com/name/nm0000498/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_matth'),
+(38, 'Cary Elwes', 'https://www.imdb.com/name/nm0000144/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_cary'),
+(39, 'Hugh Jackman', 'https://www.imdb.com/name/nm0413168/?ref_=nv_sr_srsg_0_tt_1_nm_7_in_0_q_hug'),
+(40, 'Shameik Moore', 'https://www.imdb.com/name/nm4271336/?ref_=nv_sr_srsg_0_tt_5_nm_3_in_0_q_shameik'),
+(41, 'Viggo Mortensen', 'https://www.imdb.com/name/nm0001557/?ref_=nv_sr_srsg_0_tt_1_nm_7_in_0_q_viggo'),
+(42, 'Dwayne Johnson', 'https://www.imdb.com/name/nm0425005/?ref_=nv_sr_srsg_0_tt_1_nm_7_in_0_q_dwa'),
+(43, 'Taron Egerton', 'https://www.imdb.com/name/nm5473782/?ref_=nv_sr_srsg_0_tt_2_nm_6_in_0_q_taron'),
+(44, 'Bradley Cooper', 'https://www.imdb.com/name/nm0177896/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_bradley%20'),
+(45, 'Jim Carrey', 'https://www.imdb.com/name/nm0000120/?ref_=nv_sr_srsg_1_tt_0_nm_7_in_0_q_ji');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `actor_in_movie`
+-- Tábla szerkezet ehhez a táblához `actor_in_movie`
 --
 
 CREATE TABLE `actor_in_movie` (
@@ -96,7 +97,7 @@ CREATE TABLE `actor_in_movie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `actor_in_movie`
+-- A tábla adatainak kiíratása `actor_in_movie`
 --
 
 INSERT INTO `actor_in_movie` (`id`, `movie_id`, `actor_id`) VALUES
@@ -162,7 +163,7 @@ INSERT INTO `actor_in_movie` (`id`, `movie_id`, `actor_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buffet`
+-- Tábla szerkezet ehhez a táblához `buffet`
 --
 
 CREATE TABLE `buffet` (
@@ -175,7 +176,7 @@ CREATE TABLE `buffet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `buffet`
+-- A tábla adatainak kiíratása `buffet`
 --
 
 INSERT INTO `buffet` (`id`, `name`, `price`, `description`, `type`, `img`) VALUES
@@ -211,7 +212,7 @@ INSERT INTO `buffet` (`id`, `name`, `price`, `description`, `type`, `img`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `movies`
+-- Tábla szerkezet ehhez a táblához `movies`
 --
 
 CREATE TABLE `movies` (
@@ -229,7 +230,7 @@ CREATE TABLE `movies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `movies`
+-- A tábla adatainak kiíratása `movies`
 --
 
 INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production`, `age_restriction`, `showing_in`, `poster`, `description`, `release_date`) VALUES
@@ -287,7 +288,7 @@ INSERT INTO `movies` (`id`, `title`, `genre`, `runtime`, `director`, `production
 -- --------------------------------------------------------
 
 --
--- Table structure for table `movie_screening`
+-- Tábla szerkezet ehhez a táblához `movie_screening`
 --
 
 CREATE TABLE `movie_screening` (
@@ -298,7 +299,7 @@ CREATE TABLE `movie_screening` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `movie_screening`
+-- A tábla adatainak kiíratása `movie_screening`
 --
 
 INSERT INTO `movie_screening` (`id`, `movie_id`, `room_id`, `language`) VALUES
@@ -356,7 +357,7 @@ INSERT INTO `movie_screening` (`id`, `movie_id`, `room_id`, `language`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reservation`
+-- Tábla szerkezet ehhez a táblához `reservation`
 --
 
 CREATE TABLE `reservation` (
@@ -370,7 +371,7 @@ CREATE TABLE `reservation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `reservation`
+-- A tábla adatainak kiíratása `reservation`
 --
 
 INSERT INTO `reservation` (`id`, `user_id`, `total_amount`, `screening_id`, `reservation_date`, `ticket_id`, `seat_id`) VALUES
@@ -388,7 +389,7 @@ INSERT INTO `reservation` (`id`, `user_id`, `total_amount`, `screening_id`, `res
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rooms`
+-- Tábla szerkezet ehhez a táblához `rooms`
 --
 
 CREATE TABLE `rooms` (
@@ -397,7 +398,7 @@ CREATE TABLE `rooms` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `rooms`
+-- A tábla adatainak kiíratása `rooms`
 --
 
 INSERT INTO `rooms` (`id`, `capacity`) VALUES
@@ -407,7 +408,7 @@ INSERT INTO `rooms` (`id`, `capacity`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `seats`
+-- Tábla szerkezet ehhez a táblához `seats`
 --
 
 CREATE TABLE `seats` (
@@ -418,7 +419,7 @@ CREATE TABLE `seats` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `seats`
+-- A tábla adatainak kiíratása `seats`
 --
 
 INSERT INTO `seats` (`id`, `room_id`, `seat_row`, `seat_column`) VALUES
@@ -516,7 +517,7 @@ INSERT INTO `seats` (`id`, `room_id`, `seat_row`, `seat_column`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tickets`
+-- Tábla szerkezet ehhez a táblához `tickets`
 --
 
 CREATE TABLE `tickets` (
@@ -526,7 +527,7 @@ CREATE TABLE `tickets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `tickets`
+-- A tábla adatainak kiíratása `tickets`
 --
 
 INSERT INTO `tickets` (`id`, `type`, `price`) VALUES
@@ -539,7 +540,7 @@ INSERT INTO `tickets` (`id`, `type`, `price`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tábla szerkezet ehhez a táblához `users`
 --
 
 CREATE TABLE `users` (
@@ -551,7 +552,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `users`
+-- A tábla adatainak kiíratása `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `admin`) VALUES
@@ -580,17 +581,17 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `admin`) VALUES
 (23, 'Fodor Adrián László', 'fodor.adrian-2021@keri.mako.hu', 'F_adrian2021', 1);
 
 --
--- Indexes for dumped tables
+-- Indexek a kiírt táblákhoz
 --
 
 --
--- Indexes for table `actors`
+-- A tábla indexei `actors`
 --
 ALTER TABLE `actors`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `actor_in_movie`
+-- A tábla indexei `actor_in_movie`
 --
 ALTER TABLE `actor_in_movie`
   ADD PRIMARY KEY (`id`),
@@ -598,19 +599,19 @@ ALTER TABLE `actor_in_movie`
   ADD KEY `actor_id` (`actor_id`);
 
 --
--- Indexes for table `buffet`
+-- A tábla indexei `buffet`
 --
 ALTER TABLE `buffet`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `movies`
+-- A tábla indexei `movies`
 --
 ALTER TABLE `movies`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `movie_screening`
+-- A tábla indexei `movie_screening`
 --
 ALTER TABLE `movie_screening`
   ADD PRIMARY KEY (`id`),
@@ -618,7 +619,7 @@ ALTER TABLE `movie_screening`
   ADD KEY `room_id` (`room_id`);
 
 --
--- Indexes for table `reservation`
+-- A tábla indexei `reservation`
 --
 ALTER TABLE `reservation`
   ADD PRIMARY KEY (`id`),
@@ -628,115 +629,115 @@ ALTER TABLE `reservation`
   ADD KEY `seat_id` (`seat_id`);
 
 --
--- Indexes for table `rooms`
+-- A tábla indexei `rooms`
 --
 ALTER TABLE `rooms`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `seats`
+-- A tábla indexei `seats`
 --
 ALTER TABLE `seats`
   ADD PRIMARY KEY (`id`),
   ADD KEY `room_id` (`room_id`);
 
 --
--- Indexes for table `tickets`
+-- A tábla indexei `tickets`
 --
 ALTER TABLE `tickets`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- A tábla indexei `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- A kiírt táblák AUTO_INCREMENT értéke
 --
 
 --
--- AUTO_INCREMENT for table `actors`
+-- AUTO_INCREMENT a táblához `actors`
 --
 ALTER TABLE `actors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- AUTO_INCREMENT for table `actor_in_movie`
+-- AUTO_INCREMENT a táblához `actor_in_movie`
 --
 ALTER TABLE `actor_in_movie`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
--- AUTO_INCREMENT for table `buffet`
+-- AUTO_INCREMENT a táblához `buffet`
 --
 ALTER TABLE `buffet`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `movies`
+-- AUTO_INCREMENT a táblához `movies`
 --
 ALTER TABLE `movies`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT for table `movie_screening`
+-- AUTO_INCREMENT a táblához `movie_screening`
 --
 ALTER TABLE `movie_screening`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT for table `reservation`
+-- AUTO_INCREMENT a táblához `reservation`
 --
 ALTER TABLE `reservation`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `rooms`
+-- AUTO_INCREMENT a táblához `rooms`
 --
 ALTER TABLE `rooms`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `seats`
+-- AUTO_INCREMENT a táblához `seats`
 --
 ALTER TABLE `seats`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
--- AUTO_INCREMENT for table `tickets`
+-- AUTO_INCREMENT a táblához `tickets`
 --
 ALTER TABLE `tickets`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- Constraints for dumped tables
+-- Megkötések a kiírt táblákhoz
 --
 
 --
--- Constraints for table `actor_in_movie`
+-- Megkötések a táblához `actor_in_movie`
 --
 ALTER TABLE `actor_in_movie`
   ADD CONSTRAINT `actor_in_movie_ibfk_1` FOREIGN KEY (`actor_id`) REFERENCES `actors` (`id`),
   ADD CONSTRAINT `actor_in_movie_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`) ON DELETE SET NULL;
 
 --
--- Constraints for table `movie_screening`
+-- Megkötések a táblához `movie_screening`
 --
 ALTER TABLE `movie_screening`
   ADD CONSTRAINT `movie_screening_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `movie_screening_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`);
 
 --
--- Constraints for table `reservation`
+-- Megkötések a táblához `reservation`
 --
 ALTER TABLE `reservation`
   ADD CONSTRAINT `fk_reservation_seat` FOREIGN KEY (`seat_id`) REFERENCES `seats` (`id`) ON DELETE CASCADE,
@@ -745,7 +746,7 @@ ALTER TABLE `reservation`
   ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`screening_id`) REFERENCES `movie_screening` (`id`);
 
 --
--- Constraints for table `seats`
+-- Megkötések a táblához `seats`
 --
 ALTER TABLE `seats`
   ADD CONSTRAINT `seats_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`);
