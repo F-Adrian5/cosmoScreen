@@ -7,7 +7,7 @@ const router = Router();
 const getData = [
   { 
     url: '/getActors', 
-    query: 'SELECT id, name FROM actors' 
+    query: 'SELECT id, name, info_link FROM actors' 
   },
   { 
     url: '/getBuffet', 
