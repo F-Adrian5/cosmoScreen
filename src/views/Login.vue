@@ -87,6 +87,13 @@
           !
         </span>
       </div>
+      <!--forgotten password link-->
+      <div class="text-center mt-3">
+          <RouterLink to="/password"
+                      class="register-link">
+              {{ $t('loginPage.forgottenPassword') }}
+          </RouterLink>
+      </div>
     </form>
   </div>
 </template>

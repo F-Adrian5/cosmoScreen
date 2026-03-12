@@ -43,7 +43,8 @@
     "noAccountReg": "Ha még nincs fiókja ",
     "registerLink": "regisztráljon",
     "emailError":"Érvénytelen email formátum",
-    "passwordError":"Minimum 6 karakter, nagybetű, szám, speciális karakter"
+    "passwordError":"Minimum 6 karakter, nagybetű, szám, speciális karakter",
+    "forgottenPassword":"Elfelejtette jelszavát?"
   },
   "registerPage":{
     "registerTitle": "Regisztráció",
