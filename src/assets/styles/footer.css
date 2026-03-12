@@ -11,3 +11,24 @@
   font-family: 'Nippo-Regular';
   color: rgba(255, 255, 255, 0.815);
 }
+
+@media (max-width: 1280px) {
+  .footer-col {
+    flex: 0 0 33% !important;
+    max-width: 33% !important;
+  }
+}
+
+@media (max-width: 1010px) {
+  .footer-col {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+}
+
+@media (max-width: 670px) {
+  .footer-col {
+    flex: 0 0 75% !important;
+    max-width: 75% !important;
+  }
+}
