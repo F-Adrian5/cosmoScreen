@@ -65,7 +65,7 @@
             <div class="nav-link px-2 d-flex align-items-center"
                  style="cursor: pointer;"
                  @click="showLangMenu = !showLangMenu">
-              <i class="fa-solid fa-language me-1"></i>
+              <i class="fa-solid fa-language mx-1"></i>
               {{ $t('navbar.language') }}
             </div>
             
@@ -93,7 +93,7 @@
             <RouterLink class="nav-link px-2 d-flex align-items-center"
                         @click="closeMenu"
                         to="/login">
-              <i class="fa-regular fa-address-card me-1"></i>
+              <i class="fa-solid fa-arrow-right-to-bracket mx-1"></i>
                 {{ $t('navbar.login') }}
             </RouterLink>
           </li>

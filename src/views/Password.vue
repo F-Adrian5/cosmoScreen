@@ -5,25 +5,22 @@
 
       <!-- New Password -->
       <div class="mb-3">
+        <i class="fa-solid fa-key mx-2"></i>
         <label class="form-label fw-semibold" 
                for="newPassword">
           {{ $t('profilePage.newPassword') }}
         </label>
 
         <div class="position-relative">
-          <input
-            :type="user.showPassword1 ? 'text' : 'password'"
-            class="form-control form-control-lg pe-5"
-            v-model="user.new_password"
-            id="newPassword"
-            maxlength="20"
-          />
-          <button
-            type="button"
-            @click="user.showPassword1 = !user.showPassword1"
-            class="btn position-absolute top-0 end-0 h-100 border-0 bg-transparent"
-            style="padding: 0 0.75rem;"
-          >
+          <input :type="user.showPassword1 ? 'text' : 'password'"
+                 class="form-control form-control-lg pe-5"
+                 v-model="user.new_password"
+                 id="newPassword"
+                 maxlength="20"/>
+          <button type="button"
+                  @click="user.showPassword1 = !user.showPassword1"
+                  class="btn position-absolute top-0 end-0 h-100 border-0 bg-transparent"
+                  style="padding: 0 0.75rem;">
             <i :class="user.showPassword1 ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
           </button>
         </div>
@@ -40,23 +37,20 @@
       <div class="mb-3">
         <label class="form-label fw-semibold" 
                for="againPassword">
+          <i class="fa-solid fa-check-double mx-2"></i>
           {{ $t('profilePage.newPasswordAgain') }}
         </label>
 
         <div class="position-relative">
-          <input
-            :type="user.showPassword2 ? 'text' : 'password'"
-            class="form-control form-control-lg pe-5"
-            v-model="user.new_password_again"
-            id="againPassword"
-            maxlength="20"
-          />
-          <button
-            type="button"
-            @click="user.showPassword2 = !user.showPassword2"
-            class="btn position-absolute top-0 end-0 h-100 border-0 bg-transparent"
-            style="padding: 0 0.75rem;"
-          >
+          <input :type="user.showPassword2 ? 'text' : 'password'"
+                 class="form-control form-control-lg pe-5"
+                 v-model="user.new_password_again"
+                 id="againPassword"
+                 maxlength="20"/>
+          <button type="button"
+                  @click="user.showPassword2 = !user.showPassword2"
+                  class="btn position-absolute top-0 end-0 h-100 border-0 bg-transparent"
+                  style="padding: 0 0.75rem;">
             <i :class="user.showPassword2 ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
           </button>
         </div>
@@ -77,6 +71,7 @@
                   class="btn btn-primary w-100 fw-semibold"
                   @click="updatePassword"
                   :disabled="!validPassword(user.new_password) || user.new_password !== user.new_password_again">
+            <i class="fa-solid fa-pen-to-square"></i>
             {{ $t('passwordPage.changeDataButton') }}
           </button>
         </div>
@@ -86,6 +81,7 @@
           <button type="button" 
                   class="btn btn-danger w-100 fw-semibold"
                   @click="goToPage(auth.user ? '/profile' : '/login')">
+            <i class="fa-solid fa-xmark"></i>
             {{ $t('passwordPage.cancelButton') }}
           </button>
         </div>

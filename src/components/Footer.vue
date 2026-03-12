@@ -17,10 +17,10 @@
         Látogass meg minket
         <div class="fw-light fs-5 footerText">
           <div>
-            6900 Makó, Fő utca 12.
+            6900 Makó, Posta u. 2.
           </div>
           <div>
-            <a href="https://maps.google.com/?q=Makó+Fő+utca+12" 
+            <a href="https://maps.google.com/?q=Makó+Posta+utca+2" 
                target="_blank" 
                class="link_color">
               Megnyitás térképen

@@ -4,10 +4,14 @@
           class="p-4 shadow rounded mt-5"
           style="width: 100%; max-width: 380px;">
 
-      <h4 class="text-center mb-4 fw-bold">{{ $t('loginPage.loginTitle') }}</h4>
+      <h4 class="text-center mb-4 fw-bold mx-1">
+        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        {{ $t('loginPage.loginTitle') }}
+      </h4>
 
       <!--Email-->
       <div class="mb-3">
+        <i class="fa-solid fa-envelope mx-2"></i>
         <label for="login_email" 
                class="form-label fw-semibold">
           {{ $t('loginPage.email') }}
@@ -32,6 +36,7 @@
 
       <!-- password -->
       <div class="mb-3">
+        <i class="fa-solid fa-key mx-2"></i>
         <label for="login_password" 
                class="form-label fw-semibold">
           {{ $t('loginPage.password') }}
@@ -74,6 +79,7 @@
                          !user.password ||
                          !validEmail(user.email) ||
                          !validPassword(user.password)">
+          <i class="fa-solid fa-arrow-right-to-bracket mx-1"></i>
           {{ $t('loginPage.loginButton') }}
       </button>
       

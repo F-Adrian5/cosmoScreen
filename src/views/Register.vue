@@ -4,15 +4,17 @@
           style="width: 100%; max-width: 380px;"
           @submit.prevent="register(user)">
 
-      <h4 class="text-center mb-4 fw-bold">
+      <h4 class="text-center mb-4 fw-bold mx-1">
+        <i class="fa-regular fa-id-card"></i>
         {{ $t('registerPage.registerTitle') }}
       </h4>
 
       <!--name-->
       <div class="mb-3">
+        <i class="fa-solid fa-signature mx-2"></i>
         <label for="register_name" 
                class="form-label fw-semibold">
-          {{ $t('registerPage.name') }}
+          {{$t('registerPage.name') }}
         </label>
 
         <input type="text"
@@ -35,6 +37,7 @@
 
       <!-- Email -->
       <div class="mb-3">
+        <i class="fa-solid fa-envelope mx-2"></i>
         <label for="register_email" 
                class="form-label fw-semibold">
           {{ $t('registerPage.email') }}
@@ -59,6 +62,7 @@
 
       <!-- password -->
       <div class="mb-3 position-relative">
+        <i class="fa-solid fa-key mx-2"></i>
         <label for="register_password" 
                class="form-label fw-semibold">
           {{ $t('registerPage.password') }}
@@ -100,6 +104,7 @@
               class="btn btn_submit w-100 fw-semibold"
               :disabled="!user.name || !user.email || !user.password || 
                          !validEmail(user.email) || !validPassword(user.password)">
+          <i class="fa-regular fa-id-card mx-1"></i>
           {{ $t('registerPage.registerButton') }}
       </button>
 

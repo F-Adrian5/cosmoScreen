@@ -5,24 +5,26 @@
 
       <div class="position-relative mb-4">
 
-          <!--title-->
-          <h4 class="text-center fw-bold mb-0">
-              {{ $t('profilePage.profileTitle') }}
-          </h4>
+        <!--title-->
+        <h4 class="text-center fw-bold mb-0">
+          <i class="fa-solid fa-address-card"></i>
+            {{ $t('profilePage.profileTitle') }}
+        </h4>
 
-          <!--Edit btn-->
-          <button type="button"
-                    class="btn btn_submit btn-sm px-3 fw-semibold 
-                           position-absolute top-50 end-0 translate-middle-y"
-                    @click="user.isDisabled = !user.isDisabled">
-                <i class="fa-regular fa-pen-to-square"></i>
-          </button>
+        <!--Edit btn-->
+        <button type="button"
+                  class="btn btn_submit btn-sm px-3 fw-semibold 
+                         position-absolute top-50 end-0 translate-middle-y"
+                  @click="user.isDisabled = !user.isDisabled">
+              <i class="fa-regular fa-pen-to-square"></i>
+        </button>
       </div>
 
       <!--name-->
       <div>
         <label for="register_name" 
                class="form-label fw-semibold">
+            <i class="fa-solid fa-signature mx-2"></i>
           {{ $t('profilePage.name') }}
         </label>
 
@@ -48,6 +50,7 @@
       <div class="mb-3">
         <label for="register_email" 
                class="form-label fw-semibold">
+               <i class="fa-solid fa-envelope mx-2"></i>
           {{ $t('profilePage.email') }}
         </label>
 
@@ -76,6 +79,7 @@
 
         <button type="button"
                 class="btn btn-primary w-100 fw-semibold">
+                <i class="fa-solid fa-unlock-keyhole"></i>
           {{ $t('profilePage.modifyPassword') }}
         </button>
       </RouterLink>
@@ -88,6 +92,7 @@
                   class="btn btn_submit w-100 fw-semibold mt-2"
                   @click="updateProfile"
                   :disabled="!canSubmit">
+              <i class="fa-regular fa-pen-to-square"></i>
               {{$t('profilePage.changeDataButton')}}
           </button>
         </div>
@@ -97,6 +102,7 @@
           <button type="button"
                   class="btn btn-danger w-100 fw-semibold mt-2"
                   @click="logout()">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
               {{ $t('profilePage.logoutButton') }}
           </button>
          </div>
