@@ -21,6 +21,7 @@
         <div class="card shadow-sm rounded-4 p-4 bg-dark border-primary">
           
           <h3 class="mb-3 text-primary pb-2">
+            <i class="fa-solid fa-scroll mx-2"></i>
              {{ $t('regulationsPage.generalRules') }}
           </h3>
           
@@ -56,6 +57,7 @@
         <div class="card shadow-sm rounded-4 p-4 bg-dark border-primary">
           
           <h3 class="mb-3 text-primary pb-2">
+            <i class="fa-solid fa-shield-halved mx-2"></i>
              {{ $t('regulationsPage.safetyAndHygiene') }}
           </h3>
           
@@ -87,6 +89,7 @@
         <div class="card shadow-sm rounded-4 p-4 bg-dark border-primary">
           
           <h3 class="mb-3 text-primary pb-2">
+            <i class="fa-solid fa-dollar-sign mx-2"></i>
              {{ $t('regulationsPage.ticketPurchaseTitle') }}
           </h3>
           

@@ -21,6 +21,7 @@
         <div class="card shadow-sm rounded-4 p-4 
                     bg-dark text-light border-warning border-3">
           <h3 class="mb-3 text-warning border-secondary pb-2">
+            <i class="fa-solid fa-triangle-exclamation mx-2"></i>
                 {{ $t('dataFishingPage.importantInfo') }}
           </h3>
           
@@ -40,7 +41,7 @@
             
             <li class="list-group-item bg-dark text-light 
                        d-flex align-items-start">
-              <span class="me-2 fs-5">⚠️</span>
+              <span class="me-2 fs-5">❕</span>
                {{ $t('dataFishingPage.checkUrl') }}
             </li>
             
