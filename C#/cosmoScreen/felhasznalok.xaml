@@ -55,7 +55,7 @@
             Foreground="White"
             Background="Black"
             BorderBrush="Transparent"
-            Margin="401,-2,15,103" Grid.RowSpan="2" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
+            Margin="401,0,15,103" Grid.RowSpan="2" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
         </Button>
 
         <!-- TITLE -->
@@ -70,14 +70,14 @@
                    FontStyle="Italic" 
                    Foreground="#FFA09D9D"
                    HorizontalAlignment="Center"/>
-            
+
             <Label Content="Felhasználó adatok felvétele"
                    FontSize="22"
                    FontWeight="Bold"
                    FontStyle="Italic"
                    Foreground="#FFA09D9D"
                    HorizontalAlignment="Center"/>
-            
+
         </StackPanel>
 
         <!-- INPUTS -->
