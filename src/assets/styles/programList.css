@@ -1,3 +1,7 @@
+html, body {
+  /* background-image: url(); */
+}
+
 .movie-card {
   background-color: #adbbc5;
   border-radius: 20px;

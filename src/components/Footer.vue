@@ -7,7 +7,7 @@
         CosmoScreen
         <br>
         <span class="fs-6">
-          „Ahol minden képkocka egy új világ!”
+          &bdquo; Ahol minden képkocka egy új világ! &rdquo;
         </span>
       </div>
 

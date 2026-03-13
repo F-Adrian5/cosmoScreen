@@ -74,3 +74,9 @@ onMounted(() => {
   loadBuffetData();
 });
 </script>
+
+<style scoped>
+  template {
+    background-image: url("../assets/media/images/bg10.jpg") !important;
+  }
+</style>
