@@ -30,7 +30,7 @@
           <select name="daySelect" 
                   id="daySelect"
                   class="text-center mx-2 select"
-                  @change="filter(day,genre)"
+                  @change="filter(day,genre); console.log(movies);"
                   v-model="day">
 
             <option v-for="day in days"
@@ -50,7 +50,7 @@
           <select name="genreSelect" 
                   id="genreSelect"
                   class="text-center mx-2 select"
-                  @change="filter(day,genre)"
+                  @change="filter(day,genre); console.log(movies);"
                   v-model="genre">
 
               <option value="all">
@@ -77,7 +77,11 @@
                     col-xl-10 col-xxl-12">
           <div class="movie-card d-flex flex-column flex-md-row 
                       align-items-center p-2 shadow-lg my-5"
-               v-for="movie in movies">
+               v-for="movie in movies"
+               :key="movie.id"
+               @click="openMovie(movie)"
+               data-bs-toggle="modal"
+               data-bs-target="#movieModal">
         
             <!-- Poster -->
             <div class="poster-wrapper">
@@ -131,6 +135,27 @@
     </div>
 
   </div>
+
+  <!-- modal -->
+  <div class="modal" id="movieModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            {{ selectedMovie?.movie_title }}
+          </h5>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </template>
 
 <script setup lang="ts">
@@ -139,6 +164,12 @@ import { useFilter,  } from '@/composables/useFilter';
 
 // pulling the items from the composable, that will be needed
 const { movies, genres, days, filter, loadData } = useFilter();
+
+const selectedMovie = ref(null)
+
+function openMovie(movie:any){
+  selectedMovie.value = movie
+}
 
 // local states
 const day = ref("Hétfő");
