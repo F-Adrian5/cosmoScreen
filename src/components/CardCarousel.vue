@@ -113,6 +113,7 @@
               <button type="button"
                       class="btn btn-outline-light px-4 fs-4"
                       data-bs-dismiss="modal">
+                  <i class="fa-solid fa-xmark mx-1"></i>
                   {{$t('homePage.closeBtn') }}
               </button>
             </div>
