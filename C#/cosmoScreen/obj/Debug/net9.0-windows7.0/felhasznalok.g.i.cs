@@ -108,7 +108,7 @@ namespace cosmoScreen {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/cosmoScreen;component/felhasznalok.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/cosmoScreen;V1.0.0.0;component/felhasznalok.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\felhasznalok.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

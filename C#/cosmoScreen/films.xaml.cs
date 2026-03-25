@@ -46,7 +46,7 @@ namespace cosmoScreen
 
         private void btn_upload_Click(object sender, RoutedEventArgs e)
         {
-            string actor_upload = $"INSERT INTO movies(title, genre, runtime, director, production, age_restriction, showing_in, poster, trailer, description, release_date) VALUES ('{title_input.Text}', '{genre_combobox.Text}', '{runtime_input.Text}', '{director_input.Text}', '{production_input.Text}', '{age_restriction_combobox.Text}', '{showing_in_combobox.Text}', '{poster_input.Text}', '{trailer_input.Text}', '{description_input.Text}', '{release_date_input.SelectedDate?.ToString("yyyy-MM-dd")}')";
+            string actor_upload = $"INSERT INTO movies(title, genre, runtime, director, production, age_restriction, showing_in, poster, description, release_date) VALUES ('{title_input.Text}', '{genre_combobox.Text}', '{runtime_input.Text}', '{director_input.Text}', '{production_input.Text}', '{age_restriction_combobox.Text}', '{showing_in_combobox.Text}', '{poster_input.Text}', '{description_input.Text}', '{release_date_input.SelectedDate?.ToString("yyyy-MM-dd")}')";
             executeQuery(actor_upload);
             LoadData("SELECT * FROM movies", movie_datagrid);
         }
@@ -61,7 +61,6 @@ namespace cosmoScreen
             if (string.IsNullOrWhiteSpace(director_input.Text)) return false;
             if (string.IsNullOrWhiteSpace(production_input.Text)) return false;
             if (string.IsNullOrWhiteSpace(poster_input.Text)) return false;
-            if (string.IsNullOrWhiteSpace(trailer_input.Text)) return false;
             if (string.IsNullOrWhiteSpace(description_input.Text)) return false;
 
             if (!int.TryParse(runtime_input.Text, out int runtime) || !(runtime > 0))
@@ -84,7 +83,6 @@ namespace cosmoScreen
             var movie_director = "";
             var movie_studio = "";
             var movie_poster = "";
-            var movie_trailer = "";
             var movie_genre = "";
             var movie_age = "";
             var movie_showing_in = "";
@@ -103,7 +101,6 @@ namespace cosmoScreen
                 movie_director = sor["director"].ToString();
                 movie_studio = sor["production"].ToString();
                 movie_poster = sor["poster"].ToString();
-                movie_trailer = sor["trailer"].ToString();
                 movie_genre = sor["genre"].ToString();
                 movie_age = sor["age_restriction"].ToString();
                 movie_showing_in = sor["showing_in"].ToString();
@@ -115,7 +112,6 @@ namespace cosmoScreen
                 director_input.Text = movie_director;
                 production_input.Text = movie_studio;
                 poster_input.Text = movie_poster;
-                trailer_input.Text = movie_trailer;
                 genre_combobox.Text = movie_genre;
                 age_restriction_combobox.Text = movie_age;
                 showing_in_combobox.Text = movie_showing_in;
@@ -137,7 +133,7 @@ namespace cosmoScreen
 
         private void edit_data_btn_Click(object sender, RoutedEventArgs e)
         {
-            string sorfrissites = $"UPDATE movies SET title='{title_input.Text}', genre='{genre_combobox.Text}', runtime='{runtime_input.Text}', director='{director_input.Text}', production='{production_input.Text}',age_restriction='{age_restriction_combobox.Text}', showing_in='{showing_in_combobox.Text}', poster='{poster_input.Text}', trailer='{trailer_input.Text}', description='{description_input.Text}', release_date='{release_date_input.Text}' WHERE id='{movie_id}'";
+            string sorfrissites = $"UPDATE movies SET title='{title_input.Text}', genre='{genre_combobox.Text}', runtime='{runtime_input.Text}', director='{director_input.Text}', production='{production_input.Text}',age_restriction='{age_restriction_combobox.Text}', showing_in='{showing_in_combobox.Text}', poster='{poster_input.Text}', description='{description_input.Text}', release_date='{release_date_input.Text}' WHERE id='{movie_id}'";
             executeQuery(sorfrissites);
             movie_datagrid.SelectedItem = null;
             LoadData("SELECT * FROM movies", movie_datagrid);

@@ -85,9 +85,6 @@
                     <Label Content="Poszter URL:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" Foreground="#FF9DCC3B"/>
                     <TextBox x:Name="poster_input" FontSize="16" MaxLength="200" TextChanged="InputChanged"/>
 
-                    <Label Content="Előzetes URL:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" Foreground="#FF9DCC3B"/>
-                    <TextBox x:Name="trailer_input" FontSize="16" MaxLength="200" TextChanged="InputChanged"/>
-
                     <Label Content="Műfaj:" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" Foreground="#FF9DCC3B"/>
                     <ComboBox x:Name="genre_combobox" FontSize="16" SelectionChanged="InputChanged">
                         <ComboBoxItem Content="Akció"/>
