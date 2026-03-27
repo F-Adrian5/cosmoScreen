@@ -132,6 +132,6 @@
 /* https://mycolor.space/gradient?ori=to+right+top&hex=%23343536&hex2=%23000000&sub=1 */
 /* https://cssgradient.io/ */
   .about-bg {
-    background-image: linear-gradient(to right top, #343536, #29292a, #1e1d1e, #121212, #000000);
+    background-image: linear-gradient(to top, #7cb9b8, #68929c, #596c79, #464a52, #2c2c2c);
   }
 </style>

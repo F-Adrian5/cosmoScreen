@@ -20,26 +20,31 @@ const router = createRouter({
       path: '/',        // URL
       name: 'home',     // internal name
       component: Home,  // assigning the home component to this URL,to be displayed
+      meta: { bg: 'home-bg' }
     },
     {
       path: '/buffet',
       name: 'buffet',
       component: Buffet,
+      meta: { bg: 'buffet-bg' }
     },
     {
       path: '/programList',
       name: 'programList',
       component: ProgramList,
+      meta: { bg: 'programList-bg' }
     },
     {
       path: '/DataFishing',
       name: 'dataFishing',
       component: DataFishing,
+      meta: { bg: 'dataFishing-bg' }
     },
     {
       path: '/rules',
       name: 'rules',
       component: Rules,
+      meta: { bg: 'rules-bg' }
     },
     {
       path: '/about',
@@ -51,21 +56,25 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: Login,
+      meta: { bg: 'login-bg' }
     },
     {
       path: '/register',
       name: 'register',
       component: Register,
+      meta: { bg: 'register-bg' }
     },
     {
       path: '/profile',
       name: 'profile',
       component: Profile,
+      meta: { bg: 'profile-bg' }
     },
     {
       path: '/password',
       name: 'password',
       component: Password,
+      meta: { bg: 'password-bg' }
     },
   ],
 })

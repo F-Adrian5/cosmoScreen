@@ -75,8 +75,8 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
-  template {
-    background-image: url("../assets/media/images/bg10.jpg") !important;
+<style>
+  .buffet-bg{
+    background-image: linear-gradient(to bottom, #2c2c2c, #45474e, #5a6572, #6b8796, #7aaab7, #7ab9c4, #7ac8ce, #7cd7d6, #69d4d0, #53d0ca, #38cdc3, #00c9bc);
   }
 </style>
