@@ -81,6 +81,7 @@
                   </p>
 
                   <p class="fs-4">
+                    <i class="fa-solid fa-tv mx-2"></i>
                     <strong>
                       {{$t('homePage.ageRestriction') }}
                     </strong> 
@@ -88,18 +89,21 @@
                   </p>
 
                   <p class="fs-4">
+                    <i class="fa-regular fa-calendar mx-2"></i>
                     <strong>
                       {{$t('homePage.releaseDate') }}
                     </strong> 
                     {{ selectedMovie?.release_date }}
                   </p>
                   <p class="fs-4">
+                    <i class="fa-solid fa-video mx-2"></i>
                     <strong>
                       {{$t('homePage.director') }}
                     </strong> 
                     {{ selectedMovie?.director }}
                   </p>
                   <p class="fs-4">
+                    <i class="fa-solid fa-user-group mx-2"></i>
                     <strong>Fő szerepben:</strong>
                     <span v-if="actorsByMovie[selectedMovie?.id || 0]">
                       <span v-for="actor in actorsByMovie[selectedMovie?.id || 0]"
