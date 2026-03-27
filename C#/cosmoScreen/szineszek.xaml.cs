@@ -111,5 +111,11 @@ namespace cosmoScreen
             e.Handled = !e.Text.All(c => char.IsLetter(c) || c == ' ');
         }
 
+        private void logout_btn_Click(object sender, RoutedEventArgs e)
+        {
+            login loginWindow = new login();
+            loginWindow.Show();
+            this.Hide();
+        }
     }
 }

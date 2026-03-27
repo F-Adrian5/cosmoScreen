@@ -51,11 +51,12 @@
         <Button
             Content="Kijelentkezés"
             FontSize="18"
+            Name="logout_btn"
             FontWeight="Bold"
             Foreground="White"
             Background="Black"
             BorderBrush="Transparent"
-            Margin="401,0,15,103" Grid.RowSpan="2" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
+            Margin="401,0,15,103" Grid.RowSpan="2" Grid.Column="1" RenderTransformOrigin="0.5,0.5" Click="logout_btn_Click">
         </Button>
 
         <!-- TITLE -->

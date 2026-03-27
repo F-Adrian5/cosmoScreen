@@ -147,5 +147,12 @@ namespace cosmoScreen
             felhasznalokWindow.Show();
             this.Hide();
         }
+
+        private void logout_btn_Click(object sender, RoutedEventArgs e)
+        {
+            login loginWindow = new login();
+            loginWindow.Show();
+            this.Hide();
+        }
     }
 }

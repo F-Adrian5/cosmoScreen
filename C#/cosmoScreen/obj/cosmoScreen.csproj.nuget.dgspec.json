@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\cosmoScreen.csproj": {}
+    "C:\\xampp\\htdocs\\Krivan Balazs\\cosmoScreen\\C#\\cosmoScreen\\cosmoScreen.csproj": {}
   },
   "projects": {
-    "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\cosmoScreen.csproj": {
+    "C:\\xampp\\htdocs\\Krivan Balazs\\cosmoScreen\\C#\\cosmoScreen\\cosmoScreen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\cosmoScreen.csproj",
+        "projectUniqueName": "C:\\xampp\\htdocs\\Krivan Balazs\\cosmoScreen\\C#\\cosmoScreen\\cosmoScreen.csproj",
         "projectName": "cosmoScreen",
-        "projectPath": "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\cosmoScreen.csproj",
+        "projectPath": "C:\\xampp\\htdocs\\Krivan Balazs\\cosmoScreen\\C#\\cosmoScreen\\cosmoScreen.csproj",
         "packagesPath": "C:\\Users\\krivan.balazs\\.nuget\\packages\\",
-        "outputPath": "C:\\xampp\\htdocs\\krivan_balazs\\cosmoScreen\\C#\\cosmoScreen\\obj\\",
+        "outputPath": "C:\\xampp\\htdocs\\Krivan Balazs\\cosmoScreen\\C#\\cosmoScreen\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

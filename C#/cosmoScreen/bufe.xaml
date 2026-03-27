@@ -46,12 +46,13 @@
         <!-- Right side button -->
         <Button
             Content="Kijelentkezés"
+            Name="logout_btn"
             FontSize="18"
             FontWeight="Bold"
             Foreground="White"
             Background="Black"
             BorderBrush="Transparent"
-            Margin="824,0,20,5"/>
+            Margin="824,0,20,0" Height="28" VerticalAlignment="Top" Click="Button_Click"/>
 		
         <!-- TITLE -->
         <Label Grid.Row="1"

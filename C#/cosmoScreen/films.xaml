@@ -36,11 +36,12 @@
         <Button
             Content="Kijelentkezés"
             FontSize="18"
+            Name="logout_btn"
             FontWeight="Bold"
             Foreground="White"
             Background="Black"
             BorderBrush="Transparent"
-            Margin="824,0,20,5"/>
+            Margin="824,0,20,5" Click="logout_btn_Click"/>
 
         <!-- TITLE -->
         <Label Grid.Row="1"
