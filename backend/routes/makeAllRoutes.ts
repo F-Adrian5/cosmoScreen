@@ -59,13 +59,6 @@ const getData = [
   }
 ];
 
-/**
- * 
- * 
- * 
- */
-
-
 // forEach for every item, to create the route
 getData.forEach(route => {
   router.use(createRoute(route.url, route.query));

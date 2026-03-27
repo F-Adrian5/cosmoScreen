@@ -6,19 +6,21 @@ import FooterView from './components/Footer.vue'
 </script>
 
 <template>
-  <div class="app-wrapper">
-    <header>
-      <Navbar />
-    </header>
-
-    <main class="flex-fill container">
-      <div class="row">
-        <RouterView />
-      </div>
-    </main>
-
-    <footer>
-      <FooterView />
-    </footer>
+  <div :class="['app', $route.meta.bg]">
+    <div class="app-wrapper">
+      <header>
+        <Navbar />
+      </header>
+    
+      <main class="flex-fill container">
+        <div class="row">
+          <RouterView />
+        </div>
+      </main>
+    
+      <footer>
+        <FooterView />
+      </footer>
+    </div>
   </div>
 </template>

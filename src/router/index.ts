@@ -45,6 +45,7 @@ const router = createRouter({
       path: '/about',
       name: 'about',
       component: AboutUs,
+      meta: { bg: 'about-bg' }
     },
     {
       path: '/login',

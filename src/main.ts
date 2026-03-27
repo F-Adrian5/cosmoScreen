@@ -24,6 +24,9 @@ import router from './router'
 // fontawesome
 import '@fortawesome/fontawesome-free/css/all.min.css'
 
+// flag icons
+import "flag-icons/css/flag-icons.min.css"
+
 // languages
 import language from '@/languages/language'
 

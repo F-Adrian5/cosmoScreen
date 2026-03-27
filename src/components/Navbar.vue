@@ -66,7 +66,8 @@
         <ul class="navbar-nav fs-4">
 
           <!-- language select -->
-          <li class="nav-item ms-1" @mouseleave="showLangMenu = false">
+          <li class="nav-item ms-1" 
+              @mouseleave="showLangMenu = false">
             <div class="nav-link px-2 d-flex align-items-center"
                  style="cursor: pointer;"
                  @click="showLangMenu = !showLangMenu">
@@ -79,14 +80,14 @@
                 <button class="dropdown-item"
                         :class="{ active: $lang.lang === 'hu' }"
                         @click="setLanguage('hu')">
-                        HU
+                        <span class="fi fi-hu"></span> HU
                 </button>
               </li>
               <li>
                 <button class="dropdown-item"
                         :class="{ active: $lang.lang === 'en' }"
                         @click="setLanguage('en')">
-                        EN
+                        <span class="fi fi-gb"></span> EN
                 </button>
               </li>
             </ul>
