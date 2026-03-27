@@ -9,5 +9,10 @@ export const carouselMovieServices = {
   async getMovies() {
     const response = await axios.get(`http://localhost:${port}/getMovies`);
     return response.data;
+  },
+
+  async getActors() {
+    const response = await axios.get(`http://localhost:${port}/getActorInMovie`);
+    return response.data;
   }
 };

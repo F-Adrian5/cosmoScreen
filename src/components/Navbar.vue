@@ -3,9 +3,14 @@
     <div class="container-fluid ">
 
       <!-- brand -->
-      <RouterLink class="navbar-brand fs-2" @click="closeMenu" to="/">
-        CosmoScreen
-      </RouterLink>
+      <span>
+        <RouterLink class="navbar-brand fs-3" 
+                    @click="closeMenu" 
+                    to="/">
+          <i class="fa-solid fa-clapperboard"></i>
+          CosmoScreen
+        </RouterLink>
+      </span>
 
       <!-- hamburger icon -->
       <button class="navbar-toggler"

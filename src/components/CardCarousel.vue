@@ -57,6 +57,7 @@
                 <!-- Movie details -->
                 <div class="col-12 col-md-7">
                   <p class="fs-4">
+                    <i class="fa-solid fa-masks-theater mx-2"></i>
                     <strong>
                       {{$t('homePage.movieGenre') }}
                     </strong>
@@ -64,6 +65,7 @@
                   </p>
 
                   <p class="fs-4">
+                    <i class="fa-regular fa-clock mx-2"></i>
                     <strong>
                       {{$t('homePage.runtime') }}
                     </strong> 
@@ -71,6 +73,7 @@
                   </p>
 
                   <p class="fs-4">
+                    <i class="fa-regular fa-building mx-2"></i>
                     <strong>
                       {{$t('homePage.production') }}
                     </strong> 
@@ -95,6 +98,21 @@
                       {{$t('homePage.director') }}
                     </strong> 
                     {{ selectedMovie?.director }}
+                  </p>
+                  <p class="fs-4">
+                    <strong>Fő szerepben:</strong>
+                    <span v-if="actorsByMovie[selectedMovie?.id || 0]">
+                      <span v-for="actor in actorsByMovie[selectedMovie?.id || 0]"
+                            :key="actor.actor_id">
+                        <a class="link-underline link-underline-opacity-0"
+                           style="color: lightseagreen;" 
+                           :href="actor.info_link" 
+                           target="_blank">
+                          &nbsp; {{ actor.name }}
+                        </a>
+                        <span>{{ actorsByMovie[selectedMovie?.id || 0]!?.length > 1 ? "," : "" }}</span>
+                      </span>
+                    </span>
                   </p>
                 </div>
                 
@@ -130,7 +148,7 @@
   // defineComponent: this is how we define components
   // ref: every time if something changes ref reacts
   import { ref, onMounted } from "vue";
-  import type { CarouselMovie } from "@/types/Movie";
+  import type { CarouselMovie, actorsInMovie } from "@/types/Movie";
   import { carouselMovieServices } from "@/services/cardCarouselServices";
   import "../assets/styles/carousel.css";
 
@@ -139,7 +157,10 @@
   // that if you change it will automatically change in the HTML
   // so if we modify the data, the UI will automatically update
   const movies = ref<CarouselMovie[]>([]);
+  const actorsInMovieCard = ref<actorsInMovie[]>([]);
   const selectedMovie = ref<CarouselMovie | null>(null);
+  const actorsByMovie = ref<Record<number, actorsInMovie[]>>({});
+
 
   function selectMovie(movie: CarouselMovie) {
     selectedMovie.value = movie;
@@ -153,5 +174,23 @@
     const response = await carouselMovieServices.getMovies();
     movies.value = response;
     console.log("Number of films: " + movies.value.length);
+
+    const actors = await carouselMovieServices.getActors();
+    actorsInMovieCard.value = actors;
+    console.log(actors);
+
+    const grouped: Record<number, actorsInMovie[]> = {};
+
+    actors.forEach((actor: actorsInMovie) => {
+      if (!grouped[actor.movie_id]) {
+        grouped[actor.movie_id] = [];
+      }
+      grouped[actor.movie_id]!.push(actor);
+    });
+  
+    actorsByMovie.value = grouped;
+  
+    console.log(actorsByMovie.value);
+
   })  
 </script>

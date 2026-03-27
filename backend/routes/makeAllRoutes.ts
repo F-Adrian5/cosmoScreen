@@ -27,7 +27,7 @@ const getData = [
   },
   { 
     url: '/getActorInMovie', 
-    query: 'SELECT id, movie_id, actor_id FROM actor_in_movie' 
+    query: 'SELECT 	`actors`.`name`, `actors`.`id` AS "actor_id", `actors`.`info_link`, `movies`.`id` AS "movie_id" FROM `actor_in_movie` JOIN `movies` ON `movies`.`id` = `movie_id` JOIN `actors` ON `actors`.`id` = `actor_id`' 
   },
   { 
     url: '/getMovieScreening', 
@@ -58,6 +58,13 @@ const getData = [
     query: 'SELECT `movie_screening`.`id` AS "screening_id", `movie_id` AS "movie_id", `movies`.`title` AS "movie_title", `movies`.`poster`, `movies`.`runtime`, `movies`.`genre`, `movies`.`showing_in`, `room_id`, `language` FROM `movie_screening` JOIN `movies` ON `movie_id` = `movies`.`id`'
   }
 ];
+
+/**
+ * 
+ * 
+ * 
+ */
+
 
 // forEach for every item, to create the route
 getData.forEach(route => {
