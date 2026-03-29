@@ -58,10 +58,14 @@
 </template>
 
 <!-- scoped style -->
-<style scoped>
+<style>
   .list-group-item {
     font-size: 1rem;
     padding: 0.75rem 1rem;
     border: none;
-  }
+  };
+
+  .dataFishing-bg {
+    background-image: linear-gradient(to left top, #e8c815, #d7bb24, #c6ae2e, #b5a235, #a5953a, #9e9144, #978d4d, #908956, #918d66, #929076, #949386, #969695);
+  };
 </style>

@@ -3,6 +3,7 @@
   // imports the carousel.css and the carousel
   import '../assets/styles/carousel.css';
   import Carousel from '../components/CardCarousel.vue';
+  
 </script>
 
 <template>

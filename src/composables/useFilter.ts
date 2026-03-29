@@ -29,7 +29,6 @@ export function useFilter() {
       const genreMatch = genre === "all" || movie.genre === genre;
 
       return dayMatch && genreMatch;
-
     });
 
     // assigns the movies value to the filtered ones
@@ -55,8 +54,8 @@ export function useFilter() {
 
         // pushes the value
         flattened.push(movie);
-      }
-    }
+      };
+    };
 
     // we add the values of the list
     allMovies.value = flattened;
@@ -66,8 +65,7 @@ export function useFilter() {
     let rawGenres = await movieService.getGenres();
     for (let i = 0; i < rawGenres.length; i++) {
       genres.value.push(rawGenres[i].genre);
-    }
-
+    };
   };
 
   // returns the data we will use

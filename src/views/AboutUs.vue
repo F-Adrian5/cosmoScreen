@@ -129,9 +129,7 @@
 </template>
 
 <style>
-/* https://mycolor.space/gradient?ori=to+right+top&hex=%23343536&hex2=%23000000&sub=1 */
-/* https://cssgradient.io/ */
   .about-bg {
     background-image: linear-gradient(to top, #7cb9b8, #68929c, #596c79, #464a52, #2c2c2c);
-  }
+  };
 </style>

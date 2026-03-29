@@ -123,9 +123,13 @@
   </div>
 </template>
 
-<style scoped>
+<style>
   .list-group-item {
     font-size: 1rem;
     padding: 0.75rem 1rem;
-  }
-</style>
+  };
+
+  .rules-bg {
+    background-image: linear-gradient(to right top, #2160d9, #2669d6, #3172d2, #3e7ace, #4d82c8, #6086c3, #6f8bbd, #7c8fb8, #8a93b2, #9597ac, #9d9ca7, #a2a2a2);
+  };
+ </style>

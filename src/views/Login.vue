@@ -1,3 +1,47 @@
+<script lang="ts" setup>
+  import { ref } from 'vue';
+  import { useAuthStore } from '@/stores/auth';
+  import { useRouter } from 'vue-router';
+  import type { LoginUserdata } from '@/types/User';
+  import { loginServices } from '@/services/loginServices';
+  import { validEmail, validPassword } from '@/utils/validation';
+
+  //Initialize custom type
+  let user = ref<LoginUserdata>({
+    email: '',
+    password: '',
+    showPassword: false
+  });
+
+  //Initialize router
+  const router = useRouter();
+
+  //Login
+  async function login(user:LoginUserdata) {
+    try{
+
+      //Post request to backend
+      const res = await loginServices.getUserData(
+        user.email,
+        user.password
+      );
+
+      const auth = useAuthStore();
+      auth.login(res); // Store user
+      
+      //Redirect to the home page
+      router.push('/');
+    }
+
+    //Error
+    catch (err: any) {
+      console.error(err);
+      alert(err.response?.data?.message || "Hiba a bejelentkezés során");
+    };
+  };
+
+</script>
+
 <template>
   <div class="d-flex justify-content-center align-items-center mt-5">
     <form @submit.prevent="login(user)"
@@ -104,44 +148,8 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useAuthStore } from '@/stores/auth'
-  import { useRouter } from 'vue-router'
-  import type { LoginUserdata } from '@/types/User'
-  import { loginServices } from '@/services/loginServices'
-  import { validEmail, validPassword } from '@/utils/validation'
-
-  //Initialize custom type
-  let user = ref<LoginUserdata>({
-    email: '',
-    password: '',
-    showPassword: false
-  })
-
-  //Initialize router
-  const router = useRouter();
-
-  //Login
-  async function login(user:LoginUserdata) {
-    try{
-
-      //Post request to backend
-      const res = await loginServices.getUserData(
-        user.email,
-        user.password
-      )
-
-      const auth = useAuthStore();
-      auth.login(res); // Store user
-      
-      //Redirect to the home page
-      router.push('/');
-    }
-    //Error
-    catch (err: any) {
-      console.error(err);
-      alert(err.response?.data?.message || "Hiba a bejelentkezés során");
-    }
-  }     
-</script>
+<style>
+  .login-bg {
+    background-image: radial-gradient(circle, #63a3a4, #57828e, #4e626f, #41454d, #2c2c2c);
+  };
+</style>

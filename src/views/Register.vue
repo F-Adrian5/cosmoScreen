@@ -1,3 +1,54 @@
+<script lang="ts" setup>
+  import { ref } from 'vue';
+  import { useRouter } from 'vue-router';
+  import type { RegisterUserdata } from '@/types/User';
+  import { registerServices } from '@/services/registerServices';
+  import { validEmail, validPassword } from '@/utils/validation';
+
+  //Initialize custom type
+  let user = ref<RegisterUserdata>({
+    name: '',
+    email: '',
+    password: '',
+    showPassword: false
+  });
+
+  //Initialize router
+  const router = useRouter();
+
+  //Register function
+  async function register(user:RegisterUserdata) {
+    try {
+
+      //Receive data from the server
+      const data = await registerServices.getUserData(
+        user.name,
+        user.email,
+        user.password
+      );
+
+      console.log("Sikeres regisztráció:", data);
+
+      //Store user data
+      localStorage.setItem("user", JSON.stringify(data));
+
+      //Redirect to the home page after registration
+      router.push('/');
+
+    } catch (err: any) {
+
+      //Server response error
+      if (err.response) {
+        alert(err.response.data.message);
+      } else {
+        alert("Szerver nem elérhető");
+      }
+      console.error("Register hiba részlete:", err);
+    };
+  };
+  
+</script>
+
 <template>
   <div class="d-flex justify-content-center align-items-center mt-5">
     <form class="p-4 shadow rounded mt-5"
@@ -122,51 +173,8 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useRouter } from 'vue-router'
-  import type { RegisterUserdata } from '@/types/User'
-  import { registerServices } from '@/services/registerServices'
-  import { validEmail, validPassword } from '@/utils/validation'
-
-  //Initialize custom type
-  let user = ref<RegisterUserdata>({
-    name: '',
-    email: '',
-    password: '',
-    showPassword: false
-  })
-
-  //Initialize router
-  const router = useRouter();
-
-  //Register function
-  async function register(user:RegisterUserdata) {
-    try {
-
-      //Receive data from the server
-      const data = await registerServices.getUserData(
-        user.name,
-        user.email,
-        user.password
-      )
-      console.log("Sikeres regisztráció:", data);
-
-      //Store user data
-      localStorage.setItem("user", JSON.stringify(data));
-
-      //Redirect to the home page after registration
-      router.push('/');
-
-    } catch (err: any) {
-
-      //Server response error
-      if (err.response) {
-        alert(err.response.data.message);
-      } else {
-        alert("Szerver nem elérhető");
-      }
-      console.error("Register hiba részlete:", err);
-    }
-  }
-</script>
+<style>
+  .register-bg {
+    background-image: radial-gradient(circle, #63a3a4, #57828e, #4e626f, #41454d, #2c2c2c);
+  };
+</style>

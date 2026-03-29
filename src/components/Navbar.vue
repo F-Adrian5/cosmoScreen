@@ -1,3 +1,78 @@
+<script>
+
+  // inporting collapse from bootstrap
+  import { Collapse } from 'bootstrap';
+  import { defineComponent } from 'vue';
+  import { useAuthStore } from '@/stores/auth';
+
+  // exporting and creating a new vue component
+  export default defineComponent ({
+
+    // component name
+    name: 'Navbar',
+
+    // reactive state
+    data() {
+      return {
+
+        // hamburger icon toggle state
+        isOpen: false,
+
+        // this is where we are going to save bootstrap's collapse element
+        bsCollapse: null,
+
+        showLangMenu: false
+      };
+    },
+
+    // when the component runs, this runs as well (lifecycle hook)
+    mounted() {
+
+      // creating a new collapse element to the navbar (ref="navbar")
+      this.bsCollapse = new Collapse(this.$refs.navbar, {
+        toggle: false // when it runs this will be the default state
+      });
+    },
+
+    setup() {
+      const auth = useAuthStore();
+      return { auth };
+    },
+
+    computed: {
+      isLoggedIn() {
+        return this.auth.isLoggedIn;
+      }
+    },
+
+    methods: {
+
+      // toggle menu method
+      toggleMenu() {
+        this.isOpen = !this.isOpen // true - false (open - close)
+        this.bsCollapse.toggle() // open - closes the menu
+      },
+
+      // close menu method
+      closeMenu() {
+
+        // checks if the menu is open or not and the element is defined
+        if (this.bsCollapse && this.isOpen) {
+          this.bsCollapse.hide() //closes the menu
+          this.isOpen = false // update the state to be closed
+        };
+      },
+
+      // method that sets the language
+      setLanguage(lang) {
+        this.$setLang(lang);  //sets the language to hu or en
+        this.showLangMenu = false; //closes the dropdown
+        this.closeMenu(); //closes the hamburger nav
+      },
+    }
+  })
+</script>
+
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container-fluid ">
@@ -119,78 +194,3 @@
     </div>
   </nav>
 </template>
-
-<script>
-  // inporting collapse from bootstrap
-  import { Collapse } from 'bootstrap'
-  import { defineComponent } from 'vue'
-  import { useAuthStore } from '@/stores/auth'
-
-  // exporting and creating a new vue component
-  export default defineComponent ({
-
-    // component name
-    name: 'Navbar',
-
-    // reactive state
-    data() {
-      return {
-
-        // hamburger icon toggle state
-        isOpen: false,
-
-        // this is where we are going to save bootstrap's collapse element
-        bsCollapse: null,
-
-        showLangMenu: false
-      }
-    },
-
-    // when the component runs, this runs as well (lifecycle hook)
-    mounted() {
-
-      // creating a new collapse element to the navbar (ref="navbar")
-      this.bsCollapse = new Collapse(this.$refs.navbar, {
-        toggle: false // when it runs this will be the default state
-      })
-    },
-
-    setup() {
-      const auth = useAuthStore()
-      return { auth }
-    },
-
-    computed: {
-      isLoggedIn() {
-        return this.auth.isLoggedIn
-      }
-    },
-
-
-    methods: {
-
-      // toggle menu method
-      toggleMenu() {
-        this.isOpen = !this.isOpen // true - false (open - close)
-        this.bsCollapse.toggle() // open - closes the menu
-      },
-
-      // close menu method
-      closeMenu() {
-
-        // checks if the menu is open or not and the element is defined
-        if (this.bsCollapse && this.isOpen) {
-          this.bsCollapse.hide() //closes the menu
-          this.isOpen = false // update the state to be closed
-        }
-      },
-
-      // method that sets the language
-      setLanguage(lang) {
-        this.$setLang(lang);  //sets the language to hu or en
-        this.showLangMenu = false; //closes the dropdown
-        this.closeMenu(); //closes the hamburger nav
-      },
-    }
-  })
-</script>

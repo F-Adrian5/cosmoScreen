@@ -1,3 +1,101 @@
+<script lang="ts" setup>
+  import { ref, computed } from 'vue';
+  import type { ProfilUserdata } from '@/types/User';
+  import { useAuthStore } from '@/stores/auth';
+  import { useRouter } from 'vue-router';
+  import { profileServices } from '@/services/profileServices';
+  import { validEmail } from '@/utils/validation';
+
+  //Initialize custom type
+  let user = ref<ProfilUserdata>({
+    name: '',
+    email: '',
+    isDisabled: true,
+    originalName: '',
+    originalEmail: '',
+  });
+
+  //Checks if there is a change in the inputs
+  const isChanged = computed(() => {
+    return (
+      user.value.name !== user.value.originalName ||
+      user.value.email !== user.value.originalEmail
+    );
+  });
+
+  //Checks if everything is valid in this function
+  const canSubmit = computed(() => {
+    return (
+      isChanged.value &&
+      user.value.name.trim() !== '' &&
+      validEmail(user.value.email)
+    );
+  });
+
+  // Store the user condition in auth varriable
+  const auth = useAuthStore();
+
+  // Use it for navigation
+  const router = useRouter();
+
+  // Logout function
+  const logout = () => {
+    
+    // Log out
+    auth.logout();
+
+    // Redirect to home page
+    router.push('/');
+  };
+
+  // Check if there is a logged in user
+  if (auth.user) {
+
+    // Take the user name and email from store and copy it
+    user.value.name = auth.user.name;
+    user.value.email = auth.user.email;
+
+    user.value.originalName = auth.user.name;
+    user.value.originalEmail = auth.user.email;
+  }
+
+  //Update function
+  async function updateProfile() {
+
+    //If its not submitable than it returns
+    if (!canSubmit.value) return;
+
+    const auth = useAuthStore();
+
+    try {
+
+      //Get user data
+      let response = await profileServices.getUserData(
+        auth.user.id,
+        user.value.name,
+        user.value.email
+      );
+
+      //Refresh the store and the local storage
+      auth.login(response.data);
+
+      //Feedback
+      alert("Profil frissítve!");
+      user.value.originalName = user.value.name;
+      user.value.originalEmail = user.value.email;
+
+      //Disable the inputs
+      user.value.isDisabled = true;
+      
+      //Server error
+    } catch (err: any) {
+      console.error(err);
+      alert(err.response?.data?.message || "Hiba a profil frissítésénél");
+    };
+  };
+
+</script>
+
 <template>
   <div class="d-flex justify-content-center align-items-center mt-5">
     <form class="p-4 shadow rounded mt-5"
@@ -111,94 +209,8 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-  import { ref, computed } from 'vue'
-  import type { ProfilUserdata } from '@/types/User'
-  import { useAuthStore } from '@/stores/auth'
-  import { useRouter } from 'vue-router'
-  import { profileServices } from '@/services/profileServices'
-  import { validEmail } from '@/utils/validation'
-
-  //Initialize custom type
-  let user = ref<ProfilUserdata>({
-    name: '',
-    email: '',
-    isDisabled: true,
-    originalName: '',
-    originalEmail: '',
-  })
-
-  //Checks if there is a change in the inputs
-  const isChanged = computed(() => {
-    return (
-      user.value.name !== user.value.originalName ||
-      user.value.email !== user.value.originalEmail
-    ) 
-  })
-
-  //Checks if everything is valid in this function
-  const canSubmit = computed(() => {
-    return (
-      isChanged.value &&
-      user.value.name.trim() !== '' &&
-      validEmail(user.value.email)
-    )
-  })
-
-  const auth = useAuthStore() // Store the user condition in auth varriable 
-  const router = useRouter() // Use it for navigation
-
-  // Logout function
-  const logout = () => {
-    auth.logout() // Log out
-    router.push('/') // Redirect to home page
-  }
-    
-
-
-  if (auth.user) { // Check if there is a logged in user
-    user.value.name = auth.user.name // Take the user name from store and copy it
-    user.value.email = auth.user.email // Take the user email from store and copy it
-
-    user.value.originalName = auth.user.name
-    user.value.originalEmail = auth.user.email
-  }
-
-
-  //Update function
-  async function updateProfile() {
-
-
-    //If its not submitable than it returns
-    if (!canSubmit.value) return;
-
-      const auth = useAuthStore()
-
-      try {
-
-        //Get user data
-        let response = await profileServices.getUserData(
-          auth.user.id,
-          user.value.name,
-          user.value.email
-        )
-
-        //Refresh the store and the local storage
-        auth.login(response.data)
-
-        //Feedback
-        alert("Profil frissítve!")
-
-        user.value.originalName = user.value.name
-        user.value.originalEmail = user.value.email
-
-        //Disable the inputs
-        user.value.isDisabled = true
-
-        //Server error
-      } catch (err: any) {
-          console.error(err)
-          alert(err.response?.data?.message || "Hiba a profil frissítésénél")
-        }
-    }
-</script>
+<style>
+  .profile-bg {
+    background-image: radial-gradient(circle, #63a3a4, #57828e, #4e626f, #41454d, #2c2c2c);
+  };
+</style>

@@ -11,6 +11,7 @@ export const loginServices = {
       email,
       password
     });
+    
     return response.data;
   }
 };

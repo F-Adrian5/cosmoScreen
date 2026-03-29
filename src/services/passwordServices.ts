@@ -11,6 +11,7 @@ export const passwordServices = {
       id,
       new_password
     });
+    
     return response.data;
   }
 };

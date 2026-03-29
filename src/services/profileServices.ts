@@ -12,6 +12,7 @@ export const profileServices = {
       name,
       email
     });
+    
     return response.data;
   }
 };

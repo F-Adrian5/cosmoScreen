@@ -1,3 +1,16 @@
+<script setup lang="ts">
+  import { onMounted } from "vue";
+  import { useBuffet } from "@/composables/useBuffet";
+  
+  // using the useBuffet items
+  const { offerType, defaultBuffetType, displayedOffers, buffetClick, loadBuffetData } = useBuffet();
+  
+  // when the DOM runs...
+  onMounted(() => {
+    loadBuffetData();
+  });
+</script>
+
 <template>
   <div class="container">
 
@@ -62,21 +75,8 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { onMounted } from "vue";
-import { useBuffet } from "@/composables/useBuffet";
-
-// using the useBuffet items
-const { offerType, defaultBuffetType, displayedOffers, buffetClick, loadBuffetData } = useBuffet();
-
-// when the DOM runs...
-onMounted(() => {
-  loadBuffetData();
-});
-</script>
-
 <style>
   .buffet-bg{
-    background-image: linear-gradient(to bottom, #2c2c2c, #45474e, #5a6572, #6b8796, #7aaab7, #7ab9c4, #7ac8ce, #7cd7d6, #69d4d0, #53d0ca, #38cdc3, #00c9bc);
-  }
+    background-image: linear-gradient(to bottom, #2c2c2c, #404041, #565657, #6c6d6e, #838486, #858a91, #85909b, #8497a5, #6d8ca4, #5582a2, #3977a1, #046ca0);
+  };
 </style>

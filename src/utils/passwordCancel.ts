@@ -1,5 +1,5 @@
-import router from '@/router'
+import router from '@/router';
 
 export function goToPage(route: string) {
-  router.push(route)
-}
+  router.push(route);
+};

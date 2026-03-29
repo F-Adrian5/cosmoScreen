@@ -12,7 +12,7 @@ router.put("/password", async (req, res) => {
   // Check required fields
   if (!id || !new_password) {
     return res.status(400).json({ message: "Hiányzó adatok" });
-  }
+  };
 
   try {
 
@@ -24,7 +24,7 @@ router.put("/password", async (req, res) => {
 
     if (users.length === 0) {
       return res.status(404).json({ message: "Felhasználó nem található" });
-    }
+    };
 
     // Update password
     const result: any = await query(
@@ -35,7 +35,7 @@ router.put("/password", async (req, res) => {
     // Modify error
     if (result.affectedRows === 0) {
       return res.status(500).json({ message: "Jelszó frissítése sikertelen" });
-    }
+    };
 
     // Return updated user data
     return res.status(200).json({
@@ -49,7 +49,7 @@ router.put("/password", async (req, res) => {
     // Server error
     console.error("Jelszó módosítási hiba:", err);
     return res.status(500).json({ message: "Szerver hiba" });
-  }
+  };
 });
 
 export default router;

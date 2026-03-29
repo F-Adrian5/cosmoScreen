@@ -22,12 +22,12 @@ function t(key: string): string {
     (obj: any, k) => obj?.[k], //go through the split key items
     messages[state.lang] //the current language
   ) || key; //if it cant find it it will give back the key
-}
+};
 
 //language switch function
 function setLang(lang: Lang) {
   state.lang = lang; //sets it to the chosen language
   localStorage.setItem("lang", lang); //save it into the local storage
-}
+};
 
 export default { t, setLang, state };

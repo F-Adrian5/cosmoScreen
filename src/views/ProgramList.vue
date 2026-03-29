@@ -1,3 +1,31 @@
+<script setup lang="ts">
+  import { onMounted, ref } from 'vue';
+  import { useFilter,  } from '@/composables/useFilter';
+
+  // pulling the items from the composable, that will be needed
+  const { movies, genres, days, filter, loadData } = useFilter();
+
+  const selectedMovie = ref(null);
+
+  function openMovie(movie:any){
+    selectedMovie.value = movie;
+  };
+
+  // local states
+  const day = ref("Hétfő");
+  const genre = ref("all");
+
+  // when the DOM loads
+  onMounted(async () => {
+    
+    // fills allMovies and movies with data
+    await loadData();
+    
+    // calling the filter function
+    filter();
+  });
+</script>
+
 <template>
   <div class="container my-5">
     
@@ -158,26 +186,9 @@
 
 </template>
 
-<script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import { useFilter,  } from '@/composables/useFilter';
+<style>
+  .programList-bg {
+    background-image: radial-gradient(circle, #8ab5b6, #82aaab, #7a9fa0, #729596, #6a8a8b, #5e7a7f, #546a71, #4b5a63, #3e424b, #2e2d32, #1c191b, #000000);
+  };
 
-// pulling the items from the composable, that will be needed
-const { movies, genres, days, filter, loadData } = useFilter();
-
-const selectedMovie = ref(null)
-
-function openMovie(movie:any){
-  selectedMovie.value = movie
-}
-
-// local states
-const day = ref("Hétfő");
-const genre = ref("all");
-
-// when the DOM loads
-onMounted(async () => {
-  await loadData(); // fills allMovies and movies with data
-  filter(); // calling the filter function
-});
-</script>
+</style>

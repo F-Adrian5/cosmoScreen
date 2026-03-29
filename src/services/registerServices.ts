@@ -12,6 +12,7 @@ export const registerServices = {
       email,
       password
     });
+    
     return response.data;
   }
 };

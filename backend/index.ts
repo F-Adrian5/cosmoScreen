@@ -5,7 +5,7 @@ import login from './routes/login.ts';
 import register from './routes/register.ts';
 import profile from './routes/profile.ts';
 import password from './routes/password.ts';
-import cors from 'cors'
+import cors from 'cors';
 
 // creates an express application
 const app = express();
@@ -26,12 +26,16 @@ app.use(express.json());
 // connecting all the routes
 app.use(makeAllRoutes);
 
+// using login
 app.use(login);
 
+// using register
 app.use(register);
 
+// using profile
 app.use(profile);
 
+// using password
 app.use(password);
 
 // start the server at the port variable's location

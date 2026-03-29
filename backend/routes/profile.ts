@@ -12,7 +12,7 @@ router.put("/profile", async (req, res) => {
   // Checking required fields
   if (!name || !email ) {
     return res.status(400).json({ message: "Név és email megadása kötelező" });
-  }
+  };
 
   try {
 
@@ -25,18 +25,17 @@ router.put("/profile", async (req, res) => {
     // If it is in use we return with an error
     if (existingUsers.length > 0) {
       return res.status(409).json({ message: "Ez az email már használatban van" });
-    }
+    };
 
     // Update user data into database
     const result: any = await query(
       "UPDATE users SET name = ?, email = ? WHERE id = ?",
       [name, email, id]
-    )
+    );
 
     if (result.affectedRows === 0) {
       return res.status(404).json({ message: "Felhasználó nem található" });
     };
-
 
     // Return updated user data
     return res.status(200).json({
@@ -52,7 +51,7 @@ router.put("/profile", async (req, res) => {
 
     // Generic server error
     return res.status(500).json({ message: "Szerver hiba" });
-  }
+  };
 });
 
 export default router;

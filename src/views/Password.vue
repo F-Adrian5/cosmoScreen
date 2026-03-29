@@ -1,3 +1,52 @@
+<script lang="ts" setup>
+  import { ref } from 'vue';
+  import type { PasswordUserdata } from '@/types/User';
+  import { validPassword } from '@/utils/validation';
+  import { passwordServices } from '@/services/passwordServices';
+  import { useRouter } from 'vue-router';
+  import { useAuthStore } from '@/stores/auth';
+  import { goToPage } from '@/utils/passwordCancel';
+
+  //Initialize custom type
+  let user = ref<PasswordUserdata>({
+    new_password: '',
+    new_password_again: '',
+    showPassword1: false,
+    showPassword2: false,
+  });
+
+  //Initialize router
+  const router = useRouter();
+  const auth = useAuthStore();
+
+  //Update function
+  async function updatePassword() {
+    try {
+
+      //Get user data
+      let response = await passwordServices.getUserData(
+        auth.user.id,
+        user.value.new_password
+      );
+
+      //Refresh the store and the local storage
+      auth.login(response);
+
+      //Feedback
+      alert("Jelszó frissítve!");
+
+      //Redirect to profile page
+      router.push('/profile');
+
+    //Error
+    } catch (err: any) {
+      console.error(err);
+      alert(err.response?.data?.message || "Hiba a jelszó frissítésénél");
+    };
+  };
+  
+</script>
+
 <template>
   <div class="d-flex justify-content-center align-items-center mt-5">
     <form class="p-4 shadow rounded w-100 mt-5"  
@@ -92,52 +141,8 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-    import { ref } from 'vue'
-    import type { PasswordUserdata } from '@/types/User'
-    import { validPassword } from '@/utils/validation'
-    import { passwordServices } from '@/services/passwordServices'
-    import { useRouter } from 'vue-router'
-    import { useAuthStore } from '@/stores/auth'
-    import { goToPage } from '@/utils/passwordCancel'
-
-    //Initialize custom type
-    let user = ref<PasswordUserdata>({
-      new_password: '',
-      new_password_again: '',
-      showPassword1: false,
-      showPassword2: false,
-    })
-
-    //Initialize router
-    const router = useRouter();
-    const auth = useAuthStore();
-
-    //Update function
-    async function updatePassword() {
-
-      try {
-
-        //Get user data
-        let response = await passwordServices.getUserData(
-          auth.user.id,
-          user.value.new_password
-        )
-
-        //Refresh the store and the local storage
-        auth.login(response)
-
-        //Feedback
-        alert("Jelszó frissítve!")
-
-        //Redirect to profile page
-        router.push('/profile');
-
-        //Error
-      } catch (err: any) {
-          console.error(err)
-          alert(err.response?.data?.message || "Hiba a jelszó frissítésénél")
-        }
-    }
-
-  </script>
+<style>
+  .password-bg {
+    background-image: radial-gradient(circle, #63a3a4, #57828e, #4e626f, #41454d, #2c2c2c);
+  };
+</style>

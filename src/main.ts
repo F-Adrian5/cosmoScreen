@@ -10,35 +10,35 @@ import './assets/fonts/bespokeStencil/bespoke-stencil.css'
 import './assets/fonts/nippo/nippo.css'
 
 // import vue and pinia
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 
 // bootstrap
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 // root components
-import App from './App.vue'
-import router from './router'
+import App from './App.vue';
+import router from './router';
 
 // fontawesome
-import '@fortawesome/fontawesome-free/css/all.min.css'
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 // flag icons
-import "flag-icons/css/flag-icons.min.css"
+import "flag-icons/css/flag-icons.min.css";
 
 // languages
-import language from '@/languages/language'
+import language from '@/languages/language';
 
 // create app
-const app = createApp(App)
+const app = createApp(App);
 
 
 // connecting pinia to the app
-app.use(createPinia())
+app.use(createPinia());
 
 // connecting router to the app
-app.use(router)
+app.use(router);
 
 // connecting i18n to ta app
 app.config.globalProperties.$t = language.t;
@@ -46,4 +46,4 @@ app.config.globalProperties.$setLang = language.setLang;
 app.config.globalProperties.$lang = language.state;
 
 // mounting the application
-app.mount('#app')
+app.mount('#app');

@@ -12,7 +12,7 @@ router.post("/register", async (req, res) => {
   // Checking required fields
   if (!name || !email || !password) {
     return res.status(400).json({ message: "Név, email és jelszó megadása kötelező" });
-  }
+  };
 
   try {
 
@@ -25,7 +25,7 @@ router.post("/register", async (req, res) => {
     // If it does exist we return with an error
     if (existingUsers.length > 0) {
       return res.status(409).json({ message: "Ez az email már regisztrálva van" });
-    }
+    };
 
     // Insert new user into database
     const result: any = await query(

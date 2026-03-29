@@ -3,6 +3,8 @@ import type { Offer, OfferType } from "@/types/Offer";
 import { buffetServices } from "@/services/buffetServices";
 
 export function useBuffet() {
+
+  // setting up the variables
   const offers = ref<Offer[]>([]),
         offerType = ref<OfferType[]>([]),
         defaultBuffetType = ref<string>("Popcorn"),
@@ -17,8 +19,8 @@ export function useBuffet() {
       let offer = offers.value[i];
       if (offer && offer.type === buffetType) {
         displayedOffers.value.push(offer);
-      }
-    }
+      };
+    };
   }
 
   // loading all the buffet data

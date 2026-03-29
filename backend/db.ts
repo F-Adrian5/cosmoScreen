@@ -17,7 +17,8 @@ db.connect(err => {
   if (err) {
     console.error('Database connection failed: ' + err.stack);
     process.exit(1);
-  }
+  };
+
   console.log('Connected to database.');
 });
 

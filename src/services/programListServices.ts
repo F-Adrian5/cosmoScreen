@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // setting a port
-const port = 3000
+const port = 3000;
 
 export const movieService = {
   

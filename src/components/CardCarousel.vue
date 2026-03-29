@@ -1,3 +1,56 @@
+<script setup lang="ts">
+
+  // importing from vue and carousel.css
+  // defineComponent: this is how we define components
+  // ref: every time if something changes ref reacts
+  import { ref, onMounted } from "vue";
+  import type { CarouselMovie, actorsInMovie } from "@/types/Movie";
+  import { carouselMovieServices } from "@/services/cardCarouselServices";
+  import "../assets/styles/carousel.css";
+
+  // movies will be a reactive variable
+  // it is basically a variable, 
+  // that if you change it will automatically change in the HTML
+  // so if we modify the data, the UI will automatically update
+  const movies = ref<CarouselMovie[]>([]);
+  const actorsInMovieCard = ref<actorsInMovie[]>([]);
+  const selectedMovie = ref<CarouselMovie | null>(null);
+  const actorsByMovie = ref<Record<number, actorsInMovie[]>>({});
+
+
+  function selectMovie(movie: CarouselMovie) {
+    selectedMovie.value = movie;
+  };
+
+  // when the site runs than we get the movies
+  onMounted(async ()=> {
+
+    // get the data from the services and assigning the values 
+    // to the movies, and logging the number of films
+    const response = await carouselMovieServices.getMovies();
+    movies.value = response;
+    console.log("Number of films: " + movies.value.length);
+
+    const actors = await carouselMovieServices.getActors();
+    actorsInMovieCard.value = actors;
+    console.log(actors);
+
+    const grouped: Record<number, actorsInMovie[]> = {};
+
+    actors.forEach((actor: actorsInMovie) => {
+      if (!grouped[actor.movie_id]) {
+        grouped[actor.movie_id] = [];
+      };
+
+      grouped[actor.movie_id]!.push(actor);
+    });
+  
+    actorsByMovie.value = grouped;
+  
+    console.log(actorsByMovie.value);
+  })  
+</script>
+
 <template>
   <div class="container">
     <div class="row align-text-center">
@@ -145,56 +198,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-
-  // importing from vue and carousel.css
-  // defineComponent: this is how we define components
-  // ref: every time if something changes ref reacts
-  import { ref, onMounted } from "vue";
-  import type { CarouselMovie, actorsInMovie } from "@/types/Movie";
-  import { carouselMovieServices } from "@/services/cardCarouselServices";
-  import "../assets/styles/carousel.css";
-
-  // movies will be a reactive variable
-  // it is basically a variable, 
-  // that if you change it will automatically change in the HTML
-  // so if we modify the data, the UI will automatically update
-  const movies = ref<CarouselMovie[]>([]);
-  const actorsInMovieCard = ref<actorsInMovie[]>([]);
-  const selectedMovie = ref<CarouselMovie | null>(null);
-  const actorsByMovie = ref<Record<number, actorsInMovie[]>>({});
-
-
-  function selectMovie(movie: CarouselMovie) {
-    selectedMovie.value = movie;
-  }
-
-  // when the site runs than we get the movies
-  onMounted(async ()=> {
-
-    // get the data from the services and assigning the values 
-    // to the movies, and logging the number of films
-    const response = await carouselMovieServices.getMovies();
-    movies.value = response;
-    console.log("Number of films: " + movies.value.length);
-
-    const actors = await carouselMovieServices.getActors();
-    actorsInMovieCard.value = actors;
-    console.log(actors);
-
-    const grouped: Record<number, actorsInMovie[]> = {};
-
-    actors.forEach((actor: actorsInMovie) => {
-      if (!grouped[actor.movie_id]) {
-        grouped[actor.movie_id] = [];
-      }
-      grouped[actor.movie_id]!.push(actor);
-    });
-  
-    actorsByMovie.value = grouped;
-  
-    console.log(actorsByMovie.value);
-
-  })  
-</script>

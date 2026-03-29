@@ -6,7 +6,7 @@ import type { Movie } from "@/types/Movie";
  */
 function shuffle (array:any): any {
   return [...array].sort(() => Math.random() - 0.5);
-}
+};
 
 /** This function will make the runtime to hours and minutes
  * @param {number} runtime a number that refers to the number of minutes, that a film is played 
@@ -20,8 +20,8 @@ function runtimeToTime(runtime: number): string {
   const minutes = runtime % 60;
 
   // returns the time in string
-  return `${hours >= 10 ? hours : '0' + hours}:${minutes >= 10 ? minutes : '0' + minutes }`
-}
+  return `${hours >= 10 ? hours : '0' + hours}:${minutes >= 10 ? minutes : '0' + minutes }`;
+};
 
 /** This will schedule the movies for a given day
  * @param {Movie} movies takes in the movies that we want to schedule
@@ -63,12 +63,12 @@ function generateTimes(movies: Movie[]): Movie {
 
       // if no, than the cycle will break, exit.
       break;
-    }
-  }
+    };
+  };
 
   // The function will return a list of the movies that can be shown on a given day
   return scheduledMovies;
-}
+};
 
 /**
  * This function will create a cheduled week with every day having at least 5 films
@@ -112,9 +112,9 @@ export function createScreeningDays(movieList: Movie[], days: string[]) {
 
         // if we dont have any movies left than we break out of the cycle
         break;
-      }
-    }
-  }
+      };
+    };
+  };
 
   // if we still have movies to set
   while (index < movies.length) {
@@ -127,7 +127,7 @@ export function createScreeningDays(movieList: Movie[], days: string[]) {
 
     // than we increment the index to prevent giving the same movie
     index++;
-  }
+  };
 
   // we go through all the days
   for (const day of days) {
@@ -138,13 +138,13 @@ export function createScreeningDays(movieList: Movie[], days: string[]) {
     // setting the screeningDay's value to the current day for all of our films
     for (const movie of scheduled) {
       movie.screeningDay = day;
-    }
+    };
 
     // setting that week's day to the scheduled movie screening time list
     week[day] = scheduled;
-  }
+  };
 
   // in the end we return the week, that will determine 
   // each day what we will show and at what time
   return week;
-}
+};
