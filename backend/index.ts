@@ -14,11 +14,7 @@ const app = express();
 const port = 3000;
 
 // connectinc cors and setting it to only allow the 5173 port
-app.use(cors({
-  origin: [
-    'http://localhost:5173'
-  ]
-}))
+app.use(cors())
 
 // we read the json data -> it puts the data to req.data
 app.use(express.json());

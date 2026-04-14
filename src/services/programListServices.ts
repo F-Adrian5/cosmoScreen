@@ -15,5 +15,15 @@ export const movieService = {
   async getGenres() {
     const response = await axios.get(`http://localhost:${port}/getGenres`);
     return response.data;
+  },
+
+  // Get all genres method
+  async getSeats() {
+    try {
+      const response = await axios.get(`http://localhost:${port}/getSeats`);
+      return response.data;
+    } catch (error) {
+      return error
+    }
   }
 };

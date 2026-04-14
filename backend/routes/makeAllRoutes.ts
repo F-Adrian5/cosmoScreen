@@ -42,8 +42,8 @@ const getData = [
     query: 'SELECT `id`,`capacity` FROM `rooms`' 
   },
   { 
-    url: '/getSeats', 
-    query: 'SELECT `id`,`room_id`,`seat_row`,`seat_column`,`status` FROM `seats`' 
+    url: '/getSeats',
+    query: 'SELECT `id`, `room_id`, `seat_row`, `seat_column` FROM `seats`' 
   },
   { 
     url: '/getTickets', 

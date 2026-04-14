@@ -1,11 +1,12 @@
 <script setup lang="ts">
   import { onMounted, ref } from 'vue';
-  import { useFilter,  } from '@/composables/useFilter';
+  import { useFilter } from '@/composables/useFilter';
+  import { movieService } from '@/services/programListServices';
 
   // pulling the items from the composable, that will be needed
   const { movies, genres, days, filter, loadData } = useFilter();
 
-  const selectedMovie = ref(null);
+  const selectedMovie = ref<any>(null);
 
   function openMovie(movie:any){
     selectedMovie.value = movie;
@@ -20,6 +21,8 @@
     
     // fills allMovies and movies with data
     await loadData();
+
+    console.log(await movieService.getSeats());
     
     // calling the filter function
     filter();
@@ -165,20 +168,35 @@
   </div>
 
   <!-- modal -->
-  <div class="modal" id="movieModal" tabindex="-1" aria-hidden="true">
+  <div class="modal" 
+       id="movieModal" 
+       tabindex="-1" 
+       aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content bg-dark">
         <div class="modal-header">
-          <h5 class="modal-title">
+          <h5 class="modal-title text-white">
             {{ selectedMovie?.movie_title }}
           </h5>
         </div>
-        <div class="modal-body">
-          <p>Modal body text goes here.</p>
+        <div class="modal-body text-white">
+          <p>Terem - ido</p>
+          <p>vaszon</p>
+          <p>szekek</p>
+          <p>jegyek tipusai</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" 
+                  class="btn btn-outline-light px-4 fs-4" 
+                  data-bs-dismiss="modal">
+                <i class="fa-solid fa-xmark mx-1"></i>
+              Bezárás
+          </button>
+          <button type="button" 
+                  class="btn btn-outline-success px-4 fs-4">
+              <i class="fa-solid fa-check"></i>
+            Foglalás
+          </button>
         </div>
       </div>
     </div>
