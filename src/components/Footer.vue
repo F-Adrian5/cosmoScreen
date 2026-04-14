@@ -7,14 +7,14 @@
         CosmoScreen
         <br>
         <span class="fs-6">
-          &bdquo; Ahol minden képkocka egy új világ! &rdquo;
+          &bdquo;  {{ $t('footer.motto') }} &rdquo;
         </span>
       </div>
 
       <!-- location -->
       <div class="col-lg-3 col-md-6 col-12 footer-col text-center fw-bold mb-3 fs-5">
         <i class="fa-solid fa-map-location-dot"></i>
-        Látogass meg minket
+         {{ $t('footer.visitUs') }}
         <div class="fw-light fs-5 footerText">
           <div>
             6900 Makó, Posta u. 2.
@@ -23,7 +23,7 @@
             <a href="https://maps.google.com/?q=Makó+Posta+utca+2" 
                target="_blank" 
                class="link_color">
-              Megnyitás térképen
+              {{ $t('footer.openMap') }}
             </a>
           </div>
         </div>

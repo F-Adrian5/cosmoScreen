@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Ápr 14. 11:21
+-- Létrehozás ideje: 2026. Ápr 14. 13:32
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -158,7 +158,9 @@ INSERT INTO `actor_in_movie` (`id`, `movie_id`, `actor_id`) VALUES
 (55, 47, 27),
 (56, 48, 44),
 (57, 49, 36),
-(58, 50, 45);
+(58, 50, 45),
+(59, 42, 39),
+(60, 41, 38);
 
 -- --------------------------------------------------------
 
@@ -668,7 +670,7 @@ ALTER TABLE `actors`
 -- AUTO_INCREMENT a táblához `actor_in_movie`
 --
 ALTER TABLE `actor_in_movie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT a táblához `buffet`

@@ -12,7 +12,10 @@
     "informations": "Informations",
     "regulations": "Regulations",
     "dataFishing": "Datafishing",
-    "copyright": "All rights reserved CosmoScreen - "
+    "copyright": "All rights reserved CosmoScreen - ",
+    "motto":"Where every frame is a new world!",
+    "visitUs":"Visit us",
+    "openMap":"Open on map"
   },
   "homePage":{
     "welcome": "Welcome to CosmoScreen!",
@@ -23,7 +26,8 @@
     "production":"Production:",
     "ageRestriction":"Age restriction:",
     "releaseDate":"Release date:",
-    "director":"Director:"
+    "director":"Director:",
+    "starring":"Starring:"
   },
   "programListPage":{
     "title":"Program list",

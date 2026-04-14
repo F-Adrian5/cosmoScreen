@@ -157,7 +157,7 @@
                   </p>
                   <p class="fs-4">
                     <i class="fa-solid fa-user-group mx-2"></i>
-                    <strong>Fő szerepben:</strong>
+                    <strong> {{$t('homePage.starring') }}</strong>
                     <span v-if="actorsByMovie[selectedMovie?.id || 0]">
                       <span v-for="actor in actorsByMovie[selectedMovie?.id || 0]"
                             :key="actor.actor_id">

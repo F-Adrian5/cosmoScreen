@@ -12,7 +12,10 @@
     "informations": "Információk",
     "regulations": "Szabályzatok",
     "dataFishing": "Adathalászat",
-    "copyright": "Minden jog fentartva CosmoScreen - "
+    "copyright": "Minden jog fentartva CosmoScreen - ",
+     "motto":"Ahol minden képkocka egy új világ!",
+     "visitUs":"Látogass meg minket",
+     "openMap":"Megnyitás térképen"
   },
   "homePage":{
     "welcome": "Üdvözöljük a CosmoScreen oldalán!",
@@ -23,7 +26,8 @@
     "production":"Stúdió:",
     "ageRestriction":"Korhatár:",
     "releaseDate":"Megjelenés:",
-    "director":"Rendezte:"
+    "director":"Rendezte:",
+    "starring":"Főszerepben:"
   },
   "programListPage":{
     "title":"Műsorlista",
