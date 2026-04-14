@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -75,6 +76,8 @@ namespace cosmoScreen
                     MessageBox.Show("Nincs ilyen felhasználó regisztrálva!");
                 }
 
+                
+
                 // closing the reader and the connection
                 reader.Close();
                 closeConnection();
@@ -92,5 +95,6 @@ namespace cosmoScreen
                 !string.IsNullOrWhiteSpace(loginE_input.Text) &&
                 !string.IsNullOrWhiteSpace(loginP_input.Password);
         }
+
     }
 }
