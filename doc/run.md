@@ -1,3 +1,5 @@
+[README](../README.md) • [Setup](./setup.md) • [Frontend](./frontend.md) • [Backend](./backend.md)
+
 # <center> Futtatási útmutató
 
 **A projekt futtatásához két terminál szükséges: egy a frontendhez és egy a backendhez.**

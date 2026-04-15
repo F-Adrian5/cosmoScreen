@@ -1,3 +1,7 @@
+[Setup](./doc/setup.md) • [Futtatás](doc/run.md) • [Frontend](doc/frontend.md) • [Backend](doc/backend.md)
+
+---
+
 # <center> CosmoScreen
 
 > ***„Ahol minden képkocka egy új világ!”***

@@ -1,3 +1,5 @@
+[README](../README.md) • [Futtatás](./run.md) • [Frontend](./frontend.md) • [Backend](./backend.md)
+
 # <center> Telepítési Útmutató
 
 ## 0. Előfeltételek – szükséges szoftverek

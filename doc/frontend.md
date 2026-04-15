@@ -1,3 +1,5 @@
+[README](../README.md) • [Setup](./setup.md) • [Futtatás](./run.md) • [Backend](./backend.md)
+
 # <center> Frontend
 
 ### Core technológiák
