@@ -16,9 +16,8 @@ Célja, hogy a moziélményt digitálisan is elérhetővé tegye a látogatók s
 
 | Szerep | Név |
 |--------|-----|
-| **Projektvezető** | Fodor Adrián László |
+| **Projektvezető és Fejlesztő** | Fodor Adrián László |
 | **Fejlesztő** | Kriván Balázs |
-| **Fejlesztő** | Fodor Adrián László |
 
 ---
 
