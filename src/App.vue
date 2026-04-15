@@ -4,6 +4,7 @@
 import { RouterView } from 'vue-router';
 import Navbar from './components/Navbar.vue';
 import FooterView from './components/Footer.vue';
+import Modal from '@/components/Modal.vue';
 
 </script>
 
@@ -13,6 +14,8 @@ import FooterView from './components/Footer.vue';
       <header>
         <Navbar />
       </header>
+
+      <Modal />
     
       <main class="flex-fill container">
         <div class="row">
