@@ -6,6 +6,7 @@ import './assets/styles/navbar.css'
 import './assets/styles/login.css'
 import './assets/styles/buffet.css'
 import './assets/styles/aboutUs.css'
+import './assets/styles/modal.css'
 import './assets/fonts/bespokeStencil/bespoke-stencil.css'
 import './assets/fonts/nippo/nippo.css'
 

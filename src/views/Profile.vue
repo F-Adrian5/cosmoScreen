@@ -5,6 +5,8 @@
   import { useRouter } from 'vue-router';
   import { profileServices } from '@/services/profileServices';
   import { validEmail } from '@/utils/validation';
+  import { useModalStore } from '@/stores/modal';
+  import { ModalPreset } from '@/types/Modal';
 
   //Initialize custom type
   let user = ref<ProfilUserdata>({
@@ -38,8 +40,17 @@
   // Use it for navigation
   const router = useRouter();
 
+  const modal = useModalStore()
+
   // Logout function
-  const logout = () => {
+  const logout = async () => {
+
+    const confirmed = await modal.openPreset(
+     ModalPreset.CONFIRM,
+    'Biztosan ki akarsz jelentkezni?'
+    )
+
+    if (!confirmed) return;
     
     // Log out
     auth.logout();
