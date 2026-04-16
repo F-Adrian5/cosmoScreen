@@ -75,7 +75,8 @@
     "passwordAgainError":"The password entered does not match.",
     "newPassword":"New password",
     "newPasswordAgain":"Confirm password",
-    "modifyPassword":"Change password"
+    "modifyPassword":"Change password",
+    "logoutMessageBox":"Are you sure you want to log out?"
   },
   "regulationsPage":{
     "rulesTitle":"CosmoScreen's Rules",
@@ -138,5 +139,12 @@
   "successMessages":{
     "sucessfulReg":"Sucessful registration",
     "successfulLog":"Successful login"
+  },
+  "modalPage":{
+    "messageCancel":"Cancel",
+    "messageConfirm":"Confirm",
+    "messageDelete":"Delete",
+    "messageSuccess":"Success",
+    "messageError":"Error"
   }
 }

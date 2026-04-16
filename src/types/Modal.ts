@@ -13,7 +13,7 @@ export enum ModalPreset {
 }
 
 export interface ModalOptions {
-  title?: string
+  title: string
   message: string
   type?: ModalType
   showCancel?: boolean

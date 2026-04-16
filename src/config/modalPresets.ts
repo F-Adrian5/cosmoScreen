@@ -6,22 +6,22 @@ export const modalPresets: Record<
   Omit<ModalOptions, 'message'>
 > = {
   [ModalPreset.CONFIRM]: {
-    title: 'Confirm',
+    title: 'modalPage.messageConfirm',
     type: ModalType.WARNING,
     showCancel: true
   },
   [ModalPreset.DELETE]: {
-    title: 'Delete',
+    title: 'modalPage.messageDelete',
     type: ModalType.ERROR,
     showCancel: true
   },
   [ModalPreset.SUCCESS]: {
-    title: 'Success',
+    title: 'modalPage.messageSuccess',
     type: ModalType.SUCCESS,
     showCancel: false
   },
   [ModalPreset.ERROR]: {
-    title: 'Error',
+    title: 'modalPage.messageError',
     type: ModalType.ERROR,
     showCancel: false
   }

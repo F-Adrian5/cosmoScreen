@@ -7,6 +7,7 @@
   import { validEmail } from '@/utils/validation';
   import { useModalStore } from '@/stores/modal';
   import { ModalPreset } from '@/types/Modal';
+  import language from '@/languages/language'
 
   //Initialize custom type
   let user = ref<ProfilUserdata>({
@@ -47,7 +48,7 @@
 
     const confirmed = await modal.openPreset(
      ModalPreset.CONFIRM,
-    'Biztosan ki akarsz jelentkezni?'
+      language.t('profilePage.logoutMessageBox')
     )
 
     if (!confirmed) return;

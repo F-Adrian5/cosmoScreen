@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import type { ModalOptions } from '@/types/Modal'
 import { ModalPreset, ModalType } from '@/types/Modal'
 import { modalPresets } from '@/config/modalPresets'
+import language from '@/languages/language'
 
 interface ModalState {
   show: boolean
@@ -41,6 +42,7 @@ export const useModalStore = defineStore('modal', {
 
       return this.open({
         ...config,
+         title: language.t(config.title),
         message
       })
     },

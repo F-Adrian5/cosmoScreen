@@ -16,10 +16,10 @@
             <button v-if="modal.showCancel"
                     class="btn btn-danger"
                     @click="modal.cancel">
-              Cancel
+               {{ $t('modalPage.messageCancel') }}
             </button>
 
-            <button class="btn"
+            <button class="btn text-white"
                     style="background-color: rgb(130, 194, 193);"
                     @click="modal.confirm">
               OK

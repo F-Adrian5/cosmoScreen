@@ -74,7 +74,8 @@
     "passwordAgainError":"Nem egyezik a megadott jelszó",
     "newPassword":"Új jelszó",
     "newPasswordAgain":"Jelszó megerősítése",
-    "modifyPassword":"Jelszó módosítása"
+    "modifyPassword":"Jelszó módosítása",
+    "logoutMessageBox":"Biztosan ki akarsz jelentkezni?"
   },
   "regulationsPage":{
     "rulesTitle":"A CosmoScreen Szabályzata",
@@ -137,5 +138,12 @@
   "successMessages":{
     "sucessfulReg":"Sikeres regisztráció!",
     "successfulLog":"Sikeres bejelentkezés!"
+  },
+  "modalPage":{
+    "messageCancel":"Mégse",
+    "messageConfirm":"Jóváhagy",
+    "messageDelete":"Törlés",
+    "messageSuccess":"Siker",
+    "messageError":"Hiba"
   }
 }
