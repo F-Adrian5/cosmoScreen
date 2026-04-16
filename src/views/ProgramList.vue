@@ -8,9 +8,27 @@
 
   const selectedMovie = ref<any>(null);
 
+  let seats = ref<any>(null)
+  let room1 = ref<any>(null)
+  let room2 = ref<any>(null)
+
   function openMovie(movie:any){
     selectedMovie.value = movie;
+    
+    console.log(movie)
+
   };
+
+  setTimeout(async()=>{
+    seats = await movieService.getSeats();
+    console.log(seats)
+    for (let i = 0; i < seats.value.length; i++) {
+      if (seats.value[i].room_id = 1) {
+        room1.value.push()
+      }
+    }
+
+  }, 200)
 
   // local states
   const day = ref("Hétfő");
@@ -22,8 +40,6 @@
     // fills allMovies and movies with data
     await loadData();
 
-    console.log(await movieService.getSeats());
-    
     // calling the filter function
     filter();
   });
@@ -179,24 +195,84 @@
             {{ selectedMovie?.movie_title }}
           </h5>
         </div>
-        <div class="modal-body text-white">
-          <p>Terem - ido</p>
-          <p>vaszon</p>
-          <p>szekek</p>
-          <p>jegyek tipusai</p>
+        <div class="modal-body text-white"
+             style="padding: 14px;">
+
+          <!-- info (time,room) -->
+          <div class="row">
+            <div class="col-12 col-md-6 mb-2 mb-md-0">
+              <span>Terem: {{ selectedMovie?.room_id }}. </span>
+            </div>
+
+            <div class="col-12 col-md-6 text-md-end">
+              <span>Ideje: {{selectedMovie?.start}} - {{selectedMovie?.end}} ({{ selectedMovie?.runtime }}p)</span>
+            </div>
+          </div>
+
+          <hr>
+
+          <!-- screen -->
+          <div class="bg-light d-flex justify-content-center align-items-center w-50 my-3 mx-auto" 
+               style="height: 30px;">
+            <span class="text-black">
+              Vászon
+            </span>
+          </div>
+
+          <br>
+          <br class="d-md-none">
+
+          <!-- seats -->
+          <div class="d-flex">
+            
+            <!-- row -->
+            <div>
+              <span>
+                10.
+              </span>
+            </div>
+          
+            <!-- each seat -->
+            <div class="d-flex mx-auto">
+              <span v-for="screen in 8" 
+                    class="mx-1 px-1 mx-md-2 px-md-2"
+                    style="background-color: white; color: black;">
+                {{ screen }}
+              </span>
+            </div>
+          
+          </div>
+
+          <!-- tickets -->
+          <div>
+
+          </div>
+
+          <!-- selected seat(s) -->
+
         </div>
+
+        <!-- footer -->
         <div class="modal-footer">
-          <button type="button" 
-                  class="btn btn-outline-light px-4 fs-4" 
-                  data-bs-dismiss="modal">
+          <div class="row w-100 g-2">
+          
+            <div class="col-12 col-md-6">
+              <button type="button"
+                      class="btn btn-outline-light fs-4 w-100"
+                      data-bs-dismiss="modal">
                 <i class="fa-solid fa-xmark mx-1"></i>
-              Bezárás
-          </button>
-          <button type="button" 
-                  class="btn btn-outline-success px-4 fs-4">
-              <i class="fa-solid fa-check"></i>
-            Foglalás
-          </button>
+                Bezárás
+              </button>
+            </div>
+          
+            <div class="col-12 col-md-6">
+              <button type="button"
+                      class="btn btn-outline-success fs-4 w-100">
+                <i class="fa-solid fa-check mx-1"></i>
+                Foglalás
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
