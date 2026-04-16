@@ -4,6 +4,9 @@
   import type { RegisterUserdata } from '@/types/User';
   import { registerServices } from '@/services/registerServices';
   import { validEmail, validPassword } from '@/utils/validation';
+  import { useModalStore } from '@/stores/modal';
+  import { ModalPreset } from '@/types/Modal';
+  import language from '@/languages/language';
 
   //Initialize custom type
   let user = ref<RegisterUserdata>({
@@ -16,6 +19,8 @@
   //Initialize router
   const router = useRouter();
 
+  const modal = useModalStore()
+
   //Register function
   async function register(user:RegisterUserdata) {
     try {
@@ -26,6 +31,11 @@
         user.email,
         user.password
       );
+
+      await modal.openPreset(
+        ModalPreset.SUCCESS,
+        language.t('registerPage.succesfulRegistrationMessage')
+      ) 
 
       console.log("Sikeres regisztráció:", data);
 
