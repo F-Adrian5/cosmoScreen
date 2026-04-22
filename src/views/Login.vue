@@ -5,6 +5,9 @@
   import type { LoginUserdata } from '@/types/User';
   import { loginServices } from '@/services/loginServices';
   import { validEmail, validPassword } from '@/utils/validation';
+  import { useModalStore } from '@/stores/modal';
+  import { ModalPreset } from '@/types/Modal';
+  import language from '@/languages/language';
 
   //Initialize custom type
   let user = ref<LoginUserdata>({
@@ -15,6 +18,8 @@
 
   //Initialize router
   const router = useRouter();
+
+  const modal = useModalStore()
 
   //Login
   async function login(user:LoginUserdata) {
@@ -28,7 +33,11 @@
 
       const auth = useAuthStore();
       auth.login(res); // Store user
-      
+
+      await modal.openPreset(
+        ModalPreset.SUCCESS,
+        language.t('loginPage.succesfulLoginMessage')
+      ) 
       //Redirect to the home page
       router.push('/');
     }

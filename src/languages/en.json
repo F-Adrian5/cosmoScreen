@@ -49,7 +49,8 @@
     "registerLink": "register",
     "emailError":"Invalid email format",
     "passwordError":"Minimum 6 characters, uppercase letter, number, special character",
-    "forgottenPassword":"Forgot your password?"
+    "forgottenPassword":"Forgot your password?",
+    "succesfulLoginMessage":"Successful Login!"
   },
   "registerPage":{
     "registerTitle": "Registration",
@@ -61,7 +62,10 @@
     "loginLink":"login",
     "emailError":"Invalid email format",
     "passwordError":"Minimum 6 characters, uppercase letter, number, special character",
-    "nameError":"The name cannot contain numbers or special characters."
+    "nameError":"The name cannot contain numbers or special characters.",
+    "succesfulRegistrationMessage":"Successful Registration!",
+    "successfulModification":"Successful Modification!",
+    "modificationConfirm":"Are you sure you want to make changes?"
   },
   "profilePage":{
     "profileTitle": "Profile",
@@ -76,7 +80,8 @@
     "newPassword":"New password",
     "newPasswordAgain":"Confirm password",
     "modifyPassword":"Change password",
-    "logoutMessageBox":"Are you sure you want to log out?"
+    "logoutMessageBox":"Are you sure you want to log out?",
+    "logoutSuccessMessageBox":"Successful Logout!"
   },
   "regulationsPage":{
     "rulesTitle":"CosmoScreen's Rules",

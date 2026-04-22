@@ -7,7 +7,7 @@
   import { validEmail } from '@/utils/validation';
   import { useModalStore } from '@/stores/modal';
   import { ModalPreset } from '@/types/Modal';
-  import language from '@/languages/language'
+  import language from '@/languages/language';
 
   //Initialize custom type
   let user = ref<ProfilUserdata>({
@@ -56,6 +56,11 @@
     // Log out
     auth.logout();
 
+    await modal.openPreset(
+      ModalPreset.SUCCESS,
+      language.t('profilePage.logoutSuccessMessageBox')
+    )
+
     // Redirect to home page
     router.push('/');
   };
@@ -79,6 +84,13 @@
 
     const auth = useAuthStore();
 
+    const confirmed = await modal.openPreset(
+      ModalPreset.CONFIRM,
+      language.t('profilePage.modificationConfirm')
+    )
+
+    if (!confirmed) return;
+
     try {
 
       //Get user data
@@ -92,7 +104,11 @@
       auth.login(response.data);
 
       //Feedback
-      alert("Profil frissítve!");
+      await modal.openPreset(
+        ModalPreset.SUCCESS,
+        language.t('profilePage.successfulModification')
+      )
+
       user.value.originalName = user.value.name;
       user.value.originalEmail = user.value.email;
 

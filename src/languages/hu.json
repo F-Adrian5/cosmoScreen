@@ -48,7 +48,8 @@
     "registerLink": "regisztráljon",
     "emailError":"Érvénytelen email formátum",
     "passwordError":"Minimum 6 karakter, nagybetű, szám, speciális karakter",
-    "forgottenPassword":"Elfelejtette jelszavát?"
+    "forgottenPassword":"Elfelejtette jelszavát?",
+    "succesfulLoginMessage":"Sikeres Bejelentkezés!"
   },
   "registerPage":{
     "registerTitle": "Regisztráció",
@@ -60,7 +61,8 @@
     "loginLink":"jelentkezzen be",
     "emailError":"Érvénytelen email formátum",
     "passwordError":"Minimum 6 karakter, nagybetű, szám, speciális karakter",
-    "nameError":"A név nem tartalmazhat számot vagy speciális karaktert"
+    "nameError":"A név nem tartalmazhat számot vagy speciális karaktert",
+    "succesfulRegistrationMessage":"Sikeres Regisztráció!"
   },
    "profilePage":{
     "profileTitle": "Profil",
@@ -75,7 +77,10 @@
     "newPassword":"Új jelszó",
     "newPasswordAgain":"Jelszó megerősítése",
     "modifyPassword":"Jelszó módosítása",
-    "logoutMessageBox":"Biztosan ki akarsz jelentkezni?"
+    "logoutMessageBox":"Biztosan ki akarsz jelentkezni?",
+    "logoutSuccessMessageBox":"Sikeres Kijelentkezés!",
+    "successfulModification":"Sikeres Módosítás!",
+    "modificationConfirm":"Biztosan módosításokat szeretne végrehajtani?"
   },
   "regulationsPage":{
     "rulesTitle":"A CosmoScreen Szabályzata",
