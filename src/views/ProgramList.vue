@@ -8,27 +8,41 @@
 
   const selectedMovie = ref<any>(null);
 
-  let seats = ref<any>(null)
-  let room1 = ref<any>(null)
-  let room2 = ref<any>(null)
+  let seats = ref<any[]>([]);
+  let room1 = ref<any[]>([]);
+  let room2 = ref<any[]>([]);
 
   function openMovie(movie:any){
     selectedMovie.value = movie;
     
-    console.log(movie)
+    console.log(movie);
 
   };
 
   setTimeout(async()=>{
-    seats = await movieService.getSeats();
+    seats.value = await movieService.getSeats();
     console.log(seats)
     for (let i = 0; i < seats.value.length; i++) {
-      if (seats.value[i].room_id = 1) {
-        room1.value.push()
+      if (seats.value[i].room_id === 1) {
+        room1.value.push(seats.value[i]);
+      } else if (seats.value[i].room_id === 2) {
+        room2.value.push(seats.value[i]);
       }
     }
+    console.log(room1);
+    console.log(room2);
 
-  }, 200)
+    for (let i = 0; i < room1.value.length; i++) {
+      
+      
+    }
+
+  }, 200);
+  
+
+  function selectSeat() {
+    
+  }
 
   // local states
   const day = ref("Hétfő");
@@ -199,53 +213,72 @@
              style="padding: 14px;">
 
           <!-- info (time,room) -->
-          <div class="row">
+          <div class="row mx-3">
             <div class="col-12 col-md-6 mb-2 mb-md-0">
-              <span>Terem: {{ selectedMovie?.room_id }}. </span>
+              <span>
+                <i class="fa-solid fa-people-roof"></i>
+                Terem: {{ selectedMovie?.room_id }}. 
+              </span>
             </div>
 
             <div class="col-12 col-md-6 text-md-end">
-              <span>Ideje: {{selectedMovie?.start}} - {{selectedMovie?.end}} ({{ selectedMovie?.runtime }}p)</span>
+              <span>
+                <i class="fa-regular fa-clock"></i>
+                {{selectedMovie?.start}} - {{selectedMovie?.end}} ({{ selectedMovie?.runtime }}p)
+              </span>
             </div>
           </div>
 
           <hr>
 
-          <!-- screen -->
-          <div class="bg-light d-flex justify-content-center align-items-center w-50 my-3 mx-auto" 
-               style="height: 30px;">
-            <span class="text-black">
-              Vászon
-            </span>
+          <!-- wrapper (screen + seats) -->
+          <div class="w-100 d-flex flex-column align-items-center">
+          
+            <!-- screen -->
+            <div class=" bg-light d-flex justify-content-center align-items-center w-75 my-3"
+                 style="height: 30px;">
+              <span class="text-black">
+                Vászon
+              </span>
+            </div>
+          
+            <br>
+            <br class=" d-md-none">
+
+            <!-- seats -->
+            <div class="w-100">
+            
+              <!-- row -->
+              <div v-for="row in 8" 
+                   class="d-flex align-items-center mb-2">
+              
+                <!-- row number -->
+                <div style="width: 30px;" 
+                     class="text-center">
+                  {{ row }}
+                </div>
+              
+                <!-- seats -->
+                <div class="d-flex flex-grow-1 justify-content-between">
+                
+                  <div v-for="screen in 8"
+                       class="flex-fill mx-1 text-center bg-white text-black rounded"
+                       @click="selectSeat()">
+                    {{ screen }}
+                  </div>
+                
+                </div>
+              </div>
+            
+            </div>
           </div>
 
           <br>
           <br class="d-md-none">
 
-          <!-- seats -->
-          <div class="d-flex">
-            
-            <!-- row -->
-            <div>
-              <span>
-                10.
-              </span>
-            </div>
-          
-            <!-- each seat -->
-            <div class="d-flex mx-auto">
-              <span v-for="screen in 8" 
-                    class="mx-1 px-1 mx-md-2 px-md-2"
-                    style="background-color: white; color: black;">
-                {{ screen }}
-              </span>
-            </div>
-          
-          </div>
-
           <!-- tickets -->
           <div>
-
+            <p>tickets</p>
           </div>
 
           <!-- selected seat(s) -->
