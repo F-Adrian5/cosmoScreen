@@ -11,6 +11,8 @@
   let seats = ref<any[]>([]);
   let room1 = ref<any[]>([]);
   let room2 = ref<any[]>([]);
+  let room1SeatRow = ref<any[]>([]);
+  let room2SeatRow = ref<any[]>([]);
 
   function openMovie(movie:any){
     selectedMovie.value = movie;
@@ -29,16 +31,18 @@
         room2.value.push(seats.value[i]);
       }
     }
-    console.log(room1);
+    console.log(room1.value.length);
+    console.log(room1.value[1].seat_row);
     console.log(room2);
 
     for (let i = 0; i < room1.value.length; i++) {
-      
-      
+      room1SeatRow.value.push(room1.value[i].seat_row);
     }
-
   }, 200);
   
+  let rowsSET = new Set()
+
+  console.log(rowsSET)
 
   function selectSeat() {
     
@@ -249,7 +253,7 @@
             <div class="w-100">
             
               <!-- row -->
-              <div v-for="row in 8" 
+              <div v-for="row in room1.length" 
                    class="d-flex align-items-center mb-2">
               
                 <!-- row number -->
