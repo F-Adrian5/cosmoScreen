@@ -75,50 +75,50 @@ namespace cosmoScreen
         }
 
         private int movie_id = -1;
-        private void movie_datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var movie_title = "";
-            var movie_runtime = "";
-            var movie_director = "";
-            var movie_studio = "";
-            var movie_poster = "";
-            var movie_genre = "";
-            var movie_age = "";
-            var movie_showing_in = "";
-            var movie_re_date = "";
-            var movie_description = "";
-
-            DataRowView sor = (DataRowView)movie_datagrid.SelectedItem;
-
-            delete_data_btn.IsEnabled = true;
-            edit_data_btn.IsEnabled = true;
-            if (sor != null)
+            private void movie_datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
             {
-                movie_id = Convert.ToInt32(sor["id"]);
-                movie_title = sor["title"].ToString();
-                movie_runtime = sor["runtime"].ToString();
-                movie_director = sor["director"].ToString();
-                movie_studio = sor["production"].ToString();
-                movie_poster = sor["poster"].ToString();
-                movie_genre = sor["genre"].ToString();
-                movie_age = sor["age_restriction"].ToString();
-                movie_showing_in = sor["showing_in"].ToString();
-                movie_re_date = sor["release_date"].ToString();
-                movie_description = sor["description"].ToString();
+                var movie_title = "";
+                var movie_runtime = "";
+                var movie_director = "";
+                var movie_studio = "";
+                var movie_poster = "";
+                var movie_genre = "";
+                var movie_age = "";
+                var movie_showing_in = "";
+                var movie_re_date = "";
+                var movie_description = "";
 
-                title_input.Text = movie_title;
-                runtime_input.Text = movie_runtime;
-                director_input.Text = movie_director;
-                production_input.Text = movie_studio;
-                poster_input.Text = movie_poster;
-                genre_combobox.Text = movie_genre;
-                age_restriction_combobox.Text = movie_age;
-                showing_in_combobox.Text = movie_showing_in;
-                release_date_input.Text = movie_re_date;
-                description_input.Text = movie_description;
+                DataRowView sor = (DataRowView)movie_datagrid.SelectedItem;
+
+                delete_data_btn.IsEnabled = true;
+                edit_data_btn.IsEnabled = true;
+                if (sor != null)
+                {
+                    movie_id = Convert.ToInt32(sor["id"]);
+                    movie_title = sor["title"].ToString();
+                    movie_runtime = sor["runtime"].ToString();
+                    movie_director = sor["director"].ToString();
+                    movie_studio = sor["production"].ToString();
+                    movie_poster = sor["poster"].ToString();
+                    movie_genre = sor["genre"].ToString();
+                    movie_age = sor["age_restriction"].ToString();
+                    movie_showing_in = sor["showing_in"].ToString();
+                    movie_re_date = sor["release_date"].ToString();
+                    movie_description = sor["description"].ToString();
+
+                    title_input.Text = movie_title;
+                    runtime_input.Text = movie_runtime;
+                    director_input.Text = movie_director;
+                    production_input.Text = movie_studio;
+                    poster_input.Text = movie_poster;
+                    genre_combobox.Text = movie_genre;
+                    age_restriction_combobox.Text = movie_age;
+                    showing_in_combobox.Text = movie_showing_in;
+                    release_date_input.Text = movie_re_date;
+                    description_input.Text = movie_description;
+                }
+
             }
-
-        }
 
         private void delete_data_btn_Click(object sender, RoutedEventArgs e)
         {

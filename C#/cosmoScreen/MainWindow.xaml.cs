@@ -51,5 +51,12 @@ namespace cosmoScreen
             felhasznalokWindow.Show();
             this.Hide();
         }
+
+        private void filmszerepben_Click(object sender, RoutedEventArgs e)
+        {
+            filmszerepben filmszerepbenWindow = new filmszerepben();
+            filmszerepbenWindow.Show();
+            this.Hide();
+        }
     }
 }
