@@ -30,7 +30,6 @@ C:\xampp\htdocs\fodoradrian\__2025-26\cosmoScreen\C#\cosmoScreen\obj\Debug\net9.
 C:\xampp\htdocs\fodoradrian\__2025-26\cosmoScreen\C#\cosmoScreen\obj\Debug\net9.0-windows7.0\App.g.cs
 C:\xampp\htdocs\fodoradrian\__2025-26\cosmoScreen\C#\cosmoScreen\obj\Debug\net9.0-windows7.0\cosmoScreen_Content.g.cs
 C:\xampp\htdocs\fodoradrian\__2025-26\cosmoScreen\C#\cosmoScreen\obj\Debug\net9.0-windows7.0\cosmoScreen_MarkupCompile.cache
-C:\xampp\htdocs\fodoradrian\__2025-26\cosmoScreen\C#\cosmoScreen\obj\Debug\net9.0-windows7.0\cosmoScreen_MarkupCompile.lref
 C:\xampp\htdocs\fodoradrian\__2025-26\cosmoScreen\C#\cosmoScreen\obj\Debug\net9.0-windows7.0\App.baml
 C:\xampp\htdocs\fodoradrian\__2025-26\cosmoScreen\C#\cosmoScreen\obj\Debug\net9.0-windows7.0\felhasznalok.baml
 C:\xampp\htdocs\fodoradrian\__2025-26\cosmoScreen\C#\cosmoScreen\obj\Debug\net9.0-windows7.0\cosmoScreen.g.resources

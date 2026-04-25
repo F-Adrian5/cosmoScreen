@@ -67,9 +67,20 @@ namespace cosmoScreen
                 MessageBox.Show(hiba.Message);
             }
         }
-        public static void ExitApp(Window window)
+
+        public static void Logout(Window window)
         {
-            window.Closed += (sender, Event) => Application.Current.Shutdown();
+            MessageBoxResult result = MessageBox.Show(
+                "Biztosan ki akar jelentkezni?",
+                "Confirm",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                window.Close();
+                ((App)Application.Current).ShowLogin();
+            }
         }
     }
 }

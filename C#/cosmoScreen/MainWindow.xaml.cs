@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.ComponentModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,7 +21,7 @@ namespace cosmoScreen
         public MainWindow()
         {
             InitializeComponent();
-            ExitApp(this);
+            //ExitApp(this);
         }
 
         private void bufe_click(object sender, RoutedEventArgs e)

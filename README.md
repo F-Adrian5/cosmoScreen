@@ -1,32 +1,29 @@
-# <center> CosmoScreen Adminisztratív felülete (C# - WPF)
+# CosmoScreen Adminisztratív felülete
 
-> *„Ahol minden képkocka egy új világ!”*
+> **_„Ahol minden képkocka egy új világ!”_**
 
 ---
 
 ## Projekt áttekintés
+
 A **CosmoScreen WPF** a weboldal Adminisztratív felülete, amely lehetővé teszi az adatok megtekintését, feltöltését, módosítását és törlését.
 
----
-
 ## Funkciók
+
 - **CRUD műveletek**: Adatok megtekintése, módosítása, felvétele és törlése a következő táblákon:
   - Felhasználók
   - Büfé
   - Filmek
   - Színészek
+  - Actor in movie
 - **Installer**: Elérhető, a telepítési útmutató a "Projekt telepítése és elindítása" cím alatt található! A bejelentkezés csak is Adminisztrátorok számára engedélyezett.
 
----
+## Fejlesztőcsapat
 
-## Csapat
-
-| Szerep | Név |
-|--------|-----|
-| **Projektvezető** | Fodor Adrián László |
-| **Projekt tag** | Kriván Balázs |
-
----
+| Szerep                         | Név                 |
+| ------------------------------ | ------------------- |
+| **Projektvezető és Fejlesztő** | Fodor Adrián László |
+| **Fejlesztő**                  | Kriván Balázs       |
 
 ## Projekt telepítése és elindítása
 
@@ -40,7 +37,7 @@ A **CosmoScreen WPF** a weboldal Adminisztratív felülete, amely lehetővé tes
 4. Hozzon létre egy új adatbázist az alábbi adatokkal:
    - **Adatbázis neve:** cosmoscreen
    - **Kódolás:** utf8_general_ci
-5. Az adatbázis létrehozása után importálja a mellékelt **cosmoscreen.sql** fájlt.
+5. Az adatbázis létrehozása után importálja a **cosmoscreen.sql** fájlt, amit a **main** branch-en talál meg a **/backend/db** mappában.
 
 ---
 
@@ -62,4 +59,4 @@ A **CosmoScreen WPF** a weboldal Adminisztratív felülete, amely lehetővé tes
 
 ---
 
-### ⚠️ A felület használatára Adminisztrátori jogosultságra van szüksége!
+### ⚠️ **A felület használatára Adminisztrátori jogosultságra van szüksége!**

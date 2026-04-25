@@ -27,7 +27,6 @@ namespace cosmoScreen
         {
             InitializeComponent();
             LoadData("SELECT * FROM users", users_datagrid);
-            ExitApp(this);
         }
 
         private void films_menuItem_Click(object sender, RoutedEventArgs e)
@@ -160,21 +159,7 @@ namespace cosmoScreen
 
         private void logout_btn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show(
-              "Biztosan ki akar jelentkezni?",
-              "Confirm",
-            MessageBoxButton.YesNo,
-            MessageBoxImage.Question);
-
-            if (result == MessageBoxResult.Yes)
-            {
-                login loginWindow = new login();
-                loginWindow.Show();
-                this.Hide();
-            }
-
-
-           
+            Logout(this);
         }
     }
 }
