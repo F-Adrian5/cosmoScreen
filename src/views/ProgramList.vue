@@ -1,10 +1,10 @@
 <script setup lang="ts">
-  import { onMounted, ref } from 'vue';
+  import { onMounted, ref, watch } from 'vue';
   import { useFilter } from '@/composables/useFilter';
   import { movieService } from '@/services/programListServices';
 
   // pulling the items from the composable, that will be needed
-  const { movies, genres, days, filter, loadData } = useFilter();
+  const { movies, genres, days, filter, loadData, getAvailableGenresForDay } = useFilter();
 
   const selectedMovie = ref<any>(null);
 
@@ -51,6 +51,17 @@
   // local states
   const day = ref("Hétfő");
   const genre = ref("all");
+
+  // This will watch the day ref and when it changes
+  watch(day, () => {
+
+    //then we will give the genre the all value
+    genre.value = "all";
+
+    // after that we call the filter function
+    // with the chaned day and the all genre type
+    filter(day.value, "all");
+  });
 
   // when the DOM loads
   onMounted(async () => {
@@ -123,8 +134,9 @@
               </option>
               <option v-for="genre in genres"
                       :key="genre"
-                      :value="genre">
-                  {{ genre }}
+                      :value="genre"
+                      :disabled="!getAvailableGenresForDay(day).includes(genre)">
+                {{ genre }}
               </option>
           </select>
         </div>
@@ -190,15 +202,6 @@
         </div>
       </div>
     </div>
-
-    <!-- if there is no film with filter -->
-    <div>
-      <h1 class="text-center text-warning fw-bold my-5"
-          v-show="!movies.length">
-        {{ $t('programListPage.notFound') }}
-      </h1>
-    </div>
-
   </div>
 
   <!-- modal -->

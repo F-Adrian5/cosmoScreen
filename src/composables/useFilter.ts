@@ -5,7 +5,6 @@ import { createScreeningDays } from "@/utils/programListHelper";
 
 /** This is the main function, that will connect our scheduled film's list
  * and our filter function together
- * @returns 
  */
 export function useFilter() {
 
@@ -68,6 +67,43 @@ export function useFilter() {
     };
   };
 
+  /** This function will get all the genres that is screening
+   * at the given day
+   * @param {string} day a given day
+   * @returns {Array} that contains all the unique genres
+   */
+  function getAvailableGenresForDay(day: string): string[] {
+
+    // storing all the movies for the selected day
+    const moviesForDay = [];
+  
+    for (let i = 0; i < allMovies.value.length; i++) {
+
+      // checking what movies have the same day of screening that we selected
+      if (allMovies.value[i]!.screeningDay === day) {
+        moviesForDay.push(allMovies.value[i]);
+      }
+    }
+
+    // getting all the genres, that are in the movies for selected day
+    const genres = [];
+
+    for (let i = 0; i < moviesForDay.length; i++) {
+      genres.push(moviesForDay[i]!.genre);
+    }
+
+    // creating a new set
+    const uniqueGenres = new Set<string>();
+    
+    //adding all the genres to the Set
+    for (let i = 0; i < genres.length; i++) {
+      uniqueGenres.add(genres[i]!);
+    }
+    
+    // converting and returning the uniqueGenres Set in a Array form
+    return Array.from(uniqueGenres);
+  }
+
   // returns the data we will use
   return {
     movies,
@@ -75,6 +111,7 @@ export function useFilter() {
     genres,
     days,
     filter,
-    loadData
+    loadData,
+    getAvailableGenresForDay
   };
 }
