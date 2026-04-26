@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\xampp\htdocs\Krivan_Balazs\suli\cosmoScreen\C#\cosmoScreen\obj\Debug\net9.0-windows7.0\
+C:\xampp\htdocs\fodoradrian\__2025-26\cosmoScreen\C#\cosmoScreen\obj\Debug\net9.0-windows7.0\
 cosmoScreen
 none
 false
-TRACE;DEBUG;NET;NET9_0;NETCOREAPP
-C:\xampp\htdocs\Krivan_Balazs\suli\cosmoScreen\C#\cosmoScreen\App.xaml
+TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+C:\xampp\htdocs\fodoradrian\__2025-26\cosmoScreen\C#\cosmoScreen\App.xaml
 71411987416
 1895850911
 13-833730165
-2071481625205
+200754226803
 bufe.xaml;felhasznalok.xaml;films.xaml;filmszerepben.xaml;login.xaml;MainWindow.xaml;szineszek.xaml;
 
 True
