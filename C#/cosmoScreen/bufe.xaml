@@ -41,6 +41,9 @@
             <MenuItem Header="Felhasználók"
                       Name="user_menuItem"
                       Click="user_menuItem_Click"/>
+
+            <MenuItem Header="Film Szerepben" 
+                      Click="actor_in_movie_Click"/>
         </Menu>
 
         <!-- Right side button -->

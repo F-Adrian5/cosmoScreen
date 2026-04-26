@@ -30,6 +30,7 @@
             <MenuItem Header="Büfé" Click="buffet_menuItem_Click"/>
             <MenuItem Header="Színészek" Click="actor_menuItem_Click"/>
             <MenuItem Header="Felhasználók" Click="user_menuItem_Click"/>
+            <MenuItem Header="Film Szerepben" Click="actor_in_movie_Click"/>
         </Menu>
 
         <!-- Right side button -->

@@ -31,6 +31,7 @@
             <MenuItem Header="Büfé" Click="buffet_menuItem_Click"/>
             <MenuItem Header="Színészek" Foreground="#FF9DCC3B"/>
             <MenuItem Header="Felhasználók" Click="user_menuItem_Click"/>
+            <MenuItem Header="Film Szerepben" Click="actor_in_movie_Click"/>
         </Menu>
 
         <!-- Right side button -->
@@ -80,6 +81,15 @@
                          MaxLength="100"
                          PreviewTextInput="NameOnly"
                          TextChanged="actor_name_input_TextChanged"/>
+
+                <Label Content="Link"
+                       FontSize="16"
+                       FontWeight="Bold"
+                       Margin="0,20,0,0" Foreground="#FF9DCC3B"/>
+
+                <TextBox x:Name="actor_link_input"
+                         FontSize="16"
+                         MaxLength="250"/>
             </StackPanel>
 
             <!-- DATAGRID -->
