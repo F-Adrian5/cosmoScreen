@@ -11,11 +11,19 @@
     <Compile Update="films.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="filmszerepben.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="szineszek.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="filmszerepben.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>
