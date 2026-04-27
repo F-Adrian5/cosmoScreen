@@ -46,26 +46,29 @@ namespace cosmoScreen
 
         private void btn_upload_Click(object sender, RoutedEventArgs e)
         {
-            string actor_uplodad = $"INSERT INTO actors(name) VALUES('{actor_name_input.Text}')";
+            string actor_uplodad = $"INSERT INTO actors(name,info_link) VALUES('{actor_name_input.Text}','{actor_link_input.Text}')";
             executeQuery(actor_uplodad);
             LoadData("SELECT * FROM actors", actors_datagrid);
         }
 
-        private void actor_name_input_TextChanged(object sender, TextChangedEventArgs e)
+        private void InputChanged(object sender, TextChangedEventArgs e)
         {
-            if(actor_name_input.Text == ""){
-                btn_upload.IsEnabled = false;
-            }
-            else
-            {
-                btn_upload.IsEnabled = true;
-            }
+            btn_upload.IsEnabled = ValidateInputs();
+        }
+
+        private bool ValidateInputs()
+        {
+            if (string.IsNullOrWhiteSpace(actor_name_input.Text)) return false;
+            if (string.IsNullOrWhiteSpace(actor_link_input.Text)) return false;
+
+            return true;
         }
 
         private int actor_id = -1;
         private void actors_datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var actor_name = "";
+            var actor_link = "";
             DataRowView sor = (DataRowView)actors_datagrid.SelectedItem;
 
             delete_data_btn.IsEnabled = true;
@@ -74,7 +77,10 @@ namespace cosmoScreen
             {
                 actor_id = Convert.ToInt32(sor["id"]);
                 actor_name = sor["name"].ToString();
+                actor_link = sor["info_link"].ToString();
                 actor_name_input.Text = actor_name;
+                actor_link_input.Text = actor_link;
+
             }
         }
 
@@ -90,7 +96,7 @@ namespace cosmoScreen
 
         private void edit_data_btn_Click(object sender, RoutedEventArgs e)
         {
-            string sorfrissites = $"UPDATE actors SET name='{actor_name_input.Text}' WHERE id='{actor_id}'";
+            string sorfrissites = $"UPDATE actors SET name='{actor_name_input.Text}',info_link='{actor_link_input.Text}' WHERE id='{actor_id}'";
             executeQuery(sorfrissites);
             actors_datagrid.SelectedItem = null;
             LoadData("SELECT * FROM actors", actors_datagrid);

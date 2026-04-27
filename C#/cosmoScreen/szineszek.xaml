@@ -80,7 +80,7 @@
                          FontSize="16"
                          MaxLength="100"
                          PreviewTextInput="NameOnly"
-                         TextChanged="actor_name_input_TextChanged"/>
+                         TextChanged="InputChanged"/>
 
                 <Label Content="Link"
                        FontSize="16"
@@ -89,7 +89,8 @@
 
                 <TextBox x:Name="actor_link_input"
                          FontSize="16"
-                         MaxLength="250"/>
+                         MaxLength="250"
+                         TextChanged="InputChanged"/>
             </StackPanel>
 
             <!-- DATAGRID -->
