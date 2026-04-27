@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cosmoScreen", "cosmoScreen\
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "cosmoscreenSetup", "cosmoscreenSetup\cosmoscreenSetup.vdproj", "{2B0B4F6C-A56B-F253-0FD0-EEED20375B97}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "comsoscreen_setup", "comsoscreen_setup\comsoscreen_setup.vdproj", "{4477942F-9238-4AC6-A214-FB5386ACA8F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,8 @@ Global
 		{62313E81-0958-46F9-B4EB-FD1DE59FEC9E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2B0B4F6C-A56B-F253-0FD0-EEED20375B97}.Debug|Any CPU.ActiveCfg = Debug
 		{2B0B4F6C-A56B-F253-0FD0-EEED20375B97}.Release|Any CPU.ActiveCfg = Release
+		{4477942F-9238-4AC6-A214-FB5386ACA8F1}.Debug|Any CPU.ActiveCfg = Debug
+		{4477942F-9238-4AC6-A214-FB5386ACA8F1}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
