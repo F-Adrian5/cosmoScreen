@@ -3,74 +3,116 @@
   import { useFilter } from '@/composables/useFilter';
   import { movieService } from '@/services/programListServices';
 
-  // pulling the items from the composable, that will be needed
   const { movies, genres, days, filter, loadData, getAvailableGenresForDay } = useFilter();
 
   const selectedMovie = ref<any>(null);
+  const seats = ref<any[]>([]);
+  const selectedSeats = ref<any[]>([]);
 
-  let seats = ref<any[]>([]);
-  let room1 = ref<any[]>([]);
-  let room2 = ref<any[]>([]);
-  let room1SeatRow = ref<any[]>([]);
-  let room2SeatRow = ref<any[]>([]);
-
-  function openMovie(movie:any){
-    selectedMovie.value = movie;
-    
-    console.log(movie);
-
-  };
-
-  setTimeout(async()=>{
-    seats.value = await movieService.getSeats();
-    console.log(seats)
-    for (let i = 0; i < seats.value.length; i++) {
-      if (seats.value[i].room_id === 1) {
-        room1.value.push(seats.value[i]);
-      } else if (seats.value[i].room_id === 2) {
-        room2.value.push(seats.value[i]);
-      }
-    }
-    console.log(room1.value.length);
-    console.log(room1.value[1].seat_row);
-    console.log(room2);
-
-    for (let i = 0; i < room1.value.length; i++) {
-      room1SeatRow.value.push(room1.value[i].seat_row);
-    }
-  }, 200);
-  
-  let rowsSET = new Set()
-
-  console.log(rowsSET)
-
-  function selectSeat() {
-    
-  }
-
-  // local states
   const day = ref("Hétfő");
   const genre = ref("all");
 
-  // This will watch the day ref and when it changes
+  /** This function will only run if the user selects a film
+   * the parameter is the selected film's value
+   * @param movie selected film's value
+   */
+  function openMovie(movie: any) {
+    
+    // storing the selected movie's data for the modal to show
+    selectedMovie.value = movie;
+    
+    // if the user clicks on a new film then the value will be empthy
+    selectedSeats.value = [];
+  }
+
+  /** This function gets the selected film's room and seats ordered by rows
+   * @return {Object} an ordered object whit the rows and seats in it.
+   */
+  function getSeatsByRow() {
+
+    // if there is no seleceted movie than return an empty object
+    if (!selectedMovie.value) return {};
+
+    // we selcet only the seats witch has the same room_id as our selected movie
+    const roomSeats = seats.value.filter(
+      seat => seat.room_id === selectedMovie.value.room_id
+    );
+
+    const rows: any = {};
+
+
+    for (const seat of roomSeats) {
+
+      // fills every row with the current amount of seats with an array each
+      if (!rows[seat.seat_row]) {
+        rows[seat.seat_row] = [];
+      }
+
+      // pushes the seat's value to the current seat
+      rows[seat.seat_row].push(seat);
+    }
+
+    // returns the rows
+    return rows;
+  }
+
+  /** The function only runs when the user selects a seat
+   * @param {any} seat selected seat's data
+   */
+  function selectSeat(seat: any) {
+
+    // searching if the current seat is in the selectedSeats
+    // findIndex gives back the seat's id in the array if it exists
+    // if not, than it will give a -1 index
+    const idx = selectedSeats.value.findIndex(s => s.id === seat.id);
+
+    // checks if the seat is exists
+    if (idx === -1) {
+
+      // if not than it will give the selecetedSeats the current seat's value
+      selectedSeats.value.push(seat);
+    } else {
+
+      // if the seat exists, than it will remove it from selecetedSeats
+      // splice(index, number): this will remove a given "index", a number of items
+      selectedSeats.value.splice(idx, 1);
+    }
+  }
+
+  /** This function returns if the seat is selected or not
+   * @param {any} seat the selected seat
+   * @returns {boolean} true if it is selected, false if it's not 
+   */
+  function isSeatSelected(seat: any) {
+
+    // some() will go thourgh the selected seats and if it finds at least one that
+    // matches the id of the seat that is selected, than it gives a true value, else it gives a false
+    return selectedSeats.value.some(s => s.id === seat.id);
+  }
+
+  // this watches the day ref, if it changes, 
+  // than the following function will be called
   watch(day, () => {
 
-    //then we will give the genre the all value
+    // when we change date than our gender gets the "all" value
     genre.value = "all";
 
-    // after that we call the filter function
-    // with the chaned day and the all genre type
+    // This function will find the movies that match the filters
+    // the film's list will update
     filter(day.value, "all");
   });
 
   // when the DOM loads
   onMounted(async () => {
     
-    // fills allMovies and movies with data
+    // loads the films data form db
     await loadData();
-
-    // calling the filter function
+    
+    // calls the filter function
     filter();
+    
+    // gets all the seat data form db
+    seats.value = await movieService.getSeats();
   });
 </script>
 
@@ -254,29 +296,39 @@
 
             <!-- seats -->
             <div class="w-100">
-            
-              <!-- row -->
-              <div v-for="row in room1.length" 
+              <div v-for="(rowSeats, rowLabel) in getSeatsByRow()" :key="rowLabel"
                    class="d-flex align-items-center mb-2">
-              
-                <!-- row number -->
+                
+                <!-- sor száma -->
                 <div style="width: 30px;" 
-                     class="text-center">
-                  {{ row }}
+                     class="text-center text-white">
+                  {{ rowLabel }}
                 </div>
-              
-                <!-- seats -->
+
+                <!-- székek -->
                 <div class="d-flex flex-grow-1 justify-content-between">
-                
-                  <div v-for="screen in 8"
-                       class="flex-fill mx-1 text-center bg-white text-black rounded"
-                       @click="selectSeat()">
-                    {{ screen }}
+                  <div v-for="seat in rowSeats" :key="seat.id"
+                       class="flex-fill mx-1 text-center rounded"
+                       :class="isSeatSelected(seat) ? 'bg-success text-white' : 'bg-secondary text-black'"
+                       @click="selectSeat(seat)"
+                       style="cursor: pointer;">
+                    {{ seat.seat_column }}
                   </div>
-                
                 </div>
               </div>
-            
+            </div>
+
+            <!-- kiválasztott székek -->
+            <div class="text-white mb-2 mx-3 text-center" 
+                 v-if="selectedSeats.length > 0">
+              <p class="my-1 text-center">
+                {{selectedSeats.length > 1 ? "Kiválasztott székek:" : "Kiválasztott szék:"}}
+              </p>
+              <span v-for="seat in selectedSeats" :key="seat.id"
+                    class="badge bg-secondary me-2">
+
+                {{ seat.seat_row }}. sor, {{ seat.seat_column }}. szék
+              </span>
             </div>
           </div>
 
