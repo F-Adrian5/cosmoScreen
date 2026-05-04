@@ -1,18 +1,22 @@
 import axios from 'axios';
-
-// setting a port
-const port = 3000;
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const registerServices = {
   
   // Get all movies method
   async getUserData(name:string, email: string, password: string) {
-    const response = await axios.post(`http://localhost:${port}/register`,{
-      name,
-      email,
-      password
-    });
+
+    try {
+      const response = await axios.post(`${API_URL}/register`,{
+        name,
+        email,
+        password
+      });
     
-    return response.data;
+      return response.data;
+    } catch (error) {
+      console.log('getUserData failed:', error);
+      return null;
+    }
   }
 };

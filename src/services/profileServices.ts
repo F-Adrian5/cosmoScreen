@@ -1,18 +1,21 @@
 import axios from 'axios';
-
-// setting a port
-const port = 3000;
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const profileServices = {
   
   // Get model data from html
   async getUserData(id:number, name:string, email: string) {
-    const response = await axios.put(`http://localhost:${port}/profile`,{
-      id,
-      name,
-      email
-    });
-    
-    return response.data;
+    try {
+      const response = await axios.put(`${API_URL}}/profile`,{
+        id,
+        name,
+        email
+      });
+
+      return response.data; 
+    } catch (error) {
+      console.log('getUserData failed:', error);
+      return null;
+    }
   }
 };

@@ -1,19 +1,27 @@
 import axios from 'axios';
-
-// setting a port
-const port = 3000;
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const buffetServices = {
   
   // Get all buffetItems method
   async getBuffetItem() {
-    const response = await axios.get(`http://localhost:${port}/getBuffet`);
-    return response.data;
+    try {
+      const response = await axios.get(`${API_URL}/getBuffet`);
+      return response.data; 
+    } catch (error) {
+      console.log('getBuffetItem failed:', error);
+      return null;
+    }
   },
 
   // Get all buffet types method
   async getBuffetTypes() {
-    const response = await axios.get(`http://localhost:${port}/getBuffetTypes`);
-    return response.data;
+    try {
+      const response = await axios.get(`${API_URL}/getBuffetTypes`);
+      return response.data;
+    } catch (error) {
+      console.log('getBuffetTypes failed:', error);
+      return null;
+    }
   }
 };
