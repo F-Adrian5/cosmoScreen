@@ -4,11 +4,17 @@ import { defineStore } from 'pinia';
 export const useAuthStore = defineStore('auth', {
   
   //Data
-  state: () => ({
-
-    // Load user data from localstorage
-    user: JSON.parse(localStorage.getItem('user') || 'null') as any | null
-  }),
+  state: () => {
+    try {
+      const stored = localStorage.getItem('user');
+      return {
+        user: stored && stored !== 'undefined' ? JSON.parse(stored) : null
+      };
+    } catch {
+      localStorage.removeItem('user');
+      return { user: null };
+    }
+  },
 
   // Calculation
   getters: {
@@ -20,6 +26,8 @@ export const useAuthStore = defineStore('auth', {
   // Changes
   actions: {
     login(user: any) {
+
+      if (!user) return
 
       // Set user in store
       this.user = user;

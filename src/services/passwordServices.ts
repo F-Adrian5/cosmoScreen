@@ -15,7 +15,7 @@ export const passwordServices = {
       return response.data;
     } catch (error) {
       console.log('getUserData failed:', error);
-      return null;
+      throw error;
     }
   }
 };

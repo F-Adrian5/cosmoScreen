@@ -21,6 +21,12 @@
 
   //Update function
   async function updatePassword() {
+    
+    if (!auth.user) {
+      router.push('/login');
+      return;
+    }
+    
     try {
 
       //Get user data

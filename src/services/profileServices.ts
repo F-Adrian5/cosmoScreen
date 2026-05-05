@@ -6,7 +6,7 @@ export const profileServices = {
   // Get model data from html
   async getUserData(id:number, name:string, email: string) {
     try {
-      const response = await axios.put(`${API_URL}}/profile`,{
+      const response = await axios.put(`${API_URL}/profile`,{
         id,
         name,
         email
