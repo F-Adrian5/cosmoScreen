@@ -1,6 +1,7 @@
 import { ModalType, ModalPreset } from '@/types/Modal'
 import type { ModalOptions } from '@/types/Modal'
 
+//Predefined modal presets, each preset has its own standard settings
 export const modalPresets: Record<
   ModalPreset,
   Omit<ModalOptions, 'message'>
