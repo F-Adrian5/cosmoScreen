@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { ref, computed } from 'vue';
-  import type { ProfilUserdata } from '@/types/User';
+  import type { ProfilUserData } from '@/types/User';
   import { useAuthStore } from '@/stores/auth';
   import { useRouter } from 'vue-router';
   import { profileServices } from '@/services/profileServices';
@@ -10,7 +10,7 @@
   import language from '@/languages/language';
 
   //Initialize custom type
-  let user = ref<ProfilUserdata>({
+  let user = ref<ProfilUserData>({
     name: '',
     email: '',
     isDisabled: true,

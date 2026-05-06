@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { ref } from 'vue';
-  import type { PasswordUserdata } from '@/types/User';
+  import type { PasswordUserData } from '@/types/User';
   import { validPassword } from '@/utils/validation';
   import { passwordServices } from '@/services/passwordServices';
   import { useRouter } from 'vue-router';
@@ -8,7 +8,7 @@
   import { goToPage } from '@/utils/passwordCancel';
 
   //Initialize custom type
-  let user = ref<PasswordUserdata>({
+  let user = ref<PasswordUserData>({
     new_password: '',
     new_password_again: '',
     showPassword1: false,

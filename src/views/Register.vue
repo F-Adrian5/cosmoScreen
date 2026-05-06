@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue';
   import { useRouter } from 'vue-router';
-  import type { RegisterUserdata } from '@/types/User';
+  import type { RegisterUserData } from '@/types/User';
   import { registerServices } from '@/services/registerServices';
   import { validEmail, validPassword } from '@/utils/validation';
   import { useModalStore } from '@/stores/modal';
@@ -9,7 +9,7 @@
   import language from '@/languages/language';
 
   //Initialize custom type
-  let user = ref<RegisterUserdata>({
+  let user = ref<RegisterUserData>({
     name: '',
     email: '',
     password: '',
@@ -22,7 +22,7 @@
   const modal = useModalStore()
 
   //Register function
-  async function register(user:RegisterUserdata) {
+  async function register(user:RegisterUserData) {
     try {
 
       //Receive data from the server

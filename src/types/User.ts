@@ -1,17 +1,17 @@
-export interface LoginUserdata {
+export interface LoginUserData {
   email: string, 
   password: string,
   showPassword: boolean,
 }
 
-export interface RegisterUserdata {
+export interface RegisterUserData {
   name: string,
   email: string, 
   password: string,
   showPassword: boolean,
 }
 
-export interface ProfilUserdata {
+export interface ProfilUserData {
   name: string,
   email: string,
   isDisabled: boolean,
@@ -19,7 +19,7 @@ export interface ProfilUserdata {
   originalEmail: string,
 }
 
-export interface PasswordUserdata {
+export interface PasswordUserData {
   new_password: string,
   new_password_again: string,
   showPassword1: boolean,

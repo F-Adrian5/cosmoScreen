@@ -2,7 +2,7 @@
   import { ref } from 'vue';
   import { useAuthStore } from '@/stores/auth';
   import { useRouter } from 'vue-router';
-  import type { LoginUserdata } from '@/types/User';
+  import type { LoginUserData } from '@/types/User';
   import { loginServices } from '@/services/loginServices';
   import { validEmail, validPassword } from '@/utils/validation';
   import { useModalStore } from '@/stores/modal';
@@ -10,7 +10,7 @@
   import language from '@/languages/language';
 
   //Initialize custom type
-  let user = ref<LoginUserdata>({
+  let user = ref<LoginUserData>({
     email: '',
     password: '',
     showPassword: false
@@ -22,7 +22,7 @@
   const modal = useModalStore()
 
   //Login
-  async function login(user:LoginUserdata) {
+  async function login(user:LoginUserData) {
     try{
 
       //Post request to backend
