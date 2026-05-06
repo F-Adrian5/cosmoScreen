@@ -488,6 +488,53 @@ app.post("/register", async (req, res) => {
   }
 });
 
+// reservation
+app.post("/reservation", async (req, res) => {
+  const { user_id, screening_id, reservation_date, pairs } = req.body;
+
+  if (!user_id || !screening_id || !reservation_date || !pairs?.length) {
+    return res.status(400).json({ message: "Hiányzó adatok" });
+  }
+
+  try {
+    for (const pair of pairs) {
+
+      await db.query(
+        `INSERT INTO reservation (user_id, screening_id, seat_id, ticket_id, total_amount, reservation_date)
+         VALUES (?, ?, ?, ?, ?, ?)`,
+        [user_id, screening_id, pair.seat_id, pair.ticket_id, pair.total_amount, reservation_date]
+      );
+    }
+
+    return res.status(201).json({ message: "Foglalás sikeres!" });
+  } catch (err) {
+    console.log("Foglalási hiba:", err);
+    return res.status(500).json({ message: "Szerver hiba" });
+  }
+});
+
+// get reservations
+app.get("/getReservations", async (req, res) => {
+  try {
+
+    const [rows] = await db.query(
+      `SELECT id,
+              user_id,
+              screening_id,
+              seat_id,
+              ticket_id,
+              total_amount,
+              reservation_date
+        FROM reservation`
+    );
+
+    return res.status(200).json(rows);
+  } catch (err) {
+    console.log("Foglalás lekérési hiba:", err);
+    return res.status(500).json({ message: "Szerver hiba" });
+  }
+});
+
 // start the server at the port variable's location
 app.listen(port, () => {
 

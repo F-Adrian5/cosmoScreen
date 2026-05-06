@@ -2,12 +2,22 @@
   import { onMounted, ref, watch } from 'vue';
   import { useFilter } from '@/composables/useFilter';
   import { movieService } from '@/services/programListServices';
+  import { useAuthStore } from "../stores/auth.ts"
+  import { reservationService } from '@/services/reservationService.ts';
+  import * as bootstrap from 'bootstrap';
 
   const { movies, genres, days, filter, loadData, getAvailableGenresForDay } = useFilter();
 
   const selectedMovie = ref<any>(null);
   const seats = ref<any[]>([]);
   const selectedSeats = ref<any[]>([]);
+
+  const ticketCounts = ref<any>({});
+  const tickets = ref<any[]>([]);
+
+  let auth =  useAuthStore();
+
+  const reservedSeatIds = ref<number[]>([]);
 
   const day = ref("Hétfő");
   const genre = ref("all");
@@ -17,12 +27,10 @@
    * @param movie selected film's value
    */
   function openMovie(movie: any) {
-    
-    // storing the selected movie's data for the modal to show
     selectedMovie.value = movie;
-    
-    // if the user clicks on a new film then the value will be empthy
     selectedSeats.value = [];
+    ticketCounts.value = {};
+    loadReservedSeats();
   }
 
   /** This function gets the selected film's room and seats ordered by rows
@@ -90,6 +98,186 @@
     return selectedSeats.value.some(s => s.id === seat.id);
   }
 
+  /** This function will call a backend request, to get all the reservations
+   */
+  async function loadReservedSeats() {
+
+    // get reservations
+    const reservations = await reservationService.getReservations();
+    
+    const result = [];
+
+    for (const reservation of reservations) {
+
+      // if the screening_id matches
+      if (reservation.screening_id === selectedMovie.value?.screening_id) {
+        
+        // than push the result
+        result.push(reservation.seat_id);
+      }
+    }
+
+    reservedSeatIds.value = result;
+  }
+
+  /** This function will make the reservation
+   */
+  async function makeReservation() {
+    if (!canReserve()) return;
+
+    const today = new Date().toISOString().split('T')[0] ?? '';
+    const pairs: { seat_id: number, ticket_id: number, total_amount: number }[] = [];
+    let seatIndex = 0;
+
+    // it goes thourgh all the ticket types
+    for (const ticket of tickets.value) {
+      const count = ticketCounts.value[ticket.id] || 0;
+
+      // this for will run as many time as may number of a given ticket type it has
+      // for example if it has 3 normal ticket type, than the for will run 3 times
+      for (let i = 0; i < count; i++) {
+
+        // this ensoures us that every ticket has it own price and data
+        pairs.push({
+          seat_id: selectedSeats.value[seatIndex].id,
+          ticket_id: ticket.id,
+          total_amount: ticket.price
+        });
+
+        seatIndex++;
+      }
+    }
+
+    try {
+
+      // this will call the post method and we inject the data to it
+      await reservationService.makeReservation({
+        user_id: auth.user.id,
+        screening_id: selectedMovie.value.screening_id,
+        reservation_date: today,
+        pairs
+      });
+
+      // resets everything
+      selectedSeats.value = [];
+      ticketCounts.value = {};
+
+      // closing the modal
+      const modalEl = document.getElementById('movieModal')!;
+      bootstrap.Modal.getInstance(modalEl)?.hide();
+
+      // refreshes the seats
+      await loadReservedSeats();
+
+      alert("Foglalás sikeres!");
+
+    } catch (err) {
+      alert("Hiba a foglalás során!");
+    }
+  }
+
+  /** This function counts all the selected tickets
+   * @returns {number} number of tickets selected
+   */
+  function getTotalTicketCount() {
+    let total = 0;
+    
+    // it goes thourgh all of the ticket types and counts the selected amount
+    for (const id in ticketCounts.value) {
+      total += ticketCounts.value[id];
+    }
+
+    return total;
+  }
+
+  /** This function will increase the count of the tickets
+   *  if the seleceted tickets reached the total, than it wont increase it anymore
+   * @param ticket gets the ticket
+   */
+  function increaseTicket(ticket: any) {
+    
+    // it checks if the getTotalTicketCount is bigger or equal to the selecetedSeats's value
+    if (getTotalTicketCount() >= selectedSeats.value.length) {
+      return;
+    }
+
+    // if ticketCounts doesnt have any value at ticket.id index, 
+    // than it will get a default 0 as a value
+    if (!ticketCounts.value[ticket.id]) {
+      ticketCounts.value[ticket.id] = 0;
+    }
+
+    // increments the value
+    ticketCounts.value[ticket.id]++;
+  }
+
+  /** This function will decrement tickets value
+   *  cannot go under 0
+   * @param ticket gets the ticket
+   */
+  function decreaseTicket(ticket: any) {
+    
+    // this ensoures that the counter cannot go below 0
+    if (!ticketCounts.value[ticket.id] || ticketCounts.value[ticket.id] === 0) {
+      return;
+    }
+
+    // decrement's the number
+    ticketCounts.value[ticket.id]--;
+  }
+
+  /** This function will show the modal to the user
+   *  and gives the correct data to the modal
+   *  if the user is not logged in, than it wont open the modal
+   * @param movie the current movie
+   */
+  function handleMovieClick(movie: any) {
+    
+    // checks if the user is logged in or not
+    // if not than it wont open the modal
+    if (!auth.isLoggedIn) {
+      alert("Ahhoz hogy előre tudjon foglalni, be kell jelentkeznie!");
+      return;
+    }
+
+    // calls the openMovie function with the current movie
+    // this ensoures that the modal gets the data before it is shown
+    openMovie(movie);
+
+    // shows the modal to the user
+    const modal = new bootstrap.Modal(document.getElementById('movieModal')!);
+    modal.show();
+  }
+
+  /** This function checks if the user can reserve 
+   * the user has to be loggedIn, 
+   * it has to select at least one seat
+   * and it should select the proper amout of tickets
+   * @returns {boolean} if the user can reserve or not
+   */
+  function canReserve() {
+    
+    // checks if the values are correct and returns a boolean
+    return ( auth.isLoggedIn &&
+             selectedSeats.value.length > 0 &&
+             getTotalTicketCount() === selectedSeats.value.length);
+  }
+
+  /** This function will count the total
+   *  @returns {number} the total amount
+   */
+  function getTotalPrice() {
+    let total = 0;
+
+    // it counts the price for each ticket and adds to the total
+    for (const ticket of tickets.value) {
+      const count = ticketCounts.value[ticket.id] || 0;
+      total += ticket.price * count;
+    }
+
+    return total;
+  }
+
   // this watches the day ref, if it changes, 
   // than the following function will be called
   watch(day, () => {
@@ -113,6 +301,9 @@
     
     // gets all the seat data form db
     seats.value = await movieService.getSeats();
+
+    // getting all the ticket types and costs
+    tickets.value = await movieService.getTickets();
   });
 </script>
 
@@ -198,9 +389,7 @@
                       align-items-center p-2 shadow-lg my-5"
                v-for="movie in movies"
                :key="movie.id"
-               @click="openMovie(movie)"
-               data-bs-toggle="modal"
-               data-bs-target="#movieModal">
+               @click="handleMovieClick(movie)">
         
             <!-- Poster -->
             <div class="poster-wrapper">
@@ -294,54 +483,125 @@
             <br>
             <br class=" d-md-none">
 
-            <!-- seats -->
+            <!-- seat and row display-->
             <div class="w-100">
               <div v-for="(rowSeats, rowLabel) in getSeatsByRow()" :key="rowLabel"
                    class="d-flex align-items-center mb-2">
                 
-                <!-- sor száma -->
+                <!-- row label -->
                 <div style="width: 30px;" 
                      class="text-center text-white">
                   {{ rowLabel }}
                 </div>
 
-                <!-- székek -->
+                <!-- seats -->
                 <div class="d-flex flex-grow-1 justify-content-between">
                   <div v-for="seat in rowSeats" :key="seat.id"
                        class="flex-fill mx-1 text-center rounded"
-                       :class="isSeatSelected(seat) ? 'bg-success text-white' : 'bg-secondary text-black'"
-                       @click="selectSeat(seat)"
-                       style="cursor: pointer;">
+                       :class="{'bg-success text-white': isSeatSelected(seat),
+                                'bg-danger text-white': reservedSeatIds.includes(seat.id),
+                                'bg-secondary text-black': !isSeatSelected(seat) && !reservedSeatIds.includes(seat.id)}"
+                       @click="!reservedSeatIds.includes(seat.id) && selectSeat(seat)"
+                       :style="reservedSeatIds.includes(seat.id) ? 'cursor: not-allowed;' : 'cursor: pointer;'">
                     {{ seat.seat_column }}
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- kiválasztott székek -->
+            <!-- selected seats -->
             <div class="text-white mb-2 mx-3 text-center" 
                  v-if="selectedSeats.length > 0">
-              <p class="my-1 text-center">
+              <p class="my-1 text-center fs-5">
                 {{selectedSeats.length > 1 ? "Kiválasztott székek:" : "Kiválasztott szék:"}}
               </p>
               <span v-for="seat in selectedSeats" :key="seat.id"
-                    class="badge bg-secondary me-2">
-
+                    class="badge bg-secondary me-2 my-1 fs-6">
                 {{ seat.seat_row }}. sor, {{ seat.seat_column }}. szék
               </span>
             </div>
           </div>
 
-          <br>
           <br class="d-md-none">
 
           <!-- tickets -->
-          <div>
-            <p>tickets</p>
+          <div v-if="selectedSeats.length > 0" 
+               class="mx-3 mt-3">
+            
+            <hr class="border-secondary mt-3">
+
+            <!-- ticket header -->
+            <div class="d-flex align-items-center justify-content-between mb-3 fs-5">
+              <p class="text-white mb-0">
+                Jegyek
+              </p>
+              <span class="badge" :class="getTotalTicketCount() === selectedSeats.length ? 'text-bg-success' : 'text-bg-info'">
+                {{ getTotalTicketCount() }} / {{ selectedSeats.length }} kiválasztva
+              </span>
+            </div>
+
+            <!-- tickets body -->
+            <div class="d-flex flex-column gap-2">
+              <div v-for="ticket in tickets"
+                  :key="ticket.id"
+                  class="d-flex align-items-center justify-content-between
+                          p-3 rounded-3 ticket-card"
+                  :class="{ selected: ticketCounts[ticket.id] > 0 }">
+
+                <!-- left side: ticket type and cost/ticket -->
+                <div>
+                  <p class="mb-0 fw-medium text-white" 
+                     style="font-size: 18px;">
+                    {{ ticket.type }}
+                  </p>
+                  <p class="mb-0 text-white-50" 
+                     style="font-size: 14px;">
+                    {{ ticket.price.toLocaleString() }} Ft / jegy
+                  </p>
+                </div>
+
+                <!-- right side: - number + -->
+                <div class="d-flex align-items-center gap-2">
+                  
+                  <!-- decrement ticket -->
+                  <button class="btn btn-outline-light ticket-btn d-flex
+                                 justify-content-center align-items-center"
+                          @click="decreaseTicket(ticket)">
+                    -
+                  </button>
+
+                  <!-- ticket counter -->
+                  <span class="text-white fw-medium text-center"
+                        style="min-width: 20px;">
+                    {{ ticketCounts[ticket.id] || 0 }}
+                  </span>
+
+                  <!-- increment ticket -->
+                  <button class="btn btn-outline-light ticket-btn d-flex
+                                 justify-content-center align-items-center"
+                          @click="increaseTicket(ticket)">
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <hr class="border-secondary mt-3">
+
+            <!-- total -->
+            <div class="d-flex justify-content-between align-items-center">
+              
+              <!-- total title -->
+              <span class="text-white-50 fs-5">
+                Végösszeg:
+              </span>
+
+              <!-- total number -->
+              <span class="text-white fw-medium fs-5">
+                {{ getTotalPrice().toLocaleString() }} Ft
+              </span>
+            </div>
           </div>
-
-          <!-- selected seat(s) -->
-
         </div>
 
         <!-- footer -->
@@ -359,7 +619,9 @@
           
             <div class="col-12 col-md-6">
               <button type="button"
-                      class="btn btn-outline-success fs-4 w-100">
+                      class="btn btn-outline-success fs-4 w-100"
+                      @click="makeReservation()"
+                      :disabled="!canReserve()">
                 <i class="fa-solid fa-check mx-1"></i>
                 Foglalás
               </button>
@@ -369,12 +631,10 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <style>
   .programList-bg {
     background-image: radial-gradient(circle, #8ab5b6, #82aaab, #7a9fa0, #729596, #6a8a8b, #5e7a7f, #546a71, #4b5a63, #3e424b, #2e2d32, #1c191b, #000000);
   };
-
 </style>

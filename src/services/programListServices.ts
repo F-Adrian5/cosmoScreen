@@ -3,7 +3,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 export const movieService = {
   
-  // Get all movies method
+  // get programs 
   async getPrograms() {
     try {
       const response = await axios.get(`${API_URL}/getPrograms`);
@@ -14,7 +14,7 @@ export const movieService = {
     }
   },
 
-  // Get all genres method
+  // get all genres 
   async getGenres() {
     try {
       const response = await axios.get(`${API_URL}/getGenres`);
@@ -25,6 +25,7 @@ export const movieService = {
     }
   },
 
+  // get tickets
   async getTickets() {
   try {
     const response = await axios.get(`${API_URL}/getTickets`);
@@ -35,7 +36,7 @@ export const movieService = {
   }
   },
 
-  // Get all genres method
+  // get seats 
   async getSeats() {
     try {
       const response = await axios.get(`${API_URL}/getSeats`);
