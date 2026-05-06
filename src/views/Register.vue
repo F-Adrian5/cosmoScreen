@@ -85,7 +85,8 @@
                name="name"
                maxlength="100"
                autofocus
-               required>
+               required
+               autocomplete="true">
 
         <!--name error-->
         <div class="text-danger mt-1 small" 
@@ -110,7 +111,8 @@
                v-model="user.email"
                name="email"
                maxlength="150"
-               required>
+               required
+               autocomplete="true">
 
         <!--Email error-->
         <div class="text-danger mt-1 small" 

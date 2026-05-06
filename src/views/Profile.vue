@@ -161,7 +161,8 @@
                name="name"
                maxlength="100"
                :disabled="user.isDisabled"
-               required>
+               required
+               autocomplete="true">
 
         <!--name error-->
         <div class="text-danger mt-1 small" 
@@ -187,7 +188,8 @@
                name="email"
                maxlength="150"
                :disabled="user.isDisabled"
-               required>
+               required
+               autocomplete="true">
 
         <!--Email error-->
         <div class="text-danger mt-1 small" 

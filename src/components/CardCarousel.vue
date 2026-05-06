@@ -7,6 +7,7 @@
   import type { CarouselMovie, actorsInMovie } from "@/types/Movie";
   import { carouselMovieServices } from "@/services/cardCarouselServices";
   import "../assets/styles/carousel.css";
+  import { attachModalFocusFix } from "@/utils/bootstrapModalFix";
 
   // movies will be a reactive variable
   // it is basically a variable, 
@@ -48,6 +49,9 @@
     actorsByMovie.value = grouped;
   
     console.log(actorsByMovie.value);
+
+    // fixes modal closing error
+    attachModalFocusFix("movieModal");
   })  
 </script>
 
@@ -61,10 +65,8 @@
         <div class="card carousel-card mt-3 rounded-2"
              v-for="(movie, index) in movies" 
              :key="movie.id"
-             :style="{
-                '--i': index,
-                '--carousel-duration': movies.length * 5 + 's'
-              }"
+             :style="{ '--i': index,
+                       '--carousel-duration': movies.length * 5 + 's'}"
              data-bs-toggle="modal"
              data-bs-target="#movieModal"
              @click="selectMovie(movie)">

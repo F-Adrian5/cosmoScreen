@@ -4,6 +4,7 @@
   import { movieService } from '@/services/programListServices';
   import { useAuthStore } from "../stores/auth.ts"
   import { reservationService } from '@/services/reservationService.ts';
+  import { attachModalFocusFix } from '@/utils/bootstrapModalFix.ts';
   import * as bootstrap from 'bootstrap';
 
   const { movies, genres, days, filter, loadData, getAvailableGenresForDay } = useFilter();
@@ -304,6 +305,9 @@
 
     // getting all the ticket types and costs
     tickets.value = await movieService.getTickets();
+
+    // fixes modal closing error
+    attachModalFocusFix("movieModal");
   });
 </script>
 

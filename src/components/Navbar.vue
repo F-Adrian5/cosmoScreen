@@ -1,6 +1,4 @@
 <script>
-
-  // inporting collapse from bootstrap
   import { Collapse } from 'bootstrap';
   import { defineComponent } from 'vue';
   import { useAuthStore } from '@/stores/auth';
@@ -75,7 +73,7 @@
 
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container-fluid ">
+    <div class="container-fluid my-1">
 
       <!-- brand -->
       <span>
