@@ -34,7 +34,10 @@
     "screeningFilter":"Screening filter",
     "day":"Day:",
     "genre":"Genre:",
-    "notFound":"No movies found based on your filter!"
+    "notFound":"No movies found based on your filter!",
+    "warningMessage":"Log in to make a reservation!",
+    "successMessage":"Successful reservation!",
+    "reservationErrorMessage":"Error during booking!"
   },
 
   "buffetPage":{
@@ -152,6 +155,7 @@
     "messageConfirm":"Confirm",
     "messageDelete":"Delete",
     "messageSuccess":"Success",
-    "messageError":"Error"
+    "messageError":"Error",
+    "messageWarning":"Warning"
   }
 }

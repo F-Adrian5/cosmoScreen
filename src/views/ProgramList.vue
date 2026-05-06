@@ -6,6 +6,10 @@
   import { reservationService } from '@/services/reservationService.ts';
   import { attachModalFocusFix } from '@/utils/bootstrapModalFix.ts';
   import * as bootstrap from 'bootstrap';
+  import { useModalStore } from '@/stores/modal';
+  import { ModalPreset } from '@/types/Modal';
+  import language from '@/languages/language';
+
 
   const { movies, genres, days, filter, loadData, getAvailableGenresForDay } = useFilter();
 
@@ -17,6 +21,7 @@
   const tickets = ref<any[]>([]);
 
   let auth =  useAuthStore();
+  const modal_message = useModalStore();
 
   const reservedSeatIds = ref<number[]>([]);
 
@@ -170,10 +175,16 @@
       // refreshes the seats
       await loadReservedSeats();
 
-      alert("Foglalás sikeres!");
+      await modal_message.openPreset(
+        ModalPreset.SUCCESS,
+        language.t('programListPage.successMessage')
+      )
 
     } catch (err) {
-      alert("Hiba a foglalás során!");
+      await modal_message.openPreset(
+        ModalPreset.ERROR,
+        language.t('programListPage.reservationErrorMessage')
+      )
     }
   }
 
@@ -232,12 +243,17 @@
    *  if the user is not logged in, than it wont open the modal
    * @param movie the current movie
    */
-  function handleMovieClick(movie: any) {
+  async function handleMovieClick(movie: any) {
+
+    
     
     // checks if the user is logged in or not
     // if not than it wont open the modal
     if (!auth.isLoggedIn) {
-      alert("Ahhoz hogy előre tudjon foglalni, be kell jelentkeznie!");
+      await modal_message.openPreset(
+        ModalPreset.WARNING,
+        language.t('programListPage.warningMessage')
+      )
       return;
     }
 

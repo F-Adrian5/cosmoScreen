@@ -34,7 +34,10 @@
     "screeningFilter":"Vetítési szűrő",
     "day":"Nap:",
     "genre":"Műfaj:",
-    "notFound":"Szűrés alapján nem találtunk filmet!"
+    "notFound":"Szűrés alapján nem találtunk filmet!",
+    "warningMessage":"Jelentkezzen be ahhoz hogy foglalni tudjon!",
+    "successMessage":"Sikeres foglalás!",
+    "reservationErrorMessage":"Hiba a foglalás során!"
   },
   "buffetPage":{
     "buffetTitle": "Büfés ajánlataink"
@@ -151,6 +154,7 @@
     "messageConfirm":"Jóváhagy",
     "messageDelete":"Törlés",
     "messageSuccess":"Siker",
-    "messageError":"Hiba"
+    "messageError":"Hiba",
+    "messageWarning":"Figyelmeztetés"
   }
 }

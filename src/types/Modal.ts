@@ -11,7 +11,8 @@ export enum ModalPreset {
   CONFIRM = 'confirm', //Confirmation dialog preset
   DELETE = 'delete',   //Delete message preset
   SUCCESS = 'success', //Success message preset
-  ERROR = 'error'      //Error message preset
+  ERROR = 'error',     //Error message preset
+  WARNING = 'warning'  //Warning message preset
 }
 
 //Defines what data is required or optional to display a modal

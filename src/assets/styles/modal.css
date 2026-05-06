@@ -1,15 +1,17 @@
+/* BASE MODAL */
 .custom-modal {
   border-radius: 16px;
-  border-color:  rgb(130, 194, 193) !important;
+  border: 2px solid rgb(130, 194, 193) !important;
   overflow: hidden;
   animation: pop 0.15s ease-out;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
 }
 
-/* HEADER */
+/* HEADER (default fallback) */
 .custom-modal .modal-header {
- background-color: #7cb9b8;
- border-bottom: none;
+  background-color: #7cb9b8;
+  border-bottom: none;
+  color: white;
 }
 
 /* BODY */
@@ -17,6 +19,7 @@
   background-color: rgb(44, 44, 44);
   padding: 20px;
   font-size: 20px;
+  color: white;
 }
 
 /* FOOTER */
@@ -32,7 +35,43 @@
   padding: 8px 16px;
 }
 
-/* ANIMATION */
+/* ERROR */
+.custom-modal.error {
+  border-color: #dc2626 !important;
+}
+
+.custom-modal.error .modal-header {
+  background-color: #dc2626;
+}
+
+/* SUCCESS */
+.custom-modal.success {
+  border-color: #16a34a !important;
+}
+
+.custom-modal.success .modal-header {
+  background-color: #16a34a;
+}
+
+/* WARNING */
+.custom-modal.warning {
+  border-color: #d97706 !important;
+}
+
+.custom-modal.warning .modal-header {
+  background-color: #d97706;
+}
+
+/* INFO */
+.custom-modal.info {
+  border-color: #2563eb !important;
+}
+
+.custom-modal.info .modal-header {
+  background-color: #2563eb;
+}
+
+/* Animation */
 @keyframes pop {
   from {
     transform: scale(0.9);

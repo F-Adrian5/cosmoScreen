@@ -25,5 +25,10 @@ export const modalPresets: Record<
     title: 'modalPage.messageError',
     type: ModalType.ERROR,
     showCancel: false
+  },
+  [ModalPreset.WARNING]: {
+    title: 'modalPage.messageWarning',
+    type: ModalType.WARNING,
+    showCancel: false
   }
 }
