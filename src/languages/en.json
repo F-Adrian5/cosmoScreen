@@ -133,7 +133,9 @@
   },
    "passwordPage":{
     "changeDataButton":"Modify",
-    "cancelButton":"Cancel"
+    "cancelButton":"Cancel",
+    "passwordMessageBox":"Are you sure you want to change your password?",
+    "passwordSuccessMessageBox":"Successful password change!"
   },
   "errorMessages":{
     "serverError":"Server error",

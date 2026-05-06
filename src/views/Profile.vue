@@ -41,7 +41,7 @@
   // Use it for navigation
   const router = useRouter();
 
-  const modal = useModalStore()
+  const modal = useModalStore();
 
   // Logout function
   const logout = async () => {

@@ -132,7 +132,9 @@
   },
   "passwordPage":{
     "changeDataButton":"Módosítás",
-    "cancelButton":"Mégse"
+    "cancelButton":"Mégse",
+    "passwordMessageBox":"Biztosan szeretné módosítani jelszavát?",
+    "passwordSuccessMessageBox":"Sikeres jelszó módosítás!"
   },
   "errorMessages":{
     "serverError":"Szerver hiba",

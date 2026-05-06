@@ -6,6 +6,9 @@
   import { useRouter } from 'vue-router';
   import { useAuthStore } from '@/stores/auth';
   import { goToPage } from '@/utils/passwordCancel';
+  import { useModalStore } from '@/stores/modal';
+  import { ModalPreset } from '@/types/Modal';
+  import language from '@/languages/language';
 
   //Initialize custom type
   let user = ref<PasswordUserData>({
@@ -17,7 +20,10 @@
 
   //Initialize router
   const router = useRouter();
+
   const auth = useAuthStore();
+
+  const modal = useModalStore();
 
   //Update function
   async function updatePassword() {
@@ -26,6 +32,13 @@
       router.push('/login');
       return;
     }
+
+    const confirmed = await modal.openPreset(
+     ModalPreset.CONFIRM,
+      language.t('passwordPage.passwordMessageBox')
+    )
+
+    if (!confirmed) return;
     
     try {
 
@@ -39,7 +52,10 @@
       auth.login(response);
 
       //Feedback
-      alert("Jelszó frissítve!");
+      await modal.openPreset(
+        ModalPreset.SUCCESS,
+        language.t('passwordPage.passwordSuccessMessageBox')
+      )
 
       //Redirect to profile page
       router.push('/profile');
