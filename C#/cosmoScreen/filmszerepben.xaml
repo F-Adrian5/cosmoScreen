@@ -74,14 +74,14 @@
                        FontWeight="Bold"
                        Margin="0,20,0,0" Foreground="#FF9DCC3B"/>
 
-                <ComboBox x:Name="movie_combobox" FontSize="16" ></ComboBox>
+                <ComboBox x:Name="movie_combobox" FontSize="16" SelectionChanged="InputChanged"></ComboBox>
 
                 <Label Content="Színész:"
                        FontSize="16"
                        FontWeight="Bold"
                        Margin="0,20,0,0" Foreground="#FF9DCC3B"/>
 
-                <ComboBox x:Name="actor_combobox" FontSize="16" ></ComboBox>
+                <ComboBox x:Name="actor_combobox" FontSize="16" SelectionChanged="InputChanged"></ComboBox>
             </StackPanel>
 
             <!-- DATAGRID -->

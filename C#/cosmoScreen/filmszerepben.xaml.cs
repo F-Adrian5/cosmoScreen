@@ -157,5 +157,17 @@ namespace cosmoScreen
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void InputChanged(object sender, EventArgs e)
+        {
+            btn_upload.IsEnabled = ValidateInputs();
+        }
+        private bool ValidateInputs()
+        {
+            if (movie_combobox.SelectedIndex < 0) return false;
+            if (actor_combobox.SelectedIndex < 0) return false;
+
+            return true;
+        }
     }
 }

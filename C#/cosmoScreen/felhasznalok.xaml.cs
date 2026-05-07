@@ -161,5 +161,12 @@ namespace cosmoScreen
         {
             Logout(this);
         }
+
+        private void actor_in_movie_Click(object sender, RoutedEventArgs e)
+        {
+            filmszerepben filmszerepbenWindow = new filmszerepben();
+            filmszerepbenWindow.Show();
+            this.Hide();
+        }
     }
 }
