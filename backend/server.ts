@@ -286,7 +286,7 @@ app.post("/login", async (req, res) => {
   try {
 
     // get user by email
-    const [rows] = await db.query(
+    const [rows]: any = await db.query(
       `SELECT id, 
               name, 
               email, 
@@ -342,7 +342,7 @@ app.put("/password", async (req, res) => {
   try {
 
     // check if user exists
-    const [users] = await db.query(
+    const [users]: any = await db.query(
       `SELECT id,
               name,
               email,
@@ -357,7 +357,7 @@ app.put("/password", async (req, res) => {
     };
 
     // update password
-    const [result] = await db.query(
+    const [result]: any = await db.query(
       `UPDATE users 
        SET password = ? 
        WHERE id = ?`,
@@ -399,7 +399,7 @@ app.put("/profile", async (req, res) => {
   try {
 
     // check if anyone else is using this email
-    const [existingUsers] = await db.query(
+    const [existingUsers]: any = await db.query(
       `SELECT id 
         FROM users 
         WHERE email = ? AND id != ?`,
@@ -412,7 +412,7 @@ app.put("/profile", async (req, res) => {
     };
 
     // update user data
-    const [result] = await db.query(
+    const [result]: any = await db.query(
       `UPDATE users 
        SET name = ?, 
            email = ? 
@@ -454,7 +454,7 @@ app.post("/register", async (req, res) => {
   try {
 
     // check if email already exists
-    const [existingUsers] = await db.query(
+    const [existingUsers]: any = await db.query(
       `SELECT id 
         FROM users 
        WHERE email = ?`,
@@ -467,7 +467,7 @@ app.post("/register", async (req, res) => {
     };
 
     // insert new user into database
-    const [result] = await db.query(
+    const [result]: any = await db.query(
       `INSERT INTO users (name, email, password) 
        VALUES (?, ?, ?)`,
       [name, email, password]
