@@ -13,7 +13,6 @@
       </div>
     </div>
 
-    <!-- rules in card -->
     <!-- general rules card -->
     <div class="row mb-4">
       <div class="col">

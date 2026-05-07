@@ -32,12 +32,15 @@
     movies.value = response;
     console.log("Number of films: " + movies.value.length);
 
+    // gets the actors
     const actors = await carouselMovieServices.getActors();
     actorsInMovieCard.value = actors;
     console.log(actors);
 
+    // creates a emthy object
     const grouped: Record<number, actorsInMovie[]> = {};
 
+    // goes through all the actors, and adds all the actors to a film
     actors.forEach((actor: actorsInMovie) => {
       if (!grouped[actor.movie_id]) {
         grouped[actor.movie_id] = [];
